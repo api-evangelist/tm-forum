@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: tm-forum:tm-forum
     name: TM Forum
-    tags:
-      - API
+    tags: []
     humanURL: https://www.tmforum.org
     properties:
       - url: https://www.tmforum.org
