@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-bundled-product-specification-structure.json",
+  "name": "BundledProductSpecification",
+  "description": "BundledProductSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A type of ProductSpecification that belongs to a grouping of ProductSpecifications made available to the market. It inherits of all attributes of ProductSpecification.",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Reference of the product specification"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the product specification"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product specification"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the product specification"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledProductSpecification": "#/components/schemas/BundledProductSpecification"
+    }
+  }
+}

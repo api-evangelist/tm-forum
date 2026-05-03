@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-order-price-schema.json",
+  "title": "OrderPrice",
+  "description": "OrderPrice schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "An amount, usually of money, that represents the actual price paid by the Customer for this item or this order",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "A narrative that explains in detail the semantics of this order item price."
+        },
+        "name": {
+          "type": "string",
+          "description": "A short descriptive name such as \"Subscription price\"."
+        },
+        "productOfferingPrice": {
+          "$ref": "#/components/schemas/ProductOfferingPriceRef"
+        },
+        "recurringChargePeriod": {
+          "type": "string",
+          "description": "Could be month, week..."
+        },
+        "unitOfMeasure": {
+          "type": "string",
+          "description": "Could be minutes, GB..."
+        },
+        "billingAccount": {
+          "$ref": "#/components/schemas/BillingAccountRef"
+        },
+        "priceAlteration": {
+          "type": "array",
+          "description": "a strucuture used to describe a price alteration",
+          "items": {
+            "$ref": "#/components/schemas/PriceAlteration"
+          }
+        },
+        "price": {
+          "$ref": "#/components/schemas/Price"
+        },
+        "priceType": {
+          "type": "string",
+          "description": "indicate if the price is for recurrent or no-recurrent charge"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrderPrice": "#/components/schemas/OrderPrice"
+    }
+  }
+}

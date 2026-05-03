@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-product-term-schema.json",
+  "title": "ProductTerm",
+  "description": "ProductTerm schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Description of a productTerm linked to this product. This represent a commitment with a duration",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the productTerm"
+        },
+        "duration": {
+          "$ref": "#/components/schemas/Duration"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the productTerm",
+          "example": "12months commitment"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductTerm": "#/components/schemas/ProductTerm"
+    }
+  }
+}

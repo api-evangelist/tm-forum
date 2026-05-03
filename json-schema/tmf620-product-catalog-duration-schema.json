@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-duration-schema.json",
+  "title": "Duration",
+  "description": "A time interval in a given unit of time",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "integer",
+      "description": "Time interval (number of seconds, minutes, hours, etc.)"
+    },
+    "units": {
+      "type": "string",
+      "description": "Unit of time (seconds, minutes, hours, etc.)"
+    }
+  }
+}

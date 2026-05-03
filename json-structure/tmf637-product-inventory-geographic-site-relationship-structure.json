@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-geographic-site-relationship-structure.json",
+  "name": "GeographicSiteRelationship",
+  "description": "GeographicSiteRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Reference of the related geographic site"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the related site in the relationship"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the related site entity within the server"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of relationship"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicSiteRelationship": "#/components/schemas/GeographicSiteRelationship"
+    }
+  }
+}

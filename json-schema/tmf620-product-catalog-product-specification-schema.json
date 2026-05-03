@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-product-specification-schema.json",
+  "title": "ProductSpecification",
+  "description": "ProductSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Is a detailed description of a tangible or intangible object made available externally in the form of a ProductOffering to customers or other parties playing a party role.",
+      "properties": {
+        "brand": {
+          "type": "string",
+          "description": "The manufacturer or trademark of the specification"
+        },
+        "description": {
+          "type": "string",
+          "description": "A narrative that explains in detail what the product specification is"
+        },
+        "isBundle": {
+          "type": "boolean",
+          "description": "isBundle determines whether a productSpecification represents a single productSpecification (false), or a bundle of productSpecification (true)."
+        },
+        "productNumber": {
+          "type": "string",
+          "description": "An identification number assigned to uniquely identity the specification"
+        },
+        "category": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CategoryRef"
+          },
+          "description": "The category resource is used to group product specifications in logical containers. Categories can contain other categories and/or other catalog entries."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "version": {
+          "type": "string",
+          "description": "Product specification version"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef"
+          },
+          "description": "A related party defines party or party role linked to a specific entity."
+        },
+        "productSpecCharacteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CharacteristicSpecification"
+          },
+          "description": "A characteristic quality or distinctive feature of a ProductSpecification.  The characteristic can be take on a discrete value, such as color, can take on a range of values, (for example, sensitivity of 100-240 mV), or can be derived from a formula (for example, usage time (hrs) = 30 - talk time *3). Certain characteristics, such as color, may be configured during the ordering or some other process."
+        },
+        "serviceSpecification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ServiceSpecificationRef"
+          },
+          "description": "ServiceSpecification(s) required to realize a ProductSpecification."
+        },
+        "bundledProductSpecification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/BundledProductSpecification"
+          },
+          "description": "A type of ProductSpecification that belongs to a grouping of ProductSpecifications made available to the market. It inherits of all attributes of ProductSpecification."
+        },
+        "productSpecificationRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductSpecificationRelationship"
+          },
+          "description": "A migration, substitution, dependency or exclusivity relationship between/among product specifications."
+        },
+        "resourceSpecification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ResourceSpecificationRef"
+          },
+          "description": "The ResourceSpecification is required to realize a ProductSpecification."
+        },
+        "attachment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AttachmentRefOrValue"
+          },
+          "description": "Complements the description of an element (for instance a product) through video, pictures..."
+        },
+        "policy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PolicyRef"
+          },
+          "description": "The Policy resource represents a policy/rule applied to ProductSpecification."
+        },
+        "targetProductSchema": {
+          "$ref": "#/components/schemas/TargetProductSchema"
+        },
+        "intentSpecification": {
+          "$ref": "#/components/schemas/IntentSpecificationRef"
+        },
+        "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of the last update"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product specification"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "description": "List of external identifieers for the specification, e.g. identifier in source catalog",
+          "items": {
+            "$ref": "#/components/schemas/ExternalIdentifier"
+          }
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductSpecification": "#/components/schemas/ProductSpecification"
+    }
+  }
+}

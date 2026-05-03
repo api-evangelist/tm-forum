@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-related-entity-structure.json",
+  "name": "RelatedEntity",
+  "description": "RelatedEntity schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A reference to an entity, where the type of the entity is not known in advance.",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "entity": {
+          "$ref": "#/components/schemas/EntityRef"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedEntity": "#/components/schemas/RelatedEntity"
+    }
+  }
+}

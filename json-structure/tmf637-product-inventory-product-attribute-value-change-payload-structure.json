@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-product-attribute-value-change-payload-structure.json",
+  "name": "ProductAttributeValueChangePayload",
+  "description": "ProductAttributeValueChangePayload generic structure",
+  "type": "object",
+  "properties": {
+    "product": {
+      "$ref": "#/components/schemas/Product"
+    }
+  }
+}

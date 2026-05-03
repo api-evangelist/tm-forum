@@ -1,0 +1,1047 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tmf": "https://tmforum.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Addressable": "tmf:Addressable",
+    "BusinessPartner": "tmf:BusinessPartner",
+    "Consumer": "tmf:Consumer",
+    "Disability": "tmf:Disability",
+    "Duration": "tmf:Duration",
+    "Entity": "tmf:Entity",
+    "EntityRelationship": "tmf:EntityRelationship",
+    "Extensible": "tmf:Extensible",
+    "JsonPatch": "tmf:JsonPatch",
+    "LanguageAbility": "tmf:LanguageAbility",
+    "Money": "tmf:Money",
+    "OtherNameIndividual": "tmf:OtherNameIndividual",
+    "Place": "tmf:Place",
+    "Producer": "tmf:Producer",
+    "ProductOrderAttributeValueChangePayload": "tmf:ProductOrderAttributeValueChangePayload",
+    "ProductOrderJeopardyAlertPayload": "tmf:ProductOrderJeopardyAlertPayload",
+    "ProductOrderMilestonePayload": "tmf:ProductOrderMilestonePayload",
+    "Quantity": "tmf:Quantity",
+    "Skill": "tmf:Skill",
+    "Supplier": "tmf:Supplier",
+    "TargetProductSchema": "tmf:TargetProductSchema",
+    "TimePeriod": "tmf:TimePeriod",
+    "@baseType": {
+      "@id": "tmf:@baseType",
+      "@type": "xsd:string"
+    },
+    "@referredType": {
+      "@id": "tmf:@referredType",
+      "@type": "xsd:string"
+    },
+    "@schemaLocation": {
+      "@id": "tmf:@schemaLocation",
+      "@type": "xsd:string"
+    },
+    "@type": {
+      "@id": "tmf:@type",
+      "@type": "xsd:string"
+    },
+    "account": {
+      "@id": "tmf:account",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "tmf:action",
+      "@type": "xsd:string"
+    },
+    "agreement": {
+      "@id": "tmf:agreement",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "agreementItem": {
+      "@id": "tmf:agreementItem",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "alertDate": {
+      "@id": "tmf:alertDate",
+      "@type": "xsd:dateTime"
+    },
+    "amount": {
+      "@id": "tmf:amount",
+      "@type": "xsd:decimal"
+    },
+    "applicationDuration": {
+      "@id": "tmf:applicationDuration",
+      "@type": "xsd:integer"
+    },
+    "appointment": {
+      "@id": "tmf:appointment",
+      "@type": "xsd:string"
+    },
+    "aristocraticTitle": {
+      "@id": "tmf:aristocraticTitle",
+      "@type": "xsd:string"
+    },
+    "associationSpec": {
+      "@id": "tmf:associationSpec",
+      "@type": "xsd:string"
+    },
+    "attachment": {
+      "@id": "tmf:attachment",
+      "@type": "xsd:string"
+    },
+    "attachmentType": {
+      "@id": "tmf:attachmentType",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "tmf:author",
+      "@type": "xsd:string"
+    },
+    "bbox": {
+      "@id": "tmf:bbox",
+      "@container": "@set",
+      "@type": "xsd:decimal"
+    },
+    "billingAccount": {
+      "@id": "tmf:billingAccount",
+      "@type": "xsd:string"
+    },
+    "birthDate": {
+      "@id": "tmf:birthDate",
+      "@type": "xsd:dateTime"
+    },
+    "buildingName": {
+      "@id": "tmf:buildingName",
+      "@type": "xsd:string"
+    },
+    "calendar": {
+      "@id": "tmf:calendar",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cancellationDate": {
+      "@id": "tmf:cancellationDate",
+      "@type": "xsd:dateTime"
+    },
+    "cancellationReason": {
+      "@id": "tmf:cancellationReason",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "tmf:category",
+      "@type": "xsd:string"
+    },
+    "certificateNumber": {
+      "@id": "tmf:certificateNumber",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "tmf:channel",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristic": {
+      "@id": "tmf:characteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicRelationship": {
+      "@id": "tmf:characteristicRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "tmf:city",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "tmf:code",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "tmf:comment",
+      "@type": "xsd:string"
+    },
+    "completionDate": {
+      "@id": "tmf:completionDate",
+      "@type": "xsd:dateTime"
+    },
+    "contactMedium": {
+      "@id": "tmf:contactMedium",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "contactType": {
+      "@id": "tmf:contactType",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "tmf:content",
+      "@type": "xsd:string"
+    },
+    "context": {
+      "@id": "tmf:context",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "tmf:country",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "tmf:countryCode",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "countryOfBirth": {
+      "@id": "tmf:countryOfBirth",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "tmf:creationDate",
+      "@type": "xsd:dateTime"
+    },
+    "creditAgencyName": {
+      "@id": "tmf:creditAgencyName",
+      "@type": "xsd:string"
+    },
+    "creditAgencyType": {
+      "@id": "tmf:creditAgencyType",
+      "@type": "xsd:string"
+    },
+    "creditProfile": {
+      "@id": "tmf:creditProfile",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "creditProfileDate": {
+      "@id": "tmf:creditProfileDate",
+      "@type": "xsd:dateTime"
+    },
+    "creditRating": {
+      "@id": "tmf:creditRating",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "creditRiskRating": {
+      "@id": "tmf:creditRiskRating",
+      "@type": "xsd:integer"
+    },
+    "creditScore": {
+      "@id": "tmf:creditScore",
+      "@type": "xsd:integer"
+    },
+    "date": {
+      "@id": "tmf:date",
+      "@type": "xsd:dateTime"
+    },
+    "day": {
+      "@id": "tmf:day",
+      "@type": "xsd:string"
+    },
+    "deathDate": {
+      "@id": "tmf:deathDate",
+      "@type": "xsd:dateTime"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "disability": {
+      "@id": "tmf:disability",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "disabilityCode": {
+      "@id": "tmf:disabilityCode",
+      "@type": "xsd:string"
+    },
+    "disabilityName": {
+      "@id": "tmf:disabilityName",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "tmf:duration",
+      "@type": "xsd:string"
+    },
+    "dutyFreeAmount": {
+      "@id": "tmf:dutyFreeAmount",
+      "@type": "xsd:string"
+    },
+    "effectiveCancellationDate": {
+      "@id": "tmf:effectiveCancellationDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDateTime": {
+      "@id": "tmf:endDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "endHour": {
+      "@id": "tmf:endHour",
+      "@type": "xsd:string"
+    },
+    "engagedParty": {
+      "@id": "tmf:engagedParty",
+      "@type": "xsd:string"
+    },
+    "evaluatedLevel": {
+      "@id": "tmf:evaluatedLevel",
+      "@type": "xsd:string"
+    },
+    "exception": {
+      "@id": "tmf:exception",
+      "@type": "xsd:string"
+    },
+    "existsDuring": {
+      "@id": "tmf:existsDuring",
+      "@type": "xsd:string"
+    },
+    "expectedCompletionDate": {
+      "@id": "tmf:expectedCompletionDate",
+      "@type": "xsd:dateTime"
+    },
+    "expression": {
+      "@id": "tmf:expression",
+      "@type": "xsd:string"
+    },
+    "expressionLanguage": {
+      "@id": "tmf:expressionLanguage",
+      "@type": "xsd:string"
+    },
+    "expressionValue": {
+      "@id": "tmf:expressionValue",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "tmf:externalId",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "externalIdentifier": {
+      "@id": "tmf:externalIdentifier",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "externalIdentifierType": {
+      "@id": "tmf:externalIdentifierType",
+      "@type": "xsd:string"
+    },
+    "externalReference": {
+      "@id": "tmf:externalReference",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "familyName": {
+      "@id": "tmf:familyName",
+      "@type": "xsd:string"
+    },
+    "familyNamePrefix": {
+      "@id": "tmf:familyNamePrefix",
+      "@type": "xsd:string"
+    },
+    "format": {
+      "@id": "tmf:format",
+      "@type": "xsd:string"
+    },
+    "formattedName": {
+      "@id": "tmf:formattedName",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "tmf:from",
+      "@type": "xsd:string"
+    },
+    "fullName": {
+      "@id": "tmf:fullName",
+      "@type": "xsd:string"
+    },
+    "gender": {
+      "@id": "tmf:gender",
+      "@type": "xsd:string"
+    },
+    "generation": {
+      "@id": "tmf:generation",
+      "@type": "xsd:string"
+    },
+    "geographicAddressType": {
+      "@id": "tmf:geographicAddressType",
+      "@type": "xsd:string"
+    },
+    "geographicLocation": {
+      "@id": "tmf:geographicLocation",
+      "@type": "xsd:string"
+    },
+    "geographicSubAddress": {
+      "@id": "tmf:geographicSubAddress",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "givenName": {
+      "@id": "tmf:givenName",
+      "@type": "xsd:string"
+    },
+    "hourPeriod": {
+      "@id": "tmf:hourPeriod",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "href": {
+      "@id": "tmf:href",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "tmf:id",
+      "@type": "xsd:string"
+    },
+    "identificationId": {
+      "@id": "tmf:identificationId",
+      "@type": "xsd:string"
+    },
+    "identificationType": {
+      "@id": "tmf:identificationType",
+      "@type": "xsd:string"
+    },
+    "individualIdentification": {
+      "@id": "tmf:individualIdentification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "intent": {
+      "@id": "tmf:intent",
+      "@type": "xsd:string"
+    },
+    "intentRelationship": {
+      "@id": "tmf:intentRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "intentSpecification": {
+      "@id": "tmf:intentSpecification",
+      "@type": "xsd:string"
+    },
+    "iri": {
+      "@id": "tmf:iri",
+      "@type": "xsd:string"
+    },
+    "isBundle": {
+      "@id": "tmf:isBundle",
+      "@type": "xsd:boolean"
+    },
+    "isCustomerVisible": {
+      "@id": "tmf:isCustomerVisible",
+      "@type": "xsd:boolean"
+    },
+    "isFavouriteLanguage": {
+      "@id": "tmf:isFavouriteLanguage",
+      "@type": "xsd:boolean"
+    },
+    "isHeadOffice": {
+      "@id": "tmf:isHeadOffice",
+      "@type": "xsd:boolean"
+    },
+    "isLegalEntity": {
+      "@id": "tmf:isLegalEntity",
+      "@type": "xsd:boolean"
+    },
+    "issuingAuthority": {
+      "@id": "tmf:issuingAuthority",
+      "@type": "xsd:string"
+    },
+    "issuingDate": {
+      "@id": "tmf:issuingDate",
+      "@type": "xsd:dateTime"
+    },
+    "issuingJurisdiction": {
+      "@id": "tmf:issuingJurisdiction",
+      "@type": "xsd:string"
+    },
+    "itemPrice": {
+      "@id": "tmf:itemPrice",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "itemTerm": {
+      "@id": "tmf:itemTerm",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "itemTotalPrice": {
+      "@id": "tmf:itemTotalPrice",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "jeopardyType": {
+      "@id": "tmf:jeopardyType",
+      "@type": "xsd:string"
+    },
+    "jurisdictionLevel": {
+      "@id": "tmf:jurisdictionLevel",
+      "@type": "xsd:string"
+    },
+    "jurisdictionName": {
+      "@id": "tmf:jurisdictionName",
+      "@type": "xsd:string"
+    },
+    "languageAbility": {
+      "@id": "tmf:languageAbility",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "languageCode": {
+      "@id": "tmf:languageCode",
+      "@type": "xsd:string"
+    },
+    "languageName": {
+      "@id": "tmf:languageName",
+      "@type": "xsd:string"
+    },
+    "lastUpdate": {
+      "@id": "tmf:lastUpdate",
+      "@type": "xsd:dateTime"
+    },
+    "legalName": {
+      "@id": "tmf:legalName",
+      "@type": "xsd:string"
+    },
+    "levelNumber": {
+      "@id": "tmf:levelNumber",
+      "@type": "xsd:string"
+    },
+    "levelType": {
+      "@id": "tmf:levelType",
+      "@type": "xsd:string"
+    },
+    "lifecycleStatus": {
+      "@id": "tmf:lifecycleStatus",
+      "@type": "xsd:string"
+    },
+    "listeningProficiency": {
+      "@id": "tmf:listeningProficiency",
+      "@type": "xsd:string"
+    },
+    "locality": {
+      "@id": "tmf:locality",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "tmf:location",
+      "@type": "xsd:string"
+    },
+    "maritalStatus": {
+      "@id": "tmf:maritalStatus",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "tmf:message",
+      "@type": "xsd:string"
+    },
+    "middleName": {
+      "@id": "tmf:middleName",
+      "@type": "xsd:string"
+    },
+    "milestoneDate": {
+      "@id": "tmf:milestoneDate",
+      "@type": "xsd:dateTime"
+    },
+    "mimeType": {
+      "@id": "tmf:mimeType",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "nameType": {
+      "@id": "tmf:nameType",
+      "@type": "xsd:string"
+    },
+    "nationality": {
+      "@id": "tmf:nationality",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "tmf:note",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "notificationContact": {
+      "@id": "tmf:notificationContact",
+      "@type": "xsd:string"
+    },
+    "op": {
+      "@id": "tmf:op",
+      "@type": "xsd:string"
+    },
+    "orderDate": {
+      "@id": "tmf:orderDate",
+      "@type": "xsd:dateTime"
+    },
+    "orderHref": {
+      "@id": "tmf:orderHref",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "tmf:orderId",
+      "@type": "xsd:string"
+    },
+    "orderItemAction": {
+      "@id": "tmf:orderItemAction",
+      "@type": "xsd:string"
+    },
+    "orderItemId": {
+      "@id": "tmf:orderItemId",
+      "@type": "xsd:string"
+    },
+    "orderRelationship": {
+      "@id": "tmf:orderRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "orderTotalPrice": {
+      "@id": "tmf:orderTotalPrice",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "organization": {
+      "@id": "tmf:organization",
+      "@type": "xsd:string"
+    },
+    "organizationChildRelationship": {
+      "@id": "tmf:organizationChildRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "organizationIdentification": {
+      "@id": "tmf:organizationIdentification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "organizationParentRelationship": {
+      "@id": "tmf:organizationParentRelationship",
+      "@type": "xsd:string"
+    },
+    "organizationType": {
+      "@id": "tmf:organizationType",
+      "@type": "xsd:string"
+    },
+    "otherName": {
+      "@id": "tmf:otherName",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "tmf:owner",
+      "@type": "xsd:string"
+    },
+    "partyCharacteristic": {
+      "@id": "tmf:partyCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "partyOrPartyRole": {
+      "@id": "tmf:partyOrPartyRole",
+      "@type": "xsd:string"
+    },
+    "partyRoleSpecification": {
+      "@id": "tmf:partyRoleSpecification",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "tmf:path",
+      "@type": "xsd:string"
+    },
+    "payment": {
+      "@id": "tmf:payment",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "paymentMethod": {
+      "@id": "tmf:paymentMethod",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "percentage": {
+      "@id": "tmf:percentage",
+      "@type": "xsd:decimal"
+    },
+    "place": {
+      "@id": "tmf:place",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "placeOfBirth": {
+      "@id": "tmf:placeOfBirth",
+      "@type": "xsd:string"
+    },
+    "postcode": {
+      "@id": "tmf:postcode",
+      "@type": "xsd:string"
+    },
+    "preferred": {
+      "@id": "tmf:preferred",
+      "@type": "xsd:boolean"
+    },
+    "preferredGivenName": {
+      "@id": "tmf:preferredGivenName",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "tmf:price",
+      "@type": "xsd:string"
+    },
+    "priceAlteration": {
+      "@id": "tmf:priceAlteration",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "priceType": {
+      "@id": "tmf:priceType",
+      "@type": "xsd:string"
+    },
+    "priority": {
+      "@id": "tmf:priority",
+      "@type": "xsd:integer"
+    },
+    "privateStreetName": {
+      "@id": "tmf:privateStreetName",
+      "@type": "xsd:string"
+    },
+    "privateStreetNumber": {
+      "@id": "tmf:privateStreetNumber",
+      "@type": "xsd:string"
+    },
+    "product": {
+      "@id": "tmf:product",
+      "@type": "xsd:string"
+    },
+    "productCharacteristic": {
+      "@id": "tmf:productCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOffering": {
+      "@id": "tmf:productOffering",
+      "@type": "xsd:string"
+    },
+    "productOfferingPrice": {
+      "@id": "tmf:productOfferingPrice",
+      "@type": "xsd:string"
+    },
+    "productOfferingQualification": {
+      "@id": "tmf:productOfferingQualification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOfferingQualificationItem": {
+      "@id": "tmf:productOfferingQualificationItem",
+      "@type": "xsd:string"
+    },
+    "productOrder": {
+      "@id": "tmf:productOrder",
+      "@type": "xsd:string"
+    },
+    "productOrderErrorMessage": {
+      "@id": "tmf:productOrderErrorMessage",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOrderItem": {
+      "@id": "tmf:productOrderItem",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOrderItemRelationship": {
+      "@id": "tmf:productOrderItemRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOrderJeopardyAlert": {
+      "@id": "tmf:productOrderJeopardyAlert",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOrderMilestone": {
+      "@id": "tmf:productOrderMilestone",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productPrice": {
+      "@id": "tmf:productPrice",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productRelationship": {
+      "@id": "tmf:productRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productSerialNumber": {
+      "@id": "tmf:productSerialNumber",
+      "@type": "xsd:string"
+    },
+    "productSpecification": {
+      "@id": "tmf:productSpecification",
+      "@type": "xsd:string"
+    },
+    "productTerm": {
+      "@id": "tmf:productTerm",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "qualification": {
+      "@id": "tmf:qualification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "tmf:quantity",
+      "@type": "xsd:integer"
+    },
+    "quote": {
+      "@id": "tmf:quote",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "quoteItem": {
+      "@id": "tmf:quoteItem",
+      "@type": "xsd:string"
+    },
+    "ratingReference": {
+      "@id": "tmf:ratingReference",
+      "@type": "xsd:string"
+    },
+    "ratingScore": {
+      "@id": "tmf:ratingScore",
+      "@type": "xsd:integer"
+    },
+    "readingProficiency": {
+      "@id": "tmf:readingProficiency",
+      "@type": "xsd:string"
+    },
+    "realizingResource": {
+      "@id": "tmf:realizingResource",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "realizingService": {
+      "@id": "tmf:realizingService",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "tmf:reason",
+      "@type": "xsd:string"
+    },
+    "recurringChargePeriod": {
+      "@id": "tmf:recurringChargePeriod",
+      "@type": "xsd:string"
+    },
+    "relatedParty": {
+      "@id": "tmf:relatedParty",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "tmf:relationshipType",
+      "@type": "xsd:string"
+    },
+    "requestedCancellationDate": {
+      "@id": "tmf:requestedCancellationDate",
+      "@type": "xsd:dateTime"
+    },
+    "requestedCompletionDate": {
+      "@id": "tmf:requestedCompletionDate",
+      "@type": "xsd:dateTime"
+    },
+    "requestedInitialState": {
+      "@id": "tmf:requestedInitialState",
+      "@type": "xsd:string"
+    },
+    "requestedStartDate": {
+      "@id": "tmf:requestedStartDate",
+      "@type": "xsd:dateTime"
+    },
+    "role": {
+      "@id": "tmf:role",
+      "@type": "xsd:string"
+    },
+    "siteRelationship": {
+      "@id": "tmf:siteRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "tmf:size",
+      "@type": "xsd:string"
+    },
+    "skill": {
+      "@id": "tmf:skill",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "skillCode": {
+      "@id": "tmf:skillCode",
+      "@type": "xsd:string"
+    },
+    "skillName": {
+      "@id": "tmf:skillName",
+      "@type": "xsd:string"
+    },
+    "speakingProficiency": {
+      "@id": "tmf:speakingProficiency",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "tmf:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "startDateTime": {
+      "@id": "tmf:startDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "startHour": {
+      "@id": "tmf:startHour",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "tmf:state",
+      "@type": "xsd:string"
+    },
+    "stateOrProvince": {
+      "@id": "tmf:stateOrProvince",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "tmf:status",
+      "@type": "xsd:string"
+    },
+    "statusChangeDate": {
+      "@id": "tmf:statusChangeDate",
+      "@type": "xsd:dateTime"
+    },
+    "statusReason": {
+      "@id": "tmf:statusReason",
+      "@type": "xsd:string"
+    },
+    "streetName": {
+      "@id": "tmf:streetName",
+      "@type": "xsd:string"
+    },
+    "streetNr": {
+      "@id": "tmf:streetNr",
+      "@type": "xsd:string"
+    },
+    "streetNrLast": {
+      "@id": "tmf:streetNrLast",
+      "@type": "xsd:string"
+    },
+    "streetNrLastSuffix": {
+      "@id": "tmf:streetNrLastSuffix",
+      "@type": "xsd:string"
+    },
+    "streetNrSuffix": {
+      "@id": "tmf:streetNrSuffix",
+      "@type": "xsd:string"
+    },
+    "streetSuffix": {
+      "@id": "tmf:streetSuffix",
+      "@type": "xsd:string"
+    },
+    "streetType": {
+      "@id": "tmf:streetType",
+      "@type": "xsd:string"
+    },
+    "subAddressType": {
+      "@id": "tmf:subAddressType",
+      "@type": "xsd:string"
+    },
+    "subUnit": {
+      "@id": "tmf:subUnit",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "subUnitNumber": {
+      "@id": "tmf:subUnitNumber",
+      "@type": "xsd:string"
+    },
+    "subUnitType": {
+      "@id": "tmf:subUnitType",
+      "@type": "xsd:string"
+    },
+    "taxDefinition": {
+      "@id": "tmf:taxDefinition",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxExemptionCertificate": {
+      "@id": "tmf:taxExemptionCertificate",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxIncludedAmount": {
+      "@id": "tmf:taxIncludedAmount",
+      "@type": "xsd:string"
+    },
+    "taxRate": {
+      "@id": "tmf:taxRate",
+      "@type": "xsd:decimal"
+    },
+    "taxType": {
+      "@id": "tmf:taxType",
+      "@type": "xsd:string"
+    },
+    "terminationDate": {
+      "@id": "tmf:terminationDate",
+      "@type": "xsd:dateTime"
+    },
+    "text": {
+      "@id": "tmf:text",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "tmf:timeZone",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "tmf:title",
+      "@type": "xsd:string"
+    },
+    "tradingName": {
+      "@id": "tmf:tradingName",
+      "@type": "xsd:string"
+    },
+    "unit": {
+      "@id": "tmf:unit",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "tmf:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "tmf:units",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "validFor": {
+      "@id": "tmf:validFor",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "tmf:value",
+      "@container": "@set",
+      "@type": "xsd:decimal"
+    },
+    "valueType": {
+      "@id": "tmf:valueType",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version"
+    },
+    "writingProficiency": {
+      "@id": "tmf:writingProficiency",
+      "@type": "xsd:string"
+    }
+  }
+}

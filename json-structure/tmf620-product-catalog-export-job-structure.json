@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-export-job-structure.json",
+  "name": "ExportJob",
+  "description": "ExportJob schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Represents a task used to export resources to a file",
+      "properties": {
+        "completionDate": {
+          "type": "datetime",
+          "description": "Data at which the job was completed"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "The format of the exported data"
+        },
+        "creationDate": {
+          "type": "datetime",
+          "description": "Date at which the job was created"
+        },
+        "errorLog": {
+          "type": "string",
+          "description": "Path to file or stream where errors encountered during the job processing can be written"
+        },
+        "path": {
+          "type": "string",
+          "description": "URL of the root resource acting as the source for streaming content to the file specified by the export job"
+        },
+        "query": {
+          "type": "string",
+          "description": "Used to scope the exported data"
+        },
+        "status": {
+          "$ref": "#/components/schemas/JobStateType"
+        },
+        "url": {
+          "type": "uri",
+          "description": "URL of the file containing the data to be exported"
+        },
+        "id": {
+          "type": "string",
+          "description": "unique identifier for export job"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ExportJob": "#/components/schemas/ExportJob"
+    }
+  }
+}

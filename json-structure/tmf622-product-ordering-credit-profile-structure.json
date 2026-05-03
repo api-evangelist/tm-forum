@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-credit-profile-structure.json",
+  "name": "CreditProfile",
+  "description": "CreditProfile schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Credit profile for the party (containing credit scoring, ...). By default only the current credit profile  is retrieved. It can be used as a list to give the party credit profiles history, the first one in the list will be the current one.",
+      "properties": {
+        "creditProfileDate": {
+          "type": "datetime",
+          "description": "The date the profile was established"
+        },
+        "creditRiskRating": {
+          "type": "int32",
+          "description": "This is an integer whose value is used to rate the risk"
+        },
+        "creditScore": {
+          "type": "int32",
+          "description": "A measure of a person or organizations creditworthiness calculated on the basis of a combination of factors such as their income and credit history"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CreditProfile": "#/components/schemas/CreditProfile"
+    }
+  }
+}

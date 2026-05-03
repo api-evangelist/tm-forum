@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-organization-parent-relationship-structure.json",
+  "name": "OrganizationParentRelationship",
+  "description": "OrganizationParentRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Parent references of an organization in a structure of organizations.",
+      "properties": {
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of the relationship. Could be juridical, hierarchical, geographical, functional for example."
+        },
+        "organization": {
+          "$ref": "#/components/schemas/OrganizationRef"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrganizationParentRelationship": "#/components/schemas/OrganizationParentRelationship"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf629-customer-management-fax-contact-medium-schema.json",
+  "title": "FaxContactMedium",
+  "description": "FaxContactMedium schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ContactMedium"
+    },
+    {
+      "type": "object",
+      "description": "Describes a fax that could be used to contact a party (an individual or an organization)",
+      "properties": {
+        "faxNumber": {
+          "type": "string",
+          "description": "The fax number of the contact"
+        }
+      }
+    }
+  ]
+}

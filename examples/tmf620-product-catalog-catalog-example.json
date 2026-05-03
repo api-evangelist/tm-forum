@@ -1,0 +1,11 @@
+{
+  "description": "Description of the description",
+  "catalogType": "standard",
+  "version": "1.0.0",
+  "relatedParty": [
+    "sample-relatedParty_item"
+  ],
+  "lastUpdate": "2025-03-15T14:30:00Z",
+  "lifecycleStatus": "pending",
+  "name": "Example Name"
+}

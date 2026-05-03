@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-related-party-or-party-role-schema.json",
+  "title": "RelatedPartyOrPartyRole",
+  "description": "RelatedPartyOrPartyRole schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity",
+      "properties": {
+        "role": {
+          "description": "Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'",
+          "type": "string"
+        },
+        "partyOrPartyRole": {
+          "$ref": "#/components/schemas/PartyOrPartyRole"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedPartyOrPartyRole": "#/components/schemas/RelatedPartyOrPartyRole"
+    }
+  }
+}

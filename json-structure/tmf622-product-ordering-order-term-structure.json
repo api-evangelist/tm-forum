@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-order-term-structure.json",
+  "name": "OrderTerm",
+  "description": "OrderTerm schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Description of a productTerm linked to this orderItem. This represent a commitment with a duration",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the productOrderTerm"
+        },
+        "duration": {
+          "$ref": "#/components/schemas/Duration"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the productOrderTerm"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrderTerm": "#/components/schemas/OrderTerm"
+    }
+  }
+}

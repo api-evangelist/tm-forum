@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-float-characteristic-value-specification-schema.json",
+  "title": "FloatCharacteristicValueSpecification",
+  "description": "FloatCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a floating point number",
+      "properties": {
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

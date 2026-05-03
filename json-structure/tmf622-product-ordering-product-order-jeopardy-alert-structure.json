@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-product-order-jeopardy-alert-structure.json",
+  "name": "ProductOrderJeopardyAlert",
+  "description": "ProductOrderJeopardyAlert schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/JeopardyAlert"
+    },
+    {
+      "type": "object",
+      "description": "A ProductOrderJeopardyAlert represents a predicted exception during a product order processing that would brings risk to complete successfully the order.",
+      "properties": {
+        "productOrderItem": {
+          "type": "array",
+          "description": "A list of order item references corresponded to this alert",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItemRef"
+          }
+        }
+      }
+    }
+  ]
+}

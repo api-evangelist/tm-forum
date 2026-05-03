@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-tax-item-structure.json",
+  "name": "TaxItem",
+  "description": "TaxItem schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A tax item is created for each tax rate and tax type used in the bill.",
+      "properties": {
+        "taxAmount": {
+          "$ref": "#/components/schemas/Money"
+        },
+        "taxCategory": {
+          "type": "string",
+          "description": "Tax category"
+        },
+        "taxRate": {
+          "type": "float",
+          "description": "Applied rate of the tax"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TaxItem": "#/components/schemas/TaxItem"
+    }
+  }
+}

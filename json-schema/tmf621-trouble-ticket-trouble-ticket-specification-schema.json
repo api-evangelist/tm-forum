@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-trouble-ticket-specification-schema.json",
+  "title": "TroubleTicketSpecification",
+  "description": "TroubleTicketSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "TroubleTicketSpecification defines the common attributes and relationships of a set of related trouble tickets, while trouble ticket defines a specific instance that is based on a particular trouble ticket specification.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name given to the specification"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the specification"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status of this specification such as inDesign,active,rejected,retired"
+        },
+        "specCharacteristic": {
+          "type": "array",
+          "description": "List of characteristics that the entity can take",
+          "items": {
+            "$ref": "#/components/schemas/CharacteristicSpecification"
+          }
+        },
+        "relatedParty": {
+          "type": "array",
+          "description": "Parties who manage or otherwise have an interest in this specification",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef"
+          }
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date on which the trouble ticket specification was created"
+        },
+        "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of the last update of the specification"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketSpecification": "#/components/schemas/TroubleTicketSpecification"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-catalog-structure.json",
+  "name": "Catalog",
+  "description": "Catalog schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "A collection of Catalog Items",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of this catalog"
+        },
+        "catalogType": {
+          "type": "string",
+          "description": "Type of this Catalog, like Product, Service, Resource etc."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "version": {
+          "type": "string",
+          "description": "Catalog version"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef"
+          },
+          "description": "List of parties involved in this catalog"
+        },
+        "lastUpdate": {
+          "type": "datetime",
+          "description": "Date and time of the last update"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the catalog"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Catalog": "#/components/schemas/Catalog",
+      "ProductCatalog": "#/components/schemas/ProductCatalog"
+    }
+  }
+}

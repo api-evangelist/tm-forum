@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-bundled-product-offering-price-relationship-schema.json",
+  "title": "BundledProductOfferingPriceRelationship",
+  "description": "BundledProductOfferingPriceRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "This represents a bundling pricing relationship, allowing a price to be composed of multiple other prices (e.g. a recurring charge and a onetime charge).",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the referred product offering price."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledProductOfferingPriceRelationship": "#/components/schemas/BundledProductOfferingPriceRelationship"
+    }
+  }
+}

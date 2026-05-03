@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-quantity-structure.json",
+  "name": "Quantity",
+  "description": "An amount in a given unit",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "float",
+      "default": 1,
+      "description": "Numeric value in a given unit"
+    },
+    "units": {
+      "type": "string",
+      "description": "Unit"
+    }
+  }
+}

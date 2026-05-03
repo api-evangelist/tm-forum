@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-quantity-schema.json",
+  "title": "Quantity",
+  "description": "An amount in a given unit",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "number",
+      "format": "float",
+      "default": 1,
+      "description": "Numeric value in a given unit"
+    },
+    "units": {
+      "type": "string",
+      "description": "Unit"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-price-schema.json",
+  "title": "Price",
+  "description": "Price schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Provides all amounts (tax included, duty free, tax rate), used currency and percentage to apply for Price and Price Alteration.",
+      "properties": {
+        "dutyFreeAmount": {
+          "$ref": "#/components/schemas/Money"
+        },
+        "percentage": {
+          "type": "number",
+          "format": "float",
+          "description": "Percentage to apply for ProdOfferPriceAlteration"
+        },
+        "taxIncludedAmount": {
+          "$ref": "#/components/schemas/Money"
+        },
+        "taxRate": {
+          "type": "number",
+          "format": "float",
+          "description": "Tax rate"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Price": "#/components/schemas/Price"
+    }
+  }
+}

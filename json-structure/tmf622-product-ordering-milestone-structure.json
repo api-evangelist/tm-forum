@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-milestone-structure.json",
+  "name": "Milestone",
+  "description": "Milestone schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Milestone represents an action or event marking a significant change or stage in a process like an order process.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "free-text description of the Milestone"
+        },
+        "id": {
+          "type": "string",
+          "description": "identifier of the Milestone"
+        },
+        "status": {
+          "description": "The milestone status",
+          "type": "string",
+          "enum": [
+            "Yet-To-Reach",
+            "Completed",
+            "Violated"
+          ]
+        },
+        "milestoneDate": {
+          "type": "datetime",
+          "description": "A date time( DateTime). The date that the milestone happens"
+        },
+        "name": {
+          "type": "string",
+          "description": "A string used to give a name to the milestone"
+        },
+        "message": {
+          "type": "string",
+          "description": "A string represents the message of the milestone"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Milestone": "#/components/schemas/Milestone",
+      "ProductOrderMilestone": "#/components/schemas/ProductOrderMilestone"
+    }
+  }
+}

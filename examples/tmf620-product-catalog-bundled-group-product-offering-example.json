@@ -1,0 +1,10 @@
+{
+  "id": "1",
+  "name": "TV Channels",
+  "bundledProductOffering": [
+    "sample-bundledProductOffering_item"
+  ],
+  "bundledGroupProductOffering": [
+    "sample-bundledGroupProductOffering_item"
+  ]
+}

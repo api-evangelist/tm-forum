@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-number-array-characteristic-structure.json",
+  "name": "NumberArrayCharacteristic",
+  "description": "NumberArrayCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is an array of Number(s).",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "double"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-business-partner-schema.json",
+  "title": "BusinessPartner",
+  "description": "When business partner is the BusinessPartner ",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole"
+    }
+  ]
+}

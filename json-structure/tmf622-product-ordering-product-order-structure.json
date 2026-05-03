@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-product-order-structure.json",
+  "name": "ProductOrder",
+  "description": "ProductOrder schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "A Product Order is a type of order which  can  be used to place an order between a customer and a service provider or between a service provider and a partner and vice versa,",
+      "properties": {
+        "agreement": {
+          "type": "array",
+          "description": "A reference to an agreement defined in the context of the product order",
+          "items": {
+            "$ref": "#/components/schemas/AgreementRef"
+          }
+        },
+        "billingAccount": {
+          "$ref": "#/components/schemas/BillingAccountRef"
+        },
+        "state": {
+          "$ref": "#/components/schemas/ProductOrderStateType"
+        },
+        "requestedInitialState": {
+          "$ref": "#/components/schemas/InitialProductOrderStateType",
+          "default": "acknowledged"
+        },
+        "cancellationDate": {
+          "type": "datetime",
+          "description": "Date when the order is cancelled. This is used when order is cancelled. "
+        },
+        "cancellationReason": {
+          "type": "string",
+          "description": "Reason why the order is cancelled. This is used when order is cancelled. "
+        },
+        "category": {
+          "type": "string",
+          "description": "Used to categorize the order from a business perspective that can be useful for the OM system (e.g. \"enterprise\", \"residential\", ...)"
+        },
+        "channel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedChannel"
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the product order"
+        },
+        "expectedCompletionDate": {
+          "type": "datetime",
+          "description": "Expected delivery date amended by the provider"
+        },
+        "externalId": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ExternalIdentifier"
+          }
+        },
+        "note": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Note"
+          }
+        },
+        "notificationContact": {
+          "type": "string",
+          "description": "Contact attached to the order to send back information regarding this order"
+        },
+        "orderTotalPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderPrice"
+          }
+        },
+        "payment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PaymentRef"
+          }
+        },
+        "orderRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderRelationship"
+          }
+        },
+        "priority": {
+          "type": "string",
+          "description": "A way that can be used by consumers to prioritize orders in OM system (from 0 to 4 : 0 is the highest priority, and 4 the lowest)"
+        },
+        "productOfferingQualification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOfferingQualificationRef"
+          }
+        },
+        "quote": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/QuoteRef"
+          }
+        },
+        "productOrderErrorMessage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderErrorMessage"
+          }
+        },
+        "productOrderJeopardyAlert": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderJeopardyAlert"
+          }
+        },
+        "productOrderMilestone": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderMilestone"
+          }
+        },
+        "productOrderItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItem"
+          },
+          "minItems": 1
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef"
+          }
+        },
+        "requestedCompletionDate": {
+          "type": "datetime",
+          "description": "Requested delivery date from the requestor perspective"
+        },
+        "requestedStartDate": {
+          "type": "datetime",
+          "description": "Order fulfillment start date wished by the requestor. This is used when, for any reason, requestor cannot allow seller to begin to operationally begin the fulfillment before a date. "
+        },
+        "creationDate": {
+          "type": "datetime",
+          "description": "Date and time when the ProductOrder was created"
+        },
+        "completionDate": {
+          "type": "datetime",
+          "description": "Date when the ProductOrder was completed"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrder": "#/components/schemas/ProductOrder"
+    }
+  }
+}

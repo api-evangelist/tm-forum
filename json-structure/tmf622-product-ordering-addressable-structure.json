@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-addressable-structure.json",
+  "name": "Addressable",
+  "description": "Base schema for adressable entities",
+  "type": "object",
+  "properties": {
+    "href": {
+      "type": "string",
+      "description": "Hyperlink reference"
+    },
+    "id": {
+      "type": "string",
+      "description": "unique identifier"
+    }
+  }
+}

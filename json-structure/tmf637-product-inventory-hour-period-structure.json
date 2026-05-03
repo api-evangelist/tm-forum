@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-hour-period-structure.json",
+  "name": "HourPeriod",
+  "description": "HourPeriod schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "endHour": {
+          "type": "string",
+          "description": "The time when the status ends applying"
+        },
+        "startHour": {
+          "type": "string",
+          "description": "The time when the status starts applying"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "HourPeriod": "#/components/schemas/HourPeriod"
+    }
+  }
+}

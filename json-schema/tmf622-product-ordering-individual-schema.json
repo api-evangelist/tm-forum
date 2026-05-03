@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-individual-schema.json",
+  "title": "Individual",
+  "description": "Individual schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Party"
+    },
+    {
+      "type": "object",
+      "description": "Individual represents a single human being (a man, woman or child). The individual can be a customer, an employee or any other person that the organization needs to store information about.",
+      "properties": {
+        "gender": {
+          "type": "string",
+          "description": "Gender"
+        },
+        "placeOfBirth": {
+          "type": "string",
+          "description": "Reference to the place where the individual was born"
+        },
+        "countryOfBirth": {
+          "type": "string",
+          "description": "Country where the individual was born"
+        },
+        "nationality": {
+          "type": "string",
+          "description": "Nationality"
+        },
+        "maritalStatus": {
+          "type": "string",
+          "description": "Marital status (married, divorced, widow ...)"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Birth date"
+        },
+        "deathDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of death"
+        },
+        "title": {
+          "type": "string",
+          "description": "Useful for titles (aristocratic, social,...) Pr, Dr, Sir, ..."
+        },
+        "aristocraticTitle": {
+          "type": "string",
+          "description": "e.g. Baron, Graf, Earl"
+        },
+        "generation": {
+          "type": "string",
+          "description": "e.g.. Sr, Jr, III (the third)"
+        },
+        "preferredGivenName": {
+          "type": "string",
+          "description": "Contains the chosen name by which the individual prefers to be addressed. Note: This name may be a name other than a given name, such as a nickname"
+        },
+        "familyNamePrefix": {
+          "type": "string",
+          "description": "Family name prefix"
+        },
+        "legalName": {
+          "type": "string",
+          "description": "Legal name or birth name (name one has for official purposes)"
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Middles name or initial"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name flatten (first, middle, and last names) - this is the name that is expected to be presented in reference data types such as PartyRef, RelatedParty, etc. that refer to Individual"
+        },
+        "formattedName": {
+          "type": "string",
+          "description": "A fully formatted name in one string with all of its pieces in their proper place and all of the necessary punctuation. Useful for specific contexts (Chinese, Japanese, Korean)"
+        },
+        "location": {
+          "type": "string",
+          "description": "Temporary current location of the individual (may be used if the individual has approved its sharing)"
+        },
+        "status": {
+          "$ref": "#/components/schemas/IndividualStateType"
+        },
+        "otherName": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OtherNameIndividual"
+          },
+          "description": "List of other names by which this individual is known"
+        },
+        "individualIdentification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/IndividualIdentification"
+          },
+          "description": "List of official identifications issued to the individual, such as passport, driving licence, social security number"
+        },
+        "disability": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Disability"
+          },
+          "description": "List of disabilities suffered by the individual"
+        },
+        "languageAbility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/LanguageAbility"
+          },
+          "description": "List of national languages known by the individual"
+        },
+        "skill": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Skill"
+          },
+          "description": "List of skills exhibited by the individual"
+        },
+        "familyName": {
+          "type": "string",
+          "description": "Contains the non-chosen or inherited name. Also known as last name in the Western context"
+        },
+        "givenName": {
+          "type": "string",
+          "description": "First name of the individual"
+        }
+      }
+    }
+  ]
+}

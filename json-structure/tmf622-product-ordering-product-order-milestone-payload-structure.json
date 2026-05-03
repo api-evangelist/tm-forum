@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-product-order-milestone-payload-structure.json",
+  "name": "ProductOrderMilestonePayload",
+  "description": "ProductOrderMilestonePayload generic structure",
+  "type": "object",
+  "properties": {
+    "productOrder": {
+      "$ref": "#/components/schemas/ProductOrder"
+    }
+  }
+}

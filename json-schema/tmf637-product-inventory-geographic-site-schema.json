@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-geographic-site-schema.json",
+  "title": "GeographicSite",
+  "description": "GeographicSite schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Place"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "A code that may be used for some addressing schemes eg: [ANSI T1.253-1999]"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time when the GeographicSite was created"
+        },
+        "description": {
+          "type": "string",
+          "description": "Text describing additional information regarding the site"
+        },
+        "status": {
+          "type": "string",
+          "description": "The condition of the GeographicSite, such as planned, underConstruction, cancelled, active, inactive, former"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole"
+          }
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ExternalIdentifier"
+          }
+        },
+        "calendar": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CalendarPeriod"
+          }
+        },
+        "place": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PlaceRefOrValue"
+          }
+        },
+        "siteRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GeographicSiteRelationship"
+          }
+        }
+      }
+    }
+  ]
+}

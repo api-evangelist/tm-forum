@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-product-attribute-value-change-payload-schema.json",
+  "title": "ProductAttributeValueChangePayload",
+  "description": "ProductAttributeValueChangePayload generic structure",
+  "type": "object",
+  "properties": {
+    "product": {
+      "$ref": "#/components/schemas/Product"
+    }
+  }
+}

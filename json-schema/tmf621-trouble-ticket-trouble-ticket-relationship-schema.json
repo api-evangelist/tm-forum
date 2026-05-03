@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-trouble-ticket-relationship-schema.json",
+  "title": "TroubleTicketRelationship",
+  "description": "TroubleTicketRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Represents a relationship between trouble tickets",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the related trouble ticket"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the trouble ticket"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of relationship"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketRelationship": "#/components/schemas/TroubleTicketRelationship"
+    }
+  }
+}

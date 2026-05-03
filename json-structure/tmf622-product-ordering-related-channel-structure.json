@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-related-channel-structure.json",
+  "name": "RelatedChannel",
+  "description": "RelatedChannel schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Related channel to another entity. May be online web, mobile app, social ,etc.",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "channel": {
+          "$ref": "#/components/schemas/ChannelRef"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedChannel": "#/components/schemas/RelatedChannel"
+    }
+  }
+}

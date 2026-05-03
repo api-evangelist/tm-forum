@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-related-order-item-structure.json",
+  "name": "RelatedOrderItem",
+  "description": "RelatedOrderItem schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "It's a Order item that has been executed previously.",
+      "properties": {
+        "orderItemAction": {
+          "$ref": "#/components/schemas/ItemActionType"
+        },
+        "orderHref": {
+          "type": "string",
+          "description": "Reference of the related entity."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role played by the  Order"
+        },
+        "orderId": {
+          "type": "string",
+          "description": "Unique identifier of a related  Order."
+        },
+        "orderItemId": {
+          "type": "string",
+          "description": "Id of an item of a prduct order"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedOrderItem": "#/components/schemas/RelatedOrderItem"
+    }
+  }
+}

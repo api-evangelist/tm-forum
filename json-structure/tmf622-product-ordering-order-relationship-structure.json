@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-order-relationship-structure.json",
+  "name": "OrderRelationship",
+  "description": "OrderRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Used to describe relationship between order.",
+      "properties": {
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "id": {
+          "type": "string",
+          "description": "Id of the related order"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Relationship type as correlates, triggers, etc..."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrderRelationship": "#/components/schemas/OrderRelationship"
+    }
+  }
+}

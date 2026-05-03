@@ -1,0 +1,528 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tmf": "https://tmforum.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Addressable": "tmf:Addressable",
+    "BusinessPartner": "tmf:BusinessPartner",
+    "Consumer": "tmf:Consumer",
+    "Customer": "tmf:Customer",
+    "Disability": "tmf:Disability",
+    "Entity": "tmf:Entity",
+    "Extensible": "tmf:Extensible",
+    "JsonPatch": "tmf:JsonPatch",
+    "LanguageAbility": "tmf:LanguageAbility",
+    "OtherNameIndividual": "tmf:OtherNameIndividual",
+    "Producer": "tmf:Producer",
+    "Quantity": "tmf:Quantity",
+    "Skill": "tmf:Skill",
+    "Supplier": "tmf:Supplier",
+    "TimePeriod": "tmf:TimePeriod",
+    "@baseType": {
+      "@id": "tmf:@baseType",
+      "@type": "xsd:string"
+    },
+    "@schemaLocation": {
+      "@id": "tmf:@schemaLocation",
+      "@type": "xsd:string"
+    },
+    "@type": {
+      "@id": "tmf:@type",
+      "@type": "xsd:string"
+    },
+    "account": {
+      "@id": "tmf:account",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "agreement": {
+      "@id": "tmf:agreement",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "tmf:amount",
+      "@type": "xsd:decimal"
+    },
+    "aristocraticTitle": {
+      "@id": "tmf:aristocraticTitle",
+      "@type": "xsd:string"
+    },
+    "attachment": {
+      "@id": "tmf:attachment",
+      "@type": "xsd:string"
+    },
+    "attachmentType": {
+      "@id": "tmf:attachmentType",
+      "@type": "xsd:string"
+    },
+    "birthDate": {
+      "@id": "tmf:birthDate",
+      "@type": "xsd:dateTime"
+    },
+    "certificateNumber": {
+      "@id": "tmf:certificateNumber",
+      "@type": "xsd:string"
+    },
+    "characteristic": {
+      "@id": "tmf:characteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicRelationship": {
+      "@id": "tmf:characteristicRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "tmf:city",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "tmf:comment",
+      "@type": "xsd:string"
+    },
+    "contactMedium": {
+      "@id": "tmf:contactMedium",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "contactType": {
+      "@id": "tmf:contactType",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "tmf:content",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "tmf:country",
+      "@type": "xsd:string"
+    },
+    "countryOfBirth": {
+      "@id": "tmf:countryOfBirth",
+      "@type": "xsd:string"
+    },
+    "creditAgencyName": {
+      "@id": "tmf:creditAgencyName",
+      "@type": "xsd:string"
+    },
+    "creditAgencyType": {
+      "@id": "tmf:creditAgencyType",
+      "@type": "xsd:string"
+    },
+    "creditProfile": {
+      "@id": "tmf:creditProfile",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "creditProfileDate": {
+      "@id": "tmf:creditProfileDate",
+      "@type": "xsd:dateTime"
+    },
+    "creditRating": {
+      "@id": "tmf:creditRating",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "creditRiskRating": {
+      "@id": "tmf:creditRiskRating",
+      "@type": "xsd:integer"
+    },
+    "creditScore": {
+      "@id": "tmf:creditScore",
+      "@type": "xsd:integer"
+    },
+    "deathDate": {
+      "@id": "tmf:deathDate",
+      "@type": "xsd:dateTime"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "disability": {
+      "@id": "tmf:disability",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "disabilityCode": {
+      "@id": "tmf:disabilityCode",
+      "@type": "xsd:string"
+    },
+    "disabilityName": {
+      "@id": "tmf:disabilityName",
+      "@type": "xsd:string"
+    },
+    "emailAddress": {
+      "@id": "tmf:emailAddress",
+      "@type": "xsd:string"
+    },
+    "endDateTime": {
+      "@id": "tmf:endDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "engagedParty": {
+      "@id": "tmf:engagedParty",
+      "@type": "xsd:string"
+    },
+    "evaluatedLevel": {
+      "@id": "tmf:evaluatedLevel",
+      "@type": "xsd:string"
+    },
+    "existsDuring": {
+      "@id": "tmf:existsDuring",
+      "@type": "xsd:string"
+    },
+    "externalIdentifierType": {
+      "@id": "tmf:externalIdentifierType",
+      "@type": "xsd:string"
+    },
+    "externalReference": {
+      "@id": "tmf:externalReference",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "familyName": {
+      "@id": "tmf:familyName",
+      "@type": "xsd:string"
+    },
+    "familyNamePrefix": {
+      "@id": "tmf:familyNamePrefix",
+      "@type": "xsd:string"
+    },
+    "faxNumber": {
+      "@id": "tmf:faxNumber",
+      "@type": "xsd:string"
+    },
+    "formattedName": {
+      "@id": "tmf:formattedName",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "tmf:from",
+      "@type": "xsd:string"
+    },
+    "fullName": {
+      "@id": "tmf:fullName",
+      "@type": "xsd:string"
+    },
+    "gender": {
+      "@id": "tmf:gender",
+      "@type": "xsd:string"
+    },
+    "generation": {
+      "@id": "tmf:generation",
+      "@type": "xsd:string"
+    },
+    "geographicAddress": {
+      "@id": "tmf:geographicAddress",
+      "@type": "xsd:string"
+    },
+    "givenName": {
+      "@id": "tmf:givenName",
+      "@type": "xsd:string"
+    },
+    "href": {
+      "@id": "tmf:href",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "tmf:id",
+      "@type": "xsd:string"
+    },
+    "identificationId": {
+      "@id": "tmf:identificationId",
+      "@type": "xsd:string"
+    },
+    "identificationType": {
+      "@id": "tmf:identificationType",
+      "@type": "xsd:string"
+    },
+    "individualIdentification": {
+      "@id": "tmf:individualIdentification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "isFavouriteLanguage": {
+      "@id": "tmf:isFavouriteLanguage",
+      "@type": "xsd:boolean"
+    },
+    "isHeadOffice": {
+      "@id": "tmf:isHeadOffice",
+      "@type": "xsd:boolean"
+    },
+    "isLegalEntity": {
+      "@id": "tmf:isLegalEntity",
+      "@type": "xsd:boolean"
+    },
+    "issuingAuthority": {
+      "@id": "tmf:issuingAuthority",
+      "@type": "xsd:string"
+    },
+    "issuingDate": {
+      "@id": "tmf:issuingDate",
+      "@type": "xsd:dateTime"
+    },
+    "issuingJurisdiction": {
+      "@id": "tmf:issuingJurisdiction",
+      "@type": "xsd:string"
+    },
+    "jurisdictionLevel": {
+      "@id": "tmf:jurisdictionLevel",
+      "@type": "xsd:string"
+    },
+    "jurisdictionName": {
+      "@id": "tmf:jurisdictionName",
+      "@type": "xsd:string"
+    },
+    "languageAbility": {
+      "@id": "tmf:languageAbility",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "languageCode": {
+      "@id": "tmf:languageCode",
+      "@type": "xsd:string"
+    },
+    "languageName": {
+      "@id": "tmf:languageName",
+      "@type": "xsd:string"
+    },
+    "legalName": {
+      "@id": "tmf:legalName",
+      "@type": "xsd:string"
+    },
+    "listeningProficiency": {
+      "@id": "tmf:listeningProficiency",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "tmf:location",
+      "@type": "xsd:string"
+    },
+    "maritalStatus": {
+      "@id": "tmf:maritalStatus",
+      "@type": "xsd:string"
+    },
+    "middleName": {
+      "@id": "tmf:middleName",
+      "@type": "xsd:string"
+    },
+    "mimeType": {
+      "@id": "tmf:mimeType",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "nameType": {
+      "@id": "tmf:nameType",
+      "@type": "xsd:string"
+    },
+    "nationality": {
+      "@id": "tmf:nationality",
+      "@type": "xsd:string"
+    },
+    "op": {
+      "@id": "tmf:op",
+      "@type": "xsd:string"
+    },
+    "organization": {
+      "@id": "tmf:organization",
+      "@type": "xsd:string"
+    },
+    "organizationChildRelationship": {
+      "@id": "tmf:organizationChildRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "organizationIdentification": {
+      "@id": "tmf:organizationIdentification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "organizationParentRelationship": {
+      "@id": "tmf:organizationParentRelationship",
+      "@type": "xsd:string"
+    },
+    "organizationType": {
+      "@id": "tmf:organizationType",
+      "@type": "xsd:string"
+    },
+    "otherName": {
+      "@id": "tmf:otherName",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "tmf:owner",
+      "@type": "xsd:string"
+    },
+    "partyCharacteristic": {
+      "@id": "tmf:partyCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "partyOrPartyRole": {
+      "@id": "tmf:partyOrPartyRole",
+      "@type": "xsd:string"
+    },
+    "partyRoleSpecification": {
+      "@id": "tmf:partyRoleSpecification",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "tmf:path",
+      "@type": "xsd:string"
+    },
+    "paymentMethod": {
+      "@id": "tmf:paymentMethod",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "tmf:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "placeOfBirth": {
+      "@id": "tmf:placeOfBirth",
+      "@type": "xsd:string"
+    },
+    "postCode": {
+      "@id": "tmf:postCode",
+      "@type": "xsd:string"
+    },
+    "preferred": {
+      "@id": "tmf:preferred",
+      "@type": "xsd:boolean"
+    },
+    "preferredGivenName": {
+      "@id": "tmf:preferredGivenName",
+      "@type": "xsd:string"
+    },
+    "ratingReference": {
+      "@id": "tmf:ratingReference",
+      "@type": "xsd:string"
+    },
+    "ratingScore": {
+      "@id": "tmf:ratingScore",
+      "@type": "xsd:integer"
+    },
+    "readingProficiency": {
+      "@id": "tmf:readingProficiency",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "tmf:reason",
+      "@type": "xsd:string"
+    },
+    "relatedParty": {
+      "@id": "tmf:relatedParty",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "tmf:relationshipType",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "tmf:role",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "tmf:size",
+      "@type": "xsd:string"
+    },
+    "skill": {
+      "@id": "tmf:skill",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "skillCode": {
+      "@id": "tmf:skillCode",
+      "@type": "xsd:string"
+    },
+    "skillName": {
+      "@id": "tmf:skillName",
+      "@type": "xsd:string"
+    },
+    "socialNetworkId": {
+      "@id": "tmf:socialNetworkId",
+      "@type": "xsd:string"
+    },
+    "speakingProficiency": {
+      "@id": "tmf:speakingProficiency",
+      "@type": "xsd:string"
+    },
+    "startDateTime": {
+      "@id": "tmf:startDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "stateOrProvince": {
+      "@id": "tmf:stateOrProvince",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "tmf:status",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "tmf:statusReason",
+      "@type": "xsd:string"
+    },
+    "street1": {
+      "@id": "tmf:street1",
+      "@type": "xsd:string"
+    },
+    "street2": {
+      "@id": "tmf:street2",
+      "@type": "xsd:string"
+    },
+    "taxDefinition": {
+      "@id": "tmf:taxDefinition",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxExemptionCertificate": {
+      "@id": "tmf:taxExemptionCertificate",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxType": {
+      "@id": "tmf:taxType",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "tmf:title",
+      "@type": "xsd:string"
+    },
+    "tradingName": {
+      "@id": "tmf:tradingName",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "tmf:units",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "validFor": {
+      "@id": "tmf:validFor",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "tmf:value"
+    },
+    "valueType": {
+      "@id": "tmf:valueType",
+      "@type": "xsd:string"
+    },
+    "writingProficiency": {
+      "@id": "tmf:writingProficiency",
+      "@type": "xsd:string"
+    }
+  }
+}

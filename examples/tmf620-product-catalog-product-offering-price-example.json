@@ -1,0 +1,35 @@
+{
+  "description": "Description of the description",
+  "version": "1.0.0",
+  "recurringChargePeriodType": "standard",
+  "recurringChargePeriodLength": 77,
+  "isBundle": true,
+  "percentage": 82.47,
+  "bundledPopRelationship": [
+    "sample-bundledPopRelationship_item"
+  ],
+  "popRelationship": [
+    "sample-popRelationship_item"
+  ],
+  "prodSpecCharValueUse": [
+    "sample-prodSpecCharValueUse_item"
+  ],
+  "productOfferingTerm": [
+    "sample-productOfferingTerm_item"
+  ],
+  "place": [
+    "sample-place_item"
+  ],
+  "policy": [
+    "sample-policy_item"
+  ],
+  "pricingLogicAlgorithm": [
+    "sample-pricingLogicAlgorithm_item"
+  ],
+  "tax": [
+    "sample-tax_item"
+  ],
+  "name": "Example Name",
+  "priceType": "standard",
+  "lastUpdate": "2025-03-15T14:30:00Z"
+}

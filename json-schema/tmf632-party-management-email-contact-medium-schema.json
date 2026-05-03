@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-email-contact-medium-schema.json",
+  "title": "EmailContactMedium",
+  "description": "EmailContactMedium schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ContactMedium"
+    },
+    {
+      "type": "object",
+      "description": "Describes an email that could be used to contact a party (an individual or an organization)",
+      "properties": {
+        "emailAddress": {
+          "type": "string",
+          "description": "Full email address in standard format"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-skill-schema.json",
+  "title": "Skill",
+  "description": "Skills evaluated for an individual with a level and possibly with a limited validity when an obsolescence is defined (Ex: the first-aid certificate first level is limited to one year and an update training is required each year to keep the level).",
+  "type": "object",
+  "properties": {
+    "skillCode": {
+      "type": "string",
+      "description": "Code of the skill"
+    },
+    "skillName": {
+      "type": "string",
+      "description": "Name of the skill, such as Java language"
+    },
+    "evaluatedLevel": {
+      "type": "string",
+      "description": "Level of expertise in a skill evaluated for an individual"
+    },
+    "comment": {
+      "type": "string",
+      "description": "A free text comment linked to the evaluation done"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    }
+  }
+}

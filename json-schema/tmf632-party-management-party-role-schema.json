@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-party-role-schema.json",
+  "title": "PartyRole",
+  "description": "PartyRole schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "The part played by a party in a given context.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A word, term, or phrase by which the PartyRole is known and distinguished from other PartyRoles. It's the name of the PartyRole unique entity."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the PartyRole."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role played by the engagedParty in this context. As role is defined by partyRoleSpecification, this role attribute can be used to precise the role defined by partyRoleSpecification, or it can be used to define the role in case there is no partyRoleSpecification."
+        },
+        "engagedParty": {
+          "$ref": "#/components/schemas/PartyRef"
+        },
+        "partyRoleSpecification": {
+          "$ref": "#/components/schemas/PartyRoleSpecificationRef"
+        },
+        "characteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic"
+          },
+          "description": "Describes the characteristic of a party role."
+        },
+        "account": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AccountRef"
+          }
+        },
+        "agreement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AgreementRef"
+          }
+        },
+        "contactMedium": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ContactMedium"
+          }
+        },
+        "paymentMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PaymentMethodRef"
+          }
+        },
+        "creditProfile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CreditProfile"
+          }
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "Used to track the lifecycle status of the party role."
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "A string providing an explanation on the value of the status lifecycle. For instance if the status is Rejected, statusReason will provide the reason for rejection."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRole": "#/components/schemas/PartyRole",
+      "Supplier": "#/components/schemas/Supplier",
+      "Producer": "#/components/schemas/Producer",
+      "Consumer": "#/components/schemas/Consumer",
+      "BusinessPartner": "#/components/schemas/BusinessPartner"
+    }
+  }
+}

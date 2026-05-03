@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-object-characteristic-structure.json",
+  "name": "ObjectCharacteristic",
+  "description": "ObjectCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Object.",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

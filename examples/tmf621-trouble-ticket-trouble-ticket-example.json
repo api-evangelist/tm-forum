@@ -1,0 +1,32 @@
+{
+  "name": "Example Name",
+  "description": "Description of the description",
+  "severity": "sample-severity",
+  "ticketType": "standard",
+  "attachment": [
+    "sample-attachment_item"
+  ],
+  "creationDate": "2025-03-15T14:30:00Z",
+  "requestedResolutionDate": "2025-03-15T14:30:00Z",
+  "expectedResolutionDate": "2025-03-15T14:30:00Z",
+  "resolutionDate": "2025-03-15T14:30:00Z",
+  "externalIdentifier": [
+    "ID-9942"
+  ],
+  "lastUpdate": "2025-03-15T14:30:00Z",
+  "note": [
+    "sample-note_item"
+  ],
+  "priority": "sample-priority",
+  "relatedEntity": [
+    "sample-relatedEntity_item"
+  ],
+  "relatedParty": [
+    "sample-relatedParty_item"
+  ],
+  "statusChangeDate": "2025-03-15T14:30:00Z",
+  "statusChangeReason": "pending",
+  "statusChangeHistory": [
+    "inactive"
+  ]
+}

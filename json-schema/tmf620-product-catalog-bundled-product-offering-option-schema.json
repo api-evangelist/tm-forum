@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-bundled-product-offering-option-schema.json",
+  "title": "BundledProductOfferingOption",
+  "description": "BundledProductOfferingOption schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A set of numbers that specifies the lower and upper limits for a ProductOffering that can be procured as part of the related BundledProductOffering. Values can range from 0 to unbounded",
+      "properties": {
+        "numberRelOfferDefault": {
+          "type": "integer",
+          "description": "Default number of produc offereings that should be procured as part of the related BundledProductOffering"
+        },
+        "numberRelOfferLowerLimit": {
+          "type": "integer",
+          "description": "lower limit for a product offering that can be procured as part of the related BundledProductOffering"
+        },
+        "numberRelOfferUpperLimit": {
+          "type": "integer",
+          "description": "upper limit for a product offering that can be procured as part of the related BundledProductOffering"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledProductOfferingOption": "#/components/schemas/BundledProductOfferingOption"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-entity-structure.json",
+  "name": "Entity",
+  "description": "Base entity schema for use in TMForum Open-APIs. Property.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/Addressable"
+    }
+  ]
+}

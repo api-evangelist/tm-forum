@@ -1,0 +1,6 @@
+{
+  "op": "remove",
+  "path": "sample-path",
+  "value": "sample-value",
+  "from": "sample-from"
+}

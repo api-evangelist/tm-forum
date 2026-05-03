@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-product-offering-relationship-schema.json",
+  "title": "ProductOfferingRelationship",
+  "description": "ProductOfferingRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "A relationship between two product Offerings.",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "The association role for the source product offering"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the referred product offering type."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of relationship between product offerings such as requires, exchangableTo, optionalFor"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the referred product offering."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingRelationship": "#/components/schemas/ProductOfferingRelationship"
+    }
+  }
+}

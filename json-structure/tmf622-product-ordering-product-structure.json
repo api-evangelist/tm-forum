@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-product-structure.json",
+  "name": "Product",
+  "description": "Product schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "A product offering procured by a customer or other interested party playing a party role. A product is realized as one or more service(s) and / or resource(s).",
+      "properties": {
+        "agreementItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AgreementItemRef"
+          }
+        },
+        "billingAccount": {
+          "$ref": "#/components/schemas/BillingAccountRef"
+        },
+        "creationDate": {
+          "type": "datetime",
+          "description": "Date and time when the product was created"
+        },
+        "description": {
+          "type": "string",
+          "description": "Is the description of the product. It could be copied from the description of the Product Offering."
+        },
+        "isBundle": {
+          "type": "boolean",
+          "description": "If true, the product is a ProductBundle which is an instantiation of a BundledProductOffering. If false, the product is a ProductComponent which is an instantiation of a SimpleProductOffering."
+        },
+        "isCustomerVisible": {
+          "type": "boolean",
+          "description": "If true, the product is visible by the customer."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product. It could be the same as the name of the product offering"
+        },
+        "orderDate": {
+          "type": "datetime",
+          "description": "Is the date when the product was ordered"
+        },
+        "productCharacteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic"
+          }
+        },
+        "productOffering": {
+          "$ref": "#/components/schemas/ProductOfferingRef"
+        },
+        "productOrderItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedOrderItem"
+          }
+        },
+        "product": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductRefOrValue"
+          }
+        },
+        "productPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductPrice"
+          }
+        },
+        "productRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductRelationship"
+          }
+        },
+        "productSerialNumber": {
+          "type": "string",
+          "description": "Is the serial number for the product. This is typically applicable to tangible products e.g. Broadband Router."
+        },
+        "productSpecification": {
+          "$ref": "#/components/schemas/ProductSpecificationRef"
+        },
+        "productTerm": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductTerm"
+          }
+        },
+        "realizingResource": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ResourceRef"
+          }
+        },
+        "realizingService": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ServiceRef"
+          }
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole"
+          }
+        },
+        "place": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPlaceRefOrValue"
+          }
+        },
+        "startDate": {
+          "type": "datetime",
+          "description": "Is the date from which the product starts"
+        },
+        "status": {
+          "$ref": "#/components/schemas/ProductStatusType"
+        },
+        "terminationDate": {
+          "type": "datetime",
+          "description": "Is the date when the product was terminated"
+        },
+        "intent": {
+          "$ref": "#/components/schemas/IntentRefOrValue"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Product": "#/components/schemas/Product"
+    }
+  }
+}

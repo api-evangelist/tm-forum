@@ -1,0 +1,177 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "TMF629 Customer Management"
+  description: "TM Forum Customer Management API for managing customer accounts and customer hierarchy."
+  tags:
+    - TM Forum
+    - Customer Management
+    - BSS
+    - Telecommunications
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TMF_API_KEY: TMF_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: tmf629
+      baseUri: https://serverRoot/tmf-api/customerManagement/v5
+      description: "TM Forum Customer Management API v5"
+      authentication:
+        type: bearer
+        token: "{{TMF_API_KEY}}"
+      resources:
+        - name: customer
+          path: /customer
+          description: Customer accounts
+          operations:
+            - name: listCustomer
+              method: GET
+              description: "TM Forum List or Find Customer Objects"
+              inputParameters:
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: Offset for pagination
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: Limit for pagination
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: array
+                  value: "$."
+            - name: createCustomer
+              method: POST
+              description: "TM Forum Create a Customer"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  status: "{{tools.status}}"
+            - name: retrieveCustomer
+              method: GET
+              description: "TM Forum Retrieve a Customer by ID"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Customer identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: patchCustomer
+              method: PATCH
+              description: "TM Forum Update Partially a Customer"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Customer identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: deleteCustomer
+              method: DELETE
+              description: "TM Forum Delete a Customer"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Customer identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8102
+      namespace: tmf629-rest
+      resources:
+        - path: /v1/customers
+          name: customers
+          description: "Customer accounts"
+          operations:
+            - method: GET
+              name: list-customers
+              description: "List customer accounts"
+              call: "tmf629.listCustomer"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+            - method: POST
+              name: create-customer
+              description: "Create a new customer"
+              call: "tmf629.createCustomer"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9102
+      namespace: tmf629-mcp
+      transport: http
+      tools:
+        - name: list-customers
+          description: "List or find customer accounts"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tmf629.listCustomer"
+          outputParameters:
+            - type: array
+              mapping: "$."
+        - name: get-customer
+          description: "Retrieve a specific customer account"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tmf629.retrieveCustomer"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-customer
+          description: "Create a new customer account"
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "tmf629.createCustomer"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-customer
+          description: "Partially update a customer account"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "tmf629.patchCustomer"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."

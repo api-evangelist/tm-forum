@@ -1,0 +1,504 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tmf": "https://tmforum.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Addressable": "tmf:Addressable",
+    "Duration": "tmf:Duration",
+    "Entity": "tmf:Entity",
+    "Extensible": "tmf:Extensible",
+    "JsonPatch": "tmf:JsonPatch",
+    "Money": "tmf:Money",
+    "Quantity": "tmf:Quantity",
+    "TargetProductSchema": "tmf:TargetProductSchema",
+    "TimePeriod": "tmf:TimePeriod",
+    "@baseType": {
+      "@id": "tmf:@baseType",
+      "@type": "xsd:string"
+    },
+    "@schemaLocation": {
+      "@id": "tmf:@schemaLocation",
+      "@type": "xsd:string"
+    },
+    "@type": {
+      "@id": "tmf:@type",
+      "@type": "xsd:string"
+    },
+    "@valueSchemaLocation": {
+      "@id": "tmf:@valueSchemaLocation",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "tmf:action",
+      "@type": "xsd:string"
+    },
+    "agreement": {
+      "@id": "tmf:agreement",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "allowedAction": {
+      "@id": "tmf:allowedAction",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "tmf:amount",
+      "@type": "xsd:decimal"
+    },
+    "attachment": {
+      "@id": "tmf:attachment",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "attachmentType": {
+      "@id": "tmf:attachmentType",
+      "@type": "xsd:string"
+    },
+    "brand": {
+      "@id": "tmf:brand",
+      "@type": "xsd:string"
+    },
+    "bundledGroupProductOffering": {
+      "@id": "tmf:bundledGroupProductOffering",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "bundledGroupProductOfferingOption": {
+      "@id": "tmf:bundledGroupProductOfferingOption",
+      "@type": "xsd:string"
+    },
+    "bundledPopRelationship": {
+      "@id": "tmf:bundledPopRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "bundledProductOffering": {
+      "@id": "tmf:bundledProductOffering",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "bundledProductOfferingOption": {
+      "@id": "tmf:bundledProductOfferingOption",
+      "@type": "xsd:string"
+    },
+    "bundledProductSpecification": {
+      "@id": "tmf:bundledProductSpecification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "catalogType": {
+      "@id": "tmf:catalogType",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "tmf:category",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "tmf:channel",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "charSpecRelationship": {
+      "@id": "tmf:charSpecRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristic": {
+      "@id": "tmf:characteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicRelationship": {
+      "@id": "tmf:characteristicRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicSpecificationId": {
+      "@id": "tmf:characteristicSpecificationId",
+      "@type": "xsd:string"
+    },
+    "characteristicValueSpecification": {
+      "@id": "tmf:characteristicValueSpecification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "completionDate": {
+      "@id": "tmf:completionDate",
+      "@type": "xsd:dateTime"
+    },
+    "configurable": {
+      "@id": "tmf:configurable",
+      "@type": "xsd:boolean"
+    },
+    "content": {
+      "@id": "tmf:content",
+      "@type": "xsd:string"
+    },
+    "contentType": {
+      "@id": "tmf:contentType",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "tmf:creationDate",
+      "@type": "xsd:dateTime"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "duration": {
+      "@id": "tmf:duration",
+      "@type": "xsd:string"
+    },
+    "endDateTime": {
+      "@id": "tmf:endDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "errorLog": {
+      "@id": "tmf:errorLog",
+      "@type": "xsd:string"
+    },
+    "extensible": {
+      "@id": "tmf:extensible",
+      "@type": "xsd:boolean"
+    },
+    "externalIdentifier": {
+      "@id": "tmf:externalIdentifier",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "externalIdentifierType": {
+      "@id": "tmf:externalIdentifierType",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "tmf:from",
+      "@type": "xsd:string"
+    },
+    "href": {
+      "@id": "tmf:href",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "tmf:id",
+      "@type": "xsd:string"
+    },
+    "intentSpecification": {
+      "@id": "tmf:intentSpecification",
+      "@type": "xsd:string"
+    },
+    "isBundle": {
+      "@id": "tmf:isBundle",
+      "@type": "xsd:boolean"
+    },
+    "isDefault": {
+      "@id": "tmf:isDefault",
+      "@type": "xsd:boolean"
+    },
+    "isRoot": {
+      "@id": "tmf:isRoot",
+      "@type": "xsd:boolean"
+    },
+    "isSellable": {
+      "@id": "tmf:isSellable",
+      "@type": "xsd:boolean"
+    },
+    "isUnique": {
+      "@id": "tmf:isUnique",
+      "@type": "xsd:boolean"
+    },
+    "lastUpdate": {
+      "@id": "tmf:lastUpdate",
+      "@type": "xsd:dateTime"
+    },
+    "lifecycleStatus": {
+      "@id": "tmf:lifecycleStatus",
+      "@type": "xsd:string"
+    },
+    "marketSegment": {
+      "@id": "tmf:marketSegment",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "maxCardinality": {
+      "@id": "tmf:maxCardinality",
+      "@type": "xsd:integer"
+    },
+    "mimeType": {
+      "@id": "tmf:mimeType",
+      "@type": "xsd:string"
+    },
+    "minCardinality": {
+      "@id": "tmf:minCardinality",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "numberRelOfferDefault": {
+      "@id": "tmf:numberRelOfferDefault",
+      "@type": "xsd:integer"
+    },
+    "numberRelOfferLowerLimit": {
+      "@id": "tmf:numberRelOfferLowerLimit",
+      "@type": "xsd:integer"
+    },
+    "numberRelOfferUpperLimit": {
+      "@id": "tmf:numberRelOfferUpperLimit",
+      "@type": "xsd:integer"
+    },
+    "op": {
+      "@id": "tmf:op",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "tmf:owner",
+      "@type": "xsd:string"
+    },
+    "parent": {
+      "@id": "tmf:parent",
+      "@type": "xsd:string"
+    },
+    "parentSpecificationHref": {
+      "@id": "tmf:parentSpecificationHref",
+      "@type": "@id"
+    },
+    "parentSpecificationId": {
+      "@id": "tmf:parentSpecificationId",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "tmf:path",
+      "@type": "xsd:string"
+    },
+    "percentage": {
+      "@id": "tmf:percentage",
+      "@type": "xsd:decimal"
+    },
+    "plaSpecId": {
+      "@id": "tmf:plaSpecId",
+      "@type": "xsd:string"
+    },
+    "place": {
+      "@id": "tmf:place",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "policy": {
+      "@id": "tmf:policy",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "popRelationship": {
+      "@id": "tmf:popRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "tmf:price",
+      "@type": "xsd:string"
+    },
+    "priceType": {
+      "@id": "tmf:priceType",
+      "@type": "xsd:string"
+    },
+    "pricingLogicAlgorithm": {
+      "@id": "tmf:pricingLogicAlgorithm",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "prodSpecCharValueUse": {
+      "@id": "tmf:prodSpecCharValueUse",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productNumber": {
+      "@id": "tmf:productNumber",
+      "@type": "xsd:string"
+    },
+    "productOffering": {
+      "@id": "tmf:productOffering",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOfferingCharacteristic": {
+      "@id": "tmf:productOfferingCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOfferingPrice": {
+      "@id": "tmf:productOfferingPrice",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOfferingRelationship": {
+      "@id": "tmf:productOfferingRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productOfferingTerm": {
+      "@id": "tmf:productOfferingTerm",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productSpecCharacteristic": {
+      "@id": "tmf:productSpecCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productSpecCharacteristicValue": {
+      "@id": "tmf:productSpecCharacteristicValue",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "productSpecification": {
+      "@id": "tmf:productSpecification",
+      "@type": "xsd:string"
+    },
+    "productSpecificationRelationship": {
+      "@id": "tmf:productSpecificationRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "query": {
+      "@id": "tmf:query",
+      "@type": "xsd:string"
+    },
+    "rangeInterval": {
+      "@id": "tmf:rangeInterval",
+      "@type": "xsd:string"
+    },
+    "recurringChargePeriodLength": {
+      "@id": "tmf:recurringChargePeriodLength",
+      "@type": "xsd:integer"
+    },
+    "recurringChargePeriodType": {
+      "@id": "tmf:recurringChargePeriodType",
+      "@type": "xsd:string"
+    },
+    "regex": {
+      "@id": "tmf:regex",
+      "@type": "xsd:string"
+    },
+    "relatedParty": {
+      "@id": "tmf:relatedParty",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "tmf:relationshipType",
+      "@type": "xsd:string"
+    },
+    "resourceCandidate": {
+      "@id": "tmf:resourceCandidate",
+      "@type": "xsd:string"
+    },
+    "resourceSpecification": {
+      "@id": "tmf:resourceSpecification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "tmf:role",
+      "@type": "xsd:string"
+    },
+    "serviceCandidate": {
+      "@id": "tmf:serviceCandidate",
+      "@type": "xsd:string"
+    },
+    "serviceLevelAgreement": {
+      "@id": "tmf:serviceLevelAgreement",
+      "@type": "xsd:string"
+    },
+    "serviceSpecification": {
+      "@id": "tmf:serviceSpecification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "tmf:size",
+      "@type": "xsd:string"
+    },
+    "startDateTime": {
+      "@id": "tmf:startDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "status": {
+      "@id": "tmf:status",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "tmf:statusReason",
+      "@type": "xsd:string"
+    },
+    "subCategory": {
+      "@id": "tmf:subCategory",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "targetProductSchema": {
+      "@id": "tmf:targetProductSchema",
+      "@type": "xsd:string"
+    },
+    "tax": {
+      "@id": "tmf:tax",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "taxAmount": {
+      "@id": "tmf:taxAmount",
+      "@type": "xsd:string"
+    },
+    "taxCategory": {
+      "@id": "tmf:taxCategory",
+      "@type": "xsd:string"
+    },
+    "taxRate": {
+      "@id": "tmf:taxRate",
+      "@type": "xsd:decimal"
+    },
+    "unit": {
+      "@id": "tmf:unit",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "tmf:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "tmf:units",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "validFor": {
+      "@id": "tmf:validFor",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "tmf:value",
+      "@container": "@set",
+      "@type": "xsd:decimal"
+    },
+    "valueFrom": {
+      "@id": "tmf:valueFrom",
+      "@type": "xsd:integer"
+    },
+    "valueTo": {
+      "@id": "tmf:valueTo",
+      "@type": "xsd:integer"
+    },
+    "valueType": {
+      "@id": "tmf:valueType",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version"
+    }
+  }
+}

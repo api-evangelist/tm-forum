@@ -1,0 +1,6 @@
+{
+  "role": "sample-role",
+  "name": "Example Name",
+  "relationshipType": "standard",
+  "version": "1.0.0"
+}

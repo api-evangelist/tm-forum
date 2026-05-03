@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-bundled-product-offering-schema.json",
+  "title": "BundledProductOffering",
+  "description": "BundledProductOffering schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ProductOfferingRef"
+    },
+    {
+      "type": "object",
+      "description": "Represents a containment of a product offering within another product offering, including specification of cardinality (e.g. is the bundled offering mandatory, how many times can it be instantiated in the parent product, etc.).",
+      "properties": {
+        "bundledProductOfferingOption": {
+          "$ref": "#/components/schemas/BundledProductOfferingOption"
+        }
+      }
+    }
+  ]
+}

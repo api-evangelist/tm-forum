@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-contact-medium-structure.json",
+  "name": "ContactMedium",
+  "description": "ContactMedium schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Indicates the contact medium that could be used to contact the party. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : EmailContactMedium, FaxContactMedium, PhoneContactMedium, GeographicAddressContactMedium, SocialMediaContactMedium...",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier for this contact medium."
+        },
+        "preferred": {
+          "type": "boolean",
+          "description": "If true, indicates that is the preferred contact medium"
+        },
+        "contactType": {
+          "type": "string",
+          "description": "Type of the contact medium to qualify it like pro email / personal email. This is not used to define the contact medium used."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ContactMedium": "#/components/schemas/ContactMedium",
+      "EmailContactMedium": "#/components/schemas/EmailContactMedium",
+      "FaxContactMedium": "#/components/schemas/FaxContactMedium",
+      "GeographicAddressContactMedium": "#/components/schemas/GeographicAddressContactMedium",
+      "PhoneContactMedium": "#/components/schemas/PhoneContactMedium"
+    }
+  }
+}

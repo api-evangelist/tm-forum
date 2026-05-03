@@ -1,0 +1,188 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "TM Forum Product-to-Cash"
+  description: "Unified workflow capability combining TM Forum Product Catalog (TMF620), Product Ordering (TMF622), and Product Inventory (TMF637) APIs for end-to-end product lifecycle management from catalog to active subscriptions. Used by BSS architects and order managers."
+  tags:
+    - TM Forum
+    - Product Catalog
+    - Product Ordering
+    - Product Inventory
+    - BSS
+    - Telecommunications
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TMF_API_KEY: TMF_API_KEY
+
+capability:
+  consumes:
+    - import: tmf620
+      location: ./shared/tmf620-product-catalog.yaml
+    - import: tmf622
+      location: ./shared/tmf622-product-ordering.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: product-to-cash-api
+      description: "Unified REST API for TM Forum product-to-cash workflow."
+      resources:
+        - path: /v1/product-catalog/categories
+          name: catalog-categories
+          description: "Product catalog categories"
+          operations:
+            - method: GET
+              name: list-catalog-categories
+              description: "List product catalog categories"
+              call: "tmf620.listCategory"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+            - method: POST
+              name: create-catalog-category
+              description: "Create a product catalog category"
+              call: "tmf620.createCategory"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/product-catalog/offerings
+          name: product-offerings
+          description: "Product offerings"
+          operations:
+            - method: GET
+              name: list-product-offerings
+              description: "List product offerings"
+              call: "tmf620.listProductOffering"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+            - method: POST
+              name: create-product-offering
+              description: "Create a product offering"
+              call: "tmf620.createProductOffering"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/product-orders
+          name: product-orders
+          description: "Product orders"
+          operations:
+            - method: GET
+              name: list-product-orders
+              description: "List product orders"
+              call: "tmf622.listProductOrder"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+            - method: POST
+              name: create-product-order
+              description: "Create a new product order"
+              call: "tmf622.createProductOrder"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/product-orders/{id}
+          name: product-order
+          description: "Individual product order"
+          operations:
+            - method: GET
+              name: get-product-order
+              description: "Retrieve a specific product order"
+              call: "tmf622.retrieveProductOrder"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: product-to-cash-mcp
+      transport: http
+      description: "MCP server for AI-assisted TM Forum product-to-cash workflow."
+      tools:
+        - name: list-catalog-categories
+          description: "List product catalog categories from TMF620"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tmf620.listCategory"
+          outputParameters:
+            - type: array
+              mapping: "$."
+        - name: get-catalog-category
+          description: "Retrieve a specific product catalog category"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tmf620.retrieveCategory"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-catalog-category
+          description: "Create a new product catalog category"
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "tmf620.createCategory"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-product-offerings
+          description: "List product offerings from the catalog"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tmf620.listProductOffering"
+          outputParameters:
+            - type: array
+              mapping: "$."
+        - name: get-product-offering
+          description: "Retrieve a specific product offering"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tmf620.retrieveProductOffering"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-product-orders
+          description: "List product orders from TMF622"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "tmf622.listProductOrder"
+          outputParameters:
+            - type: array
+              mapping: "$."
+        - name: get-product-order
+          description: "Retrieve a specific product order by ID"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tmf622.retrieveProductOrder"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-product-order
+          description: "Submit a new product order"
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "tmf622.createProductOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."

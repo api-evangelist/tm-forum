@@ -1,0 +1,7 @@
+{
+  "relationshipType": "standard",
+  "name": "Example Name",
+  "characteristicSpecificationId": "ID-2278",
+  "parentSpecificationHref": "https://example.com/api/resource/123",
+  "parentSpecificationId": "ID-7136"
+}

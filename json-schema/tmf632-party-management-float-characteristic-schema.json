@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-float-characteristic-schema.json",
+  "title": "FloatCharacteristic",
+  "description": "FloatCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Float.",
+      "properties": {
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

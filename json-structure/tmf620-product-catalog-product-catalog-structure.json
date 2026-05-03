@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-product-catalog-structure.json",
+  "name": "ProductCatalog",
+  "description": "ProductCatalog schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Catalog"
+    },
+    {
+      "type": "object",
+      "description": "A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details",
+      "properties": {
+        "category": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CategoryRef"
+          },
+          "description": "List of root categories contained in this catalog"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-pricing-logic-algorithm-structure.json",
+  "name": "PricingLogicAlgorithm",
+  "description": "PricingLogicAlgorithm schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "The PricingLogicAlgorithm entity represents an instantiation of an interface specification to external rating function (without a modeled bahavior in SID). Some of the parameters of the interface definiition may be already set (such as price per unit) and some may be gathered during the rating process from the event (such as call duration) or from ProductCharacteristicValues (such as assigned bandwidth)",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the PricingLogicAlgorithm"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name given to the PricingLogicAlgorithm"
+        },
+        "plaSpecId": {
+          "type": "string",
+          "description": "id of corresponding PricingLogicAlgorithm specification"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PricingLogicAlgorithm": "#/components/schemas/PricingLogicAlgorithm"
+    }
+  }
+}

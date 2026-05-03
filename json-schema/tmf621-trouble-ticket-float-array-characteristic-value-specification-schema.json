@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-float-array-characteristic-value-specification-schema.json",
+  "title": "FloatArrayCharacteristicValueSpecification",
+  "description": "FloatArrayCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number array of format floating point",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float",
+            "description": "Characteristic value"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-number-characteristic-value-specification-structure.json",
+  "name": "NumberCharacteristicValueSpecification",
+  "description": "NumberCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number of no specific format",
+      "properties": {
+        "value": {
+          "type": "double",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

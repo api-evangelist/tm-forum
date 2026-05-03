@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-contact-medium-structure.json",
+  "name": "ContactMedium",
+  "description": "ContactMedium schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Indicates the contact medium that could be used to contact the party.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier for this contact medium."
+        },
+        "preferred": {
+          "type": "boolean",
+          "description": "If true, indicates that is the preferred contact medium"
+        },
+        "contactType": {
+          "type": "string",
+          "description": "Type of the contact medium to qualifiy it like pro email / personal email. This is not used to define the contact medium used."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ContactMedium": "#/components/schemas/ContactMedium"
+    }
+  }
+}

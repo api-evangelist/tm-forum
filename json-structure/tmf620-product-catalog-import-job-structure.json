@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-import-job-structure.json",
+  "name": "ImportJob",
+  "description": "ImportJob schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Represents a task used to import resources from a file",
+      "properties": {
+        "completionDate": {
+          "type": "datetime",
+          "description": "Date at which the job was completed"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Indicates the format of the imported data"
+        },
+        "creationDate": {
+          "type": "datetime",
+          "description": "Date at which the job was created"
+        },
+        "errorLog": {
+          "type": "string",
+          "description": "Path to file or stream where errors encountered during the job processing can be written"
+        },
+        "path": {
+          "type": "string",
+          "description": "URL of the root resource where the content of the file specified by the import job must be applied"
+        },
+        "status": {
+          "$ref": "#/components/schemas/JobStateType"
+        },
+        "url": {
+          "type": "uri",
+          "description": "URL of the file containing the data to be imported"
+        },
+        "id": {
+          "type": "string",
+          "description": "unique identifier for import job"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ImportJob": "#/components/schemas/ImportJob"
+    }
+  }
+}

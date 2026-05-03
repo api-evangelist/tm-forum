@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-number-array-characteristic-structure.json",
+  "name": "NumberArrayCharacteristic",
+  "description": "NumberArrayCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is an array of Number(s).",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "A characteristic which value is an array of Number(s).",
+          "items": {
+            "type": "double",
+            "description": "Characteristic value"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-place-structure.json",
+  "name": "Place",
+  "description": "Place reference.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Place": "#/components/schemas/Place",
+      "GeographicSite": "#/components/schemas/GeographicSite",
+      "GeographicLocation": "#/components/schemas/GeographicLocation",
+      "GeographicAddress": "#/components/schemas/GeographicAddress"
+    }
+  }
+}

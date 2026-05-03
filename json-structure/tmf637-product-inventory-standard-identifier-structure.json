@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf637-product-inventory-standard-identifier-structure.json",
+  "name": "StandardIdentifier",
+  "description": "StandardIdentifier schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "The corresponding identification of the resource in different standard, regulatory definitions. The standard specification identifier (e.g., ISO 3166-1 Alpha-2) and the corresponding value (e.g., BE) relevant to a particular resource. It is anticipated that multiple standards can provide definitions for a single entity, e.g., a country identifier can be specified in various standards (e.g., \"ISO 3166-1 Alpha 2\",  \"ISO 3166-1 Alpha 3\", \"ISO 3166-1 Numeric\")",
+      "properties": {
+        "format": {
+          "type": "string",
+          "description": "Standard/Regulatory definition identifier. e.g., ISO 3166-1",
+          "example": "ISO 3166-1"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the resource in the corresponding standard.e.g., a country code value",
+          "example": "GB"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "StandardIdentifier": "#/components/schemas/StandardIdentifier"
+    }
+  }
+}

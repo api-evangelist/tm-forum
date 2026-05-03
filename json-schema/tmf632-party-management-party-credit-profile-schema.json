@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-party-credit-profile-schema.json",
+  "title": "PartyCreditProfile",
+  "description": "PartyCreditProfile schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "An individual might be evaluated for its worthiness and this evaluation might be based on a credit rating given by a credit agency.",
+      "properties": {
+        "creditAgencyName": {
+          "type": "string",
+          "description": "Name of the credit agency giving the score"
+        },
+        "creditAgencyType": {
+          "type": "string",
+          "description": "Type of the credit agency giving the score"
+        },
+        "ratingReference": {
+          "type": "string",
+          "description": "Reference corresponding to the credit rating"
+        },
+        "ratingScore": {
+          "type": "integer",
+          "format": "int32",
+          "description": "A measure of a party's creditworthiness calculated on the basis of a combination of factors such as their income and credit history"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyCreditProfile": "#/components/schemas/PartyCreditProfile"
+    }
+  }
+}

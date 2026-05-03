@@ -1,0 +1,6 @@
+{
+  "op": "add",
+  "path": "sample-path",
+  "value": "sample-value",
+  "from": "sample-from"
+}

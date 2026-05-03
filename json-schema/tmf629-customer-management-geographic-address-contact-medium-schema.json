@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf629-customer-management-geographic-address-contact-medium-schema.json",
+  "title": "GeographicAddressContactMedium",
+  "description": "GeographicAddressContactMedium schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ContactMedium"
+    },
+    {
+      "type": "object",
+      "description": "Describes a geographical address that could be used to contact a party (an individual or an organization)",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city"
+        },
+        "country": {
+          "type": "string",
+          "description": "The country"
+        },
+        "postCode": {
+          "type": "string",
+          "description": "Postcode"
+        },
+        "stateOrProvince": {
+          "type": "string",
+          "description": "State or province"
+        },
+        "street1": {
+          "type": "string",
+          "description": "Describes the street"
+        },
+        "street2": {
+          "type": "string",
+          "description": "Complementary street description"
+        },
+        "geographicAddress": {
+          "$ref": "#/components/schemas/GeographicAddressRef"
+        }
+      }
+    }
+  ]
+}

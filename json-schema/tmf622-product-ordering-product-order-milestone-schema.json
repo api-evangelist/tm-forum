@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-product-order-milestone-schema.json",
+  "title": "ProductOrderMilestone",
+  "description": "ProductOrderMilestone schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Milestone"
+    },
+    {
+      "type": "object",
+      "description": "A ProductOrderMilestone represents an action or event marking a significant change or stage in processing of a product order.",
+      "properties": {
+        "productOrderItem": {
+          "type": "array",
+          "description": "A list of order item references corresponded to this alert",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItemRef"
+          }
+        }
+      }
+    }
+  ]
+}

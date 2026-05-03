@@ -1,0 +1,40 @@
+{
+  "description": "Description of the description",
+  "isBundle": true,
+  "isSellable": true,
+  "statusReason": "pending",
+  "version": "1.0.0",
+  "place": [
+    "sample-place_item"
+  ],
+  "channel": [
+    "sample-channel_item"
+  ],
+  "category": [
+    "sample-category_item"
+  ],
+  "productOfferingTerm": [
+    "sample-productOfferingTerm_item"
+  ],
+  "productOfferingPrice": [
+    "sample-productOfferingPrice_item"
+  ],
+  "agreement": [
+    "sample-agreement_item"
+  ],
+  "bundledProductOffering": [
+    "sample-bundledProductOffering_item"
+  ],
+  "bundledGroupProductOffering": [
+    "sample-bundledGroupProductOffering_item"
+  ],
+  "attachment": [
+    "sample-attachment_item"
+  ],
+  "marketSegment": [
+    "sample-marketSegment_item"
+  ],
+  "productOfferingRelationship": [
+    "sample-productOfferingRelationship_item"
+  ]
+}

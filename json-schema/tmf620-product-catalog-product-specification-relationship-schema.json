@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-product-specification-relationship-schema.json",
+  "title": "ProductSpecificationRelationship",
+  "description": "ProductSpecificationRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "A migration, substitution, dependency or exclusivity relationship between/among product specifications.",
+      "properties": {
+        "characteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CharacteristicSpecification"
+          },
+          "description": "A characteristic that refines the relationship. For example, consider the relationship between broadband and TV. For a 4k TV it is important to know the minimum bandwidth to support 4k, so a characteristic Resolution might be defined on the relationship to allow capturing of this in the inventory"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "type of the relationship, for example override, discount, etc."
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the referred product specification."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductSpecificationRelationship": "#/components/schemas/ProductSpecificationRelationship"
+    }
+  }
+}

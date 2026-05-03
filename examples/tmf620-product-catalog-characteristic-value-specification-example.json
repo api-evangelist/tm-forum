@@ -1,0 +1,9 @@
+{
+  "valueType": "standard",
+  "isDefault": false,
+  "unitOfMeasure": "sample-unitOfMeasure",
+  "valueFrom": 2,
+  "valueTo": 74,
+  "rangeInterval": "sample-rangeInterval",
+  "regex": "sample-regex"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-organization-identification-structure.json",
+  "name": "OrganizationIdentification",
+  "description": "OrganizationIdentification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Represents our registration of information used as proof of identity by an organization",
+      "properties": {
+        "identificationId": {
+          "type": "string",
+          "description": "Identifier"
+        },
+        "issuingAuthority": {
+          "type": "string",
+          "description": "Authority which has issued the identifier (chamber of commerce...)"
+        },
+        "issuingDate": {
+          "type": "datetime",
+          "description": "Date at which the identifier was issued"
+        },
+        "identificationType": {
+          "type": "string",
+          "description": "Type of identification information used to identify the company in a country or internationally"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "attachment": {
+          "$ref": "#/components/schemas/AttachmentRefOrValue"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrganizationIdentification": "#/components/schemas/OrganizationIdentification"
+    }
+  }
+}

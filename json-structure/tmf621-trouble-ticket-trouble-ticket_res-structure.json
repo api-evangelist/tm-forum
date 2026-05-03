@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-trouble-ticket_res-structure.json",
+  "name": "TroubleTicket_RES",
+  "description": "Response object for TroubleTicket",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/TroubleTicket"
+    }
+  ],
+  "required": [
+    "id",
+    "href"
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicket": "#/components/schemas/TroubleTicket"
+    }
+  }
+}

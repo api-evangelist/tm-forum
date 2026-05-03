@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf629-customer-management-producer-schema.json",
+  "title": "Producer",
+  "description": "Producer schema from TM Forum API",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole"
+    }
+  ]
+}

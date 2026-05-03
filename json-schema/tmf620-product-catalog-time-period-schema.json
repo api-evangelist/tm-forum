@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-time-period-schema.json",
+  "title": "TimePeriod",
+  "description": "A period of time, either as a deadline (endDateTime only) a startDateTime only, or both",
+  "type": "object",
+  "properties": {
+    "startDateTime": {
+      "description": "Start of the time period, using IETC-RFC-3339 format",
+      "type": "string",
+      "format": "date-time",
+      "example": "1985-04-12T23:20:50.52Z"
+    },
+    "endDateTime": {
+      "description": "End of the time period, using IETC-RFC-3339 format",
+      "type": "string",
+      "format": "date-time",
+      "example": "1985-04-12T23:20:50.52Z"
+    }
+  }
+}

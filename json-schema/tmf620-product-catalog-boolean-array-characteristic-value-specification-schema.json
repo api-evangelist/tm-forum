@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-boolean-array-characteristic-value-specification-schema.json",
+  "title": "BooleanArrayCharacteristicValueSpecification",
+  "description": "BooleanArrayCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is an array booleans",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  ]
+}

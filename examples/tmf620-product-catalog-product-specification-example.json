@@ -1,0 +1,37 @@
+{
+  "brand": "sample-brand",
+  "description": "Description of the description",
+  "isBundle": false,
+  "productNumber": "sample-productNumber",
+  "category": [
+    "sample-category_item"
+  ],
+  "version": "1.0.0",
+  "relatedParty": [
+    "sample-relatedParty_item"
+  ],
+  "productSpecCharacteristic": [
+    "sample-productSpecCharacteristic_item"
+  ],
+  "serviceSpecification": [
+    "sample-serviceSpecification_item"
+  ],
+  "bundledProductSpecification": [
+    "sample-bundledProductSpecification_item"
+  ],
+  "productSpecificationRelationship": [
+    "sample-productSpecificationRelationship_item"
+  ],
+  "resourceSpecification": [
+    "sample-resourceSpecification_item"
+  ],
+  "attachment": [
+    "sample-attachment_item"
+  ],
+  "policy": [
+    "sample-policy_item"
+  ],
+  "lastUpdate": "2025-03-15T14:30:00Z",
+  "lifecycleStatus": "active",
+  "name": "Example Name"
+}

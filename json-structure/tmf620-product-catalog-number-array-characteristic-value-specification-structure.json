@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-number-array-characteristic-value-specification-structure.json",
+  "name": "NumberArrayCharacteristicValueSpecification",
+  "description": "NumberArrayCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number array with no specific format ",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "double"
+          }
+        }
+      }
+    }
+  ]
+}

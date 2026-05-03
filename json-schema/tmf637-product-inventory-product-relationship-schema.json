@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-product-relationship-schema.json",
+  "title": "ProductRelationship",
+  "description": "ProductRelationship schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Used to describe relationship between product.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of the related product"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Relationship type as relies on, bundles, etc..."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductRelationship": "#/components/schemas/ProductRelationship"
+    }
+  }
+}

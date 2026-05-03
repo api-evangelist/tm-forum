@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-json-patch-schema.json",
+  "title": "JsonPatch",
+  "description": "A JSONPatch document as defined by RFC 6902",
+  "type": "object",
+  "required": [
+    "op",
+    "path"
+  ],
+  "properties": {
+    "op": {
+      "type": "string",
+      "description": "The operation to be performed",
+      "enum": [
+        "add",
+        "remove",
+        "replace",
+        "move",
+        "copy",
+        "test"
+      ]
+    },
+    "path": {
+      "type": "string",
+      "description": "A JSON-Pointer"
+    },
+    "value": {
+      "description": "The value to be used within the operations."
+    },
+    "from": {
+      "type": "string",
+      "description": "A string containing a JSON Pointer value."
+    }
+  }
+}

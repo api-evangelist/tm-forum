@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-bundled-group-product-offering-option-schema.json",
+  "title": "BundledGroupProductOfferingOption",
+  "description": "BundledGroupProductOfferingOption schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Defines for a BundledProductOfferingGroup (i.e. a group of multiple child offerings of a parent product offering), how many instances from the child offerings can be chosen in total. For example facilitate the choice of between 2 and 7 channel packs from a list, and cause certain items to be selected by default",
+      "properties": {
+        "numberRelOfferLowerLimit": {
+          "type": "integer",
+          "description": "The minimum total number of instances of the child offerings directly of hierarchically in the group that should be instantiated",
+          "example": 2
+        },
+        "numberRelOfferUpperLimit": {
+          "type": "integer",
+          "description": "The maximum total number of instances of the child offerings directly of hierarchically in the group that should be instantiated",
+          "example": 7
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledGroupProductOfferingOption": "#/components/schemas/BundledGroupProductOfferingOption"
+    }
+  }
+}

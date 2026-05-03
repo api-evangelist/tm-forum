@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-string-characteristic-schema.json",
+  "title": "StringCharacteristic",
+  "description": "StringCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a String.",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

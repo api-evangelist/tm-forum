@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-trouble-ticket-specification_res-schema.json",
+  "title": "TroubleTicketSpecification_RES",
+  "description": "Response object for TroubleTicketSpecification",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/TroubleTicketSpecification"
+    }
+  ],
+  "required": [
+    "id",
+    "href"
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketSpecification": "#/components/schemas/TroubleTicketSpecification"
+    }
+  }
+}

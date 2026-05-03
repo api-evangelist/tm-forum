@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-disability-structure.json",
+  "name": "Disability",
+  "description": "Lack or inadequate strength or ability.",
+  "type": "object",
+  "properties": {
+    "disabilityCode": {
+      "type": "string",
+      "description": "Code of the disability"
+    },
+    "disabilityName": {
+      "type": "string",
+      "description": "Name of the disability"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    }
+  }
+}

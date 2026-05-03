@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-disability-schema.json",
+  "title": "Disability",
+  "description": "Lack or inadequate strength or ability.",
+  "type": "object",
+  "properties": {
+    "disabilityCode": {
+      "type": "string",
+      "description": "Code of the disability"
+    },
+    "disabilityName": {
+      "type": "string",
+      "description": "Name of the disability"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    }
+  }
+}

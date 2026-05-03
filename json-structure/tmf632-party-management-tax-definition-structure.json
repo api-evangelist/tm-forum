@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-tax-definition-structure.json",
+  "name": "TaxDefinition",
+  "description": "TaxDefinition schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Reference of a tax definition. A tax is levied by an authorized tax jurisdiction. For example, there are many different types of tax (Federal Tax levied by the US Government, State Tax levied by the State of California, City Tax levied by the City of Los Angeles, etc.).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the tax."
+        },
+        "name": {
+          "type": "string",
+          "description": "Tax name."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "jurisdictionName": {
+          "type": "string",
+          "description": "Name of the jurisdiction that levies the tax",
+          "example": "USA"
+        },
+        "jurisdictionLevel": {
+          "type": "string",
+          "description": "Level of the jurisdiction that levies the tax",
+          "example": "Country"
+        },
+        "taxType": {
+          "type": "string",
+          "description": "Type of the tax.",
+          "example": "VAT"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TaxDefinition": "#/components/schemas/TaxDefinition"
+    }
+  }
+}

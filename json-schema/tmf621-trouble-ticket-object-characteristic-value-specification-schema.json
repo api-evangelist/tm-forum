@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-object-characteristic-value-specification-schema.json",
+  "title": "ObjectCharacteristicValueSpecification",
+  "description": "ObjectCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is any object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

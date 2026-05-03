@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-product-order-attribute-value-change-payload-schema.json",
+  "title": "ProductOrderAttributeValueChangePayload",
+  "description": "ProductOrderAttributeValueChangePayload generic structure",
+  "type": "object",
+  "properties": {
+    "productOrder": {
+      "$ref": "#/components/schemas/ProductOrder"
+    }
+  }
+}

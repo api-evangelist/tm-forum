@@ -1,0 +1,8 @@
+{
+  "name": "Example Name",
+  "description": "Photograph of the Product",
+  "url": "http://host/Content/4aafacbd-11ff-4dc8-b445-305f2215715f",
+  "content": "sample-content",
+  "attachmentType": "standard",
+  "mimeType": "standard"
+}

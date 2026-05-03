@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-addressable-schema.json",
+  "title": "Addressable",
+  "description": "Base schema for addressable entities",
+  "type": "object",
+  "properties": {
+    "href": {
+      "type": "string",
+      "description": "Hyperlink reference"
+    },
+    "id": {
+      "type": "string",
+      "description": "unique identifier"
+    }
+  }
+}

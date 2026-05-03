@@ -1,0 +1,245 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "TM Forum"
+  description: "Unified vocabulary for TM Forum Open API suite covering BSS/OSS operational dimensions across telecommunications product, service, and resource management."
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  apis:
+    - namespace: tmf620
+      version: "5.0.0"
+      baseUrl: https://serverRoot/tmf-api/productCatalogManagement/v5
+      status: active
+      description: Product Catalog Management API
+    - namespace: tmf621
+      version: "5.0.1"
+      baseUrl: https://serverRoot/tmf-api/troubleTicket/v5
+      status: active
+      description: Trouble Ticket API
+    - namespace: tmf622
+      version: "5.0.0"
+      baseUrl: https://serverRoot/tmf-api/productOrderingManagement/v5
+      status: active
+      description: Product Ordering Management API
+    - namespace: tmf629
+      version: "5.0.1"
+      baseUrl: https://serverRoot/tmf-api/customerManagement/v5
+      status: active
+      description: Customer Management API
+    - namespace: tmf632
+      version: "5.0.0"
+      baseUrl: https://serverRoot/tmf-api/partyManagement/v5
+      status: active
+      description: Party Management API
+    - namespace: tmf637
+      version: "5.0.0"
+      baseUrl: https://serverRoot/tmf-api/productInventory/v5
+      status: active
+      description: Product Inventory Management API
+
+  resources:
+    - name: Product Catalog
+      api: tmf620
+      actions: [list, get, create, update, delete, patch]
+      description: Product offerings and specifications in the catalog
+    - name: Product Order
+      api: tmf622
+      actions: [list, get, create, update, cancel]
+      description: Customer product orders and order lifecycle
+    - name: Customer
+      api: tmf629
+      actions: [list, get, create, update, patch, delete]
+      description: Customer accounts and customer hierarchy
+    - name: Party
+      api: tmf632
+      actions: [list, get, create, update, patch, delete]
+      description: Organizations and individuals (parties) in the ecosystem
+    - name: Product Inventory
+      api: tmf637
+      actions: [list, get, create, update, patch, delete]
+      description: Active product instances subscribed by customers
+    - name: Trouble Ticket
+      api: tmf621
+      actions: [list, get, create, update, patch, delete]
+      description: Support tickets for incident and problem management
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+      description: List or find a collection of resources
+    - name: get
+      httpMethod: GET
+      pattern: read
+      description: Retrieve a single resource by ID
+    - name: create
+      httpMethod: POST
+      pattern: write
+      description: Create a new resource
+    - name: update
+      httpMethod: PUT
+      pattern: write
+      description: Full update of an existing resource
+    - name: patch
+      httpMethod: PATCH
+      pattern: write
+      description: Partial update of an existing resource
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+      description: Delete a resource
+    - name: cancel
+      httpMethod: POST
+      pattern: write
+      description: Cancel an order or process
+
+  schemas:
+    core:
+      - name: ProductOffering
+        api: tmf620
+        description: A sellable product offering with pricing and terms
+      - name: ProductSpecification
+        api: tmf620
+        description: Technical specification of a product
+      - name: Customer
+        api: tmf629
+        description: Customer entity with account details
+      - name: Party
+        api: tmf632
+        description: Individual or organization party
+      - name: ProductOrder
+        api: tmf622
+        description: A product order submitted by a customer
+      - name: Product
+        api: tmf637
+        description: A product instance held by a customer
+      - name: TroubleTicket
+        api: tmf621
+        description: A support or trouble ticket
+
+    catalog:
+      - name: Category
+        api: tmf620
+        description: Product catalog category for organizing offerings
+      - name: Catalog
+        api: tmf620
+        description: Product catalog container
+
+    ordering:
+      - name: ProductOrderItem
+        api: tmf622
+        description: Line item within a product order
+      - name: OrderItemRelationship
+        api: tmf622
+        description: Relationship between order items
+
+  parameters:
+    pagination:
+      - name: offset
+        type: integer
+        description: Offset of first result to return
+      - name: limit
+        type: integer
+        description: Maximum number of results to return
+    filters:
+      - name: fields
+        type: string
+        description: Comma-separated list of fields to return
+      - name: lifecycleStatus
+        type: string
+        description: Filter by lifecycle status
+    identifiers:
+      - name: id
+        type: string
+        description: Unique identifier of the resource
+
+  authentication:
+    schemes:
+      - name: OAuth2
+        type: oauth2
+        description: OAuth 2.0 authorization for TM Forum API access
+      - name: BearerAuth
+        type: http
+        scheme: bearer
+        description: Bearer token authentication
+
+capability:
+  workflows:
+    - name: Product-to-Cash
+      description: End-to-end flow from product catalog through ordering to billing
+      apis: [tmf620, tmf622, tmf637]
+      personas: [BSS Architect, Order Manager]
+      domains: [Catalog Management, Order Management, Product Inventory]
+    - name: Trouble-to-Resolution
+      description: Customer-reported issue lifecycle from ticket creation to resolution
+      apis: [tmf621, tmf629]
+      personas: [Support Agent, NOC Engineer]
+      domains: [Support Management, Customer Management]
+    - name: Party Master Data
+      description: Unified party/customer data management across BSS systems
+      apis: [tmf629, tmf632]
+      personas: [Master Data Manager, CRM Admin]
+      domains: [Customer Management, Party Management]
+
+  personas:
+    - id: bss-architect
+      name: BSS Architect
+      description: Designs and implements BSS systems using TM Forum Open APIs
+      workflows: [Product-to-Cash]
+    - id: order-manager
+      name: Order Manager
+      description: Manages product ordering and fulfillment workflows
+      workflows: [Product-to-Cash]
+    - id: support-agent
+      name: Support Agent
+      description: Handles customer trouble tickets and incident resolution
+      workflows: [Trouble-to-Resolution]
+    - id: noc-engineer
+      name: NOC Engineer
+      description: Network operations center engineer managing network incidents
+      workflows: [Trouble-to-Resolution]
+    - id: crm-admin
+      name: CRM Admin
+      description: Manages customer and party master data across systems
+      workflows: [Party Master Data]
+
+  domains:
+    - name: Catalog Management
+      description: Product, service, and resource catalog management
+      apis: [tmf620, tmf633, tmf634]
+    - name: Order Management
+      description: Product, service, and resource ordering
+      apis: [tmf622, tmf641, tmf652]
+    - name: Inventory Management
+      description: Product, service, and resource inventory
+      apis: [tmf637, tmf638, tmf639]
+    - name: Customer Management
+      description: Customer and party lifecycle management
+      apis: [tmf629, tmf632]
+    - name: Support Management
+      description: Trouble ticket and incident management
+      apis: [tmf621]
+
+crossReference:
+  - resource: Product Catalog
+    operations: [list, get, create, update, delete, patch]
+    workflows: [Product-to-Cash]
+    personas: [BSS Architect, Order Manager]
+  - resource: Product Order
+    operations: [list, get, create, update, cancel]
+    workflows: [Product-to-Cash]
+    personas: [Order Manager]
+  - resource: Trouble Ticket
+    operations: [list, get, create, update, patch, delete]
+    workflows: [Trouble-to-Resolution]
+    personas: [Support Agent, NOC Engineer]
+  - resource: Customer
+    operations: [list, get, create, update, patch, delete]
+    workflows: [Party Master Data, Trouble-to-Resolution]
+    personas: [CRM Admin, Support Agent]
+  - resource: Party
+    operations: [list, get, create, update, patch, delete]
+    workflows: [Party Master Data]
+    personas: [CRM Admin, Master Data Manager]

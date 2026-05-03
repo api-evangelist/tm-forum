@@ -1,0 +1,8 @@
+{
+  "id": "ID-7249",
+  "name": "Example Name",
+  "valueType": "standard",
+  "characteristicRelationship": [
+    "sample-characteristicRelationship_item"
+  ]
+}

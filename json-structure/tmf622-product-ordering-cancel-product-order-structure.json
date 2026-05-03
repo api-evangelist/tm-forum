@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-cancel-product-order-structure.json",
+  "name": "CancelProductOrder",
+  "description": "CancelProductOrder schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Request for cancellation an existing product order",
+      "properties": {
+        "productOrder": {
+          "$ref": "#/components/schemas/ProductOrderRef"
+        },
+        "creationDate": {
+          "type": "datetime",
+          "description": "Date and time when the CancelProductOrder was created"
+        },
+        "requestedCancellationDate": {
+          "type": "datetime",
+          "description": "Date when the submitter wants the order to be cancelled"
+        },
+        "cancellationReason": {
+          "type": "string",
+          "description": "Reason why the order is cancelled."
+        },
+        "state": {
+          "$ref": "#/components/schemas/TaskStateType"
+        },
+        "effectiveCancellationDate": {
+          "type": "datetime",
+          "description": "Date when the order is cancelled."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CancelProductOrder": "#/components/schemas/CancelProductOrder"
+    }
+  }
+}

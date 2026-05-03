@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf629-customer-management-other-name-organization-structure.json",
+  "name": "OtherNameOrganization",
+  "description": "OtherNameOrganization schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Keeps track of other names, for example the old name of an organization.",
+      "properties": {
+        "tradingName": {
+          "type": "string",
+          "description": "The name that the organization trades under"
+        },
+        "nameType": {
+          "type": "string",
+          "description": "Co. , Inc. , Ltd. , Pty Ltd. , Plc; , Gmbh"
+        },
+        "name": {
+          "type": "string",
+          "description": "Organization name (department name for example)"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OtherNameOrganization": "#/components/schemas/OtherNameOrganization"
+    }
+  }
+}

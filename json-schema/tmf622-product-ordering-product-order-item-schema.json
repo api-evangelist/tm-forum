@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-product-order-item-schema.json",
+  "title": "ProductOrderItem",
+  "description": "ProductOrderItem schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "An identified part of the order. A product order is decomposed into one or more order items.",
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "description": "Quantity ordered"
+        },
+        "action": {
+          "$ref": "#/components/schemas/ItemActionType"
+        },
+        "appointment": {
+          "$ref": "#/components/schemas/AppointmentRef"
+        },
+        "billingAccount": {
+          "$ref": "#/components/schemas/BillingAccountRef"
+        },
+        "itemPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderPrice"
+          }
+        },
+        "itemTerm": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderTerm"
+          }
+        },
+        "itemTotalPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderPrice"
+          }
+        },
+        "note": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Note"
+          }
+        },
+        "payment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PaymentRef"
+          }
+        },
+        "product": {
+          "$ref": "#/components/schemas/ProductRefOrValue"
+        },
+        "productOffering": {
+          "$ref": "#/components/schemas/ProductOfferingRef"
+        },
+        "productOfferingQualificationItem": {
+          "$ref": "#/components/schemas/ProductOfferingQualificationItemRef"
+        },
+        "quoteItem": {
+          "$ref": "#/components/schemas/QuoteItemRef"
+        },
+        "productOrderItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItem"
+          }
+        },
+        "productOrderItemRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderItemRelationship"
+          }
+        },
+        "state": {
+          "$ref": "#/components/schemas/ProductOrderItemStateType"
+        },
+        "qualification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOfferingQualificationRef"
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "Identifier of the ProductOrder item (generally it is a sequence number 01, 02, 03, ...)"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderItem": "#/components/schemas/ProductOrderItem"
+    }
+  }
+}

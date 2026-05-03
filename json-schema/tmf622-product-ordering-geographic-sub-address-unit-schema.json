@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf622-product-ordering-geographic-sub-address-unit-schema.json",
+  "title": "GeographicSubAddressUnit",
+  "description": "GeographicSubAddressUnit schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Representation of a SubUnit. It is used for describing subunit within a subAddress e.g. BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF.",
+      "properties": {
+        "subUnitNumber": {
+          "type": "string",
+          "description": "The discriminator used for the subunit, often just a simple number but may also be a range."
+        },
+        "subUnitType": {
+          "type": "string",
+          "description": "The type of subunit e.g.BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF, RACK"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicSubAddressUnit": "#/components/schemas/GeographicSubAddressUnit"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-producer-structure.json",
+  "name": "Producer",
+  "description": "Producer schema from TM Forum API",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole"
+    }
+  ]
+}

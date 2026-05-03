@@ -1,0 +1,19 @@
+{
+  "id": "ID-6047",
+  "name": "Example Name",
+  "valueType": "standard",
+  "description": "Description of the description",
+  "configurable": false,
+  "minCardinality": 85,
+  "maxCardinality": 27,
+  "isUnique": true,
+  "regex": "sample-regex",
+  "extensible": true,
+  "@valueSchemaLocation": "sample-@valueSchemaLocation",
+  "charSpecRelationship": [
+    "sample-charSpecRelationship_item"
+  ],
+  "characteristicValueSpecification": [
+    "sample-characteristicValueSpecification_item"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-boolean-characteristic-structure.json",
+  "name": "BooleanCharacteristic",
+  "description": "BooleanCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Boolean.",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

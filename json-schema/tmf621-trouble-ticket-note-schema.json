@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-note-schema.json",
+  "title": "Note",
+  "description": "Note schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Extra information about a given entity",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the note within its containing entity",
+          "example": "afa9-3d90aaa8da0f"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author of the note",
+          "example": "Mr. N. Bene"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the note",
+          "example": "2020-11-20T08:00:00Z"
+        },
+        "text": {
+          "type": "string",
+          "description": "Text of the note",
+          "example": "This is important"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Note": "#/components/schemas/Note"
+    }
+  }
+}

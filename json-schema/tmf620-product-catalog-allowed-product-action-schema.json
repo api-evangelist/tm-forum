@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf620-product-catalog-allowed-product-action-schema.json",
+  "title": "AllowedProductAction",
+  "description": "AllowedProductAction schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Defines an action that can be taken on a product in the inventory as part of a product order. It is expected that this entity will be attached to product catalog items such as specifications and offerings",
+      "properties": {
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "channel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ChannelRef"
+          },
+          "description": "A list of sales channels in which this action is allowed; for instance Remove might be allowed only in an assisted channel not in a self-service channel",
+          "example": {
+            "id": "4406",
+            "href": "https://mycsp.com:8080/tmf-api/salesChannelManagement/v4/channel/4406",
+            "name": "Online Channel",
+            "@referredType": "SalesChannel",
+            "@type": "ChannelRef",
+            "@baseType": "",
+            "@schemaLocation": "https://mycsp.com:8080/tmf-api/schemas/Common/ChannelRef.schema.json"
+          }
+        },
+        "action": {
+          "type": "string",
+          "description": "The name of the action",
+          "example": "add"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "AllowedProductAction": "#/components/schemas/AllowedProductAction"
+    }
+  }
+}

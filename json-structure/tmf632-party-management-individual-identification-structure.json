@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-individual-identification-structure.json",
+  "name": "IndividualIdentification",
+  "description": "IndividualIdentification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Represents our registration of information used as proof of identity by an individual (passport, national identity card, drivers license, social security number, birth certificate)",
+      "properties": {
+        "identificationId": {
+          "type": "string",
+          "description": "Identifier"
+        },
+        "issuingAuthority": {
+          "type": "string",
+          "description": "Authority which has issued the identifier, such as: social security, town hall"
+        },
+        "issuingDate": {
+          "type": "datetime",
+          "description": "Date at which the identifier was issued"
+        },
+        "identificationType": {
+          "type": "string",
+          "description": "Identification type (passport, national identity card, drivers license, social security number, birth certificate)"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "attachment": {
+          "$ref": "#/components/schemas/AttachmentRefOrValue"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IndividualIdentification": "#/components/schemas/IndividualIdentification"
+    }
+  }
+}

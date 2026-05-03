@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf632-party-management-language-ability-schema.json",
+  "title": "LanguageAbility",
+  "description": "Ability of an individual to understand or converse in a language.",
+  "type": "object",
+  "properties": {
+    "languageCode": {
+      "type": "string",
+      "description": "Language code (RFC 5646)"
+    },
+    "languageName": {
+      "type": "string",
+      "description": "Language name"
+    },
+    "isFavouriteLanguage": {
+      "type": "boolean",
+      "description": "A \u201ctrue\u201d value specifies whether the language is considered by the individual as his favourite one"
+    },
+    "writingProficiency": {
+      "type": "string",
+      "description": "Writing proficiency evaluated for this language"
+    },
+    "readingProficiency": {
+      "type": "string",
+      "description": "Reading proficiency evaluated for this language"
+    },
+    "speakingProficiency": {
+      "type": "string",
+      "description": "Speaking proficiency evaluated for this language"
+    },
+    "listeningProficiency": {
+      "type": "string",
+      "description": "Listening proficiency evaluated for this language"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    }
+  }
+}

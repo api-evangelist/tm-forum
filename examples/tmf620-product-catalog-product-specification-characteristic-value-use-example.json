@@ -1,0 +1,11 @@
+{
+  "name": "Example Name",
+  "id": "ID-8755",
+  "description": "Description of the description",
+  "valueType": "standard",
+  "minCardinality": 92,
+  "maxCardinality": 1,
+  "productSpecCharacteristicValue": [
+    "sample-productSpecCharacteristicValue_item"
+  ]
+}

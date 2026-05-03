@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf629-customer-management-boolean-characteristic-schema.json",
+  "title": "BooleanCharacteristic",
+  "description": "BooleanCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Boolean.",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

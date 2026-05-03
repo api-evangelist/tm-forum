@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf620-product-catalog-string-characteristic-value-specification-structure.json",
+  "name": "StringCharacteristicValueSpecification",
+  "description": "StringCharacteristicValueSpecification schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a string",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

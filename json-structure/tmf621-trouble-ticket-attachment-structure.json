@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf621-trouble-ticket-attachment-structure.json",
+  "name": "Attachment",
+  "description": "Attachment schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Complements the description of an element (for instance a product) through video, pictures...",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the attachment"
+        },
+        "description": {
+          "type": "string",
+          "description": "A narrative text describing the content of the attachment",
+          "example": "Photograph of the Product"
+        },
+        "url": {
+          "type": "string",
+          "description": "Uniform Resource Locator, is a web page address (a subset of URI)",
+          "example": "https://host/Content/4aafacbd-11ff-4dc8-b445-305f2215715f"
+        },
+        "content": {
+          "type": "string",
+          "format": "base64",
+          "description": "The actual contents of the attachment object, if embedded, encoded as base64"
+        },
+        "size": {
+          "$ref": "#/components/schemas/Quantity"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "attachmentType": {
+          "type": "string",
+          "description": "a business characterization of the purpose of the attachment, for example logo, instructionManual, contractCopy"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "a technical characterization of the attachment content format using IETF Mime Types"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Attachment": "#/components/schemas/Attachment"
+    }
+  }
+}

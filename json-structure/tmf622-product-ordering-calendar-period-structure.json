@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf622-product-ordering-calendar-period-structure.json",
+  "name": "CalendarPeriod",
+  "description": "CalendarPeriod schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "string",
+          "description": "Day where the calendar status applies (e.g.: monday, mon-to-fri, weekdays, weekend, all week, ...)"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Indication of the timezone applicable to the calendar information (e.g.: Paris, GMT+1)"
+        },
+        "hourPeriod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/HourPeriod"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "Indication of the availability of the caledar period (e.g.: available, booked, etc.)"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CalendarPeriod": "#/components/schemas/CalendarPeriod"
+    }
+  }
+}

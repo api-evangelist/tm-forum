@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-structure/tmf632-party-management-number-characteristic-structure.json",
+  "name": "NumberCharacteristic",
+  "description": "NumberCharacteristic schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Number.",
+      "properties": {
+        "value": {
+          "type": "double",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

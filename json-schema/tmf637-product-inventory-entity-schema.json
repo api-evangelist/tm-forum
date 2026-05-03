@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf637-product-inventory-entity-schema.json",
+  "title": "Entity",
+  "description": "Base entity schema for use in TMForum Open-APIs. Property.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/Addressable"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/json-schema/tmf621-trouble-ticket-status-change-schema.json",
+  "title": "StatusChange",
+  "description": "StatusChange schema from TM Forum API",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Holds the status, reasons and associated date the status changed, populated by the server",
+      "properties": {
+        "statusChangeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the status changed."
+        },
+        "statusChangeReason": {
+          "type": "string",
+          "description": "The reason why the status changed."
+        },
+        "status": {
+          "$ref": "#/components/schemas/TroubleTicketStatusType"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "StatusChange": "#/components/schemas/StatusChange"
+    }
+  }
+}

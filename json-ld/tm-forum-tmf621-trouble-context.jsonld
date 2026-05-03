@@ -1,0 +1,361 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tmf": "https://tmforum.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Addressable": "tmf:Addressable",
+    "Entity": "tmf:Entity",
+    "Extensible": "tmf:Extensible",
+    "JsonPatch": "tmf:JsonPatch",
+    "Quantity": "tmf:Quantity",
+    "TimePeriod": "tmf:TimePeriod",
+    "TroubleTicketSpecification_RES": "tmf:TroubleTicketSpecification_RES",
+    "TroubleTicket_RES": "tmf:TroubleTicket_RES",
+    "@baseType": {
+      "@id": "tmf:@baseType",
+      "@type": "xsd:string"
+    },
+    "@schemaLocation": {
+      "@id": "tmf:@schemaLocation",
+      "@type": "xsd:string"
+    },
+    "@type": {
+      "@id": "tmf:@type",
+      "@type": "xsd:string"
+    },
+    "@valueSchemaLocation": {
+      "@id": "tmf:@valueSchemaLocation",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "tmf:amount",
+      "@type": "xsd:decimal"
+    },
+    "attachment": {
+      "@id": "tmf:attachment",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "attachmentType": {
+      "@id": "tmf:attachmentType",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "tmf:author",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "tmf:channel",
+      "@type": "xsd:string"
+    },
+    "charSpecRelationship": {
+      "@id": "tmf:charSpecRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicRelationship": {
+      "@id": "tmf:characteristicRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "characteristicSpecificationId": {
+      "@id": "tmf:characteristicSpecificationId",
+      "@type": "xsd:string"
+    },
+    "characteristicValueSpecification": {
+      "@id": "tmf:characteristicValueSpecification",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "tmf:city",
+      "@type": "xsd:string"
+    },
+    "configurable": {
+      "@id": "tmf:configurable",
+      "@type": "xsd:boolean"
+    },
+    "contactType": {
+      "@id": "tmf:contactType",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "tmf:content",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "tmf:country",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "tmf:creationDate",
+      "@type": "xsd:dateTime"
+    },
+    "date": {
+      "@id": "tmf:date",
+      "@type": "xsd:dateTime"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "emailAddress": {
+      "@id": "tmf:emailAddress",
+      "@type": "xsd:string"
+    },
+    "endDateTime": {
+      "@id": "tmf:endDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "entity": {
+      "@id": "tmf:entity",
+      "@type": "xsd:string"
+    },
+    "expectedResolutionDate": {
+      "@id": "tmf:expectedResolutionDate",
+      "@type": "xsd:dateTime"
+    },
+    "extensible": {
+      "@id": "tmf:extensible",
+      "@type": "xsd:boolean"
+    },
+    "externalIdentifier": {
+      "@id": "tmf:externalIdentifier",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "externalIdentifierType": {
+      "@id": "tmf:externalIdentifierType",
+      "@type": "xsd:string"
+    },
+    "faxNumber": {
+      "@id": "tmf:faxNumber",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "tmf:from",
+      "@type": "xsd:string"
+    },
+    "geographicAddress": {
+      "@id": "tmf:geographicAddress",
+      "@type": "xsd:string"
+    },
+    "href": {
+      "@id": "tmf:href",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "tmf:id",
+      "@type": "xsd:string"
+    },
+    "isDefault": {
+      "@id": "tmf:isDefault",
+      "@type": "xsd:boolean"
+    },
+    "isUnique": {
+      "@id": "tmf:isUnique",
+      "@type": "xsd:boolean"
+    },
+    "lastUpdate": {
+      "@id": "tmf:lastUpdate",
+      "@type": "xsd:dateTime"
+    },
+    "lifecycleStatus": {
+      "@id": "tmf:lifecycleStatus",
+      "@type": "xsd:string"
+    },
+    "maxCardinality": {
+      "@id": "tmf:maxCardinality",
+      "@type": "xsd:integer"
+    },
+    "mimeType": {
+      "@id": "tmf:mimeType",
+      "@type": "xsd:string"
+    },
+    "minCardinality": {
+      "@id": "tmf:minCardinality",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "note": {
+      "@id": "tmf:note",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "op": {
+      "@id": "tmf:op",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "tmf:owner",
+      "@type": "xsd:string"
+    },
+    "parentSpecificationHref": {
+      "@id": "tmf:parentSpecificationHref",
+      "@type": "@id"
+    },
+    "parentSpecificationId": {
+      "@id": "tmf:parentSpecificationId",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "tmf:path",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "tmf:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "postCode": {
+      "@id": "tmf:postCode",
+      "@type": "xsd:string"
+    },
+    "preferred": {
+      "@id": "tmf:preferred",
+      "@type": "xsd:boolean"
+    },
+    "priority": {
+      "@id": "tmf:priority",
+      "@type": "xsd:string"
+    },
+    "rangeInterval": {
+      "@id": "tmf:rangeInterval",
+      "@type": "xsd:string"
+    },
+    "regex": {
+      "@id": "tmf:regex",
+      "@type": "xsd:string"
+    },
+    "relatedEntity": {
+      "@id": "tmf:relatedEntity",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "relatedParty": {
+      "@id": "tmf:relatedParty",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "tmf:relationshipType",
+      "@type": "xsd:string"
+    },
+    "requestedResolutionDate": {
+      "@id": "tmf:requestedResolutionDate",
+      "@type": "xsd:dateTime"
+    },
+    "resolutionDate": {
+      "@id": "tmf:resolutionDate",
+      "@type": "xsd:dateTime"
+    },
+    "role": {
+      "@id": "tmf:role",
+      "@type": "xsd:string"
+    },
+    "severity": {
+      "@id": "tmf:severity",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "tmf:size",
+      "@type": "xsd:string"
+    },
+    "specCharacteristic": {
+      "@id": "tmf:specCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "startDateTime": {
+      "@id": "tmf:startDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "stateOrProvince": {
+      "@id": "tmf:stateOrProvince",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "tmf:status",
+      "@type": "xsd:string"
+    },
+    "statusChangeDate": {
+      "@id": "tmf:statusChangeDate",
+      "@type": "xsd:dateTime"
+    },
+    "statusChangeHistory": {
+      "@id": "tmf:statusChangeHistory",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "statusChangeReason": {
+      "@id": "tmf:statusChangeReason",
+      "@type": "xsd:string"
+    },
+    "street1": {
+      "@id": "tmf:street1",
+      "@type": "xsd:string"
+    },
+    "street2": {
+      "@id": "tmf:street2",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "tmf:text",
+      "@type": "xsd:string"
+    },
+    "ticketType": {
+      "@id": "tmf:ticketType",
+      "@type": "xsd:string"
+    },
+    "troubleTicketCharacteristic": {
+      "@id": "tmf:troubleTicketCharacteristic",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "troubleTicketRelationship": {
+      "@id": "tmf:troubleTicketRelationship",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "troubleTicketSpecification": {
+      "@id": "tmf:troubleTicketSpecification",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "tmf:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "units": {
+      "@id": "tmf:units",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "validFor": {
+      "@id": "tmf:validFor",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "tmf:value",
+      "@type": "xsd:integer"
+    },
+    "valueFrom": {
+      "@id": "tmf:valueFrom",
+      "@type": "xsd:integer"
+    },
+    "valueTo": {
+      "@id": "tmf:valueTo",
+      "@type": "xsd:integer"
+    },
+    "valueType": {
+      "@id": "tmf:valueType",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version"
+    }
+  }
+}
