@@ -1,195 +1,344 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "TM Forum Customer Support"
-  description: "Unified workflow capability combining TM Forum Customer Management (TMF629) and Trouble Ticket (TMF621) APIs for end-to-end customer support operations, from customer lookup to ticket resolution. Used by support agents and NOC engineers."
+  label: TM Forum Customer Support
+  description: Unified workflow capability combining TM Forum Customer Management (TMF629) and Trouble Ticket (TMF621) APIs
+    for end-to-end customer support operations, from customer lookup to ticket resolution. Used by support agents and NOC
+    engineers.
   tags:
-    - TM Forum
-    - Customer Management
-    - Trouble Ticket
-    - Support
-    - Telecommunications
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - TM Forum
+  - Customer Management
+  - Trouble Ticket
+  - Support
+  - Telecommunications
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      TMF_API_KEY: TMF_API_KEY
-
+- namespace: env
+  keys:
+    TMF_API_KEY: TMF_API_KEY
 capability:
   consumes:
-    - import: tmf629
-      location: ./shared/tmf629-customer-management.yaml
-    - import: tmf621
-      location: ./shared/tmf621-trouble-ticket.yaml
-
+  - type: http
+    namespace: tmf629
+    baseUri: https://serverRoot/tmf-api/customerManagement/v5
+    description: TM Forum Customer Management API v5
+    authentication:
+      type: bearer
+      token: '{{TMF_API_KEY}}'
+    resources:
+    - name: customer
+      path: /customer
+      description: Customer accounts
+      operations:
+      - name: listCustomer
+        method: GET
+        description: TM Forum List or Find Customer Objects
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          required: false
+          description: Offset for pagination
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Limit for pagination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: createCustomer
+        method: POST
+        description: TM Forum Create a Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            status: '{{tools.status}}'
+      - name: retrieveCustomer
+        method: GET
+        description: TM Forum Retrieve a Customer by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Customer identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchCustomer
+        method: PATCH
+        description: TM Forum Update Partially a Customer
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Customer identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteCustomer
+        method: DELETE
+        description: TM Forum Delete a Customer
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Customer identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  - type: http
+    namespace: tmf621
+    baseUri: https://serverRoot/tmf-api/troubleTicket/v5
+    description: TM Forum Trouble Ticket Management API v5
+    authentication:
+      type: bearer
+      token: '{{TMF_API_KEY}}'
+    resources:
+    - name: troubleTicket
+      path: /troubleTicket
+      description: Trouble tickets
+      operations:
+      - name: listTroubleTicket
+        method: GET
+        description: TM Forum List or Find Trouble Ticket Objects
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          required: false
+          description: Offset for pagination
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Limit for pagination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: createTroubleTicket
+        method: POST
+        description: TM Forum Create a Trouble Ticket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            name: '{{tools.name}}'
+            description: '{{tools.description}}'
+            severity: '{{tools.severity}}'
+      - name: retrieveTroubleTicket
+        method: GET
+        description: TM Forum Retrieve a Trouble Ticket by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Trouble ticket identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchTroubleTicket
+        method: PATCH
+        description: TM Forum Update Partially a Trouble Ticket
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Trouble ticket identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8081
-      namespace: customer-support-api
-      description: "Unified REST API for TM Forum customer support workflow."
-      resources:
-        - path: /v1/customers
-          name: customers
-          description: "Customer accounts"
-          operations:
-            - method: GET
-              name: list-customers
-              description: "List customer accounts"
-              call: "tmf629.listCustomer"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-            - method: POST
-              name: create-customer
-              description: "Create a new customer account"
-              call: "tmf629.createCustomer"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/customers/{id}
-          name: customer
-          description: "Individual customer account"
-          operations:
-            - method: GET
-              name: get-customer
-              description: "Retrieve a customer account"
-              call: "tmf629.retrieveCustomer"
-              with:
-                id: "rest.id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/trouble-tickets
-          name: trouble-tickets
-          description: "Trouble tickets"
-          operations:
-            - method: GET
-              name: list-trouble-tickets
-              description: "List trouble tickets"
-              call: "tmf621.listTroubleTicket"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-            - method: POST
-              name: create-trouble-ticket
-              description: "Create a new trouble ticket"
-              call: "tmf621.createTroubleTicket"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/trouble-tickets/{id}
-          name: trouble-ticket
-          description: "Individual trouble ticket"
-          operations:
-            - method: GET
-              name: get-trouble-ticket
-              description: "Retrieve a trouble ticket"
-              call: "tmf621.retrieveTroubleTicket"
-              with:
-                id: "rest.id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: PATCH
-              name: update-trouble-ticket
-              description: "Update a trouble ticket status"
-              call: "tmf621.patchTroubleTicket"
-              with:
-                id: "rest.id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9091
-      namespace: customer-support-mcp
-      transport: http
-      description: "MCP server for AI-assisted TM Forum customer support operations."
-      tools:
-        - name: list-customers
-          description: "List or find customer accounts"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tmf629.listCustomer"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: get-customer
-          description: "Retrieve a specific customer account by ID"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "tmf629.retrieveCustomer"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-customer
-          description: "Create a new customer account"
-          hints:
-            readOnly: false
-            openWorld: false
-          call: "tmf629.createCustomer"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: update-customer
-          description: "Partially update a customer account"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: true
-          call: "tmf629.patchCustomer"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-trouble-tickets
-          description: "List or find trouble tickets"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "tmf621.listTroubleTicket"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: get-trouble-ticket
-          description: "Retrieve a specific trouble ticket by ID"
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "tmf621.retrieveTroubleTicket"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-trouble-ticket
-          description: "Create a new customer trouble ticket"
-          hints:
-            readOnly: false
-            openWorld: false
-          call: "tmf621.createTroubleTicket"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: update-trouble-ticket
-          description: "Update trouble ticket status, severity, or resolution"
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: true
-          call: "tmf621.patchTroubleTicket"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8081
+    namespace: customer-support-api
+    description: Unified REST API for TM Forum customer support workflow.
+    resources:
+    - path: /v1/customers
+      name: customers
+      description: Customer accounts
+      operations:
+      - method: GET
+        name: list-customers
+        description: List customer accounts
+        call: tmf629.listCustomer
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: create-customer
+        description: Create a new customer account
+        call: tmf629.createCustomer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/customers/{id}
+      name: customer
+      description: Individual customer account
+      operations:
+      - method: GET
+        name: get-customer
+        description: Retrieve a customer account
+        call: tmf629.retrieveCustomer
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/trouble-tickets
+      name: trouble-tickets
+      description: Trouble tickets
+      operations:
+      - method: GET
+        name: list-trouble-tickets
+        description: List trouble tickets
+        call: tmf621.listTroubleTicket
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: create-trouble-ticket
+        description: Create a new trouble ticket
+        call: tmf621.createTroubleTicket
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/trouble-tickets/{id}
+      name: trouble-ticket
+      description: Individual trouble ticket
+      operations:
+      - method: GET
+        name: get-trouble-ticket
+        description: Retrieve a trouble ticket
+        call: tmf621.retrieveTroubleTicket
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update-trouble-ticket
+        description: Update a trouble ticket status
+        call: tmf621.patchTroubleTicket
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9091
+    namespace: customer-support-mcp
+    transport: http
+    description: MCP server for AI-assisted TM Forum customer support operations.
+    tools:
+    - name: list-customers
+      description: List or find customer accounts
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tmf629.listCustomer
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-customer
+      description: Retrieve a specific customer account by ID
+      hints:
+        readOnly: true
+        openWorld: false
+      call: tmf629.retrieveCustomer
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-customer
+      description: Create a new customer account
+      hints:
+        readOnly: false
+        openWorld: false
+      call: tmf629.createCustomer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-customer
+      description: Partially update a customer account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf629.patchCustomer
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-trouble-tickets
+      description: List or find trouble tickets
+      hints:
+        readOnly: true
+        openWorld: true
+      call: tmf621.listTroubleTicket
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-trouble-ticket
+      description: Retrieve a specific trouble ticket by ID
+      hints:
+        readOnly: true
+        openWorld: false
+      call: tmf621.retrieveTroubleTicket
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-trouble-ticket
+      description: Create a new customer trouble ticket
+      hints:
+        readOnly: false
+        openWorld: false
+      call: tmf621.createTroubleTicket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-trouble-ticket
+      description: Update trouble ticket status, severity, or resolution
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf621.patchTroubleTicket
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
