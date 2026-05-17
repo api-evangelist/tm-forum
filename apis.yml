@@ -12,7 +12,7 @@ description: >-
   The Open APIs implement consistent REST/JSON patterns aligned to the TM Forum
   Information Framework (SID) and enable interoperability across telecom
   ecosystems.
-type: Contract
+kind: contract
 position: Consuming
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
