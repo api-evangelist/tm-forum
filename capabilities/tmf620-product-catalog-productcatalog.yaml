@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Product Catalog Management — productCatalog
+  description: 'Product Catalog Management — productCatalog. 5 operations. Lead operation: TM Forum List or Find ProductCatalog
+    Objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - productCatalog
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf620-product-catalog-productcatalog
+    baseUri: https://serverRoot/productCatalogManagement/v5
+    description: Product Catalog Management — productCatalog business capability. Self-contained, no shared references.
+    resources:
+    - name: productCatalog
+      path: /productCatalog
+      operations:
+      - name: listproductcatalog
+        method: GET
+        description: TM Forum List or Find ProductCatalog Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createproductcatalog
+        method: POST
+        description: TM Forum Creates a ProductCatalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: productCatalog-id
+      path: /productCatalog/{id}
+      operations:
+      - name: retrieveproductcatalog
+        method: GET
+        description: TM Forum Retrieves a ProductCatalog by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchproductcatalog
+        method: PATCH
+        description: TM Forum Updates Partially a ProductCatalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteproductcatalog
+        method: DELETE
+        description: TM Forum Deletes a ProductCatalog
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf620-product-catalog-productcatalog-rest
+    port: 8080
+    description: REST adapter for Product Catalog Management — productCatalog. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/productcatalog
+      name: productcatalog
+      description: REST surface for productCatalog.
+      operations:
+      - method: GET
+        name: listproductcatalog
+        description: TM Forum List or Find ProductCatalog Objects
+        call: tmf620-product-catalog-productcatalog.listproductcatalog
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createproductcatalog
+        description: TM Forum Creates a ProductCatalog
+        call: tmf620-product-catalog-productcatalog.createproductcatalog
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/productcatalog/{id}
+      name: productcatalog-id
+      description: REST surface for productCatalog-id.
+      operations:
+      - method: GET
+        name: retrieveproductcatalog
+        description: TM Forum Retrieves a ProductCatalog by ID
+        call: tmf620-product-catalog-productcatalog.retrieveproductcatalog
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchproductcatalog
+        description: TM Forum Updates Partially a ProductCatalog
+        call: tmf620-product-catalog-productcatalog.patchproductcatalog
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteproductcatalog
+        description: TM Forum Deletes a ProductCatalog
+        call: tmf620-product-catalog-productcatalog.deleteproductcatalog
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf620-product-catalog-productcatalog-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Product Catalog Management — productCatalog. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-productcatalog
+      description: TM Forum List or Find ProductCatalog Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productcatalog.listproductcatalog
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-productcatalog
+      description: TM Forum Creates a ProductCatalog
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf620-product-catalog-productcatalog.createproductcatalog
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-productcatalog-id
+      description: TM Forum Retrieves a ProductCatalog by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productcatalog.retrieveproductcatalog
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-updates-partially-productcatalog
+      description: TM Forum Updates Partially a ProductCatalog
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productcatalog.patchproductcatalog
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-deletes-productcatalog
+      description: TM Forum Deletes a ProductCatalog
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf620-product-catalog-productcatalog.deleteproductcatalog
+      outputParameters:
+      - type: object
+        mapping: $.

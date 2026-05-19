@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Product Catalog Management — category
+  description: 'Product Catalog Management — category. 5 operations. Lead operation: TM Forum List or Find Category Objects.
+    Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - category
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf620-product-catalog-category
+    baseUri: https://serverRoot/productCatalogManagement/v5
+    description: Product Catalog Management — category business capability. Self-contained, no shared references.
+    resources:
+    - name: category
+      path: /category
+      operations:
+      - name: listcategory
+        method: GET
+        description: TM Forum List or Find Category Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcategory
+        method: POST
+        description: TM Forum Creates a Category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: category-id
+      path: /category/{id}
+      operations:
+      - name: retrievecategory
+        method: GET
+        description: TM Forum Retrieves a Category by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchcategory
+        method: PATCH
+        description: TM Forum Updates Partially a Category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletecategory
+        method: DELETE
+        description: TM Forum Deletes a Category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf620-product-catalog-category-rest
+    port: 8080
+    description: REST adapter for Product Catalog Management — category. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/category
+      name: category
+      description: REST surface for category.
+      operations:
+      - method: GET
+        name: listcategory
+        description: TM Forum List or Find Category Objects
+        call: tmf620-product-catalog-category.listcategory
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcategory
+        description: TM Forum Creates a Category
+        call: tmf620-product-catalog-category.createcategory
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/category/{id}
+      name: category-id
+      description: REST surface for category-id.
+      operations:
+      - method: GET
+        name: retrievecategory
+        description: TM Forum Retrieves a Category by ID
+        call: tmf620-product-catalog-category.retrievecategory
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchcategory
+        description: TM Forum Updates Partially a Category
+        call: tmf620-product-catalog-category.patchcategory
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecategory
+        description: TM Forum Deletes a Category
+        call: tmf620-product-catalog-category.deletecategory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf620-product-catalog-category-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Product Catalog Management — category. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-category
+      description: TM Forum List or Find Category Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-category.listcategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-category
+      description: TM Forum Creates a Category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf620-product-catalog-category.createcategory
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-category-id
+      description: TM Forum Retrieves a Category by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-category.retrievecategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-updates-partially-category
+      description: TM Forum Updates Partially a Category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-category.patchcategory
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-deletes-category
+      description: TM Forum Deletes a Category
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf620-product-catalog-category.deletecategory
+      outputParameters:
+      - type: object
+        mapping: $.

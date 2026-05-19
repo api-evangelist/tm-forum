@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trouble Ticket — troubleTicketSpecification
+  description: 'Trouble Ticket — troubleTicketSpecification. 5 operations. Lead operation: TM Forum List or Find TroubleTicketSpecification
+    Objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - troubleTicketSpecification
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf621-trouble-ticket-troubleticketspecification
+    baseUri: ''
+    description: Trouble Ticket — troubleTicketSpecification business capability. Self-contained, no shared references.
+    resources:
+    - name: troubleTicketSpecification
+      path: /troubleTicketSpecification
+      operations:
+      - name: listtroubleticketspecification
+        method: GET
+        description: TM Forum List or Find TroubleTicketSpecification Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtroubleticketspecification
+        method: POST
+        description: TM Forum Creates a TroubleTicketSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: troubleTicketSpecification-id
+      path: /troubleTicketSpecification/{id}
+      operations:
+      - name: retrievetroubleticketspecification
+        method: GET
+        description: TM Forum Retrieves a TroubleTicketSpecification by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchtroubleticketspecification
+        method: PATCH
+        description: TM Forum Updates Partially a TroubleTicketSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletetroubleticketspecification
+        method: DELETE
+        description: TM Forum Deletes a TroubleTicketSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf621-trouble-ticket-troubleticketspecification-rest
+    port: 8080
+    description: REST adapter for Trouble Ticket — troubleTicketSpecification. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/troubleticketspecification
+      name: troubleticketspecification
+      description: REST surface for troubleTicketSpecification.
+      operations:
+      - method: GET
+        name: listtroubleticketspecification
+        description: TM Forum List or Find TroubleTicketSpecification Objects
+        call: tmf621-trouble-ticket-troubleticketspecification.listtroubleticketspecification
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtroubleticketspecification
+        description: TM Forum Creates a TroubleTicketSpecification
+        call: tmf621-trouble-ticket-troubleticketspecification.createtroubleticketspecification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/troubleticketspecification/{id}
+      name: troubleticketspecification-id
+      description: REST surface for troubleTicketSpecification-id.
+      operations:
+      - method: GET
+        name: retrievetroubleticketspecification
+        description: TM Forum Retrieves a TroubleTicketSpecification by ID
+        call: tmf621-trouble-ticket-troubleticketspecification.retrievetroubleticketspecification
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchtroubleticketspecification
+        description: TM Forum Updates Partially a TroubleTicketSpecification
+        call: tmf621-trouble-ticket-troubleticketspecification.patchtroubleticketspecification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetroubleticketspecification
+        description: TM Forum Deletes a TroubleTicketSpecification
+        call: tmf621-trouble-ticket-troubleticketspecification.deletetroubleticketspecification
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf621-trouble-ticket-troubleticketspecification-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Trouble Ticket — troubleTicketSpecification. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-troubleticketspecification
+      description: TM Forum List or Find TroubleTicketSpecification Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticketspecification.listtroubleticketspecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-troubleticketspecification
+      description: TM Forum Creates a TroubleTicketSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf621-trouble-ticket-troubleticketspecification.createtroubleticketspecification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-troubleticketspecification-id
+      description: TM Forum Retrieves a TroubleTicketSpecification by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticketspecification.retrievetroubleticketspecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-updates-partially-troubleticketspecification
+      description: TM Forum Updates Partially a TroubleTicketSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticketspecification.patchtroubleticketspecification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-deletes-troubleticketspecification
+      description: TM Forum Deletes a TroubleTicketSpecification
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticketspecification.deletetroubleticketspecification
+      outputParameters:
+      - type: object
+        mapping: $.

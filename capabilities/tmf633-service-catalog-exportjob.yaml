@@ -1,0 +1,206 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Service Catalog Management — exportJob
+  description: 'Service Catalog Management — exportJob. 4 operations. Lead operation: List or find ExportJob objects. Self-contained
+    Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - exportJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf633-service-catalog-exportjob
+    baseUri: https://serverRoot/tmf-api/serviceCatalogManagement/v4
+    description: Service Catalog Management — exportJob business capability. Self-contained, no shared references.
+    resources:
+    - name: exportJob
+      path: /exportJob
+      operations:
+      - name: listexportjob
+        method: GET
+        description: List or find ExportJob objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createexportjob
+        method: POST
+        description: Creates a ExportJob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: exportJob
+          in: body
+          type: string
+          description: The ExportJob to be created
+          required: true
+    - name: exportJob-id
+      path: /exportJob/{id}
+      operations:
+      - name: retrieveexportjob
+        method: GET
+        description: Retrieves a ExportJob by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ExportJob
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: deleteexportjob
+        method: DELETE
+        description: Deletes a ExportJob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ExportJob
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf633-service-catalog-exportjob-rest
+    port: 8080
+    description: REST adapter for Service Catalog Management — exportJob. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/exportjob
+      name: exportjob
+      description: REST surface for exportJob.
+      operations:
+      - method: GET
+        name: listexportjob
+        description: List or find ExportJob objects
+        call: tmf633-service-catalog-exportjob.listexportjob
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createexportjob
+        description: Creates a ExportJob
+        call: tmf633-service-catalog-exportjob.createexportjob
+        with:
+          exportJob: rest.exportJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/exportjob/{id}
+      name: exportjob-id
+      description: REST surface for exportJob-id.
+      operations:
+      - method: GET
+        name: retrieveexportjob
+        description: Retrieves a ExportJob by ID
+        call: tmf633-service-catalog-exportjob.retrieveexportjob
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteexportjob
+        description: Deletes a ExportJob
+        call: tmf633-service-catalog-exportjob.deleteexportjob
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf633-service-catalog-exportjob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Service Catalog Management — exportJob. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-find-exportjob-objects
+      description: List or find ExportJob objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-exportjob.listexportjob
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-exportjob
+      description: Creates a ExportJob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-exportjob.createexportjob
+      with:
+        exportJob: tools.exportJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-exportjob-id
+      description: Retrieves a ExportJob by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-exportjob.retrieveexportjob
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-exportjob
+      description: Deletes a ExportJob
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf633-service-catalog-exportjob.deleteexportjob
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

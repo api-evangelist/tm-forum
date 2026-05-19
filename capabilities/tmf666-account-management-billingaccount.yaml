@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Account Management — billingAccount
+  description: 'Account Management — billingAccount. 5 operations. Lead operation: List or find BillingAccount objects. Self-contained
+    Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - billingAccount
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf666-account-management-billingaccount
+    baseUri: https://serverRoot/tmf-api/accountManagement/v4
+    description: Account Management — billingAccount business capability. Self-contained, no shared references.
+    resources:
+    - name: billingAccount
+      path: /billingAccount
+      operations:
+      - name: listbillingaccount
+        method: GET
+        description: List or find BillingAccount objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createbillingaccount
+        method: POST
+        description: Creates a BillingAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: billingAccount
+          in: body
+          type: string
+          description: The BillingAccount to be created
+          required: true
+    - name: billingAccount-id
+      path: /billingAccount/{id}
+      operations:
+      - name: retrievebillingaccount
+        method: GET
+        description: Retrieves a BillingAccount by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the BillingAccount
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchbillingaccount
+        method: PATCH
+        description: Updates partially a BillingAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the BillingAccount
+          required: true
+        - name: billingAccount
+          in: body
+          type: string
+          description: The BillingAccount to be updated
+          required: true
+      - name: deletebillingaccount
+        method: DELETE
+        description: Deletes a BillingAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the BillingAccount
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf666-account-management-billingaccount-rest
+    port: 8080
+    description: REST adapter for Account Management — billingAccount. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/billingaccount
+      name: billingaccount
+      description: REST surface for billingAccount.
+      operations:
+      - method: GET
+        name: listbillingaccount
+        description: List or find BillingAccount objects
+        call: tmf666-account-management-billingaccount.listbillingaccount
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbillingaccount
+        description: Creates a BillingAccount
+        call: tmf666-account-management-billingaccount.createbillingaccount
+        with:
+          billingAccount: rest.billingAccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/billingaccount/{id}
+      name: billingaccount-id
+      description: REST surface for billingAccount-id.
+      operations:
+      - method: GET
+        name: retrievebillingaccount
+        description: Retrieves a BillingAccount by ID
+        call: tmf666-account-management-billingaccount.retrievebillingaccount
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchbillingaccount
+        description: Updates partially a BillingAccount
+        call: tmf666-account-management-billingaccount.patchbillingaccount
+        with:
+          id: rest.id
+          billingAccount: rest.billingAccount
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletebillingaccount
+        description: Deletes a BillingAccount
+        call: tmf666-account-management-billingaccount.deletebillingaccount
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf666-account-management-billingaccount-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Account Management — billingAccount. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-find-billingaccount-objects
+      description: List or find BillingAccount objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-billingaccount.listbillingaccount
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-billingaccount
+      description: Creates a BillingAccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-billingaccount.createbillingaccount
+      with:
+        billingAccount: tools.billingAccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-billingaccount-id
+      description: Retrieves a BillingAccount by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-billingaccount.retrievebillingaccount
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-billingaccount
+      description: Updates partially a BillingAccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-billingaccount.patchbillingaccount
+      with:
+        id: tools.id
+        billingAccount: tools.billingAccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-billingaccount
+      description: Deletes a BillingAccount
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf666-account-management-billingaccount.deletebillingaccount
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

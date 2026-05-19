@@ -1,0 +1,582 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Service Catalog Management — notification listeners (client side)
+  description: 'Service Catalog Management — notification listeners (client side). 13 operations. Lead operation: Client listener
+    for entity ServiceCandidateChangeEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listeners (client side)
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf633-service-catalog-notification-listeners-client-side
+    baseUri: https://serverRoot/tmf-api/serviceCatalogManagement/v4
+    description: Service Catalog Management — notification listeners (client side) business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: listener-serviceCandidateChangeEvent
+      path: /listener/serviceCandidateChangeEvent
+      operations:
+      - name: listentoservicecandidatechangeevent
+        method: POST
+        description: Client listener for entity ServiceCandidateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCandidateCreateEvent
+      path: /listener/serviceCandidateCreateEvent
+      operations:
+      - name: listentoservicecandidatecreateevent
+        method: POST
+        description: Client listener for entity ServiceCandidateCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCandidateDeleteEvent
+      path: /listener/serviceCandidateDeleteEvent
+      operations:
+      - name: listentoservicecandidatedeleteevent
+        method: POST
+        description: Client listener for entity ServiceCandidateDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCatalogBatchEvent
+      path: /listener/serviceCatalogBatchEvent
+      operations:
+      - name: listentoservicecatalogbatchevent
+        method: POST
+        description: Client listener for entity ServiceCatalogBatchEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCatalogChangeEvent
+      path: /listener/serviceCatalogChangeEvent
+      operations:
+      - name: listentoservicecatalogchangeevent
+        method: POST
+        description: Client listener for entity ServiceCatalogChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCatalogCreateEvent
+      path: /listener/serviceCatalogCreateEvent
+      operations:
+      - name: listentoservicecatalogcreateevent
+        method: POST
+        description: Client listener for entity ServiceCatalogCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCatalogDeleteEvent
+      path: /listener/serviceCatalogDeleteEvent
+      operations:
+      - name: listentoservicecatalogdeleteevent
+        method: POST
+        description: Client listener for entity ServiceCatalogDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCategoryChangeEvent
+      path: /listener/serviceCategoryChangeEvent
+      operations:
+      - name: listentoservicecategorychangeevent
+        method: POST
+        description: Client listener for entity ServiceCategoryChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCategoryCreateEvent
+      path: /listener/serviceCategoryCreateEvent
+      operations:
+      - name: listentoservicecategorycreateevent
+        method: POST
+        description: Client listener for entity ServiceCategoryCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceCategoryDeleteEvent
+      path: /listener/serviceCategoryDeleteEvent
+      operations:
+      - name: listentoservicecategorydeleteevent
+        method: POST
+        description: Client listener for entity ServiceCategoryDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceSpecificationChangeEvent
+      path: /listener/serviceSpecificationChangeEvent
+      operations:
+      - name: listentoservicespecificationchangeevent
+        method: POST
+        description: Client listener for entity ServiceSpecificationChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceSpecificationCreateEvent
+      path: /listener/serviceSpecificationCreateEvent
+      operations:
+      - name: listentoservicespecificationcreateevent
+        method: POST
+        description: Client listener for entity ServiceSpecificationCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceSpecificationDeleteEvent
+      path: /listener/serviceSpecificationDeleteEvent
+      operations:
+      - name: listentoservicespecificationdeleteevent
+        method: POST
+        description: Client listener for entity ServiceSpecificationDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf633-service-catalog-notification-listeners-client-side-rest
+    port: 8080
+    description: REST adapter for Service Catalog Management — notification listeners (client side). One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listener/servicecandidatechangeevent
+      name: listener-servicecandidatechangeevent
+      description: REST surface for listener-serviceCandidateChangeEvent.
+      operations:
+      - method: POST
+        name: listentoservicecandidatechangeevent
+        description: Client listener for entity ServiceCandidateChangeEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecandidatecreateevent
+      name: listener-servicecandidatecreateevent
+      description: REST surface for listener-serviceCandidateCreateEvent.
+      operations:
+      - method: POST
+        name: listentoservicecandidatecreateevent
+        description: Client listener for entity ServiceCandidateCreateEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatecreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecandidatedeleteevent
+      name: listener-servicecandidatedeleteevent
+      description: REST surface for listener-serviceCandidateDeleteEvent.
+      operations:
+      - method: POST
+        name: listentoservicecandidatedeleteevent
+        description: Client listener for entity ServiceCandidateDeleteEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatedeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecatalogbatchevent
+      name: listener-servicecatalogbatchevent
+      description: REST surface for listener-serviceCatalogBatchEvent.
+      operations:
+      - method: POST
+        name: listentoservicecatalogbatchevent
+        description: Client listener for entity ServiceCatalogBatchEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogbatchevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecatalogchangeevent
+      name: listener-servicecatalogchangeevent
+      description: REST surface for listener-serviceCatalogChangeEvent.
+      operations:
+      - method: POST
+        name: listentoservicecatalogchangeevent
+        description: Client listener for entity ServiceCatalogChangeEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogchangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecatalogcreateevent
+      name: listener-servicecatalogcreateevent
+      description: REST surface for listener-serviceCatalogCreateEvent.
+      operations:
+      - method: POST
+        name: listentoservicecatalogcreateevent
+        description: Client listener for entity ServiceCatalogCreateEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogcreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecatalogdeleteevent
+      name: listener-servicecatalogdeleteevent
+      description: REST surface for listener-serviceCatalogDeleteEvent.
+      operations:
+      - method: POST
+        name: listentoservicecatalogdeleteevent
+        description: Client listener for entity ServiceCatalogDeleteEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogdeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecategorychangeevent
+      name: listener-servicecategorychangeevent
+      description: REST surface for listener-serviceCategoryChangeEvent.
+      operations:
+      - method: POST
+        name: listentoservicecategorychangeevent
+        description: Client listener for entity ServiceCategoryChangeEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorychangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecategorycreateevent
+      name: listener-servicecategorycreateevent
+      description: REST surface for listener-serviceCategoryCreateEvent.
+      operations:
+      - method: POST
+        name: listentoservicecategorycreateevent
+        description: Client listener for entity ServiceCategoryCreateEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorycreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicecategorydeleteevent
+      name: listener-servicecategorydeleteevent
+      description: REST surface for listener-serviceCategoryDeleteEvent.
+      operations:
+      - method: POST
+        name: listentoservicecategorydeleteevent
+        description: Client listener for entity ServiceCategoryDeleteEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorydeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicespecificationchangeevent
+      name: listener-servicespecificationchangeevent
+      description: REST surface for listener-serviceSpecificationChangeEvent.
+      operations:
+      - method: POST
+        name: listentoservicespecificationchangeevent
+        description: Client listener for entity ServiceSpecificationChangeEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationchangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicespecificationcreateevent
+      name: listener-servicespecificationcreateevent
+      description: REST surface for listener-serviceSpecificationCreateEvent.
+      operations:
+      - method: POST
+        name: listentoservicespecificationcreateevent
+        description: Client listener for entity ServiceSpecificationCreateEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationcreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/servicespecificationdeleteevent
+      name: listener-servicespecificationdeleteevent
+      description: REST surface for listener-serviceSpecificationDeleteEvent.
+      operations:
+      - method: POST
+        name: listentoservicespecificationdeleteevent
+        description: Client listener for entity ServiceSpecificationDeleteEvent
+        call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationdeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf633-service-catalog-notification-listeners-client-side-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Service Catalog Management — notification listeners (client side). One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: client-listener-entity-servicecandidatechangeevent
+      description: Client listener for entity ServiceCandidateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecandidatecreateevent
+      description: Client listener for entity ServiceCandidateCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatecreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecandidatedeleteevent
+      description: Client listener for entity ServiceCandidateDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecandidatedeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecatalogbatchevent
+      description: Client listener for entity ServiceCatalogBatchEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogbatchevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecatalogchangeevent
+      description: Client listener for entity ServiceCatalogChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogchangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecatalogcreateevent
+      description: Client listener for entity ServiceCatalogCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogcreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecatalogdeleteevent
+      description: Client listener for entity ServiceCatalogDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecatalogdeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecategorychangeevent
+      description: Client listener for entity ServiceCategoryChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorychangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecategorycreateevent
+      description: Client listener for entity ServiceCategoryCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorycreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicecategorydeleteevent
+      description: Client listener for entity ServiceCategoryDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicecategorydeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicespecificationchangeevent
+      description: Client listener for entity ServiceSpecificationChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationchangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicespecificationcreateevent
+      description: Client listener for entity ServiceSpecificationCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationcreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-servicespecificationdeleteevent
+      description: Client listener for entity ServiceSpecificationDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-notification-listeners-client-side.listentoservicespecificationdeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.

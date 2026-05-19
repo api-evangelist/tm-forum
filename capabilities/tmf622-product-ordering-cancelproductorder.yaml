@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ProductOrdering — cancelProductOrder
+  description: 'ProductOrdering — cancelProductOrder. 3 operations. Lead operation: TM Forum List or Find CancelProductOrder
+    Objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - cancelProductOrder
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf622-product-ordering-cancelproductorder
+    baseUri: https://serverRoot
+    description: ProductOrdering — cancelProductOrder business capability. Self-contained, no shared references.
+    resources:
+    - name: cancelProductOrder
+      path: /cancelProductOrder
+      operations:
+      - name: listcancelproductorder
+        method: GET
+        description: TM Forum List or Find CancelProductOrder Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcancelproductorder
+        method: POST
+        description: TM Forum Creates a CancelProductOrder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: cancelProductOrder-id
+      path: /cancelProductOrder/{id}
+      operations:
+      - name: retrievecancelproductorder
+        method: GET
+        description: TM Forum Retrieves a CancelProductOrder by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf622-product-ordering-cancelproductorder-rest
+    port: 8080
+    description: REST adapter for ProductOrdering — cancelProductOrder. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/cancelproductorder
+      name: cancelproductorder
+      description: REST surface for cancelProductOrder.
+      operations:
+      - method: GET
+        name: listcancelproductorder
+        description: TM Forum List or Find CancelProductOrder Objects
+        call: tmf622-product-ordering-cancelproductorder.listcancelproductorder
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcancelproductorder
+        description: TM Forum Creates a CancelProductOrder
+        call: tmf622-product-ordering-cancelproductorder.createcancelproductorder
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cancelproductorder/{id}
+      name: cancelproductorder-id
+      description: REST surface for cancelProductOrder-id.
+      operations:
+      - method: GET
+        name: retrievecancelproductorder
+        description: TM Forum Retrieves a CancelProductOrder by ID
+        call: tmf622-product-ordering-cancelproductorder.retrievecancelproductorder
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf622-product-ordering-cancelproductorder-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ProductOrdering — cancelProductOrder. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-cancelproductorder
+      description: TM Forum List or Find CancelProductOrder Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf622-product-ordering-cancelproductorder.listcancelproductorder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-cancelproductorder
+      description: TM Forum Creates a CancelProductOrder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-cancelproductorder.createcancelproductorder
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-cancelproductorder-id
+      description: TM Forum Retrieves a CancelProductOrder by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf622-product-ordering-cancelproductorder.retrievecancelproductorder
+      outputParameters:
+      - type: object
+        mapping: $.

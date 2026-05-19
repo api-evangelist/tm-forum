@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Account Management — settlementAccount
+  description: 'Account Management — settlementAccount. 5 operations. Lead operation: List or find SettlementAccount objects.
+    Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - settlementAccount
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf666-account-management-settlementaccount
+    baseUri: https://serverRoot/tmf-api/accountManagement/v4
+    description: Account Management — settlementAccount business capability. Self-contained, no shared references.
+    resources:
+    - name: settlementAccount
+      path: /settlementAccount
+      operations:
+      - name: listsettlementaccount
+        method: GET
+        description: List or find SettlementAccount objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createsettlementaccount
+        method: POST
+        description: Creates a SettlementAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: settlementAccount
+          in: body
+          type: string
+          description: The SettlementAccount to be created
+          required: true
+    - name: settlementAccount-id
+      path: /settlementAccount/{id}
+      operations:
+      - name: retrievesettlementaccount
+        method: GET
+        description: Retrieves a SettlementAccount by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the SettlementAccount
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchsettlementaccount
+        method: PATCH
+        description: Updates partially a SettlementAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the SettlementAccount
+          required: true
+        - name: settlementAccount
+          in: body
+          type: string
+          description: The SettlementAccount to be updated
+          required: true
+      - name: deletesettlementaccount
+        method: DELETE
+        description: Deletes a SettlementAccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the SettlementAccount
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf666-account-management-settlementaccount-rest
+    port: 8080
+    description: REST adapter for Account Management — settlementAccount. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/settlementaccount
+      name: settlementaccount
+      description: REST surface for settlementAccount.
+      operations:
+      - method: GET
+        name: listsettlementaccount
+        description: List or find SettlementAccount objects
+        call: tmf666-account-management-settlementaccount.listsettlementaccount
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsettlementaccount
+        description: Creates a SettlementAccount
+        call: tmf666-account-management-settlementaccount.createsettlementaccount
+        with:
+          settlementAccount: rest.settlementAccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/settlementaccount/{id}
+      name: settlementaccount-id
+      description: REST surface for settlementAccount-id.
+      operations:
+      - method: GET
+        name: retrievesettlementaccount
+        description: Retrieves a SettlementAccount by ID
+        call: tmf666-account-management-settlementaccount.retrievesettlementaccount
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchsettlementaccount
+        description: Updates partially a SettlementAccount
+        call: tmf666-account-management-settlementaccount.patchsettlementaccount
+        with:
+          id: rest.id
+          settlementAccount: rest.settlementAccount
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesettlementaccount
+        description: Deletes a SettlementAccount
+        call: tmf666-account-management-settlementaccount.deletesettlementaccount
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf666-account-management-settlementaccount-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Account Management — settlementAccount. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-find-settlementaccount-objects
+      description: List or find SettlementAccount objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-settlementaccount.listsettlementaccount
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-settlementaccount
+      description: Creates a SettlementAccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-settlementaccount.createsettlementaccount
+      with:
+        settlementAccount: tools.settlementAccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-settlementaccount-id
+      description: Retrieves a SettlementAccount by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-settlementaccount.retrievesettlementaccount
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-settlementaccount
+      description: Updates partially a SettlementAccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf666-account-management-settlementaccount.patchsettlementaccount
+      with:
+        id: tools.id
+        settlementAccount: tools.settlementAccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-settlementaccount
+      description: Deletes a SettlementAccount
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf666-account-management-settlementaccount.deletesettlementaccount
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

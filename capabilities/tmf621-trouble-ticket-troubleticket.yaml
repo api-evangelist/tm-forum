@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trouble Ticket — troubleTicket
+  description: 'Trouble Ticket — troubleTicket. 5 operations. Lead operation: TM Forum List or Find TroubleTicket Objects.
+    Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - troubleTicket
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf621-trouble-ticket-troubleticket
+    baseUri: ''
+    description: Trouble Ticket — troubleTicket business capability. Self-contained, no shared references.
+    resources:
+    - name: troubleTicket
+      path: /troubleTicket
+      operations:
+      - name: listtroubleticket
+        method: GET
+        description: TM Forum List or Find TroubleTicket Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtroubleticket
+        method: POST
+        description: TM Forum Creates a TroubleTicket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: troubleTicket-id
+      path: /troubleTicket/{id}
+      operations:
+      - name: retrievetroubleticket
+        method: GET
+        description: TM Forum Retrieves a TroubleTicket by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchtroubleticket
+        method: PATCH
+        description: TM Forum Updates Partially a TroubleTicket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletetroubleticket
+        method: DELETE
+        description: TM Forum Deletes a TroubleTicket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf621-trouble-ticket-troubleticket-rest
+    port: 8080
+    description: REST adapter for Trouble Ticket — troubleTicket. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/troubleticket
+      name: troubleticket
+      description: REST surface for troubleTicket.
+      operations:
+      - method: GET
+        name: listtroubleticket
+        description: TM Forum List or Find TroubleTicket Objects
+        call: tmf621-trouble-ticket-troubleticket.listtroubleticket
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtroubleticket
+        description: TM Forum Creates a TroubleTicket
+        call: tmf621-trouble-ticket-troubleticket.createtroubleticket
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/troubleticket/{id}
+      name: troubleticket-id
+      description: REST surface for troubleTicket-id.
+      operations:
+      - method: GET
+        name: retrievetroubleticket
+        description: TM Forum Retrieves a TroubleTicket by ID
+        call: tmf621-trouble-ticket-troubleticket.retrievetroubleticket
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchtroubleticket
+        description: TM Forum Updates Partially a TroubleTicket
+        call: tmf621-trouble-ticket-troubleticket.patchtroubleticket
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetroubleticket
+        description: TM Forum Deletes a TroubleTicket
+        call: tmf621-trouble-ticket-troubleticket.deletetroubleticket
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf621-trouble-ticket-troubleticket-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Trouble Ticket — troubleTicket. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-troubleticket
+      description: TM Forum List or Find TroubleTicket Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticket.listtroubleticket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-troubleticket
+      description: TM Forum Creates a TroubleTicket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf621-trouble-ticket-troubleticket.createtroubleticket
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-troubleticket-id
+      description: TM Forum Retrieves a TroubleTicket by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticket.retrievetroubleticket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-updates-partially-troubleticket
+      description: TM Forum Updates Partially a TroubleTicket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticket.patchtroubleticket
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-deletes-troubleticket
+      description: TM Forum Deletes a TroubleTicket
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf621-trouble-ticket-troubleticket.deletetroubleticket
+      outputParameters:
+      - type: object
+        mapping: $.

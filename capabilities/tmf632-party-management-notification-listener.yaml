@@ -1,0 +1,371 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Party Management — notification listener
+  description: 'Party Management — notification listener. 8 operations. Lead operation: TM Forum Client Listener for Entity
+    IndividualAttributeValueChangeEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listener
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf632-party-management-notification-listener
+    baseUri: https://serverRoot/partyManagement/v5
+    description: Party Management — notification listener business capability. Self-contained, no shared references.
+    resources:
+    - name: listener-individualAttributeValueChangeEvent
+      path: /listener/individualAttributeValueChangeEvent
+      operations:
+      - name: individualattributevaluechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity IndividualAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-individualCreateEvent
+      path: /listener/individualCreateEvent
+      operations:
+      - name: individualcreateevent
+        method: POST
+        description: TM Forum Client Listener for Entity IndividualCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-individualDeleteEvent
+      path: /listener/individualDeleteEvent
+      operations:
+      - name: individualdeleteevent
+        method: POST
+        description: TM Forum Client Listener for Entity IndividualDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-individualStateChangeEvent
+      path: /listener/individualStateChangeEvent
+      operations:
+      - name: individualstatechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity IndividualStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-organizationAttributeValueChangeEvent
+      path: /listener/organizationAttributeValueChangeEvent
+      operations:
+      - name: organizationattributevaluechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity OrganizationAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-organizationCreateEvent
+      path: /listener/organizationCreateEvent
+      operations:
+      - name: organizationcreateevent
+        method: POST
+        description: TM Forum Client Listener for Entity OrganizationCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-organizationDeleteEvent
+      path: /listener/organizationDeleteEvent
+      operations:
+      - name: organizationdeleteevent
+        method: POST
+        description: TM Forum Client Listener for Entity OrganizationDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-organizationStateChangeEvent
+      path: /listener/organizationStateChangeEvent
+      operations:
+      - name: organizationstatechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity OrganizationStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: tmf632-party-management-notification-listener-rest
+    port: 8080
+    description: REST adapter for Party Management — notification listener. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listener/individualattributevaluechangeevent
+      name: listener-individualattributevaluechangeevent
+      description: REST surface for listener-individualAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: individualattributevaluechangeevent
+        description: TM Forum Client Listener for Entity IndividualAttributeValueChangeEvent
+        call: tmf632-party-management-notification-listener.individualattributevaluechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/individualcreateevent
+      name: listener-individualcreateevent
+      description: REST surface for listener-individualCreateEvent.
+      operations:
+      - method: POST
+        name: individualcreateevent
+        description: TM Forum Client Listener for Entity IndividualCreateEvent
+        call: tmf632-party-management-notification-listener.individualcreateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/individualdeleteevent
+      name: listener-individualdeleteevent
+      description: REST surface for listener-individualDeleteEvent.
+      operations:
+      - method: POST
+        name: individualdeleteevent
+        description: TM Forum Client Listener for Entity IndividualDeleteEvent
+        call: tmf632-party-management-notification-listener.individualdeleteevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/individualstatechangeevent
+      name: listener-individualstatechangeevent
+      description: REST surface for listener-individualStateChangeEvent.
+      operations:
+      - method: POST
+        name: individualstatechangeevent
+        description: TM Forum Client Listener for Entity IndividualStateChangeEvent
+        call: tmf632-party-management-notification-listener.individualstatechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/organizationattributevaluechangeevent
+      name: listener-organizationattributevaluechangeevent
+      description: REST surface for listener-organizationAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: organizationattributevaluechangeevent
+        description: TM Forum Client Listener for Entity OrganizationAttributeValueChangeEvent
+        call: tmf632-party-management-notification-listener.organizationattributevaluechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/organizationcreateevent
+      name: listener-organizationcreateevent
+      description: REST surface for listener-organizationCreateEvent.
+      operations:
+      - method: POST
+        name: organizationcreateevent
+        description: TM Forum Client Listener for Entity OrganizationCreateEvent
+        call: tmf632-party-management-notification-listener.organizationcreateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/organizationdeleteevent
+      name: listener-organizationdeleteevent
+      description: REST surface for listener-organizationDeleteEvent.
+      operations:
+      - method: POST
+        name: organizationdeleteevent
+        description: TM Forum Client Listener for Entity OrganizationDeleteEvent
+        call: tmf632-party-management-notification-listener.organizationdeleteevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/organizationstatechangeevent
+      name: listener-organizationstatechangeevent
+      description: REST surface for listener-organizationStateChangeEvent.
+      operations:
+      - method: POST
+        name: organizationstatechangeevent
+        description: TM Forum Client Listener for Entity OrganizationStateChangeEvent
+        call: tmf632-party-management-notification-listener.organizationstatechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf632-party-management-notification-listener-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Party Management — notification listener. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: tm-forum-client-listener-entity
+      description: TM Forum Client Listener for Entity IndividualAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.individualattributevaluechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-2
+      description: TM Forum Client Listener for Entity IndividualCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.individualcreateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-3
+      description: TM Forum Client Listener for Entity IndividualDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.individualdeleteevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-4
+      description: TM Forum Client Listener for Entity IndividualStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.individualstatechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-5
+      description: TM Forum Client Listener for Entity OrganizationAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.organizationattributevaluechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-6
+      description: TM Forum Client Listener for Entity OrganizationCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.organizationcreateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-7
+      description: TM Forum Client Listener for Entity OrganizationDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.organizationdeleteevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-8
+      description: TM Forum Client Listener for Entity OrganizationStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf632-party-management-notification-listener.organizationstatechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

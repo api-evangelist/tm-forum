@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Service Catalog Management — serviceSpecification
+  description: 'Service Catalog Management — serviceSpecification. 5 operations. Lead operation: List or find ServiceSpecification
+    objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - serviceSpecification
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf633-service-catalog-servicespecification
+    baseUri: https://serverRoot/tmf-api/serviceCatalogManagement/v4
+    description: Service Catalog Management — serviceSpecification business capability. Self-contained, no shared references.
+    resources:
+    - name: serviceSpecification
+      path: /serviceSpecification
+      operations:
+      - name: listservicespecification
+        method: GET
+        description: List or find ServiceSpecification objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createservicespecification
+        method: POST
+        description: Creates a ServiceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceSpecification
+          in: body
+          type: string
+          description: The ServiceSpecification to be created
+          required: true
+    - name: serviceSpecification-id
+      path: /serviceSpecification/{id}
+      operations:
+      - name: retrieveservicespecification
+        method: GET
+        description: Retrieves a ServiceSpecification by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceSpecification
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchservicespecification
+        method: PATCH
+        description: Updates partially a ServiceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceSpecification
+          required: true
+        - name: serviceSpecification
+          in: body
+          type: string
+          description: The ServiceSpecification to be updated
+          required: true
+      - name: deleteservicespecification
+        method: DELETE
+        description: Deletes a ServiceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceSpecification
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf633-service-catalog-servicespecification-rest
+    port: 8080
+    description: REST adapter for Service Catalog Management — serviceSpecification. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/servicespecification
+      name: servicespecification
+      description: REST surface for serviceSpecification.
+      operations:
+      - method: GET
+        name: listservicespecification
+        description: List or find ServiceSpecification objects
+        call: tmf633-service-catalog-servicespecification.listservicespecification
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createservicespecification
+        description: Creates a ServiceSpecification
+        call: tmf633-service-catalog-servicespecification.createservicespecification
+        with:
+          serviceSpecification: rest.serviceSpecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/servicespecification/{id}
+      name: servicespecification-id
+      description: REST surface for serviceSpecification-id.
+      operations:
+      - method: GET
+        name: retrieveservicespecification
+        description: Retrieves a ServiceSpecification by ID
+        call: tmf633-service-catalog-servicespecification.retrieveservicespecification
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchservicespecification
+        description: Updates partially a ServiceSpecification
+        call: tmf633-service-catalog-servicespecification.patchservicespecification
+        with:
+          id: rest.id
+          serviceSpecification: rest.serviceSpecification
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteservicespecification
+        description: Deletes a ServiceSpecification
+        call: tmf633-service-catalog-servicespecification.deleteservicespecification
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf633-service-catalog-servicespecification-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Service Catalog Management — serviceSpecification. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-find-servicespecification-objects
+      description: List or find ServiceSpecification objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicespecification.listservicespecification
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-servicespecification
+      description: Creates a ServiceSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-servicespecification.createservicespecification
+      with:
+        serviceSpecification: tools.serviceSpecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-servicespecification-id
+      description: Retrieves a ServiceSpecification by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicespecification.retrieveservicespecification
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-servicespecification
+      description: Updates partially a ServiceSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicespecification.patchservicespecification
+      with:
+        id: tools.id
+        serviceSpecification: tools.serviceSpecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-servicespecification
+      description: Deletes a ServiceSpecification
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf633-service-catalog-servicespecification.deleteservicespecification
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

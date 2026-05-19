@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Service Catalog Management — serviceCandidate
+  description: 'Service Catalog Management — serviceCandidate. 5 operations. Lead operation: List or find ServiceCandidate
+    objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - serviceCandidate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf633-service-catalog-servicecandidate
+    baseUri: https://serverRoot/tmf-api/serviceCatalogManagement/v4
+    description: Service Catalog Management — serviceCandidate business capability. Self-contained, no shared references.
+    resources:
+    - name: serviceCandidate
+      path: /serviceCandidate
+      operations:
+      - name: listservicecandidate
+        method: GET
+        description: List or find ServiceCandidate objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createservicecandidate
+        method: POST
+        description: Creates a ServiceCandidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceCandidate
+          in: body
+          type: string
+          description: The ServiceCandidate to be created
+          required: true
+    - name: serviceCandidate-id
+      path: /serviceCandidate/{id}
+      operations:
+      - name: retrieveservicecandidate
+        method: GET
+        description: Retrieves a ServiceCandidate by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceCandidate
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchservicecandidate
+        method: PATCH
+        description: Updates partially a ServiceCandidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceCandidate
+          required: true
+        - name: serviceCandidate
+          in: body
+          type: string
+          description: The ServiceCandidate to be updated
+          required: true
+      - name: deleteservicecandidate
+        method: DELETE
+        description: Deletes a ServiceCandidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceCandidate
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf633-service-catalog-servicecandidate-rest
+    port: 8080
+    description: REST adapter for Service Catalog Management — serviceCandidate. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/servicecandidate
+      name: servicecandidate
+      description: REST surface for serviceCandidate.
+      operations:
+      - method: GET
+        name: listservicecandidate
+        description: List or find ServiceCandidate objects
+        call: tmf633-service-catalog-servicecandidate.listservicecandidate
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createservicecandidate
+        description: Creates a ServiceCandidate
+        call: tmf633-service-catalog-servicecandidate.createservicecandidate
+        with:
+          serviceCandidate: rest.serviceCandidate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/servicecandidate/{id}
+      name: servicecandidate-id
+      description: REST surface for serviceCandidate-id.
+      operations:
+      - method: GET
+        name: retrieveservicecandidate
+        description: Retrieves a ServiceCandidate by ID
+        call: tmf633-service-catalog-servicecandidate.retrieveservicecandidate
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchservicecandidate
+        description: Updates partially a ServiceCandidate
+        call: tmf633-service-catalog-servicecandidate.patchservicecandidate
+        with:
+          id: rest.id
+          serviceCandidate: rest.serviceCandidate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteservicecandidate
+        description: Deletes a ServiceCandidate
+        call: tmf633-service-catalog-servicecandidate.deleteservicecandidate
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf633-service-catalog-servicecandidate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Service Catalog Management — serviceCandidate. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-find-servicecandidate-objects
+      description: List or find ServiceCandidate objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicecandidate.listservicecandidate
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-servicecandidate
+      description: Creates a ServiceCandidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf633-service-catalog-servicecandidate.createservicecandidate
+      with:
+        serviceCandidate: tools.serviceCandidate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-servicecandidate-id
+      description: Retrieves a ServiceCandidate by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicecandidate.retrieveservicecandidate
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-servicecandidate
+      description: Updates partially a ServiceCandidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf633-service-catalog-servicecandidate.patchservicecandidate
+      with:
+        id: tools.id
+        serviceCandidate: tools.serviceCandidate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-servicecandidate
+      description: Deletes a ServiceCandidate
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf633-service-catalog-servicecandidate.deleteservicecandidate
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

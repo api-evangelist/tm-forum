@@ -1,0 +1,497 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ProductOrdering — notification listener
+  description: 'ProductOrdering — notification listener. 11 operations. Lead operation: TM Forum Client Listener for Entity
+    CancelProductOrderCreateEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listener
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf622-product-ordering-notification-listener
+    baseUri: https://serverRoot
+    description: ProductOrdering — notification listener business capability. Self-contained, no shared references.
+    resources:
+    - name: listener-cancelProductOrderCreateEvent
+      path: /listener/cancelProductOrderCreateEvent
+      operations:
+      - name: cancelproductordercreateevent
+        method: POST
+        description: TM Forum Client Listener for Entity CancelProductOrderCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-cancelProductOrderInformationRequiredEvent
+      path: /listener/cancelProductOrderInformationRequiredEvent
+      operations:
+      - name: cancelproductorderinformationrequiredevent
+        method: POST
+        description: TM Forum Client Listener for Entity CancelProductOrderInformationRequiredEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-cancelProductOrderStateChangeEvent
+      path: /listener/cancelProductOrderStateChangeEvent
+      operations:
+      - name: cancelproductorderstatechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity CancelProductOrderStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderAttributeValueChangeEvent
+      path: /listener/productOrderAttributeValueChangeEvent
+      operations:
+      - name: productorderattributevaluechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderCreateEvent
+      path: /listener/productOrderCreateEvent
+      operations:
+      - name: productordercreateevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderDeleteEvent
+      path: /listener/productOrderDeleteEvent
+      operations:
+      - name: productorderdeleteevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderErrorMessageEvent
+      path: /listener/productOrderErrorMessageEvent
+      operations:
+      - name: productordererrormessageevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderErrorMessageEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderInformationRequiredEvent
+      path: /listener/productOrderInformationRequiredEvent
+      operations:
+      - name: productorderinformationrequiredevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderInformationRequiredEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderJeopardyAlertEvent
+      path: /listener/productOrderJeopardyAlertEvent
+      operations:
+      - name: productorderjeopardyalertevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderJeopardyAlertEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderMilestoneEvent
+      path: /listener/productOrderMilestoneEvent
+      operations:
+      - name: productordermilestoneevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderMilestoneEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-productOrderStateChangeEvent
+      path: /listener/productOrderStateChangeEvent
+      operations:
+      - name: productorderstatechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity ProductOrderStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: tmf622-product-ordering-notification-listener-rest
+    port: 8080
+    description: REST adapter for ProductOrdering — notification listener. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listener/cancelproductordercreateevent
+      name: listener-cancelproductordercreateevent
+      description: REST surface for listener-cancelProductOrderCreateEvent.
+      operations:
+      - method: POST
+        name: cancelproductordercreateevent
+        description: TM Forum Client Listener for Entity CancelProductOrderCreateEvent
+        call: tmf622-product-ordering-notification-listener.cancelproductordercreateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/cancelproductorderinformationrequiredevent
+      name: listener-cancelproductorderinformationrequiredevent
+      description: REST surface for listener-cancelProductOrderInformationRequiredEvent.
+      operations:
+      - method: POST
+        name: cancelproductorderinformationrequiredevent
+        description: TM Forum Client Listener for Entity CancelProductOrderInformationRequiredEvent
+        call: tmf622-product-ordering-notification-listener.cancelproductorderinformationrequiredevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/cancelproductorderstatechangeevent
+      name: listener-cancelproductorderstatechangeevent
+      description: REST surface for listener-cancelProductOrderStateChangeEvent.
+      operations:
+      - method: POST
+        name: cancelproductorderstatechangeevent
+        description: TM Forum Client Listener for Entity CancelProductOrderStateChangeEvent
+        call: tmf622-product-ordering-notification-listener.cancelproductorderstatechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productorderattributevaluechangeevent
+      name: listener-productorderattributevaluechangeevent
+      description: REST surface for listener-productOrderAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: productorderattributevaluechangeevent
+        description: TM Forum Client Listener for Entity ProductOrderAttributeValueChangeEvent
+        call: tmf622-product-ordering-notification-listener.productorderattributevaluechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productordercreateevent
+      name: listener-productordercreateevent
+      description: REST surface for listener-productOrderCreateEvent.
+      operations:
+      - method: POST
+        name: productordercreateevent
+        description: TM Forum Client Listener for Entity ProductOrderCreateEvent
+        call: tmf622-product-ordering-notification-listener.productordercreateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productorderdeleteevent
+      name: listener-productorderdeleteevent
+      description: REST surface for listener-productOrderDeleteEvent.
+      operations:
+      - method: POST
+        name: productorderdeleteevent
+        description: TM Forum Client Listener for Entity ProductOrderDeleteEvent
+        call: tmf622-product-ordering-notification-listener.productorderdeleteevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productordererrormessageevent
+      name: listener-productordererrormessageevent
+      description: REST surface for listener-productOrderErrorMessageEvent.
+      operations:
+      - method: POST
+        name: productordererrormessageevent
+        description: TM Forum Client Listener for Entity ProductOrderErrorMessageEvent
+        call: tmf622-product-ordering-notification-listener.productordererrormessageevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productorderinformationrequiredevent
+      name: listener-productorderinformationrequiredevent
+      description: REST surface for listener-productOrderInformationRequiredEvent.
+      operations:
+      - method: POST
+        name: productorderinformationrequiredevent
+        description: TM Forum Client Listener for Entity ProductOrderInformationRequiredEvent
+        call: tmf622-product-ordering-notification-listener.productorderinformationrequiredevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productorderjeopardyalertevent
+      name: listener-productorderjeopardyalertevent
+      description: REST surface for listener-productOrderJeopardyAlertEvent.
+      operations:
+      - method: POST
+        name: productorderjeopardyalertevent
+        description: TM Forum Client Listener for Entity ProductOrderJeopardyAlertEvent
+        call: tmf622-product-ordering-notification-listener.productorderjeopardyalertevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productordermilestoneevent
+      name: listener-productordermilestoneevent
+      description: REST surface for listener-productOrderMilestoneEvent.
+      operations:
+      - method: POST
+        name: productordermilestoneevent
+        description: TM Forum Client Listener for Entity ProductOrderMilestoneEvent
+        call: tmf622-product-ordering-notification-listener.productordermilestoneevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/productorderstatechangeevent
+      name: listener-productorderstatechangeevent
+      description: REST surface for listener-productOrderStateChangeEvent.
+      operations:
+      - method: POST
+        name: productorderstatechangeevent
+        description: TM Forum Client Listener for Entity ProductOrderStateChangeEvent
+        call: tmf622-product-ordering-notification-listener.productorderstatechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf622-product-ordering-notification-listener-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ProductOrdering — notification listener. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: tm-forum-client-listener-entity
+      description: TM Forum Client Listener for Entity CancelProductOrderCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.cancelproductordercreateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-2
+      description: TM Forum Client Listener for Entity CancelProductOrderInformationRequiredEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.cancelproductorderinformationrequiredevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-3
+      description: TM Forum Client Listener for Entity CancelProductOrderStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.cancelproductorderstatechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-4
+      description: TM Forum Client Listener for Entity ProductOrderAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productorderattributevaluechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-5
+      description: TM Forum Client Listener for Entity ProductOrderCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productordercreateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-6
+      description: TM Forum Client Listener for Entity ProductOrderDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productorderdeleteevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-7
+      description: TM Forum Client Listener for Entity ProductOrderErrorMessageEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productordererrormessageevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-8
+      description: TM Forum Client Listener for Entity ProductOrderInformationRequiredEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productorderinformationrequiredevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-9
+      description: TM Forum Client Listener for Entity ProductOrderJeopardyAlertEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productorderjeopardyalertevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-10
+      description: TM Forum Client Listener for Entity ProductOrderMilestoneEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productordermilestoneevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-11
+      description: TM Forum Client Listener for Entity ProductOrderStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf622-product-ordering-notification-listener.productorderstatechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

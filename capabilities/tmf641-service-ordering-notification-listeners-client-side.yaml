@@ -1,0 +1,456 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API ServiceOrdering — notification listeners (client side)
+  description: 'API ServiceOrdering — notification listeners (client side). 10 operations. Lead operation: Client listener
+    for entity CancelServiceOrderCreateEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listeners (client side)
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf641-service-ordering-notification-listeners-client-side
+    baseUri: https://serverRoot/tmf-api/serviceOrdering/v4
+    description: API ServiceOrdering — notification listeners (client side) business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: listener-cancelServiceOrderCreateEvent
+      path: /listener/cancelServiceOrderCreateEvent
+      operations:
+      - name: listentocancelserviceordercreateevent
+        method: POST
+        description: Client listener for entity CancelServiceOrderCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-cancelServiceOrderInformationRequiredEvent
+      path: /listener/cancelServiceOrderInformationRequiredEvent
+      operations:
+      - name: listentocancelserviceorderinformationrequiredevent
+        method: POST
+        description: Client listener for entity CancelServiceOrderInformationRequiredEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-cancelServiceOrderStateChangeEvent
+      path: /listener/cancelServiceOrderStateChangeEvent
+      operations:
+      - name: listentocancelserviceorderstatechangeevent
+        method: POST
+        description: Client listener for entity CancelServiceOrderStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderAttributeValueChangeEvent
+      path: /listener/serviceOrderAttributeValueChangeEvent
+      operations:
+      - name: listentoserviceorderattributevaluechangeevent
+        method: POST
+        description: Client listener for entity ServiceOrderAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderCreateEvent
+      path: /listener/serviceOrderCreateEvent
+      operations:
+      - name: listentoserviceordercreateevent
+        method: POST
+        description: Client listener for entity ServiceOrderCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderDeleteEvent
+      path: /listener/serviceOrderDeleteEvent
+      operations:
+      - name: listentoserviceorderdeleteevent
+        method: POST
+        description: Client listener for entity ServiceOrderDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderInformationRequiredEvent
+      path: /listener/serviceOrderInformationRequiredEvent
+      operations:
+      - name: listentoserviceorderinformationrequiredevent
+        method: POST
+        description: Client listener for entity ServiceOrderInformationRequiredEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderJeopardyEvent
+      path: /listener/serviceOrderJeopardyEvent
+      operations:
+      - name: listentoserviceorderjeopardyevent
+        method: POST
+        description: Client listener for entity ServiceOrderJeopardyEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderMilestoneEvent
+      path: /listener/serviceOrderMilestoneEvent
+      operations:
+      - name: listentoserviceordermilestoneevent
+        method: POST
+        description: Client listener for entity ServiceOrderMilestoneEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-serviceOrderStateChangeEvent
+      path: /listener/serviceOrderStateChangeEvent
+      operations:
+      - name: listentoserviceorderstatechangeevent
+        method: POST
+        description: Client listener for entity ServiceOrderStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf641-service-ordering-notification-listeners-client-side-rest
+    port: 8080
+    description: REST adapter for API ServiceOrdering — notification listeners (client side). One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listener/cancelserviceordercreateevent
+      name: listener-cancelserviceordercreateevent
+      description: REST surface for listener-cancelServiceOrderCreateEvent.
+      operations:
+      - method: POST
+        name: listentocancelserviceordercreateevent
+        description: Client listener for entity CancelServiceOrderCreateEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceordercreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/cancelserviceorderinformationrequiredevent
+      name: listener-cancelserviceorderinformationrequiredevent
+      description: REST surface for listener-cancelServiceOrderInformationRequiredEvent.
+      operations:
+      - method: POST
+        name: listentocancelserviceorderinformationrequiredevent
+        description: Client listener for entity CancelServiceOrderInformationRequiredEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceorderinformationrequiredevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/cancelserviceorderstatechangeevent
+      name: listener-cancelserviceorderstatechangeevent
+      description: REST surface for listener-cancelServiceOrderStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentocancelserviceorderstatechangeevent
+        description: Client listener for entity CancelServiceOrderStateChangeEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceorderstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceorderattributevaluechangeevent
+      name: listener-serviceorderattributevaluechangeevent
+      description: REST surface for listener-serviceOrderAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: listentoserviceorderattributevaluechangeevent
+        description: Client listener for entity ServiceOrderAttributeValueChangeEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderattributevaluechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceordercreateevent
+      name: listener-serviceordercreateevent
+      description: REST surface for listener-serviceOrderCreateEvent.
+      operations:
+      - method: POST
+        name: listentoserviceordercreateevent
+        description: Client listener for entity ServiceOrderCreateEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceordercreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceorderdeleteevent
+      name: listener-serviceorderdeleteevent
+      description: REST surface for listener-serviceOrderDeleteEvent.
+      operations:
+      - method: POST
+        name: listentoserviceorderdeleteevent
+        description: Client listener for entity ServiceOrderDeleteEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderdeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceorderinformationrequiredevent
+      name: listener-serviceorderinformationrequiredevent
+      description: REST surface for listener-serviceOrderInformationRequiredEvent.
+      operations:
+      - method: POST
+        name: listentoserviceorderinformationrequiredevent
+        description: Client listener for entity ServiceOrderInformationRequiredEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderinformationrequiredevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceorderjeopardyevent
+      name: listener-serviceorderjeopardyevent
+      description: REST surface for listener-serviceOrderJeopardyEvent.
+      operations:
+      - method: POST
+        name: listentoserviceorderjeopardyevent
+        description: Client listener for entity ServiceOrderJeopardyEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderjeopardyevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceordermilestoneevent
+      name: listener-serviceordermilestoneevent
+      description: REST surface for listener-serviceOrderMilestoneEvent.
+      operations:
+      - method: POST
+        name: listentoserviceordermilestoneevent
+        description: Client listener for entity ServiceOrderMilestoneEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceordermilestoneevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/serviceorderstatechangeevent
+      name: listener-serviceorderstatechangeevent
+      description: REST surface for listener-serviceOrderStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentoserviceorderstatechangeevent
+        description: Client listener for entity ServiceOrderStateChangeEvent
+        call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf641-service-ordering-notification-listeners-client-side-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API ServiceOrdering — notification listeners (client side). One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: client-listener-entity-cancelserviceordercreateevent
+      description: Client listener for entity CancelServiceOrderCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceordercreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-cancelserviceorderinformationrequiredevent
+      description: Client listener for entity CancelServiceOrderInformationRequiredEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceorderinformationrequiredevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-cancelserviceorderstatechangeevent
+      description: Client listener for entity CancelServiceOrderStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentocancelserviceorderstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceorderattributevaluechangeevent
+      description: Client listener for entity ServiceOrderAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderattributevaluechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceordercreateevent
+      description: Client listener for entity ServiceOrderCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceordercreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceorderdeleteevent
+      description: Client listener for entity ServiceOrderDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderdeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceorderinformationrequiredevent
+      description: Client listener for entity ServiceOrderInformationRequiredEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderinformationrequiredevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceorderjeopardyevent
+      description: Client listener for entity ServiceOrderJeopardyEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderjeopardyevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceordermilestoneevent
+      description: Client listener for entity ServiceOrderMilestoneEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceordermilestoneevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-serviceorderstatechangeevent
+      description: Client listener for entity ServiceOrderStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-notification-listeners-client-side.listentoserviceorderstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.

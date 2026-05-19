@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Resource Catalog Management — resourceSpecification
+  description: 'Resource Catalog Management — resourceSpecification. 5 operations. Lead operation: List or find ResourceSpecification
+    objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - resourceSpecification
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf634-resource-catalog-resourcespecification
+    baseUri: https://serverRoot/tmf-api/resourceCatalog/v4
+    description: Resource Catalog Management — resourceSpecification business capability. Self-contained, no shared references.
+    resources:
+    - name: resourceSpecification
+      path: /resourceSpecification
+      operations:
+      - name: listresourcespecification
+        method: GET
+        description: List or find ResourceSpecification objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createresourcespecification
+        method: POST
+        description: Creates a ResourceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceSpecification
+          in: body
+          type: string
+          description: The ResourceSpecification to be created
+          required: true
+    - name: resourceSpecification-id
+      path: /resourceSpecification/{id}
+      operations:
+      - name: retrieveresourcespecification
+        method: GET
+        description: Retrieves a ResourceSpecification by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ResourceSpecification
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchresourcespecification
+        method: PATCH
+        description: Updates partially a ResourceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ResourceSpecification
+          required: true
+        - name: resourceSpecification
+          in: body
+          type: string
+          description: The ResourceSpecification to be updated
+          required: true
+      - name: deleteresourcespecification
+        method: DELETE
+        description: Deletes a ResourceSpecification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ResourceSpecification
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf634-resource-catalog-resourcespecification-rest
+    port: 8080
+    description: REST adapter for Resource Catalog Management — resourceSpecification. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/resourcespecification
+      name: resourcespecification
+      description: REST surface for resourceSpecification.
+      operations:
+      - method: GET
+        name: listresourcespecification
+        description: List or find ResourceSpecification objects
+        call: tmf634-resource-catalog-resourcespecification.listresourcespecification
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createresourcespecification
+        description: Creates a ResourceSpecification
+        call: tmf634-resource-catalog-resourcespecification.createresourcespecification
+        with:
+          resourceSpecification: rest.resourceSpecification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resourcespecification/{id}
+      name: resourcespecification-id
+      description: REST surface for resourceSpecification-id.
+      operations:
+      - method: GET
+        name: retrieveresourcespecification
+        description: Retrieves a ResourceSpecification by ID
+        call: tmf634-resource-catalog-resourcespecification.retrieveresourcespecification
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchresourcespecification
+        description: Updates partially a ResourceSpecification
+        call: tmf634-resource-catalog-resourcespecification.patchresourcespecification
+        with:
+          id: rest.id
+          resourceSpecification: rest.resourceSpecification
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteresourcespecification
+        description: Deletes a ResourceSpecification
+        call: tmf634-resource-catalog-resourcespecification.deleteresourcespecification
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf634-resource-catalog-resourcespecification-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Resource Catalog Management — resourceSpecification. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-find-resourcespecification-objects
+      description: List or find ResourceSpecification objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf634-resource-catalog-resourcespecification.listresourcespecification
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-resourcespecification
+      description: Creates a ResourceSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf634-resource-catalog-resourcespecification.createresourcespecification
+      with:
+        resourceSpecification: tools.resourceSpecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-resourcespecification-id
+      description: Retrieves a ResourceSpecification by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf634-resource-catalog-resourcespecification.retrieveresourcespecification
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-resourcespecification
+      description: Updates partially a ResourceSpecification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf634-resource-catalog-resourcespecification.patchresourcespecification
+      with:
+        id: tools.id
+        resourceSpecification: tools.resourceSpecification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-resourcespecification
+      description: Deletes a ResourceSpecification
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf634-resource-catalog-resourcespecification.deleteresourcespecification
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

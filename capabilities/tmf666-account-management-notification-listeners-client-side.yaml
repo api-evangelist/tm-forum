@@ -1,0 +1,456 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Account Management — notification listeners (client side)
+  description: 'Account Management — notification listeners (client side). 10 operations. Lead operation: Client listener
+    for entity BillingAccountAttributeValueChangeEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listeners (client side)
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf666-account-management-notification-listeners-client-side
+    baseUri: https://serverRoot/tmf-api/accountManagement/v4
+    description: Account Management — notification listeners (client side) business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: listener-billingAccountAttributeValueChangeEvent
+      path: /listener/billingAccountAttributeValueChangeEvent
+      operations:
+      - name: listentobillingaccountattributevaluechangeevent
+        method: POST
+        description: Client listener for entity BillingAccountAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-billingAccountStateChangeEvent
+      path: /listener/billingAccountStateChangeEvent
+      operations:
+      - name: listentobillingaccountstatechangeevent
+        method: POST
+        description: Client listener for entity BillingAccountStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-financialAccountAttributeValueChangeEvent
+      path: /listener/financialAccountAttributeValueChangeEvent
+      operations:
+      - name: listentofinancialaccountattributevaluechangeevent
+        method: POST
+        description: Client listener for entity FinancialAccountAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-financialAccountCreateEvent
+      path: /listener/financialAccountCreateEvent
+      operations:
+      - name: listentofinancialaccountcreateevent
+        method: POST
+        description: Client listener for entity FinancialAccountCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-financialAccountDeleteEvent
+      path: /listener/financialAccountDeleteEvent
+      operations:
+      - name: listentofinancialaccountdeleteevent
+        method: POST
+        description: Client listener for entity FinancialAccountDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-financialAccountStateChangeEvent
+      path: /listener/financialAccountStateChangeEvent
+      operations:
+      - name: listentofinancialaccountstatechangeevent
+        method: POST
+        description: Client listener for entity FinancialAccountStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-partyAccountAttributeValueChangeEvent
+      path: /listener/partyAccountAttributeValueChangeEvent
+      operations:
+      - name: listentopartyaccountattributevaluechangeevent
+        method: POST
+        description: Client listener for entity PartyAccountAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-partyAccountStateChangeEvent
+      path: /listener/partyAccountStateChangeEvent
+      operations:
+      - name: listentopartyaccountstatechangeevent
+        method: POST
+        description: Client listener for entity PartyAccountStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-settlementAccountAttributeValueChangeEvent
+      path: /listener/settlementAccountAttributeValueChangeEvent
+      operations:
+      - name: listentosettlementaccountattributevaluechangeevent
+        method: POST
+        description: Client listener for entity SettlementAccountAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+    - name: listener-settlementAccountStateChangeEvent
+      path: /listener/settlementAccountStateChangeEvent
+      operations:
+      - name: listentosettlementaccountstatechangeevent
+        method: POST
+        description: Client listener for entity SettlementAccountStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: data
+          in: body
+          type: string
+          description: The event data
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf666-account-management-notification-listeners-client-side-rest
+    port: 8080
+    description: REST adapter for Account Management — notification listeners (client side). One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listener/billingaccountattributevaluechangeevent
+      name: listener-billingaccountattributevaluechangeevent
+      description: REST surface for listener-billingAccountAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: listentobillingaccountattributevaluechangeevent
+        description: Client listener for entity BillingAccountAttributeValueChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentobillingaccountattributevaluechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/billingaccountstatechangeevent
+      name: listener-billingaccountstatechangeevent
+      description: REST surface for listener-billingAccountStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentobillingaccountstatechangeevent
+        description: Client listener for entity BillingAccountStateChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentobillingaccountstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/financialaccountattributevaluechangeevent
+      name: listener-financialaccountattributevaluechangeevent
+      description: REST surface for listener-financialAccountAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: listentofinancialaccountattributevaluechangeevent
+        description: Client listener for entity FinancialAccountAttributeValueChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountattributevaluechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/financialaccountcreateevent
+      name: listener-financialaccountcreateevent
+      description: REST surface for listener-financialAccountCreateEvent.
+      operations:
+      - method: POST
+        name: listentofinancialaccountcreateevent
+        description: Client listener for entity FinancialAccountCreateEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountcreateevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/financialaccountdeleteevent
+      name: listener-financialaccountdeleteevent
+      description: REST surface for listener-financialAccountDeleteEvent.
+      operations:
+      - method: POST
+        name: listentofinancialaccountdeleteevent
+        description: Client listener for entity FinancialAccountDeleteEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountdeleteevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/financialaccountstatechangeevent
+      name: listener-financialaccountstatechangeevent
+      description: REST surface for listener-financialAccountStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentofinancialaccountstatechangeevent
+        description: Client listener for entity FinancialAccountStateChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/partyaccountattributevaluechangeevent
+      name: listener-partyaccountattributevaluechangeevent
+      description: REST surface for listener-partyAccountAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: listentopartyaccountattributevaluechangeevent
+        description: Client listener for entity PartyAccountAttributeValueChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentopartyaccountattributevaluechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/partyaccountstatechangeevent
+      name: listener-partyaccountstatechangeevent
+      description: REST surface for listener-partyAccountStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentopartyaccountstatechangeevent
+        description: Client listener for entity PartyAccountStateChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentopartyaccountstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/settlementaccountattributevaluechangeevent
+      name: listener-settlementaccountattributevaluechangeevent
+      description: REST surface for listener-settlementAccountAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: listentosettlementaccountattributevaluechangeevent
+        description: Client listener for entity SettlementAccountAttributeValueChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentosettlementaccountattributevaluechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/settlementaccountstatechangeevent
+      name: listener-settlementaccountstatechangeevent
+      description: REST surface for listener-settlementAccountStateChangeEvent.
+      operations:
+      - method: POST
+        name: listentosettlementaccountstatechangeevent
+        description: Client listener for entity SettlementAccountStateChangeEvent
+        call: tmf666-account-management-notification-listeners-client-side.listentosettlementaccountstatechangeevent
+        with:
+          data: rest.data
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf666-account-management-notification-listeners-client-side-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Account Management — notification listeners (client side). One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: client-listener-entity-billingaccountattributevaluechangeevent
+      description: Client listener for entity BillingAccountAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentobillingaccountattributevaluechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-billingaccountstatechangeevent
+      description: Client listener for entity BillingAccountStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentobillingaccountstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-financialaccountattributevaluechangeevent
+      description: Client listener for entity FinancialAccountAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountattributevaluechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-financialaccountcreateevent
+      description: Client listener for entity FinancialAccountCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountcreateevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-financialaccountdeleteevent
+      description: Client listener for entity FinancialAccountDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountdeleteevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-financialaccountstatechangeevent
+      description: Client listener for entity FinancialAccountStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentofinancialaccountstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-partyaccountattributevaluechangeevent
+      description: Client listener for entity PartyAccountAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentopartyaccountattributevaluechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-partyaccountstatechangeevent
+      description: Client listener for entity PartyAccountStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentopartyaccountstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-settlementaccountattributevaluechangeevent
+      description: Client listener for entity SettlementAccountAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentosettlementaccountattributevaluechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: client-listener-entity-settlementaccountstatechangeevent
+      description: Client listener for entity SettlementAccountStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf666-account-management-notification-listeners-client-side.listentosettlementaccountstatechangeevent
+      with:
+        data: tools.data
+      outputParameters:
+      - type: object
+        mapping: $.

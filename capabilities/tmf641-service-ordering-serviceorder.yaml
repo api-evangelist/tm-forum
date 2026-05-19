@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API ServiceOrdering — serviceOrder
+  description: 'API ServiceOrdering — serviceOrder. 5 operations. Lead operation: List or find ServiceOrder objects. Self-contained
+    Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - serviceOrder
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf641-service-ordering-serviceorder
+    baseUri: https://serverRoot/tmf-api/serviceOrdering/v4
+    description: API ServiceOrdering — serviceOrder business capability. Self-contained, no shared references.
+    resources:
+    - name: serviceOrder
+      path: /serviceOrder
+      operations:
+      - name: listserviceorder
+        method: GET
+        description: List or find ServiceOrder objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createserviceorder
+        method: POST
+        description: Creates a ServiceOrder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceOrder
+          in: body
+          type: string
+          description: The ServiceOrder to be created
+          required: true
+    - name: serviceOrder-id
+      path: /serviceOrder/{id}
+      operations:
+      - name: retrieveserviceorder
+        method: GET
+        description: Retrieves a ServiceOrder by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceOrder
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchserviceorder
+        method: PATCH
+        description: Updates partially a ServiceOrder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceOrder
+          required: true
+        - name: serviceOrder
+          in: body
+          type: string
+          description: The ServiceOrder to be updated
+          required: true
+      - name: deleteserviceorder
+        method: DELETE
+        description: Deletes a ServiceOrder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the ServiceOrder
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf641-service-ordering-serviceorder-rest
+    port: 8080
+    description: REST adapter for API ServiceOrdering — serviceOrder. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/serviceorder
+      name: serviceorder
+      description: REST surface for serviceOrder.
+      operations:
+      - method: GET
+        name: listserviceorder
+        description: List or find ServiceOrder objects
+        call: tmf641-service-ordering-serviceorder.listserviceorder
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createserviceorder
+        description: Creates a ServiceOrder
+        call: tmf641-service-ordering-serviceorder.createserviceorder
+        with:
+          serviceOrder: rest.serviceOrder
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/serviceorder/{id}
+      name: serviceorder-id
+      description: REST surface for serviceOrder-id.
+      operations:
+      - method: GET
+        name: retrieveserviceorder
+        description: Retrieves a ServiceOrder by ID
+        call: tmf641-service-ordering-serviceorder.retrieveserviceorder
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchserviceorder
+        description: Updates partially a ServiceOrder
+        call: tmf641-service-ordering-serviceorder.patchserviceorder
+        with:
+          id: rest.id
+          serviceOrder: rest.serviceOrder
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteserviceorder
+        description: Deletes a ServiceOrder
+        call: tmf641-service-ordering-serviceorder.deleteserviceorder
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf641-service-ordering-serviceorder-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API ServiceOrdering — serviceOrder. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-find-serviceorder-objects
+      description: List or find ServiceOrder objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf641-service-ordering-serviceorder.listserviceorder
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-serviceorder
+      description: Creates a ServiceOrder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf641-service-ordering-serviceorder.createserviceorder
+      with:
+        serviceOrder: tools.serviceOrder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-serviceorder-id
+      description: Retrieves a ServiceOrder by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf641-service-ordering-serviceorder.retrieveserviceorder
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-serviceorder
+      description: Updates partially a ServiceOrder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf641-service-ordering-serviceorder.patchserviceorder
+      with:
+        id: tools.id
+        serviceOrder: tools.serviceOrder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-serviceorder
+      description: Deletes a ServiceOrder
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf641-service-ordering-serviceorder.deleteserviceorder
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

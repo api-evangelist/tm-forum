@@ -1,0 +1,248 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Agreement Management — agreement
+  description: 'Agreement Management — agreement. 5 operations. Lead operation: List or find Agreement objects. Self-contained
+    Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - agreement
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf651-agreement-management-agreement
+    baseUri: https://serverRoot/tmf-api/agreementManagement/v4
+    description: Agreement Management — agreement business capability. Self-contained, no shared references.
+    resources:
+    - name: agreement
+      path: /agreement
+      operations:
+      - name: listagreement
+        method: GET
+        description: List or find Agreement objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to be provided in response
+        - name: offset
+          in: query
+          type: integer
+          description: Requested index for start of resources to be provided in response
+        - name: limit
+          in: query
+          type: integer
+          description: Requested number of resources to be provided in response
+      - name: createagreement
+        method: POST
+        description: Creates a Agreement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agreement
+          in: body
+          type: string
+          description: The Agreement to be created
+          required: true
+    - name: agreement-id
+      path: /agreement/{id}
+      operations:
+      - name: retrieveagreement
+        method: GET
+        description: Retrieves a Agreement by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the Agreement
+          required: true
+        - name: fields
+          in: query
+          type: string
+          description: Comma-separated properties to provide in response
+      - name: patchagreement
+        method: PATCH
+        description: Updates partially a Agreement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the Agreement
+          required: true
+        - name: agreement
+          in: body
+          type: string
+          description: The Agreement to be updated
+          required: true
+      - name: deleteagreement
+        method: DELETE
+        description: Deletes a Agreement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the Agreement
+          required: true
+  exposes:
+  - type: rest
+    namespace: tmf651-agreement-management-agreement-rest
+    port: 8080
+    description: REST adapter for Agreement Management — agreement. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/agreement
+      name: agreement
+      description: REST surface for agreement.
+      operations:
+      - method: GET
+        name: listagreement
+        description: List or find Agreement objects
+        call: tmf651-agreement-management-agreement.listagreement
+        with:
+          fields: rest.fields
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createagreement
+        description: Creates a Agreement
+        call: tmf651-agreement-management-agreement.createagreement
+        with:
+          agreement: rest.agreement
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/agreement/{id}
+      name: agreement-id
+      description: REST surface for agreement-id.
+      operations:
+      - method: GET
+        name: retrieveagreement
+        description: Retrieves a Agreement by ID
+        call: tmf651-agreement-management-agreement.retrieveagreement
+        with:
+          id: rest.id
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchagreement
+        description: Updates partially a Agreement
+        call: tmf651-agreement-management-agreement.patchagreement
+        with:
+          id: rest.id
+          agreement: rest.agreement
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteagreement
+        description: Deletes a Agreement
+        call: tmf651-agreement-management-agreement.deleteagreement
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf651-agreement-management-agreement-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Agreement Management — agreement. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-find-agreement-objects
+      description: List or find Agreement objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf651-agreement-management-agreement.listagreement
+      with:
+        fields: tools.fields
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creates-agreement
+      description: Creates a Agreement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf651-agreement-management-agreement.createagreement
+      with:
+        agreement: tools.agreement
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieves-agreement-id
+      description: Retrieves a Agreement by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf651-agreement-management-agreement.retrieveagreement
+      with:
+        id: tools.id
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-partially-agreement
+      description: Updates partially a Agreement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf651-agreement-management-agreement.patchagreement
+      with:
+        id: tools.id
+        agreement: tools.agreement
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletes-agreement
+      description: Deletes a Agreement
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf651-agreement-management-agreement.deleteagreement
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

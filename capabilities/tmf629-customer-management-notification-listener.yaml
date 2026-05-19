@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Customer Management — notification listener
+  description: 'Customer Management — notification listener. 4 operations. Lead operation: TM Forum Client Listener for Entity
+    CustomerAttributeValueChangeEvent. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - notification listener
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf629-customer-management-notification-listener
+    baseUri: ''
+    description: Customer Management — notification listener business capability. Self-contained, no shared references.
+    resources:
+    - name: listener-customerAttributeValueChangeEvent
+      path: /listener/customerAttributeValueChangeEvent
+      operations:
+      - name: customerattributevaluechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity CustomerAttributeValueChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-customerCreateEvent
+      path: /listener/customerCreateEvent
+      operations:
+      - name: customercreateevent
+        method: POST
+        description: TM Forum Client Listener for Entity CustomerCreateEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-customerDeleteEvent
+      path: /listener/customerDeleteEvent
+      operations:
+      - name: customerdeleteevent
+        method: POST
+        description: TM Forum Client Listener for Entity CustomerDeleteEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: listener-customerStateChangeEvent
+      path: /listener/customerStateChangeEvent
+      operations:
+      - name: customerstatechangeevent
+        method: POST
+        description: TM Forum Client Listener for Entity CustomerStateChangeEvent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: tmf629-customer-management-notification-listener-rest
+    port: 8080
+    description: REST adapter for Customer Management — notification listener. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listener/customerattributevaluechangeevent
+      name: listener-customerattributevaluechangeevent
+      description: REST surface for listener-customerAttributeValueChangeEvent.
+      operations:
+      - method: POST
+        name: customerattributevaluechangeevent
+        description: TM Forum Client Listener for Entity CustomerAttributeValueChangeEvent
+        call: tmf629-customer-management-notification-listener.customerattributevaluechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/customercreateevent
+      name: listener-customercreateevent
+      description: REST surface for listener-customerCreateEvent.
+      operations:
+      - method: POST
+        name: customercreateevent
+        description: TM Forum Client Listener for Entity CustomerCreateEvent
+        call: tmf629-customer-management-notification-listener.customercreateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/customerdeleteevent
+      name: listener-customerdeleteevent
+      description: REST surface for listener-customerDeleteEvent.
+      operations:
+      - method: POST
+        name: customerdeleteevent
+        description: TM Forum Client Listener for Entity CustomerDeleteEvent
+        call: tmf629-customer-management-notification-listener.customerdeleteevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/listener/customerstatechangeevent
+      name: listener-customerstatechangeevent
+      description: REST surface for listener-customerStateChangeEvent.
+      operations:
+      - method: POST
+        name: customerstatechangeevent
+        description: TM Forum Client Listener for Entity CustomerStateChangeEvent
+        call: tmf629-customer-management-notification-listener.customerstatechangeevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf629-customer-management-notification-listener-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Customer Management — notification listener. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: tm-forum-client-listener-entity
+      description: TM Forum Client Listener for Entity CustomerAttributeValueChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf629-customer-management-notification-listener.customerattributevaluechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-2
+      description: TM Forum Client Listener for Entity CustomerCreateEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf629-customer-management-notification-listener.customercreateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-3
+      description: TM Forum Client Listener for Entity CustomerDeleteEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf629-customer-management-notification-listener.customerdeleteevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-client-listener-entity-4
+      description: TM Forum Client Listener for Entity CustomerStateChangeEvent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf629-customer-management-notification-listener.customerstatechangeevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Product Catalog Management — productOfferingPrice
+  description: 'Product Catalog Management — productOfferingPrice. 5 operations. Lead operation: TM Forum List or Find ProductOfferingPrice
+    Objects. Self-contained Naftiko capability covering one Tm Forum business surface.'
+  tags:
+  - Tm Forum
+  - productOfferingPrice
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TM_FORUM_API_KEY: TM_FORUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tmf620-product-catalog-productofferingprice
+    baseUri: https://serverRoot/productCatalogManagement/v5
+    description: Product Catalog Management — productOfferingPrice business capability. Self-contained, no shared references.
+    resources:
+    - name: productOfferingPrice
+      path: /productOfferingPrice
+      operations:
+      - name: listproductofferingprice
+        method: GET
+        description: TM Forum List or Find ProductOfferingPrice Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createproductofferingprice
+        method: POST
+        description: TM Forum Creates a ProductOfferingPrice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: productOfferingPrice-id
+      path: /productOfferingPrice/{id}
+      operations:
+      - name: retrieveproductofferingprice
+        method: GET
+        description: TM Forum Retrieves a ProductOfferingPrice by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchproductofferingprice
+        method: PATCH
+        description: TM Forum Updates Partially a ProductOfferingPrice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deleteproductofferingprice
+        method: DELETE
+        description: TM Forum Deletes a ProductOfferingPrice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tmf620-product-catalog-productofferingprice-rest
+    port: 8080
+    description: REST adapter for Product Catalog Management — productOfferingPrice. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/productofferingprice
+      name: productofferingprice
+      description: REST surface for productOfferingPrice.
+      operations:
+      - method: GET
+        name: listproductofferingprice
+        description: TM Forum List or Find ProductOfferingPrice Objects
+        call: tmf620-product-catalog-productofferingprice.listproductofferingprice
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createproductofferingprice
+        description: TM Forum Creates a ProductOfferingPrice
+        call: tmf620-product-catalog-productofferingprice.createproductofferingprice
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/productofferingprice/{id}
+      name: productofferingprice-id
+      description: REST surface for productOfferingPrice-id.
+      operations:
+      - method: GET
+        name: retrieveproductofferingprice
+        description: TM Forum Retrieves a ProductOfferingPrice by ID
+        call: tmf620-product-catalog-productofferingprice.retrieveproductofferingprice
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchproductofferingprice
+        description: TM Forum Updates Partially a ProductOfferingPrice
+        call: tmf620-product-catalog-productofferingprice.patchproductofferingprice
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteproductofferingprice
+        description: TM Forum Deletes a ProductOfferingPrice
+        call: tmf620-product-catalog-productofferingprice.deleteproductofferingprice
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tmf620-product-catalog-productofferingprice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Product Catalog Management — productOfferingPrice. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: tm-forum-list-find-productofferingprice
+      description: TM Forum List or Find ProductOfferingPrice Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productofferingprice.listproductofferingprice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-creates-productofferingprice
+      description: TM Forum Creates a ProductOfferingPrice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tmf620-product-catalog-productofferingprice.createproductofferingprice
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-retrieves-productofferingprice-id
+      description: TM Forum Retrieves a ProductOfferingPrice by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productofferingprice.retrieveproductofferingprice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-updates-partially-productofferingprice
+      description: TM Forum Updates Partially a ProductOfferingPrice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tmf620-product-catalog-productofferingprice.patchproductofferingprice
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tm-forum-deletes-productofferingprice
+      description: TM Forum Deletes a ProductOfferingPrice
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tmf620-product-catalog-productofferingprice.deleteproductofferingprice
+      outputParameters:
+      - type: object
+        mapping: $.
