@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BooleanCharacteristic",
+  "title": "BooleanCharacteristic",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Boolean.",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

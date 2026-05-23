@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicket_RES",
+  "title": "TroubleTicket_RES",
+  "type": "object",
+  "description": "Response object for TroubleTicket",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/TroubleTicket"
+    }
+  ],
+  "required": [
+    "id",
+    "href"
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicket": "#/components/schemas/TroubleTicket"
+    }
+  }
+}

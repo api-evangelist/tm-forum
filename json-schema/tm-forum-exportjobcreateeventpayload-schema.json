@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExportJobCreateEventPayload",
+  "title": "ExportJobCreateEventPayload",
+  "type": "object",
+  "description": "ExportJobCreateEventPayload generic structure",
+  "properties": {
+    "exportJob": {
+      "$ref": "#/components/schemas/ExportJob"
+    }
+  }
+}

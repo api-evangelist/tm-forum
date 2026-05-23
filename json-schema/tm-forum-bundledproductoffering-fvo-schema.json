@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BundledProductOffering_FVO",
+  "title": "BundledProductOffering_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ProductOfferingRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Represents a containment of a product offering within another product offering, including specification of cardinality (e.g. is the bundled offering mandatory, how many times can it be instantiated in the parent product, etc.).",
+      "properties": {
+        "bundledProductOfferingOption": {
+          "$ref": "#/components/schemas/BundledProductOfferingOption_FVO"
+        }
+      }
+    }
+  ]
+}

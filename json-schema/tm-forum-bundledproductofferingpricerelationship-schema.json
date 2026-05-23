@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BundledProductOfferingPriceRelationship",
+  "title": "BundledProductOfferingPriceRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "This represents a bundling pricing relationship, allowing a price to be composed of multiple other prices (e.g. a recurring charge and a onetime charge).",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the referred product offering price."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledProductOfferingPriceRelationship": "#/components/schemas/BundledProductOfferingPriceRelationship"
+    }
+  }
+}

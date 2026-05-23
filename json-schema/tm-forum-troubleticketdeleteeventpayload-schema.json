@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketDeleteEventPayload",
+  "title": "TroubleTicketDeleteEventPayload",
+  "type": "object",
+  "description": "TroubleTicketDeleteEventPayload generic structure",
+  "properties": {
+    "troubleTicket": {
+      "$ref": "#/components/schemas/TroubleTicketRef"
+    }
+  }
+}

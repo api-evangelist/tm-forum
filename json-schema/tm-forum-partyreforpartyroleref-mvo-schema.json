@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyRefOrPartyRoleRef_MVO",
+  "title": "PartyRefOrPartyRoleRef_MVO",
+  "type": "object",
+  "description": "",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/PartyRef_MVO"
+    },
+    {
+      "$ref": "#/components/schemas/PartyRoleRef_MVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRef": "#/components/schemas/PartyRef_MVO",
+      "PartyRoleRef": "#/components/schemas/PartyRoleRef_MVO"
+    }
+  }
+}

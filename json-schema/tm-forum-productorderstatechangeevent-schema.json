@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderStateChangeEvent",
+  "title": "ProductOrderStateChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOrderStateChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOrderStateChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderStateChangeEvent": "#/components/schemas/ProductOrderStateChangeEvent"
+    }
+  }
+}

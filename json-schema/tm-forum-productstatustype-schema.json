@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductStatusType",
+  "title": "ProductStatusType",
+  "enum": [
+    "created",
+    "pendingActive",
+    "cancelled",
+    "active",
+    "pendingTerminate",
+    "terminated",
+    "suspended",
+    "aborted "
+  ],
+  "type": "string",
+  "description": "Possible values for the status of the product"
+}

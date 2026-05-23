@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Error",
+  "title": "Error",
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Error": "#/components/schemas/Error"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "required": [
+        "code",
+        "reason"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Application relevant detail, defined in the API or a common list."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Explanation of the reason for the error which can be shown to a client user."
+        },
+        "message": {
+          "type": "string",
+          "description": "More details and corrective actions related to the error which can be shown to a client user."
+        },
+        "status": {
+          "type": "string",
+          "description": "HTTP Error code extension"
+        },
+        "referenceError": {
+          "type": "string",
+          "description": "URI of documentation describing the error."
+        }
+      }
+    }
+  ],
+  "description": "Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)"
+}

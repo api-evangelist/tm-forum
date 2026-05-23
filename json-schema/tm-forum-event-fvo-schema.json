@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Event_FVO",
+  "title": "Event_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "event with common attributes.",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink reference"
+        },
+        "id": {
+          "type": "string",
+          "description": "unique identifier"
+        },
+        "correlationId": {
+          "type": "string",
+          "description": "The correlation id for this event."
+        },
+        "domain": {
+          "type": "string",
+          "description": "The domain of the event."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the event."
+        },
+        "description": {
+          "type": "string",
+          "description": "An explnatory of the event."
+        },
+        "priority": {
+          "type": "string",
+          "description": "A priority."
+        },
+        "timeOccurred": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the event occurred."
+        },
+        "source": {
+          "$ref": "#/components/schemas/EntityRef_FVO"
+        },
+        "reportingSystem": {
+          "$ref": "#/components/schemas/EntityRef_FVO"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO"
+          }
+        },
+        "analyticCharacteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic_FVO"
+          }
+        },
+        "eventId": {
+          "type": "string",
+          "description": "The identifier of the notification."
+        },
+        "eventTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time of the event occurrence."
+        },
+        "eventType": {
+          "type": "string",
+          "description": "The type of the notification."
+        },
+        "event": {
+          "description": "The event linked to the involved resource object",
+          "type": "object"
+        }
+      },
+      "required": [
+        "eventId",
+        "eventTime",
+        "eventType",
+        "event"
+      ]
+    }
+  ]
+}

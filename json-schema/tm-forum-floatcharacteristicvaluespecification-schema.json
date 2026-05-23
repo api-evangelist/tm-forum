@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FloatCharacteristicValueSpecification",
+  "title": "FloatCharacteristicValueSpecification",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a floating point number",
+      "properties": {
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

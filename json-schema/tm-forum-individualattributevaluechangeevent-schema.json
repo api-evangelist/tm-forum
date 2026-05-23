@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IndividualAttributeValueChangeEvent",
+  "title": "IndividualAttributeValueChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "IndividualAttributeValueChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/IndividualAttributeValueChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IndividualAttributeValueChangeEvent": "#/components/schemas/IndividualAttributeValueChangeEvent"
+    }
+  }
+}

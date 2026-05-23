@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IndividualStateChangeEventPayload",
+  "title": "IndividualStateChangeEventPayload",
+  "type": "object",
+  "description": "IndividualStateChangeEventPayload generic structure",
+  "properties": {
+    "individual": {
+      "$ref": "#/components/schemas/Individual"
+    }
+  }
+}

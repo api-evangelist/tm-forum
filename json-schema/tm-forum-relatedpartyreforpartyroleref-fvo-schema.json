@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO",
+  "title": "RelatedPartyRefOrPartyRoleRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity",
+      "properties": {
+        "role": {
+          "description": "Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'",
+          "type": "string"
+        },
+        "partyOrPartyRole": {
+          "$ref": "#/components/schemas/PartyRefOrPartyRoleRef_FVO"
+        }
+      },
+      "required": [
+        "role"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedPartyRefOrPartyRoleRef": "#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO"
+    }
+  }
+}

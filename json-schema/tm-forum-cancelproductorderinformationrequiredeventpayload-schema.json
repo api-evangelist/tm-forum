@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CancelProductOrderInformationRequiredEventPayload",
+  "title": "CancelProductOrderInformationRequiredEventPayload",
+  "type": "object",
+  "description": "CancelProductOrderInformationRequiredEventPayload generic structure",
+  "properties": {
+    "cancelProductOrder": {
+      "$ref": "#/components/schemas/CancelProductOrderRef"
+    },
+    "informationRequired": {
+      "$ref": "#/components/schemas/JsonPatch"
+    }
+  }
+}

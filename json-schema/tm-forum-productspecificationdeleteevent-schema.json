@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSpecificationDeleteEvent",
+  "title": "ProductSpecificationDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductSpecificationDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductSpecificationDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductSpecificationDeleteEvent": "#/components/schemas/ProductSpecificationDeleteEvent"
+    }
+  }
+}

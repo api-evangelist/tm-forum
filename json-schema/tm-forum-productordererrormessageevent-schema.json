@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderErrorMessageEvent",
+  "title": "ProductOrderErrorMessageEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOrderErrorMessage structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOrderErrorMessagePayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderErrorMessageEvent": "#/components/schemas/ProductOrderErrorMessageEvent"
+    }
+  }
+}

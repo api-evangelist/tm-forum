@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderJeopardyAlertEvent",
+  "title": "ProductOrderJeopardyAlertEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOrderJeopardyAlert structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOrderJeopardyAlertPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderJeopardyAlertEvent": "#/components/schemas/ProductOrderJeopardyAlertEvent"
+    }
+  }
+}

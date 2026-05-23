@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExpressionLanguageEnum",
+  "title": "ExpressionLanguageEnum",
+  "enum": [
+    "Turtle",
+    "JSON-LD",
+    "RDF-XML",
+    "Other"
+  ],
+  "type": "string",
+  "description": "Possible values for the serialized Expression language of an intent or Intent report"
+}

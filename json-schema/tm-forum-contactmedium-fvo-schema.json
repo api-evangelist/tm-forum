@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ContactMedium_FVO",
+  "title": "ContactMedium_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Indicates the contact medium that could be used to contact the party.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier for this contact medium."
+        },
+        "preferred": {
+          "type": "boolean",
+          "description": "If true, indicates that is the preferred contact medium"
+        },
+        "contactType": {
+          "type": "string",
+          "description": "Type of the contact medium to qualifiy it like pro email / personal email. This is not used to define the contact medium used."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ContactMedium": "#/components/schemas/ContactMedium_FVO"
+    }
+  }
+}

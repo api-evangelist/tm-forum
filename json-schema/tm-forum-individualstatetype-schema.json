@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IndividualStateType",
+  "title": "IndividualStateType",
+  "enum": [
+    "initialized",
+    "validated",
+    "deceased"
+  ],
+  "type": "string",
+  "description": "Valid values for the lifecycle state of the individual"
+}

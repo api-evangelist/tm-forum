@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ErrorMessage_FVO",
+  "title": "ErrorMessage_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "represents an Error",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "error code"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Explanation of the reason for the error"
+        },
+        "message": {
+          "type": "string",
+          "description": "More details and corrective actions related to the error"
+        },
+        "status": {
+          "type": "string",
+          "description": "error code extension like sys-ABC-2001"
+        },
+        "referenceError": {
+          "type": "string",
+          "description": "URI of documentation describing the error"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ErrorMessage": "#/components/schemas/ErrorMessage_FVO",
+      "ProductOrderErrorMessage": "#/components/schemas/ProductOrderErrorMessage_FVO"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyRefOrPartyRoleRef",
+  "title": "PartyRefOrPartyRoleRef",
+  "type": "object",
+  "description": "",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/PartyRef"
+    },
+    {
+      "$ref": "#/components/schemas/PartyRoleRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRef": "#/components/schemas/PartyRef",
+      "PartyRoleRef": "#/components/schemas/PartyRoleRef"
+    }
+  }
+}

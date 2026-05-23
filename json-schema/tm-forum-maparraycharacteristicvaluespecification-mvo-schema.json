@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MapArrayCharacteristicValueSpecification_MVO",
+  "title": "MapArrayCharacteristicValueSpecification_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_MVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is an array of mapped objects",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

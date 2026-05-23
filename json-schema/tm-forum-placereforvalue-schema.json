@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlaceRefOrValue",
+  "title": "PlaceRefOrValue",
+  "type": "object",
+  "description": "The polymorphic attributes @type, @schemaLocation & @referredType are related to the Place entity and not the PlaceRefOrValue class itself",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/GeographicLocation"
+    },
+    {
+      "$ref": "#/components/schemas/GeographicSite"
+    },
+    {
+      "$ref": "#/components/schemas/GeographicAddress"
+    },
+    {
+      "$ref": "#/components/schemas/PlaceRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicLocation": "#/components/schemas/GeographicLocation",
+      "GeographicSite": "#/components/schemas/GeographicSite",
+      "GeographicAddress": "#/components/schemas/GeographicAddress",
+      "PlaceRef": "#/components/schemas/PlaceRef"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSpecificationRef_FVO",
+  "title": "ProductSpecificationRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "ProductSpecification reference. A product Specification represents entities that are orderable from the provider of the catalog.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the product specification"
+        },
+        "targetProductSchema": {
+          "$ref": "#/components/schemas/TargetProductSchema_FVO"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductSpecificationRef": "#/components/schemas/ProductSpecificationRef_FVO"
+    }
+  }
+}

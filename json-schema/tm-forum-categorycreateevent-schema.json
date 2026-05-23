@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryCreateEvent",
+  "title": "CategoryCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CategoryCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CategoryCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CategoryCreateEvent": "#/components/schemas/CategoryCreateEvent"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicSiteRelationship",
+  "title": "GeographicSiteRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Reference of the related geographic site"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the related site in the relationship"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the related site entity within the server"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of relationship"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicSiteRelationship": "#/components/schemas/GeographicSiteRelationship"
+    }
+  }
+}

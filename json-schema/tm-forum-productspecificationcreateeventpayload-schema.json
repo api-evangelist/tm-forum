@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSpecificationCreateEventPayload",
+  "title": "ProductSpecificationCreateEventPayload",
+  "type": "object",
+  "description": "ProductSpecificationCreateEventPayload generic structure",
+  "properties": {
+    "productSpecification": {
+      "$ref": "#/components/schemas/ProductSpecification"
+    }
+  }
+}

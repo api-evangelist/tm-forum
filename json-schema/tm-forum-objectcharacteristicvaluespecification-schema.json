@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ObjectCharacteristicValueSpecification",
+  "title": "ObjectCharacteristicValueSpecification",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is any object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

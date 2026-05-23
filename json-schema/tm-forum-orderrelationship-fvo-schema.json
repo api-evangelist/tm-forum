@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrderRelationship_FVO",
+  "title": "OrderRelationship_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Used to describe relationship between order.",
+      "properties": {
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "id": {
+          "type": "string",
+          "description": "Id of the related order"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Relationship type as correlates, triggers, etc..."
+        }
+      },
+      "required": [
+        "id",
+        "relationshipType"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrderRelationship": "#/components/schemas/OrderRelationship_FVO"
+    }
+  }
+}

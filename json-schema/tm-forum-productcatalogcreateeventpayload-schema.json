@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductCatalogCreateEventPayload",
+  "title": "ProductCatalogCreateEventPayload",
+  "type": "object",
+  "description": "ProductCatalogCreateEventPayload generic structure",
+  "properties": {
+    "productCatalog": {
+      "$ref": "#/components/schemas/ProductCatalog"
+    }
+  }
+}

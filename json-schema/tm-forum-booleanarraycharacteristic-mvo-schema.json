@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BooleanArrayCharacteristic_MVO",
+  "title": "BooleanArrayCharacteristic_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic_MVO"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is an array of Boolean(s).",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "A characteristic which value is an array of Boolean(s).",
+          "items": {
+            "type": "boolean",
+            "description": "Characteristic item boolean value"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicSubAddress_MVO",
+  "title": "GeographicSubAddress_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_MVO"
+    },
+    {
+      "type": "object",
+      "description": "Representation of a GeographicSubAddress \nIt is used for addressing within a property in an urban area (country properties are often defined differently). It may refer to a building, a building cluster, or a floor of a multistory building.",
+      "properties": {
+        "buildingName": {
+          "type": "string",
+          "description": "allows for buildings that have well-known names"
+        },
+        "href": {
+          "type": "string",
+          "description": "Link to the subAddress"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique Identifier of the subAddress"
+        },
+        "levelNumber": {
+          "type": "string",
+          "description": "used where a level type may be repeated e.g. BASEMENT 1, BASEMENT 2"
+        },
+        "levelType": {
+          "type": "string",
+          "description": "describes level types within a building"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the subAddress to identify it with a meaningful identification"
+        },
+        "privateStreetName": {
+          "type": "string",
+          "description": "private streets internal to a property (e.g. a university) may have internal names that are not recorded by the land title office."
+        },
+        "privateStreetNumber": {
+          "type": "string",
+          "description": "private streets numbers internal to a private street"
+        },
+        "subUnit": {
+          "type": "array",
+          "description": "Representation of a SubUnit. It is used for describing subunit within a subAddress e.g. BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF.",
+          "items": {
+            "$ref": "#/components/schemas/GeographicSubAddressUnit_MVO"
+          }
+        },
+        "subAddressType": {
+          "type": "string",
+          "description": "Type of subAddress : it can be a subunit or a private street"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicSubAddress": "#/components/schemas/GeographicSubAddress_MVO"
+    }
+  }
+}

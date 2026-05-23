@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketSpecificationRef_FVO",
+  "title": "TroubleTicketSpecificationRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "reference to an TroubleTicketSpecification object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketSpecificationRef": "#/components/schemas/TroubleTicketSpecificationRef_FVO"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationDeleteEventPayload",
+  "title": "OrganizationDeleteEventPayload",
+  "type": "object",
+  "description": "OrganizationDeleteEventPayload generic structure",
+  "properties": {
+    "organization": {
+      "$ref": "#/components/schemas/Organization"
+    }
+  }
+}

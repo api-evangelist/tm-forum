@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceStateChangeEvent",
+  "title": "ProductOfferingPriceStateChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOfferingPriceStateChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOfferingPriceStateChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingPriceStateChangeEvent": "#/components/schemas/ProductOfferingPriceStateChangeEvent"
+    }
+  }
+}

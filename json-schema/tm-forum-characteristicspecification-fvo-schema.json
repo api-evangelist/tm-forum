@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CharacteristicSpecification_FVO",
+  "title": "CharacteristicSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "This class defines a characteristic specification.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for the characteristic"
+        },
+        "name": {
+          "type": "string",
+          "description": "A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications."
+        },
+        "valueType": {
+          "type": "string",
+          "description": "A kind of value that the characteristic can take on, such as numeric, text and so forth"
+        },
+        "description": {
+          "type": "string",
+          "description": "A narrative that explains the CharacteristicSpecification."
+        },
+        "configurable": {
+          "type": "boolean",
+          "description": "If true, the Boolean indicates that the target Characteristic is configurable"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "minCardinality": {
+          "type": "integer",
+          "description": "The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality."
+        },
+        "maxCardinality": {
+          "type": "integer",
+          "description": "The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality."
+        },
+        "isUnique": {
+          "type": "boolean",
+          "description": "Specifies if the value of this characteristic is unique across all entities instantiated from the specification that uses this characteristc. For example, consider a ProductSpecification for a set-top box, with a CharacteristicSpecification cardID. Each set-top box must have a different value for cardID, so this isUnique attribute would be set to true for the characteristic."
+        },
+        "regex": {
+          "type": "string",
+          "description": "A rule or principle represented in regular expression used to derive the value of a characteristic value."
+        },
+        "extensible": {
+          "type": "boolean",
+          "description": "An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource."
+        },
+        "@valueSchemaLocation": {
+          "type": "string",
+          "description": "This (optional) field provides a link to the schema describing the value type."
+        },
+        "charSpecRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CharacteristicSpecificationRelationship_FVO"
+          },
+          "description": "An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics."
+        },
+        "characteristicValueSpecification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CharacteristicValueSpecification_FVO"
+          },
+          "description": "A CharacteristicValueSpecification object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a CharacteristicSpecification object. The values of the attributes in the CharacteristicValueSpecification object describe the values of the attributes that a corresponding Characteristic object can take on."
+        }
+      },
+      "required": [
+        "name",
+        "valueType"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CharacteristicSpecification": "#/components/schemas/CharacteristicSpecification_FVO"
+    }
+  }
+}

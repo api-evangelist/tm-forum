@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaymentRef",
+  "title": "PaymentRef",
+  "type": "object",
+  "description": "If an immediate payment has been done at the product order submission, the payment information are captured and stored (as a reference) in the order.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PaymentRef": "#/components/schemas/PaymentRef"
+    }
+  }
+}

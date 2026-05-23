@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderItemStateType",
+  "title": "ProductOrderItemStateType",
+  "enum": [
+    "acknowledged",
+    "rejected",
+    "pending",
+    "held",
+    "inProgress",
+    "cancelled",
+    "completed",
+    "failed",
+    "partial",
+    "assessingCancellation",
+    "pendingCancellation"
+  ],
+  "type": "string",
+  "description": "Possible values for the state of the product order item"
+}

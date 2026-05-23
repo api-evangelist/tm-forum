@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceRefOrValue_MVO",
+  "title": "ProductOfferingPriceRefOrValue_MVO",
+  "type": "object",
+  "description": "The polymorphic attributes @type, @schemaLocation & @referredType are related to the ProductOfferingPrice entity and not the ProductOfferingPriceRefOrValue class itself",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/ProductOfferingPrice_MVO"
+    },
+    {
+      "$ref": "#/components/schemas/ProductOfferingPriceRef_MVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingPrice": "#/components/schemas/ProductOfferingPrice_MVO",
+      "ProductOfferingPriceRef": "#/components/schemas/ProductOfferingPriceRef_MVO"
+    }
+  }
+}

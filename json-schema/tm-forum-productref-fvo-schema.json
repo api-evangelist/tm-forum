@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductRef_FVO",
+  "title": "ProductRef_FVO",
+  "type": "object",
+  "description": "A Product reference",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductRef": "#/components/schemas/ProductRef_FVO"
+    }
+  }
+}

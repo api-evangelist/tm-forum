@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderItemRef_FVO",
+  "title": "ProductOrderItemRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A reference to ProductOrder item that has been executed previously.",
+      "properties": {
+        "ProductOrderHref": {
+          "type": "string",
+          "description": "Reference of the related ProductOrder."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "productOrderId": {
+          "type": "string",
+          "description": "Unique identifier of a refered product order."
+        },
+        "productOrderItemId": {
+          "type": "string",
+          "description": "Identifier of a product order item. "
+        }
+      },
+      "required": [
+        "productOrderId",
+        "productOrderItemId"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderItemRef": "#/components/schemas/ProductOrderItemRef_FVO"
+    }
+  }
+}

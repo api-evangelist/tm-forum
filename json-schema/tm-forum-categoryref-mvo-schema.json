@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryRef_MVO",
+  "title": "CategoryRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Reference to a category in the catalog.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the category"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CategoryRef": "#/components/schemas/CategoryRef_MVO"
+    }
+  }
+}

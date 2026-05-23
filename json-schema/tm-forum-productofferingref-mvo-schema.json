@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingRef_MVO",
+  "title": "ProductOfferingRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the product offering"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingRef": "#/components/schemas/ProductOfferingRef_MVO",
+      "BundledProductOffering": "#/components/schemas/BundledProductOffering_MVO"
+    }
+  }
+}

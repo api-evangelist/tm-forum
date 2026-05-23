@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Addressable_MVO",
+  "title": "Addressable_MVO",
+  "type": "object",
+  "description": "Base schema for addressable entities"
+}

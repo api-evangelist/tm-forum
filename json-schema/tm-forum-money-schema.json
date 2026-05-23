@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Money",
+  "title": "Money",
+  "type": "object",
+  "description": "A base / value business entity used to represent money",
+  "properties": {
+    "unit": {
+      "type": "string",
+      "description": "Currency (ISO4217 norm uses 3 letters to define the currency)"
+    },
+    "value": {
+      "type": "number",
+      "format": "float",
+      "description": "A signed floating point number, the meaning of the sign is according to the context of the API that uses this Data type"
+    }
+  }
+}

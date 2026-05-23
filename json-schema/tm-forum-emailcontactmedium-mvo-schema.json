@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EmailContactMedium_MVO",
+  "title": "EmailContactMedium_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/ContactMedium_MVO"
+    },
+    {
+      "type": "object",
+      "description": "Describes an email that could be used to contact a party (an individual or an organization)",
+      "properties": {
+        "emailAddress": {
+          "type": "string",
+          "description": "Full email address in standard format"
+        }
+      }
+    }
+  ]
+}

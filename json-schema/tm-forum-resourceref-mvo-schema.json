@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResourceRef_MVO",
+  "title": "ResourceRef_MVO",
+  "type": "object",
+  "description": "Resource reference, for when Resource is used by other entities.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ResourceRef": "#/components/schemas/ResourceRef_MVO"
+    }
+  }
+}

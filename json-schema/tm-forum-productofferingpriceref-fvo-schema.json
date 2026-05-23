@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceRef_FVO",
+  "title": "ProductOfferingPriceRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "ProductPriceOffering reference. An amount, usually of money, that is asked for or allowed when a ProductOffering is bought, rented, or leased",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the product offering price"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingPriceRef": "#/components/schemas/ProductOfferingPriceRef_FVO"
+    }
+  }
+}

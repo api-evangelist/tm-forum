@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductAttributeValueChangeEvent",
+  "title": "ProductAttributeValueChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductAttributeValueChange structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductAttributeValueChangePayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductAttributeValueChangeEvent": "#/components/schemas/ProductAttributeValueChangeEvent"
+    }
+  }
+}

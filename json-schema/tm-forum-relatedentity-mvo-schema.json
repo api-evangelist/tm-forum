@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelatedEntity_MVO",
+  "title": "RelatedEntity_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A reference to an entity, where the type of the entity is not known in advance.",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "entity": {
+          "$ref": "#/components/schemas/EntityRef_MVO"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedEntity": "#/components/schemas/RelatedEntity_MVO"
+    }
+  }
+}

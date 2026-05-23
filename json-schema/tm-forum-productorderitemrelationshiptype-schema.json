@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderItemRelationshipType",
+  "title": "ProductOrderItemRelationshipType",
+  "enum": [
+    "migratesTo",
+    "bundles",
+    "bundledBy",
+    "reliesOn",
+    "enables",
+    "requires",
+    "dependsOn",
+    "brings"
+  ],
+  "type": "string",
+  "description": "Possible values for productOrderItem relationship - This is informative information and implementation are free to use distinct."
+}

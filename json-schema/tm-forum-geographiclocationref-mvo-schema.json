@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicLocationRef_MVO",
+  "title": "GeographicLocationRef_MVO",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicLocationRef": "#/components/schemas/GeographicLocationRef_MVO"
+    }
+  }
+}

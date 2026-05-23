@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PriceAlteration",
+  "title": "PriceAlteration",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Is an amount, usually of money, that modifies the price charged for an order item.",
+      "properties": {
+        "applicationDuration": {
+          "type": "integer",
+          "description": "Duration during which the alteration applies on the order item price (for instance 2 months free of charge for the recurring charge)"
+        },
+        "description": {
+          "type": "string",
+          "description": "A narrative that explains in detail the semantics of this order item price alteration"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the order item price alteration"
+        },
+        "productOfferingPrice": {
+          "$ref": "#/components/schemas/ProductOfferingPriceRef"
+        },
+        "priceType": {
+          "type": "string",
+          "description": "A category that describes the price such as recurring, one time and usage."
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Priority level for applying this alteration among all the defined alterations on the order item price"
+        },
+        "recurringChargePeriod": {
+          "type": "string",
+          "description": "Could be month, week..."
+        },
+        "unitOfMeasure": {
+          "type": "string",
+          "description": "Could be minutes, GB..."
+        },
+        "price": {
+          "$ref": "#/components/schemas/Price"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PriceAlteration": "#/components/schemas/PriceAlteration"
+    }
+  }
+}

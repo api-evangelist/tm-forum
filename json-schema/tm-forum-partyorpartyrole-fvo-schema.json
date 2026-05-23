@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyOrPartyRole_FVO",
+  "title": "PartyOrPartyRole_FVO",
+  "type": "object",
+  "description": "",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/PartyRef_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/PartyRoleRef_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Individual_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Organization_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/PartyRole_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Supplier_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/BusinessPartner_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Consumer_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Producer_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRef": "#/components/schemas/PartyRef_FVO",
+      "PartyRoleRef": "#/components/schemas/PartyRoleRef_FVO",
+      "Individual": "#/components/schemas/Individual_FVO",
+      "Organization": "#/components/schemas/Organization_FVO",
+      "PartyRole": "#/components/schemas/PartyRole_FVO",
+      "Supplier": "#/components/schemas/Supplier_FVO",
+      "BusinessPartner": "#/components/schemas/BusinessPartner_FVO",
+      "Consumer": "#/components/schemas/Consumer_FVO",
+      "Producer": "#/components/schemas/Producer_FVO"
+    }
+  }
+}

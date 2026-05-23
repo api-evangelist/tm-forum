@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingQualificationRef_FVO",
+  "title": "ProductOfferingQualificationRef_FVO",
+  "type": "object",
+  "description": "A productOfferingQualification that has been executed previously",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingQualificationRef": "#/components/schemas/ProductOfferingQualificationRef_FVO"
+    }
+  }
+}

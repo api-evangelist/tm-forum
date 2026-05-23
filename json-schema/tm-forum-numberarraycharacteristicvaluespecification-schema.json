@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NumberArrayCharacteristicValueSpecification",
+  "title": "NumberArrayCharacteristicValueSpecification",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number array with no specific format ",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ]
+}

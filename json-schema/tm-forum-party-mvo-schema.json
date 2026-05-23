@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Party_MVO",
+  "title": "Party_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_MVO"
+    },
+    {
+      "type": "object",
+      "description": "Generic and Abstract Party structure used to define commonalities between sub concepts of Individual and Organization.",
+      "properties": {
+        "externalReference": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ExternalIdentifier_MVO"
+          },
+          "description": "List of identifiers of the Party in an external system, for example when party information is imported from a commerce system"
+        },
+        "partyCharacteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic_MVO"
+          },
+          "description": "List of additional characteristics that a Party can take on."
+        },
+        "taxExemptionCertificate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/TaxExemptionCertificate_MVO"
+          },
+          "description": "List of tax exemptions granted to the party. For example, a war veteran might have partial exemption from state tax and a full exemption from federal tax"
+        },
+        "creditRating": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PartyCreditProfile_MVO"
+          },
+          "description": "List of credit profiles and scores for the party, typically received from an external credit broker"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole_MVO"
+          },
+          "description": "List of parties and/or party roles related to this party"
+        },
+        "contactMedium": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ContactMedium_MVO"
+          },
+          "description": "List of means for contacting the party, e.g. mobile phone, email address"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Party": "#/components/schemas/Party_MVO",
+      "Organization": "#/components/schemas/Organization_MVO",
+      "Individual": "#/components/schemas/Individual_MVO"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntentRefOrValue_MVO",
+  "title": "IntentRefOrValue_MVO",
+  "type": "object",
+  "description": "Intent Ref (if Intent already exists) or Value (if Intent be created or its details be presented)",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/IntentRef_MVO"
+    },
+    {
+      "$ref": "#/components/schemas/Intent_MVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IntentRef": "#/components/schemas/IntentRef_MVO",
+      "Intent": "#/components/schemas/Intent_MVO"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Place_MVO",
+  "title": "Place_MVO",
+  "type": "object",
+  "description": "Place reference.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_MVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Place": "#/components/schemas/Place_MVO",
+      "GeographicSite": "#/components/schemas/GeographicSite_MVO",
+      "GeographicLocation": "#/components/schemas/GeographicLocation_MVO",
+      "GeographicAddress": "#/components/schemas/GeographicAddress_MVO"
+    }
+  }
+}

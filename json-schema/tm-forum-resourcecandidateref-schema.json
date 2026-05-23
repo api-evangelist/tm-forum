@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResourceCandidateRef",
+  "title": "ResourceCandidateRef",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "the version of resource candidate"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ResourceCandidateRef": "#/components/schemas/ResourceCandidateRef"
+    }
+  }
+}

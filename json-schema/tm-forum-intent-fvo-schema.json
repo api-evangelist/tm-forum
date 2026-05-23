@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Intent_FVO",
+  "title": "Intent_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_FVO"
+    },
+    {
+      "type": "object",
+      "description": "An Intent instance is the formal description of all expectations including requirements, goals, and constraints given to a technical system",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The description of the intent."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "isBundle": {
+          "type": "boolean",
+          "description": "isBundle determines whether an intent represents a single intent (false), or a bundle of intents(true)."
+        },
+        "priority": {
+          "type": "string",
+          "description": "Can be used by intent owner to prioritize intents in an intent management system"
+        },
+        "statusChangeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "A date time( DateTime). The date that the entity status changed to the current one"
+        },
+        "context": {
+          "type": "string",
+          "description": "A string used to give a context to the intent"
+        },
+        "version": {
+          "type": "string",
+          "description": "A field that identifies the specific version of an instance of an intent."
+        },
+        "intentSpecification": {
+          "$ref": "#/components/schemas/EntityRef_FVO"
+        },
+        "intentRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/EntityRelationship_FVO"
+          },
+          "description": "A list of intents related to this intent"
+        },
+        "characteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic_FVO"
+          }
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO"
+          }
+        },
+        "attachment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AttachmentRefOrValue_FVO"
+          },
+          "description": "Attachments that may be of relevance to this intent, such as picture, document, media"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the intent."
+        },
+        "expression": {
+          "$ref": "#/components/schemas/Expression_FVO"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of the creation of this REST resource"
+        },
+        "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of the last update of this REST resource"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status of this intent"
+        }
+      },
+      "required": [
+        "name",
+        "creationDate",
+        "lastUpdate",
+        "lifecycleStatus"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Intent": "#/components/schemas/Intent_FVO"
+    }
+  }
+}

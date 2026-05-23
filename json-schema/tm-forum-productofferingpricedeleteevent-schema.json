@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceDeleteEvent",
+  "title": "ProductOfferingPriceDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOfferingPriceDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOfferingPriceDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingPriceDeleteEvent": "#/components/schemas/ProductOfferingPriceDeleteEvent"
+    }
+  }
+}

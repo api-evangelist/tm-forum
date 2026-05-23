@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketStatusChangeEvent",
+  "title": "TroubleTicketStatusChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "TroubleTicketStatusChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/TroubleTicketStatusChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketStatusChangeEvent": "#/components/schemas/TroubleTicketStatusChangeEvent"
+    }
+  }
+}

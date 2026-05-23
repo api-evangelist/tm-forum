@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StringArrayCharacteristic",
+  "title": "StringArrayCharacteristic",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is an array of String(s).",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "Collection of string characteristics",
+          "items": {
+            "type": "string",
+            "description": "Characteristic value"
+          }
+        }
+      }
+    }
+  ]
+}

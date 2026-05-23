@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Place",
+  "title": "Place",
+  "type": "object",
+  "description": "Place reference.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Place": "#/components/schemas/Place",
+      "GeographicSite": "#/components/schemas/GeographicSite",
+      "GeographicLocation": "#/components/schemas/GeographicLocation",
+      "GeographicAddress": "#/components/schemas/GeographicAddress"
+    }
+  }
+}

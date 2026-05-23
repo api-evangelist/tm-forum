@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductRelationship_FVO",
+  "title": "ProductRelationship_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Used to describe relationship between product.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of the related product"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "Relationship type as relies on, bundles, etc..."
+        }
+      },
+      "required": [
+        "id",
+        "relationshipType"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductRelationship": "#/components/schemas/ProductRelationship_FVO"
+    }
+  }
+}

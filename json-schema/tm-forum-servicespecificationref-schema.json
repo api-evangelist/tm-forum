@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceSpecificationRef",
+  "title": "ServiceSpecificationRef",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Service specification reference: ServiceSpecification(s) required to realize a ProductSpecification.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Service specification version"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ServiceSpecificationRef": "#/components/schemas/ServiceSpecificationRef"
+    }
+  }
+}

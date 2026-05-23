@@ -1,0 +1,23 @@
+name: TM Forum Domain Vocabulary
+provider: TM Forum
+providerId: tm-forum
+description: Tag-derived vocabulary for the TM Forum API surface; sourced from openapi/ tags.
+terms:
+- term: productCatalog
+  description: Operations for ProductCatalog Resource
+- term: category
+  description: Operations for Category Resource
+- term: productOffering
+  description: Operations for ProductOffering Resource
+- term: productOfferingPrice
+  description: Operations for ProductOfferingPrice Resource
+- term: productSpecification
+  description: Operations for ProductSpecification Resource
+- term: importJob
+  description: Operations for ImportJob Resource
+- term: exportJob
+  description: Operations for ExportJob Resource
+- term: notification listener
+  description: Notifications for Resource Lifecycle and event notifications
+- term: events subscription
+  description: Endpoints to register and terminate an Event Listener

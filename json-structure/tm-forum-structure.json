@@ -1,0 +1,2181 @@
+{
+  "provider": "TM Forum",
+  "providerId": "tm-forum",
+  "kind": "json-structure",
+  "description": "Structural overview of the TM Forum API surface; extracted from openapi/.",
+  "schemaCount": 271,
+  "operationCount": 59,
+  "schemas": [
+    {
+      "name": "Addressable",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Addressable_FVO",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AgreementRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AgreementRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AgreementRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AllowedProductAction",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AllowedProductAction_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AllowedProductAction_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Attachment",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRefOrValue",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRefOrValue_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRefOrValue_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AttachmentRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Attachment_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Attachment_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BaseEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BaseEvent_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BaseEvent_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BooleanCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOffering",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOfferingOption",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOfferingOption_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOfferingOption_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOffering_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledGroupProductOffering_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOffering",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingOption",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingOption_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingOption_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingPriceRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingPriceRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOfferingPriceRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOffering_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductOffering_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BundledProductSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Catalog",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Catalog_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Catalog_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Category",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryAttributeValueChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryAttributeValueChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CategoryCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CategoryDeleteEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryDeleteEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CategoryRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CategoryStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Category_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Category_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ChannelRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ChannelRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ChannelRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Characteristic",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecificationRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecificationRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecificationRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Characteristic_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Characteristic_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Duration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Entity",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "EntityRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "EntityRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Entity_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Entity_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Event",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Event_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Event_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExportJob",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExportJobCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExportJobCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ExportJobStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExportJobStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ExportJob_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExportJob_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Extensible",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "@type"
+      ]
+    },
+    {
+      "name": "Extensible_FVO",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "@type"
+      ]
+    },
+    {
+      "name": "ExternalIdentifier",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExternalIdentifier_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ExternalIdentifier_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FloatCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ImportJob",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ImportJobCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ImportJobCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ImportJobStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ImportJobStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ImportJob_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ImportJob_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntegerCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntentSpecificationRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntentSpecificationRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "IntentSpecificationRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "JobStateType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MapCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MarketSegmentRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MarketSegmentRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MarketSegmentRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Money",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "NumberArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NumberArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NumberArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NumberCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NumberCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NumberCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRefOrPartyRoleRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRefOrPartyRoleRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRefOrPartyRoleRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRoleRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRoleRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PartyRoleRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PlaceRef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PlaceRef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PlaceRef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PolicyRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PolicyRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PolicyRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PricingLogicAlgorithm",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PricingLogicAlgorithm_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PricingLogicAlgorithm_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalog",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogAttributeValueChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogAttributeValueChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogDeleteEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogDeleteEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalogStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductCatalog_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductCatalog_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOffering",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingAttributeValueChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingAttributeValueChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingDeleteEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingDeleteEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPrice",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceAttributeValueChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceAttributeValueChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceDeleteEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceDeleteEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRefOrValue",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRefOrValue_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRefOrValue_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPriceStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPrice_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingPrice_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingTerm",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingTerm_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOfferingTerm_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOffering_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductOffering_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationAttributeValueChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationAttributeValueChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationCharacteristicValueUse",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationCharacteristicValueUse_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationCharacteristicValueUse_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationCreateEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationCreateEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationDeleteEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationDeleteEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRelationship",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRelationship_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationRelationship_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationStateChangeEvent",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecificationStateChangeEventPayload",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProductSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Quantity",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "RelatedPartyRefOrPartyRoleRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RelatedPartyRefOrPartyRoleRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RelatedPartyRefOrPartyRoleRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceCandidateRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceCandidateRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceCandidateRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceSpecificationRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceSpecificationRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceSpecificationRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SLARef",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SLARef_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SLARef_MVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceCandidateRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceCandidateRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceCandidateRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceSpecificationRef",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceSpecificationRef_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceSpecificationRef_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringArrayCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringArrayCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringArrayCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringCharacteristicValueSpecification",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringCharacteristicValueSpecification_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StringCharacteristicValueSpecification_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TargetProductSchema",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TargetProductSchema_FVO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "@type",
+        "@schemaLocation"
+      ]
+    },
+    {
+      "name": "TargetProductSchema_MVO",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TaxItem",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TaxItem_FVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TaxItem_MVO",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TimePeriod",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Error",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Hub_FVO",
+      "type": "object",
+      "propertyCount": 0,
+      "required": [
+        "callback"
+      ]
+    },
+    {
+      "name": "Hub",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "JsonPatch",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "op",
+        "path"
+      ]
+    },
+    {
+      "name": "JsonPatchOperations",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/category",
+      "operationId": "listCategory",
+      "summary": "TM Forum List or Find Category Objects",
+      "tags": [
+        "category"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/category",
+      "operationId": "createCategory",
+      "summary": "TM Forum Creates a Category",
+      "tags": [
+        "category"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/category/{id}",
+      "operationId": "retrieveCategory",
+      "summary": "TM Forum Retrieves a Category by ID",
+      "tags": [
+        "category"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/category/{id}",
+      "operationId": "deleteCategory",
+      "summary": "TM Forum Deletes a Category",
+      "tags": [
+        "category"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/category/{id}",
+      "operationId": "patchCategory",
+      "summary": "TM Forum Updates Partially a Category",
+      "tags": [
+        "category"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/exportJob",
+      "operationId": "listExportJob",
+      "summary": "TM Forum List or Find ExportJob Objects",
+      "tags": [
+        "exportJob"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/exportJob",
+      "operationId": "createExportJob",
+      "summary": "TM Forum Creates a ExportJob",
+      "tags": [
+        "exportJob"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/exportJob/{id}",
+      "operationId": "retrieveExportJob",
+      "summary": "TM Forum Retrieves a ExportJob by ID",
+      "tags": [
+        "exportJob"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/exportJob/{id}",
+      "operationId": "deleteExportJob",
+      "summary": "TM Forum Deletes a ExportJob",
+      "tags": [
+        "exportJob"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hub",
+      "operationId": "createHub",
+      "summary": "TM Forum Create a Subscription (hub) to Receive Events",
+      "tags": [
+        "events subscription"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/hub/{id}",
+      "operationId": "hubDelete",
+      "summary": "TM Forum Remove a Subscription (hub) to Receive Events",
+      "tags": [
+        "events subscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/importJob",
+      "operationId": "listImportJob",
+      "summary": "TM Forum List or Find ImportJob Objects",
+      "tags": [
+        "importJob"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/importJob",
+      "operationId": "createImportJob",
+      "summary": "TM Forum Creates a ImportJob",
+      "tags": [
+        "importJob"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/importJob/{id}",
+      "operationId": "retrieveImportJob",
+      "summary": "TM Forum Retrieves a ImportJob by ID",
+      "tags": [
+        "importJob"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/importJob/{id}",
+      "operationId": "deleteImportJob",
+      "summary": "TM Forum Deletes a ImportJob",
+      "tags": [
+        "importJob"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/categoryAttributeValueChangeEvent",
+      "operationId": "categoryAttributeValueChangeEvent",
+      "summary": "TM Forum Client Listener for Entity CategoryAttributeValueChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/categoryCreateEvent",
+      "operationId": "categoryCreateEvent",
+      "summary": "TM Forum Client Listener for Entity CategoryCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/categoryDeleteEvent",
+      "operationId": "categoryDeleteEvent",
+      "summary": "TM Forum Client Listener for Entity CategoryDeleteEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/categoryStateChangeEvent",
+      "operationId": "categoryStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity CategoryStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/exportJobCreateEvent",
+      "operationId": "exportJobCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ExportJobCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/exportJobStateChangeEvent",
+      "operationId": "exportJobStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ExportJobStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/importJobCreateEvent",
+      "operationId": "importJobCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ImportJobCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/importJobStateChangeEvent",
+      "operationId": "importJobStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ImportJobStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productCatalogAttributeValueChangeEvent",
+      "operationId": "productCatalogAttributeValueChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductCatalogAttributeValueChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productCatalogCreateEvent",
+      "operationId": "productCatalogCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ProductCatalogCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productCatalogDeleteEvent",
+      "operationId": "productCatalogDeleteEvent",
+      "summary": "TM Forum Client Listener for Entity ProductCatalogDeleteEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productCatalogStateChangeEvent",
+      "operationId": "productCatalogStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductCatalogStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingAttributeValueChangeEvent",
+      "operationId": "productOfferingAttributeValueChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingAttributeValueChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingCreateEvent",
+      "operationId": "productOfferingCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingDeleteEvent",
+      "operationId": "productOfferingDeleteEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingDeleteEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingPriceAttributeValueChangeEvent",
+      "operationId": "productOfferingPriceAttributeValueChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingPriceAttributeValueChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingPriceCreateEvent",
+      "operationId": "productOfferingPriceCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingPriceCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingPriceDeleteEvent",
+      "operationId": "productOfferingPriceDeleteEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingPriceDeleteEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingPriceStateChangeEvent",
+      "operationId": "productOfferingPriceStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingPriceStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productOfferingStateChangeEvent",
+      "operationId": "productOfferingStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductOfferingStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productSpecificationAttributeValueChangeEvent",
+      "operationId": "productSpecificationAttributeValueChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductSpecificationAttributeValueChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productSpecificationCreateEvent",
+      "operationId": "productSpecificationCreateEvent",
+      "summary": "TM Forum Client Listener for Entity ProductSpecificationCreateEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productSpecificationDeleteEvent",
+      "operationId": "productSpecificationDeleteEvent",
+      "summary": "TM Forum Client Listener for Entity ProductSpecificationDeleteEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/listener/productSpecificationStateChangeEvent",
+      "operationId": "productSpecificationStateChangeEvent",
+      "summary": "TM Forum Client Listener for Entity ProductSpecificationStateChangeEvent",
+      "tags": [
+        "notification listener"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productCatalog",
+      "operationId": "listProductCatalog",
+      "summary": "TM Forum List or Find ProductCatalog Objects",
+      "tags": [
+        "productCatalog"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/productCatalog",
+      "operationId": "createProductCatalog",
+      "summary": "TM Forum Creates a ProductCatalog",
+      "tags": [
+        "productCatalog"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productCatalog/{id}",
+      "operationId": "retrieveProductCatalog",
+      "summary": "TM Forum Retrieves a ProductCatalog by ID",
+      "tags": [
+        "productCatalog"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/productCatalog/{id}",
+      "operationId": "deleteProductCatalog",
+      "summary": "TM Forum Deletes a ProductCatalog",
+      "tags": [
+        "productCatalog"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/productCatalog/{id}",
+      "operationId": "patchProductCatalog",
+      "summary": "TM Forum Updates Partially a ProductCatalog",
+      "tags": [
+        "productCatalog"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productOffering",
+      "operationId": "listProductOffering",
+      "summary": "TM Forum List or Find ProductOffering Objects",
+      "tags": [
+        "productOffering"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/productOffering",
+      "operationId": "createProductOffering",
+      "summary": "TM Forum Creates a ProductOffering",
+      "tags": [
+        "productOffering"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productOffering/{id}",
+      "operationId": "retrieveProductOffering",
+      "summary": "TM Forum Retrieves a ProductOffering by ID",
+      "tags": [
+        "productOffering"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/productOffering/{id}",
+      "operationId": "deleteProductOffering",
+      "summary": "TM Forum Deletes a ProductOffering",
+      "tags": [
+        "productOffering"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/productOffering/{id}",
+      "operationId": "patchProductOffering",
+      "summary": "TM Forum Updates Partially a ProductOffering",
+      "tags": [
+        "productOffering"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productOfferingPrice",
+      "operationId": "listProductOfferingPrice",
+      "summary": "TM Forum List or Find ProductOfferingPrice Objects",
+      "tags": [
+        "productOfferingPrice"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/productOfferingPrice",
+      "operationId": "createProductOfferingPrice",
+      "summary": "TM Forum Creates a ProductOfferingPrice",
+      "tags": [
+        "productOfferingPrice"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productOfferingPrice/{id}",
+      "operationId": "retrieveProductOfferingPrice",
+      "summary": "TM Forum Retrieves a ProductOfferingPrice by ID",
+      "tags": [
+        "productOfferingPrice"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/productOfferingPrice/{id}",
+      "operationId": "deleteProductOfferingPrice",
+      "summary": "TM Forum Deletes a ProductOfferingPrice",
+      "tags": [
+        "productOfferingPrice"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/productOfferingPrice/{id}",
+      "operationId": "patchProductOfferingPrice",
+      "summary": "TM Forum Updates Partially a ProductOfferingPrice",
+      "tags": [
+        "productOfferingPrice"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productSpecification",
+      "operationId": "listProductSpecification",
+      "summary": "TM Forum List or Find ProductSpecification Objects",
+      "tags": [
+        "productSpecification"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/productSpecification",
+      "operationId": "createProductSpecification",
+      "summary": "TM Forum Creates a ProductSpecification",
+      "tags": [
+        "productSpecification"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productSpecification/{id}",
+      "operationId": "retrieveProductSpecification",
+      "summary": "TM Forum Retrieves a ProductSpecification by ID",
+      "tags": [
+        "productSpecification"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/productSpecification/{id}",
+      "operationId": "deleteProductSpecification",
+      "summary": "TM Forum Deletes a ProductSpecification",
+      "tags": [
+        "productSpecification"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/productSpecification/{id}",
+      "operationId": "patchProductSpecification",
+      "summary": "TM Forum Updates Partially a ProductSpecification",
+      "tags": [
+        "productSpecification"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceCandidateRef",
+  "title": "ServiceCandidateRef",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the service candidate"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ServiceCandidateRef": "#/components/schemas/ServiceCandidateRef"
+    }
+  }
+}

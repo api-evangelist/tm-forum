@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderItem_MVO",
+  "title": "ProductOrderItem_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "An identified part of the order. A product order is decomposed into one or more order items.",
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "description": "Quantity ordered"
+        },
+        "action": {
+          "$ref": "#/components/schemas/ItemActionType"
+        },
+        "appointment": {
+          "$ref": "#/components/schemas/AppointmentRef_MVO"
+        },
+        "billingAccount": {
+          "$ref": "#/components/schemas/BillingAccountRef_MVO"
+        },
+        "itemPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderPrice_MVO"
+          }
+        },
+        "itemTerm": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderTerm_MVO"
+          }
+        },
+        "itemTotalPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderPrice_MVO"
+          }
+        },
+        "note": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Note_MVO"
+          }
+        },
+        "payment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PaymentRef_MVO"
+          }
+        },
+        "product": {
+          "$ref": "#/components/schemas/ProductRefOrValue_MVO"
+        },
+        "productOffering": {
+          "$ref": "#/components/schemas/ProductOfferingRef_MVO"
+        },
+        "productOfferingQualificationItem": {
+          "$ref": "#/components/schemas/ProductOfferingQualificationItemRef_MVO"
+        },
+        "quoteItem": {
+          "$ref": "#/components/schemas/QuoteItemRef_MVO"
+        },
+        "productOrderItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItem_MVO"
+          }
+        },
+        "productOrderItemRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderItemRelationship_MVO"
+          }
+        },
+        "state": {
+          "$ref": "#/components/schemas/ProductOrderItemStateType"
+        },
+        "qualification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProductOfferingQualificationRef_MVO"
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "Identifier of the ProductOrder item (generally it is a sequence number 01, 02, 03, ...)"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderItem": "#/components/schemas/ProductOrderItem_MVO"
+    }
+  }
+}

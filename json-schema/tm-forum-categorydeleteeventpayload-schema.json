@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryDeleteEventPayload",
+  "title": "CategoryDeleteEventPayload",
+  "type": "object",
+  "description": "CategoryDeleteEventPayload generic structure",
+  "properties": {
+    "category": {
+      "$ref": "#/components/schemas/Category"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PlaceRef_MVO",
+  "title": "PlaceRef_MVO",
+  "type": "object",
+  "description": "Place reference.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PlaceRef": "#/components/schemas/PlaceRef_MVO"
+    }
+  }
+}

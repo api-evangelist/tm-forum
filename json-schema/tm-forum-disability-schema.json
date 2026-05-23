@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Disability",
+  "title": "Disability",
+  "type": "object",
+  "description": "Lack or inadequate strength or ability.",
+  "properties": {
+    "disabilityCode": {
+      "type": "string",
+      "description": "Code of the disability"
+    },
+    "disabilityName": {
+      "type": "string",
+      "description": "Name of the disability"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    }
+  }
+}

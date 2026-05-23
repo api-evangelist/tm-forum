@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductBatchEvent",
+  "title": "ProductBatchEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductBatchEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductBatchEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductBatchEvent": "#/components/schemas/ProductBatchEvent"
+    }
+  }
+}

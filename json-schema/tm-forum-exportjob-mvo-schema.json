@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExportJob_MVO",
+  "title": "ExportJob_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_MVO"
+    },
+    {
+      "type": "object",
+      "description": "Represents a task used to export resources to a file",
+      "properties": {
+        "completionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data at which the job was completed"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "The format of the exported data"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date at which the job was created"
+        },
+        "errorLog": {
+          "type": "string",
+          "description": "Path to file or stream where errors encountered during the job processing can be written"
+        },
+        "path": {
+          "type": "string",
+          "description": "URL of the root resource acting as the source for streaming content to the file specified by the export job"
+        },
+        "query": {
+          "type": "string",
+          "description": "Used to scope the exported data"
+        },
+        "status": {
+          "$ref": "#/components/schemas/JobStateType"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the file containing the data to be exported"
+        },
+        "id": {
+          "type": "string",
+          "description": "unique identifier for export job"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ExportJob": "#/components/schemas/ExportJob_MVO"
+    }
+  }
+}

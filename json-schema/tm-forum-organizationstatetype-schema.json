@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationStateType",
+  "title": "OrganizationStateType",
+  "enum": [
+    "initialized",
+    "validated",
+    "closed"
+  ],
+  "type": "string",
+  "description": "Valid values for the lifecycle state of the organization"
+}

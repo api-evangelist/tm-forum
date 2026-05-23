@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AttachmentRef_MVO",
+  "title": "AttachmentRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "A narrative text describing the content of the attachment"
+        },
+        "url": {
+          "description": "Link to the attachment media/content",
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "AttachmentRef": "#/components/schemas/AttachmentRef_MVO"
+    }
+  }
+}

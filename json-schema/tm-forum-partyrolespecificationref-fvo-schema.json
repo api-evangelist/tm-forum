@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyRoleSpecificationRef_FVO",
+  "title": "PartyRoleSpecificationRef_FVO",
+  "type": "object",
+  "description": "Party role specification reference. A party role specification gives additional details on the part played by a party in a given context.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRoleSpecificationRef": "#/components/schemas/PartyRoleSpecificationRef_FVO"
+    }
+  }
+}

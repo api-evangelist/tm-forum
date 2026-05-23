@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HourPeriod",
+  "title": "HourPeriod",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "endHour": {
+          "type": "string",
+          "description": "The time when the status ends applying"
+        },
+        "startHour": {
+          "type": "string",
+          "description": "The time when the status starts applying"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "HourPeriod": "#/components/schemas/HourPeriod"
+    }
+  }
+}

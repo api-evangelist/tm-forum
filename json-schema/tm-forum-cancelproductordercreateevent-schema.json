@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CancelProductOrderCreateEvent",
+  "title": "CancelProductOrderCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CancelProductOrderCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CancelProductOrderCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CancelProductOrderCreateEvent": "#/components/schemas/CancelProductOrderCreateEvent"
+    }
+  }
+}

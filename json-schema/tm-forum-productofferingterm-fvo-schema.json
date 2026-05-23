@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingTerm_FVO",
+  "title": "ProductOfferingTerm_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A condition under which a ProductOffering is made available to Customers. For instance, a productOffering can be offered with multiple commitment periods.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the productOfferingTerm"
+        },
+        "duration": {
+          "$ref": "#/components/schemas/Duration"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the productOfferingTerm"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingTerm": "#/components/schemas/ProductOfferingTerm_FVO"
+    }
+  }
+}

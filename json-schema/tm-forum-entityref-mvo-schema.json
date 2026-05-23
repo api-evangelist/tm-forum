@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EntityRef_MVO",
+  "title": "EntityRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/Addressable"
+    },
+    {
+      "type": "object",
+      "description": "Entity reference schema to be use for all entityRef class.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the referred entity."
+        },
+        "href": {
+          "type": "string",
+          "description": "The URI of the referred entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the referred entity."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        }
+      }
+    }
+  ]
+}

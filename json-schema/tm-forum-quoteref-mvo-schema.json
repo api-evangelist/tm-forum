@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/QuoteRef_MVO",
+  "title": "QuoteRef_MVO",
+  "type": "object",
+  "description": "Quote reference. It's a Quote that has been executed previously.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "QuoteRef": "#/components/schemas/QuoteRef_MVO"
+    }
+  }
+}

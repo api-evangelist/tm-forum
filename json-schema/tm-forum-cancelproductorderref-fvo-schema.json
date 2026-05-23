@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CancelProductOrderRef_FVO",
+  "title": "CancelProductOrderRef_FVO",
+  "type": "object",
+  "description": "A reference to an existing Product Order Cancel request",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CancelProductOrderRef": "#/components/schemas/CancelProductOrderRef_FVO"
+    }
+  }
+}

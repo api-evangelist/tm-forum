@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Place_FVO",
+  "title": "Place_FVO",
+  "type": "object",
+  "description": "Place reference.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Place": "#/components/schemas/Place_FVO",
+      "GeographicSite": "#/components/schemas/GeographicSite_FVO",
+      "GeographicLocation": "#/components/schemas/GeographicLocation_FVO",
+      "GeographicAddress": "#/components/schemas/GeographicAddress_FVO"
+    }
+  }
+}

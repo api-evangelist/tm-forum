@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BaseEvent_FVO",
+  "title": "BaseEvent_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Base event with common attributes.",
+      "properties": {
+        "event": {
+          "type": "object"
+        },
+        "eventId": {
+          "type": "string",
+          "description": "The identifier of the notification."
+        },
+        "eventTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time of the event occurrence."
+        },
+        "eventType": {
+          "type": "string",
+          "description": "The type of the notification."
+        },
+        "correlationId": {
+          "type": "string",
+          "description": "The correlation id for this event."
+        },
+        "domain": {
+          "type": "string",
+          "description": "The domain of the event."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the event."
+        },
+        "description": {
+          "type": "string",
+          "description": "An explanatory of the event."
+        },
+        "priority": {
+          "type": "string",
+          "description": "A priority."
+        },
+        "timeOcurred": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the event occured."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BaseEvent": "#/components/schemas/BaseEvent_FVO"
+    }
+  }
+}

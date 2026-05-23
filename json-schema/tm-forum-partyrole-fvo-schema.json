@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyRole_FVO",
+  "title": "PartyRole_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_FVO"
+    },
+    {
+      "type": "object",
+      "description": "The part played by a party in a given context.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A word, term, or phrase by which the PartyRole is known and distinguished from other PartyRoles. It's the name of the PartyRole unique entity."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the PartyRole."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role played by the engagedParty in this context. As role is defined by partyRoleSpecification, this role attribute can be used to precise the role defined by partyRoleSpecification, or it can be used to define the role in case there is no partyRoleSpecification."
+        },
+        "engagedParty": {
+          "$ref": "#/components/schemas/PartyRef_FVO"
+        },
+        "partyRoleSpecification": {
+          "$ref": "#/components/schemas/PartyRoleSpecificationRef_FVO"
+        },
+        "characteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Characteristic_FVO"
+          },
+          "description": "Describes the characteristic of a party role."
+        },
+        "account": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AccountRef_FVO"
+          }
+        },
+        "agreement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AgreementRef_FVO"
+          }
+        },
+        "contactMedium": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ContactMedium_FVO"
+          }
+        },
+        "paymentMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PaymentMethodRef_FVO"
+          }
+        },
+        "creditProfile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CreditProfile_FVO"
+          }
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole_FVO"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "Used to track the lifecycle status of the party role."
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "A string providing an explanation on the value of the status lifecycle. For instance if the status is Rejected, statusReason will provide the reason for rejection."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        }
+      },
+      "required": [
+        "name",
+        "engagedParty"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRole": "#/components/schemas/PartyRole_FVO",
+      "Supplier": "#/components/schemas/Supplier_FVO",
+      "Producer": "#/components/schemas/Producer_FVO",
+      "Consumer": "#/components/schemas/Consumer_FVO",
+      "BusinessPartner": "#/components/schemas/BusinessPartner_FVO"
+    }
+  }
+}

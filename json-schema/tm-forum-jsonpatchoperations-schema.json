@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JsonPatchOperations",
+  "title": "JsonPatchOperations",
+  "description": "JSONPatch Operations document as defined by RFC 6902",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/JsonPatch"
+  }
+}

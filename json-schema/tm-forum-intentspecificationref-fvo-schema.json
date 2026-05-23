@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntentSpecificationRef_FVO",
+  "title": "IntentSpecificationRef_FVO",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IntentSpecificationRef": "#/components/schemas/IntentSpecificationRef_FVO"
+    }
+  }
+}

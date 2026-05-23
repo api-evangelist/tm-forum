@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderInformationRequiredEventPayload",
+  "title": "ProductOrderInformationRequiredEventPayload",
+  "type": "object",
+  "description": "ProductOrderInformationRequiredEventPayload generic structure",
+  "properties": {
+    "productOrder": {
+      "$ref": "#/components/schemas/ProductOrderRef"
+    },
+    "informationRequired": {
+      "$ref": "#/components/schemas/JsonPatch"
+    }
+  }
+}

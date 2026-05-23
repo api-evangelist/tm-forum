@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CharacteristicSpecificationRelationship",
+  "title": "CharacteristicSpecificationRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "An aggregation, migration, substitution, dependency or exclusivity relationship between/among Characteristic specifications. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.",
+      "properties": {
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of relationship such as aggregation, migration, substitution, dependency, exclusivity"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the target characteristic within the specification"
+        },
+        "characteristicSpecificationId": {
+          "type": "string",
+          "description": "Unique identifier of the characteristic within the specification"
+        },
+        "parentSpecificationHref": {
+          "type": "string",
+          "format": "uri",
+          "description": "Hyperlink reference to the parent specification containing the target characteristic"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "parentSpecificationId": {
+          "type": "string",
+          "description": "Unique identifier of the parent specification containing the target characteristic"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CharacteristicSpecificationRelationship": "#/components/schemas/CharacteristicSpecificationRelationship"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelatedChannel_MVO",
+  "title": "RelatedChannel_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Related channel to another entity. May be online web, mobile app, social ,etc.",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "channel": {
+          "$ref": "#/components/schemas/ChannelRef_MVO"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedChannel": "#/components/schemas/RelatedChannel_MVO"
+    }
+  }
+}

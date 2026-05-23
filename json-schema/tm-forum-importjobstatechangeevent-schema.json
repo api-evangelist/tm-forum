@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImportJobStateChangeEvent",
+  "title": "ImportJobStateChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ImportJobStateChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ImportJobStateChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ImportJobStateChangeEvent": "#/components/schemas/ImportJobStateChangeEvent"
+    }
+  }
+}

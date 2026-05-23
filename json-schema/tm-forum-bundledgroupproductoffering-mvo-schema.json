@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BundledGroupProductOffering_MVO",
+  "title": "BundledGroupProductOffering_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "A group of product offerings that can be chosen for instantiation of children of the parent product offering, for example a list of channels for selection under a TV offering. Sometimes known as Selection Group. The group can also hierarchically contain other groups",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Locally unique identifier of the group, useful in case the parent product offering or group includes multiple groups.",
+          "example": "1"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the group of child offerings. Required to distinguish several choice groups.",
+          "example": "TV Channels"
+        },
+        "bundledProductOffering": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/BundledProductOffering_MVO"
+          },
+          "description": "Child offerings, from which instances can be created as direct or hierarchically indirect children of the parent offering."
+        },
+        "bundledGroupProductOffering": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/BundledGroupProductOffering_MVO"
+          },
+          "description": "Child groups of product offerings, to enable hierarchical sub-grouping."
+        },
+        "bundledGroupProductOfferingOption": {
+          "$ref": "#/components/schemas/BundledGroupProductOfferingOption_MVO"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledGroupProductOffering": "#/components/schemas/BundledGroupProductOffering_MVO"
+    }
+  }
+}

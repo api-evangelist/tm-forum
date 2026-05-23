@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BundledProductSpecification_FVO",
+  "title": "BundledProductSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A type of ProductSpecification that belongs to a grouping of ProductSpecifications made available to the market. It inherits of all attributes of ProductSpecification.",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Reference of the product specification"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the product specification"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the product specification"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the product specification"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BundledProductSpecification": "#/components/schemas/BundledProductSpecification_FVO"
+    }
+  }
+}

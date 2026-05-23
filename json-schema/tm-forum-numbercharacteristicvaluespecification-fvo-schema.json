@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NumberCharacteristicValueSpecification_FVO",
+  "title": "NumberCharacteristicValueSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number of no specific format",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

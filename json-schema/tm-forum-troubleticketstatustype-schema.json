@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketStatusType",
+  "title": "TroubleTicketStatusType",
+  "enum": [
+    "acknowledged",
+    "rejected",
+    "pending",
+    "held",
+    "inProgress",
+    "cancelled",
+    "closed",
+    "resolved"
+  ],
+  "type": "string",
+  "description": "Possible values for the status of the trouble ticket"
+}

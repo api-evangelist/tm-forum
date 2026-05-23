@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ObjectArrayCharacteristicValueSpecification_FVO",
+  "title": "ObjectArrayCharacteristicValueSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is an array of objects",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
+}

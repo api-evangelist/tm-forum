@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderAttributeValueChangePayload",
+  "title": "ProductOrderAttributeValueChangePayload",
+  "type": "object",
+  "description": "ProductOrderAttributeValueChangePayload generic structure",
+  "properties": {
+    "productOrder": {
+      "$ref": "#/components/schemas/ProductOrder"
+    }
+  }
+}

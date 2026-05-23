@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExportJobStateChangeEvent",
+  "title": "ExportJobStateChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ExportJobStateChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ExportJobStateChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ExportJobStateChangeEvent": "#/components/schemas/ExportJobStateChangeEvent"
+    }
+  }
+}

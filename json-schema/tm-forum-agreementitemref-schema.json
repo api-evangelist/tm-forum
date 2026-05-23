@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AgreementItemRef",
+  "title": "AgreementItemRef",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "It's a Agreement item that has been executed previously.",
+      "properties": {
+        "agreementName": {
+          "type": "string",
+          "description": "Name of the related entity."
+        },
+        "agreementHref": {
+          "type": "string",
+          "description": "Reference of the related entity."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "agreementId": {
+          "type": "string",
+          "description": "Unique identifier of a related entity."
+        },
+        "agreementItemId": {
+          "type": "string",
+          "description": "Id of an item of a Agreement"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "AgreementItemRef": "#/components/schemas/AgreementItemRef"
+    }
+  }
+}

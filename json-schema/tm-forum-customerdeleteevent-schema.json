@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomerDeleteEvent",
+  "title": "CustomerDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CustomerDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CustomerDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CustomerDeleteEvent": "#/components/schemas/CustomerDeleteEvent"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryAttributeValueChangeEvent",
+  "title": "CategoryAttributeValueChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CategoryAttributeValueChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CategoryAttributeValueChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CategoryAttributeValueChangeEvent": "#/components/schemas/CategoryAttributeValueChangeEvent"
+    }
+  }
+}

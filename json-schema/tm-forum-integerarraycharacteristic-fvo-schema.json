@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntegerArrayCharacteristic_FVO",
+  "title": "IntegerArrayCharacteristic_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is an array of Integer(s).",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "A characteristic which value is an array of Integer(s).",
+          "items": {
+            "type": "integer",
+            "description": "Characteristic value"
+          }
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  ]
+}

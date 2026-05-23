@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductCatalog_FVO",
+  "title": "ProductCatalog_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Catalog_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details",
+      "properties": {
+        "category": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CategoryRef_FVO"
+          },
+          "description": "List of root categories contained in this catalog"
+        }
+      },
+      "required": [
+        "name",
+        "@type"
+      ]
+    }
+  ]
+}

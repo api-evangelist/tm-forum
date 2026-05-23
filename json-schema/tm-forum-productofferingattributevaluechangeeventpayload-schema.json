@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingAttributeValueChangeEventPayload",
+  "title": "ProductOfferingAttributeValueChangeEventPayload",
+  "type": "object",
+  "description": "ProductOfferingAttributeValueChangeEventPayload generic structure",
+  "properties": {
+    "productOffering": {
+      "$ref": "#/components/schemas/ProductOffering"
+    }
+  }
+}

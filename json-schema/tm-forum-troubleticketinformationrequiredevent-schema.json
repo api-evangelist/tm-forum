@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketInformationRequiredEvent",
+  "title": "TroubleTicketInformationRequiredEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "TroubleTicketInformationRequiredEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/TroubleTicketInformationRequiredEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketInformationRequiredEvent": "#/components/schemas/TroubleTicketInformationRequiredEvent"
+    }
+  }
+}

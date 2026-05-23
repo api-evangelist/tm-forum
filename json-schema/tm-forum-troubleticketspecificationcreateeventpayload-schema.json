@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketSpecificationCreateEventPayload",
+  "title": "TroubleTicketSpecificationCreateEventPayload",
+  "type": "object",
+  "description": "TroubleTicketSpecificationCreateEventPayload generic structure",
+  "properties": {
+    "troubleTicketSpecification": {
+      "$ref": "#/components/schemas/TroubleTicketSpecification"
+    }
+  }
+}

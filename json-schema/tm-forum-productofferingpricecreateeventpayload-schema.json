@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceCreateEventPayload",
+  "title": "ProductOfferingPriceCreateEventPayload",
+  "type": "object",
+  "description": "ProductOfferingPriceCreateEventPayload generic structure",
+  "properties": {
+    "productOfferingPrice": {
+      "$ref": "#/components/schemas/ProductOfferingPrice"
+    }
+  }
+}

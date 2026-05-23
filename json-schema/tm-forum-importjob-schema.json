@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImportJob",
+  "title": "ImportJob",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity"
+    },
+    {
+      "type": "object",
+      "description": "Represents a task used to import resources from a file",
+      "properties": {
+        "completionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date at which the job was completed"
+        },
+        "contentType": {
+          "type": "string",
+          "description": "Indicates the format of the imported data"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date at which the job was created"
+        },
+        "errorLog": {
+          "type": "string",
+          "description": "Path to file or stream where errors encountered during the job processing can be written"
+        },
+        "path": {
+          "type": "string",
+          "description": "URL of the root resource where the content of the file specified by the import job must be applied"
+        },
+        "status": {
+          "$ref": "#/components/schemas/JobStateType"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the file containing the data to be imported"
+        },
+        "id": {
+          "type": "string",
+          "description": "unique identifier for import job"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ImportJob": "#/components/schemas/ImportJob"
+    }
+  }
+}

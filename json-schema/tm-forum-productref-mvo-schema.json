@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductRef_MVO",
+  "title": "ProductRef_MVO",
+  "type": "object",
+  "description": "A Product reference",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductRef": "#/components/schemas/ProductRef_MVO"
+    }
+  }
+}

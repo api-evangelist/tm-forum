@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderCreateEvent",
+  "title": "ProductOrderCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOrderCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOrderCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderCreateEvent": "#/components/schemas/ProductOrderCreateEvent"
+    }
+  }
+}

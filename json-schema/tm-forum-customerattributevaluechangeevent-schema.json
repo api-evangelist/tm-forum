@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomerAttributeValueChangeEvent",
+  "title": "CustomerAttributeValueChangeEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CustomerAttributeValueChangeEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CustomerAttributeValueChangeEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CustomerAttributeValueChangeEvent": "#/components/schemas/CustomerAttributeValueChangeEvent"
+    }
+  }
+}

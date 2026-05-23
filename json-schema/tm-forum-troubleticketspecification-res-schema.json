@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketSpecification_RES",
+  "title": "TroubleTicketSpecification_RES",
+  "type": "object",
+  "description": "Response object for TroubleTicketSpecification",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/TroubleTicketSpecification"
+    }
+  ],
+  "required": [
+    "id",
+    "href"
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketSpecification": "#/components/schemas/TroubleTicketSpecification"
+    }
+  }
+}

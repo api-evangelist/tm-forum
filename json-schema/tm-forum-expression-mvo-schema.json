@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Expression_MVO",
+  "title": "Expression_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Expression is the ontology-encoded form of the Intent",
+      "properties": {
+        "expressionLanguage": {
+          "$ref": "#/components/schemas/ExpressionLanguageEnum"
+        },
+        "iri": {
+          "type": "string",
+          "description": "Internationalized Resource Identifier of the intent Expression"
+        },
+        "expressionValue": {
+          "type": "string",
+          "description": "expression value is the ontology-encoded form of the Intent such as RDF-XML, Turtle, Json-LD,..."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Expression": "#/components/schemas/Expression_MVO"
+    }
+  }
+}

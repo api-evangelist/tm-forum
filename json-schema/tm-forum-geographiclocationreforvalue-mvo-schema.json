@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicLocationRefOrValue_MVO",
+  "title": "GeographicLocationRefOrValue_MVO",
+  "type": "object",
+  "description": "The polymorphic attributes @type, @schemaLocation & @referredType are related to the GeographicLocation entity and not the GeographicLocationRefOrValue class itself",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/GeographicLocation_MVO"
+    },
+    {
+      "$ref": "#/components/schemas/GeographicLocationRef_MVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicLocation": "#/components/schemas/GeographicLocation_MVO",
+      "GeographicLocationRef": "#/components/schemas/GeographicLocationRef_MVO"
+    }
+  }
+}

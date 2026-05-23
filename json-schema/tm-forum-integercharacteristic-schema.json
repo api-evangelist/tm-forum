@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntegerCharacteristic",
+  "title": "IntegerCharacteristic",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Integer.",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

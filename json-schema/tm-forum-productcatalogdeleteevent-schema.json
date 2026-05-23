@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductCatalogDeleteEvent",
+  "title": "ProductCatalogDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductCatalogDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductCatalogDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductCatalogDeleteEvent": "#/components/schemas/ProductCatalogDeleteEvent"
+    }
+  }
+}

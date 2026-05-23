@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Entity",
+  "title": "Entity",
+  "type": "object",
+  "description": "Base entity schema for use in TMForum Open-APIs. Property.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/Addressable"
+    }
+  ]
+}

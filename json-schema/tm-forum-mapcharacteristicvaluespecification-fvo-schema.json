@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MapCharacteristicValueSpecification_FVO",
+  "title": "MapCharacteristicValueSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a mapped object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

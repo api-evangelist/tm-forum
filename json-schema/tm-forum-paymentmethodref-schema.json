@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaymentMethodRef",
+  "title": "PaymentMethodRef",
+  "type": "object",
+  "description": "PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit).",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PaymentMethodRef": "#/components/schemas/PaymentMethodRef"
+    }
+  }
+}

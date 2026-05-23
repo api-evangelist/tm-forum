@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicAddressRef_FVO",
+  "title": "GeographicAddressRef_FVO",
+  "type": "object",
+  "description": "Reference to a Geographic Address.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "GeographicAddressRef": "#/components/schemas/GeographicAddressRef_FVO"
+    }
+  }
+}

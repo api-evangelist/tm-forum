@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderMilestone",
+  "title": "ProductOrderMilestone",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Milestone"
+    },
+    {
+      "type": "object",
+      "description": "A ProductOrderMilestone represents an action or event marking a significant change or stage in processing of a product order.",
+      "properties": {
+        "productOrderItem": {
+          "type": "array",
+          "description": "A list of order item references corresponded to this alert",
+          "items": {
+            "$ref": "#/components/schemas/ProductOrderItemRef"
+          }
+        }
+      }
+    }
+  ]
+}

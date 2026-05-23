@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSpecificationRef",
+  "title": "ProductSpecificationRef",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "ProductSpecification reference. A product Specification represents entities that are orderable from the provider of the catalog.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the product specification"
+        },
+        "targetProductSchema": {
+          "$ref": "#/components/schemas/TargetProductSchema"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductSpecificationRef": "#/components/schemas/ProductSpecificationRef"
+    }
+  }
+}

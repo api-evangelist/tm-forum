@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingQualificationItemRef_FVO",
+  "title": "ProductOfferingQualificationItemRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "It's a productOfferingQualification item that has been executed previously.",
+      "properties": {
+        "productOfferingQualificationName": {
+          "type": "string",
+          "description": "Name of the related entity."
+        },
+        "productOfferingQualificationHref": {
+          "type": "string",
+          "description": "Reference of the related entity."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        },
+        "productOfferingQualificationId": {
+          "type": "string",
+          "description": "Unique identifier of a related entity."
+        },
+        "itemId": {
+          "type": "string",
+          "description": "Id of an item of a product offering qualification"
+        }
+      },
+      "required": [
+        "productOfferingQualificationId",
+        "itemId"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingQualificationItemRef": "#/components/schemas/ProductOfferingQualificationItemRef_FVO"
+    }
+  }
+}

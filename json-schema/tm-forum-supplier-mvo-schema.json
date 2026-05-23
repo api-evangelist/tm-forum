@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Supplier_MVO",
+  "title": "Supplier_MVO",
+  "type": "object",
+  "description": "When business partner is the Supplier ",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole_MVO"
+    }
+  ]
+}

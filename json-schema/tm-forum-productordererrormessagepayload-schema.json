@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderErrorMessagePayload",
+  "title": "ProductOrderErrorMessagePayload",
+  "type": "object",
+  "description": "ProductOrderErrorMessagePayload generic structure",
+  "properties": {
+    "productOrder": {
+      "$ref": "#/components/schemas/ProductOrder"
+    }
+  }
+}

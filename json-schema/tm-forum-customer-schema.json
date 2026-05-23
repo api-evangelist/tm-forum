@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Customer",
+  "title": "Customer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole"
+    }
+  ]
+}

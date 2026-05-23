@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrderTerm_FVO",
+  "title": "OrderTerm_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Description of a productTerm linked to this orderItem. This represent a commitment with a duration",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the productOrderTerm"
+        },
+        "duration": {
+          "$ref": "#/components/schemas/Duration"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the productOrderTerm"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrderTerm": "#/components/schemas/OrderTerm_FVO"
+    }
+  }
+}

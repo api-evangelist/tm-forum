@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CharacteristicRelationship",
+  "title": "CharacteristicRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Another Characteristic that is related to the current Characteristic;",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the characteristic"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "The type of relationship"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CharacteristicRelationship": "#/components/schemas/CharacteristicRelationship"
+    }
+  }
+}

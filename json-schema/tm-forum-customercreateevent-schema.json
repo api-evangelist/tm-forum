@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomerCreateEvent",
+  "title": "CustomerCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CustomerCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CustomerCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CustomerCreateEvent": "#/components/schemas/CustomerCreateEvent"
+    }
+  }
+}

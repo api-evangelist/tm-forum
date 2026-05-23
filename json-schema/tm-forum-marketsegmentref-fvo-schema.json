@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MarketSegmentRef_FVO",
+  "title": "MarketSegmentRef_FVO",
+  "type": "object",
+  "description": "provides references to the corresponding market segment as target of product offerings. A market segment is grouping of Parties, GeographicAreas, SalesChannels, and so forth.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Entity_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "MarketSegmentRef": "#/components/schemas/MarketSegmentRef_FVO"
+    }
+  }
+}

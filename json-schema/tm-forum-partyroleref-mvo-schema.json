@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PartyRoleRef_MVO",
+  "title": "PartyRoleRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Party role reference. A party role represents the part played by a party in a given context.",
+      "properties": {
+        "partyId": {
+          "type": "string",
+          "description": "The identifier of the engaged party that is linked to the PartyRole object."
+        },
+        "partyName": {
+          "type": "string",
+          "description": "The name of the engaged party that is linked to the PartyRole object."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PartyRoleRef": "#/components/schemas/PartyRoleRef_MVO"
+    }
+  }
+}

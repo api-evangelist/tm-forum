@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Catalog_MVO",
+  "title": "Catalog_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Entity_MVO"
+    },
+    {
+      "type": "object",
+      "description": "A collection of Catalog Items",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of this catalog"
+        },
+        "catalogType": {
+          "type": "string",
+          "description": "Type of this Catalog, like Product, Service, Resource etc."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "version": {
+          "type": "string",
+          "description": "Catalog version"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO"
+          },
+          "description": "List of parties involved in this catalog"
+        },
+        "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of the last update"
+        },
+        "lifecycleStatus": {
+          "type": "string",
+          "description": "Used to indicate the current lifecycle status"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the catalog"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Catalog": "#/components/schemas/Catalog_MVO",
+      "ProductCatalog": "#/components/schemas/ProductCatalog_MVO"
+    }
+  }
+}

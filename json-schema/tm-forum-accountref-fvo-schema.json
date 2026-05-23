@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountRef_FVO",
+  "title": "AccountRef_FVO",
+  "type": "object",
+  "description": "Account reference. A account may be a party account or a financial account.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "AccountRef": "#/components/schemas/AccountRef_FVO"
+    }
+  }
+}

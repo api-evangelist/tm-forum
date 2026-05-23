@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingDeleteEventPayload",
+  "title": "ProductOfferingDeleteEventPayload",
+  "type": "object",
+  "description": "ProductOfferingDeleteEventPayload generic structure",
+  "properties": {
+    "productOffering": {
+      "$ref": "#/components/schemas/ProductOffering"
+    }
+  }
+}

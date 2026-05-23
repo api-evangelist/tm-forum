@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductPrice_MVO",
+  "title": "ProductPrice_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Description of price and discount awarded",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the Product price"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the Product price"
+        },
+        "productOfferingPrice": {
+          "$ref": "#/components/schemas/ProductOfferingPriceRef_MVO"
+        },
+        "recurringChargePeriod": {
+          "type": "string",
+          "description": "Used for recurring charge to indicate period (month, week, etc..)."
+        },
+        "unitOfMeasure": {
+          "type": "string",
+          "description": "Unit of Measure if price depending on it (Gb, SMS volume, etc..)"
+        },
+        "price": {
+          "$ref": "#/components/schemas/Price_MVO"
+        },
+        "priceAlteration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PriceAlteration_MVO"
+          }
+        },
+        "priceType": {
+          "type": "string",
+          "description": "indicate if the price is for recurrent or no-recurrent charge"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductPrice": "#/components/schemas/ProductPrice_MVO"
+    }
+  }
+}

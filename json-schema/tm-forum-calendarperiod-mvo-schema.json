@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CalendarPeriod_MVO",
+  "title": "CalendarPeriod_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "string",
+          "description": "Day where the calendar status applies (e.g.: monday, mon-to-fri, weekdays, weekend, all week, ...)"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Indication of the timezone applicable to the calendar information (e.g.: Paris, GMT+1)"
+        },
+        "hourPeriod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/HourPeriod_MVO"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "Indication of the availability of the caledar period (e.g.: available, booked, etc.)"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CalendarPeriod": "#/components/schemas/CalendarPeriod_MVO"
+    }
+  }
+}

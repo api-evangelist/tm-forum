@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InitialProductOrderStateType",
+  "title": "InitialProductOrderStateType",
+  "enum": [
+    "acknowledged",
+    "draft"
+  ],
+  "type": "string",
+  "description": "Possible values for the requested initial state of the order from client- by default acknowledged is considered"
+}

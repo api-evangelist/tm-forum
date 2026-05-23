@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketDeleteEvent",
+  "title": "TroubleTicketDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "TroubleTicketDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/TroubleTicketDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketDeleteEvent": "#/components/schemas/TroubleTicketDeleteEvent"
+    }
+  }
+}

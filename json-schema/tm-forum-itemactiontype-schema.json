@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ItemActionType",
+  "title": "ItemActionType",
+  "enum": [
+    "add",
+    "modify",
+    "delete",
+    "noChange"
+  ],
+  "type": "string",
+  "description": "action to be performed on the entity managed by the item"
+}

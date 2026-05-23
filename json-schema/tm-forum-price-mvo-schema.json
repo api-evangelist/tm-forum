@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Price_MVO",
+  "title": "Price_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Provides all amounts (tax included, duty free, tax rate), used currency and percentage to apply for Price and Price Alteration.",
+      "properties": {
+        "dutyFreeAmount": {
+          "$ref": "#/components/schemas/Money"
+        },
+        "percentage": {
+          "type": "number",
+          "format": "float",
+          "description": "Percentage to apply for ProdOfferPriceAlteration"
+        },
+        "taxIncludedAmount": {
+          "$ref": "#/components/schemas/Money"
+        },
+        "taxRate": {
+          "type": "number",
+          "format": "float",
+          "description": "Tax rate"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "Price": "#/components/schemas/Price_MVO"
+    }
+  }
+}

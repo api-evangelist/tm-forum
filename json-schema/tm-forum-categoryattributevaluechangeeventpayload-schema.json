@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryAttributeValueChangeEventPayload",
+  "title": "CategoryAttributeValueChangeEventPayload",
+  "type": "object",
+  "description": "CategoryAttributeValueChangeEventPayload generic structure",
+  "properties": {
+    "category": {
+      "$ref": "#/components/schemas/Category"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ObjectCharacteristic_MVO",
+  "title": "ObjectCharacteristic_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Characteristic_MVO"
+    },
+    {
+      "type": "object",
+      "description": "A characteristic which value is a Object.",
+      "properties": {
+        "value": {
+          "type": "object",
+          "description": "Value of the characteristic"
+        }
+      }
+    }
+  ]
+}

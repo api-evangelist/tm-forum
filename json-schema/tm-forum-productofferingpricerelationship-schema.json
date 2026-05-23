@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingPriceRelationship",
+  "title": "ProductOfferingPriceRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "Describes a non-composite relationship between product offering prices. For example one price might be an discount alteration for another price.",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "The association role for the source product offering price"
+        },
+        "relationshipType": {
+          "type": "string",
+          "description": "type of the relationship, for example override, discount, etc."
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the referred product offering price."
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingPriceRelationship": "#/components/schemas/ProductOfferingPriceRelationship"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingQualificationRef",
+  "title": "ProductOfferingQualificationRef",
+  "type": "object",
+  "description": "A productOfferingQualification that has been executed previously",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingQualificationRef": "#/components/schemas/ProductOfferingQualificationRef"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductCatalog",
+  "title": "ProductCatalog",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Catalog"
+    },
+    {
+      "type": "object",
+      "description": "A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details",
+      "properties": {
+        "category": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CategoryRef"
+          },
+          "description": "List of root categories contained in this catalog"
+        }
+      }
+    }
+  ]
+}

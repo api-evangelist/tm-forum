@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImportJobCreateEventPayload",
+  "title": "ImportJobCreateEventPayload",
+  "type": "object",
+  "description": "ImportJobCreateEventPayload generic structure",
+  "properties": {
+    "importJob": {
+      "$ref": "#/components/schemas/ImportJob"
+    }
+  }
+}

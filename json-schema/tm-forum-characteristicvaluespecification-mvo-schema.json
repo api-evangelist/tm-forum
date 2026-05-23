@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CharacteristicValueSpecification_MVO",
+  "title": "CharacteristicValueSpecification_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "specification of a value (number or text or an object) that can be assigned to a Characteristic. This is an abstract base class, the actual value is in one of the strongly-typed subclasses",
+      "properties": {
+        "valueType": {
+          "type": "string",
+          "description": "A kind of value that the characteristic value can take on, such as numeric, text and so forth"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "If true, the Boolean Indicates if the value is the default value for a characteristic"
+        },
+        "unitOfMeasure": {
+          "type": "string",
+          "description": "A length, surface, volume, dry measure, liquid measure, money, weight, time, and the like. In general, a determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values, as 1 foot, 1 yard, 1 mile, 1 square foot."
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "valueFrom": {
+          "type": "integer",
+          "description": "The low range value that a characteristic can take on"
+        },
+        "valueTo": {
+          "type": "integer",
+          "description": "The upper range value that a characteristic can take on"
+        },
+        "rangeInterval": {
+          "type": "string",
+          "description": "An indicator that specifies the inclusion or exclusion of the valueFrom and valueTo attributes. If applicable, possible values are \"open\", \"closed\", \"closedBottom\" and \"closedTop\"."
+        },
+        "regex": {
+          "type": "string",
+          "description": "A regular expression constraint for given value"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CharacteristicValueSpecification": "#/components/schemas/CharacteristicValueSpecification_MVO",
+      "StringCharacteristicValueSpecification": "#/components/schemas/StringCharacteristicValueSpecification_MVO",
+      "StringArrayCharacteristicValueSpecification": "#/components/schemas/StringArrayCharacteristicValueSpecification_MVO",
+      "ObjectCharacteristicValueSpecification": "#/components/schemas/ObjectCharacteristicValueSpecification_MVO",
+      "ObjectArrayCharacteristicValueSpecification": "#/components/schemas/ObjectArrayCharacteristicValueSpecification_MVO",
+      "NumberCharacteristicValueSpecification": "#/components/schemas/NumberCharacteristicValueSpecification_MVO",
+      "NumberArrayCharacteristicValueSpecification": "#/components/schemas/NumberArrayCharacteristicValueSpecification_MVO",
+      "MapCharacteristicValueSpecification": "#/components/schemas/MapCharacteristicValueSpecification_MVO",
+      "MapArrayCharacteristicValueSpecification": "#/components/schemas/MapArrayCharacteristicValueSpecification_MVO",
+      "IntegerCharacteristicValueSpecification": "#/components/schemas/IntegerCharacteristicValueSpecification_MVO",
+      "IntegerArrayCharacteristicValueSpecification": "#/components/schemas/IntegerArrayCharacteristicValueSpecification_MVO"
+    }
+  }
+}

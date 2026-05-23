@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Addressable",
+  "title": "Addressable",
+  "type": "object",
+  "description": "Base schema for adressable entities",
+  "properties": {
+    "href": {
+      "type": "string",
+      "description": "Hyperlink reference"
+    },
+    "id": {
+      "type": "string",
+      "description": "unique identifier"
+    }
+  }
+}

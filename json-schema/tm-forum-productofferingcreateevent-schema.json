@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOfferingCreateEvent",
+  "title": "ProductOfferingCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOfferingCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOfferingCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOfferingCreateEvent": "#/components/schemas/ProductOfferingCreateEvent"
+    }
+  }
+}

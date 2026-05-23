@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TroubleTicketSpecificationRef_MVO",
+  "title": "TroubleTicketSpecificationRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_MVO"
+    },
+    {
+      "type": "object",
+      "description": "reference to an TroubleTicketSpecification object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "TroubleTicketSpecificationRef": "#/components/schemas/TroubleTicketSpecificationRef_MVO"
+    }
+  }
+}

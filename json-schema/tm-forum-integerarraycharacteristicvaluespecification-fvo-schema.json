@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntegerArrayCharacteristicValueSpecification_FVO",
+  "title": "IntegerArrayCharacteristicValueSpecification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_FVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is a number array of format integer",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BillingAccountRef_MVO",
+  "title": "BillingAccountRef_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    {
+      "type": "object",
+      "description": "BillingAccount reference. A BillingAccount is a detailed description of a bill structure.",
+      "properties": {
+        "ratingType": {
+          "type": "string",
+          "description": "Indicates whether the account follows a specific payment option such as prepaid or postpaid"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "BillingAccountRef": "#/components/schemas/BillingAccountRef_MVO"
+    }
+  }
+}

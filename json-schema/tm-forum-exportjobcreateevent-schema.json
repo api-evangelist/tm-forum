@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ExportJobCreateEvent",
+  "title": "ExportJobCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ExportJobCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ExportJobCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ExportJobCreateEvent": "#/components/schemas/ExportJobCreateEvent"
+    }
+  }
+}

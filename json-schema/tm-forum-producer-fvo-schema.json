@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Producer_FVO",
+  "title": "Producer_FVO",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/PartyRole_FVO"
+    }
+  ]
+}

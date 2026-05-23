@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PolicyRef_FVO",
+  "title": "PolicyRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Reference to managed Policy object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "unique identifier"
+        },
+        "href": {
+          "type": "string",
+          "description": "Hyperlink reference"
+        },
+        "version": {
+          "type": "string"
+        },
+        "@type": {
+          "type": "string",
+          "description": "When sub-classing, this defines the sub-class Extensible name"
+        },
+        "@baseType": {
+          "type": "string",
+          "description": "When sub-classing, this defines the super-class"
+        },
+        "@schemaLocation": {
+          "type": "string",
+          "description": "A URI to a JSON-Schema file that defines additional attributes and relationships"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "PolicyRef": "#/components/schemas/PolicyRef_FVO"
+    }
+  }
+}

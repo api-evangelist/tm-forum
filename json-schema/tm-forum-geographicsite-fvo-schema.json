@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GeographicSite_FVO",
+  "title": "GeographicSite_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Place_FVO"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "A code that may be used for some addressing schemes eg: [ANSI T1.253-1999]"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time when the GeographicSite was created"
+        },
+        "description": {
+          "type": "string",
+          "description": "Text describing additional information regarding the site"
+        },
+        "status": {
+          "type": "string",
+          "description": "The condition of the GeographicSite, such as planned, underConstruction, cancelled, active, inactive, former"
+        },
+        "relatedParty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RelatedPartyOrPartyRole_FVO"
+          }
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ExternalIdentifier_FVO"
+          }
+        },
+        "calendar": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CalendarPeriod_FVO"
+          }
+        },
+        "place": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PlaceRefOrValue_FVO"
+          }
+        },
+        "siteRelationship": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GeographicSiteRelationship_FVO"
+          }
+        }
+      }
+    }
+  ]
+}

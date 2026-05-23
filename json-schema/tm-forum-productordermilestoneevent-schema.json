@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductOrderMilestoneEvent",
+  "title": "ProductOrderMilestoneEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductOrderMilestone structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductOrderMilestonePayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductOrderMilestoneEvent": "#/components/schemas/ProductOrderMilestoneEvent"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EntityRelationship_MVO",
+  "title": "EntityRelationship_MVO",
+  "type": "object",
+  "description": "A uni-directionmal relationship from this entity to a target entity instance",
+  "properties": {
+    "href": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "description": "The association role for this entity"
+    },
+    "validFor": {
+      "$ref": "#/components/schemas/TimePeriod"
+    },
+    "associationSpec": {
+      "$ref": "#/components/schemas/EntityRef"
+    },
+    "@baseType": {
+      "type": "string",
+      "description": "When sub-classing, this defines the super-class"
+    },
+    "@schemaLocation": {
+      "type": "string",
+      "description": "A URI to a JSON-Schema file that defines additional attributes and relationships"
+    },
+    "relationshipType": {
+      "type": "string",
+      "description": "Type of relationship such as migration, substitution, dependency, exclusivity"
+    },
+    "id": {
+      "type": "string"
+    },
+    "@referredType": {
+      "type": "string"
+    },
+    "@type": {
+      "type": "string"
+    }
+  }
+}

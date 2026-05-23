@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductCatalogCreateEvent",
+  "title": "ProductCatalogCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "ProductCatalogCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/ProductCatalogCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ProductCatalogCreateEvent": "#/components/schemas/ProductCatalogCreateEvent"
+    }
+  }
+}

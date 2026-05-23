@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntentRefOrValue",
+  "title": "IntentRefOrValue",
+  "type": "object",
+  "description": "Intent Ref (if Intent already exists) or Value (if Intent be created or its details be presented)",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/IntentRef"
+    },
+    {
+      "$ref": "#/components/schemas/Intent"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IntentRef": "#/components/schemas/IntentRef",
+      "Intent": "#/components/schemas/Intent"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSpecificationAttributeValueChangeEventPayload",
+  "title": "ProductSpecificationAttributeValueChangeEventPayload",
+  "type": "object",
+  "description": "ProductSpecificationAttributeValueChangeEventPayload generic structure",
+  "properties": {
+    "productSpecification": {
+      "$ref": "#/components/schemas/ProductSpecification"
+    }
+  }
+}

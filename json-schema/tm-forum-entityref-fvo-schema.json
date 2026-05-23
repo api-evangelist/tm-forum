@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EntityRef_FVO",
+  "title": "EntityRef_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "$ref": "#/components/schemas/Addressable_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Entity reference schema to be use for all entityRef class.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the referred entity."
+        },
+        "href": {
+          "type": "string",
+          "description": "The URI of the referred entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the referred entity."
+        },
+        "@referredType": {
+          "type": "string",
+          "description": "The actual type of the target instance when needed for disambiguation."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  ]
+}

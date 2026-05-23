@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationIdentification_FVO",
+  "title": "OrganizationIdentification_FVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible_FVO"
+    },
+    {
+      "type": "object",
+      "description": "Represents our registration of information used as proof of identity by an organization",
+      "properties": {
+        "identificationId": {
+          "type": "string",
+          "description": "Identifier"
+        },
+        "issuingAuthority": {
+          "type": "string",
+          "description": "Authority which has issued the identifier (chamber of commerce...)"
+        },
+        "issuingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date at which the identifier was issued"
+        },
+        "identificationType": {
+          "type": "string",
+          "description": "Type of identification information used to identify the company in a country or internationally"
+        },
+        "validFor": {
+          "$ref": "#/components/schemas/TimePeriod"
+        },
+        "attachment": {
+          "$ref": "#/components/schemas/AttachmentRefOrValue_FVO"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrganizationIdentification": "#/components/schemas/OrganizationIdentification_FVO"
+    }
+  }
+}

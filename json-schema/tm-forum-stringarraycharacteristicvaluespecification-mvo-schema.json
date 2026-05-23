@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StringArrayCharacteristicValueSpecification_MVO",
+  "title": "StringArrayCharacteristicValueSpecification_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CharacteristicValueSpecification_MVO"
+    },
+    {
+      "type": "object",
+      "description": "A specification for a characteristic for which the value is an array of strings",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

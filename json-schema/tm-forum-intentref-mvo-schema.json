@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntentRef_MVO",
+  "title": "IntentRef_MVO",
+  "type": "object",
+  "description": "Intent reference, for when Intent is used by other entities",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IntentRef": "#/components/schemas/IntentRef_MVO"
+    }
+  }
+}

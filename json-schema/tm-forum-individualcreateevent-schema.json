@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IndividualCreateEvent",
+  "title": "IndividualCreateEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "IndividualCreateEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/IndividualCreateEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "IndividualCreateEvent": "#/components/schemas/IndividualCreateEvent"
+    }
+  }
+}

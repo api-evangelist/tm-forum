@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationAttributeValueChangeEventPayload",
+  "title": "OrganizationAttributeValueChangeEventPayload",
+  "type": "object",
+  "description": "OrganizationAttributeValueChangeEventPayload generic structure",
+  "properties": {
+    "organization": {
+      "$ref": "#/components/schemas/Organization"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RelatedPlaceRefOrValue_MVO",
+  "title": "RelatedPlaceRefOrValue_MVO",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Entity reference. The polymorphic attributes @type, @schemaLocation & @referredType are related to the RelatedPlace entity and not the RelatedPlaceRefOrValue class itself",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/components/schemas/PlaceRefOrValue_MVO"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "RelatedPlaceRefOrValue": "#/components/schemas/RelatedPlaceRefOrValue_MVO"
+    }
+  }
+}

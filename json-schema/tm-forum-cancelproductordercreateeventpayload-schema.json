@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CancelProductOrderCreateEventPayload",
+  "title": "CancelProductOrderCreateEventPayload",
+  "type": "object",
+  "description": "CancelProductOrderCreateEventPayload",
+  "properties": {
+    "cancelProductOrder": {
+      "$ref": "#/components/schemas/CancelProductOrder"
+    }
+  }
+}

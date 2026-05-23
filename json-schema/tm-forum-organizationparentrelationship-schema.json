@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationParentRelationship",
+  "title": "OrganizationParentRelationship",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "type": "object",
+      "description": "Parent references of an organization in a structure of organizations.",
+      "properties": {
+        "relationshipType": {
+          "type": "string",
+          "description": "Type of the relationship. Could be juridical, hierarchical, geographical, functional for example."
+        },
+        "organization": {
+          "$ref": "#/components/schemas/OrganizationRef"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "OrganizationParentRelationship": "#/components/schemas/OrganizationParentRelationship"
+    }
+  }
+}

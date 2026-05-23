@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceRef",
+  "title": "ServiceRef",
+  "type": "object",
+  "description": "Service reference, for when Service is used by other entities.",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Extensible"
+    },
+    {
+      "$ref": "#/components/schemas/EntityRef"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "ServiceRef": "#/components/schemas/ServiceRef"
+    }
+  }
+}

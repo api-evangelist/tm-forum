@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CategoryDeleteEvent",
+  "title": "CategoryDeleteEvent",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Event"
+    },
+    {
+      "type": "object",
+      "description": "CategoryDeleteEvent generic structure",
+      "properties": {
+        "event": {
+          "$ref": "#/components/schemas/CategoryDeleteEventPayload"
+        }
+      }
+    }
+  ],
+  "discriminator": {
+    "propertyName": "@type",
+    "mapping": {
+      "CategoryDeleteEvent": "#/components/schemas/CategoryDeleteEvent"
+    }
+  }
+}
