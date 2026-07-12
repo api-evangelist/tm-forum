@@ -200,6 +200,8 @@ apis:
       - type: OpenAPI
         url: openapi/tm-forum-tmf666-account-management-openapi.json
 common:
+  - type: DomainSecurity
+    url: security/tm-forum-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/tm-forum
   - type: Website
@@ -268,6 +270,8 @@ common:
     url: rules/tm-forum-spectral-rules.yml
   - type: Vocabulary
     url: vocabulary/tm-forum-vocabulary.yaml
+  - type: Blog
+    url: https://inform.tmforum.org/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
