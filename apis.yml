@@ -200,6 +200,8 @@ apis:
       - type: OpenAPI
         url: openapi/tm-forum-tmf666-account-management-openapi.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/tm-forum-agentic-access.yml
   - type: DomainSecurity
     url: security/tm-forum-domain-security.yml
   - type: LinkedIn
