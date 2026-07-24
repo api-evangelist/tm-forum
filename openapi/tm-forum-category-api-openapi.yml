@@ -1,0 +1,1077 @@
+openapi: 3.0.1
+info:
+  title: Product Catalog Management agreement category API
+  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 5.0.0
+servers:
+- url: https://serverRoot/productCatalogManagement/v5/
+tags:
+- name: category
+  description: Operations for Category Resource
+paths:
+  /category:
+    get:
+      tags:
+      - category
+      summary: TM Forum List or Find Category Objects
+      description: List or find Category objects
+      operationId: listCategory
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/200CategoryArray'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    post:
+      tags:
+      - category
+      summary: TM Forum Creates a Category
+      description: This operation creates a Category entity.
+      operationId: createCategory
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      requestBody:
+        $ref: '#/components/requestBodies/Category_FVO'
+      responses:
+        '201':
+          $ref: '#/components/responses/201Category'
+        '202':
+          description: Accepted
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+  /category/{id}:
+    get:
+      tags:
+      - category
+      summary: TM Forum Retrieves a Category by ID
+      description: This operation retrieves a Category entity. Attribute selection enabled for all first level attributes.
+      operationId: retrieveCategory
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          $ref: '#/components/responses/200Category_Get'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    patch:
+      tags:
+      - category
+      summary: TM Forum Updates Partially a Category
+      description: This operation updates partially a Category entity.
+      operationId: patchCategory
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      - $ref: '#/components/parameters/Fields'
+      requestBody:
+        $ref: '#/components/requestBodies/Category_MVO'
+      responses:
+        '200':
+          $ref: '#/components/responses/200Category_Patch'
+        '202':
+          description: Accepted
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    delete:
+      tags:
+      - category
+      summary: TM Forum Deletes a Category
+      description: This operation deletes a Category entity.
+      operationId: deleteCategory
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '202':
+          $ref: '#/components/responses/202'
+        '204':
+          $ref: '#/components/responses/204'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+components:
+  responses:
+    '204':
+      description: Deleted
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '409':
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    201Category:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+          examples:
+            Category_Create_example:
+              $ref: '#/components/examples/Category_Create_example_response'
+    '202':
+      description: Accepted
+    200Category_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+          examples:
+            Category_retrieve_example:
+              $ref: '#/components/examples/Category_retrieve_example_response'
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200Category_Patch:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+          examples:
+            Category_Implicit_Update_example:
+              $ref: '#/components/examples/Category_Implicit_Update_example_response'
+        application/merge-patch+json:
+          schema:
+            $ref: '#/components/schemas/Category'
+          examples:
+            Category_Update_example:
+              $ref: '#/components/examples/Category_Update_example_response'
+        application/json-patch+json:
+          schema:
+            oneOf:
+            - $ref: '#/components/schemas/Category'
+            - type: array
+              items:
+                $ref: '#/components/schemas/Category'
+            - type: string
+              nullable: true
+          examples:
+            Category_Update_example_with_JSON_Patch:
+              $ref: '#/components/examples/Category_Update_example_with_JSON_Patch_response'
+        application/json-patch-query+json:
+          schema:
+            oneOf:
+            - $ref: '#/components/schemas/Category'
+            - type: array
+              items:
+                $ref: '#/components/schemas/Category'
+            - type: string
+              nullable: true
+          examples:
+            Category_Update_example_with_JSON_Patch_Query:
+              $ref: '#/components/examples/Category_Update_example_with_JSON_Patch_Query_response'
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200CategoryArray:
+      description: Success
+      headers:
+        X-Total-Count:
+          $ref: '#/components/headers/X-Total-Count'
+        X-Result-Count:
+          $ref: '#/components/headers/X-Result-Count'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Category'
+          examples:
+            Category_list_example:
+              $ref: '#/components/examples/Category_list_example_response'
+  schemas:
+    JsonPatchOperations:
+      description: JSONPatch Operations document as defined by RFC 6902
+      type: array
+      items:
+        $ref: '#/components/schemas/JsonPatch'
+    EntityRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    ProductOfferingRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.
+        properties:
+          version:
+            type: string
+            description: Version of the product offering
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOfferingRef: '#/components/schemas/ProductOfferingRef_MVO'
+          BundledProductOffering: '#/components/schemas/BundledProductOffering_MVO'
+    Category:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other categories and/or product offerings, resource or service candidates.
+        properties:
+          description:
+            type: string
+            description: Description of the category
+          isRoot:
+            type: boolean
+            description: If true, this Boolean indicates that the category is a root of categories
+          parent:
+            $ref: '#/components/schemas/CategoryRef'
+          productOffering:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProductOfferingRef'
+            description: List of product offerings that are referred to by the category
+          subCategory:
+            type: array
+            items:
+              $ref: '#/components/schemas/CategoryRef'
+            description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: Category version
+          lastUpdate:
+            type: string
+            format: date-time
+            description: Date and time of the last update
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status
+          name:
+            type: string
+            description: Name of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Category: '#/components/schemas/Category'
+    CategoryRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      - type: object
+        description: Reference to a category in the catalog.
+        properties:
+          version:
+            type: string
+            description: Version of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CategoryRef: '#/components/schemas/CategoryRef_FVO'
+    Entity_FVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    JsonPatch:
+      type: object
+      description: A JSONPatch document as defined by RFC 6902
+      required:
+      - op
+      - path
+      properties:
+        op:
+          type: string
+          description: The operation to be performed
+          enum:
+          - add
+          - remove
+          - replace
+          - move
+          - copy
+          - test
+        path:
+          type: string
+          description: A JSON-Pointer
+        value:
+          description: The value to be used within the operations.
+        from:
+          type: string
+          description: A string containing a JSON Pointer value.
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        startDateTime:
+          description: Start of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+        endDateTime:
+          description: End of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+    ProductOfferingRef:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.
+        properties:
+          version:
+            type: string
+            description: Version of the product offering
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOfferingRef: '#/components/schemas/ProductOfferingRef'
+          BundledProductOffering: '#/components/schemas/BundledProductOffering'
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    CategoryRef:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Reference to a category in the catalog.
+        properties:
+          version:
+            type: string
+            description: Version of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CategoryRef: '#/components/schemas/CategoryRef'
+    ProductOfferingRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      - type: object
+        description: ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.
+        properties:
+          version:
+            type: string
+            description: Version of the product offering
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOfferingRef: '#/components/schemas/ProductOfferingRef_FVO'
+          BundledProductOffering: '#/components/schemas/BundledProductOffering_FVO'
+    Category_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity_FVO'
+      - type: object
+        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other categories and/or product offerings, resource or service candidates.
+        properties:
+          description:
+            type: string
+            description: Description of the category
+          isRoot:
+            type: boolean
+            description: If true, this Boolean indicates that the category is a root of categories
+          parent:
+            $ref: '#/components/schemas/CategoryRef_FVO'
+          productOffering:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProductOfferingRef_FVO'
+            description: List of product offerings that are referred to by the category
+          subCategory:
+            type: array
+            items:
+              $ref: '#/components/schemas/CategoryRef_FVO'
+            description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: Category version
+          lastUpdate:
+            type: string
+            format: date-time
+            description: Date and time of the last update
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status
+          name:
+            type: string
+            description: Name of the category
+        required:
+        - name
+        - '@type'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Category: '#/components/schemas/Category_FVO'
+    CategoryRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Reference to a category in the catalog.
+        properties:
+          version:
+            type: string
+            description: Version of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CategoryRef: '#/components/schemas/CategoryRef_MVO'
+    Addressable_FVO:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        id:
+          type: string
+          description: unique identifier
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    EntityRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    Category_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity_MVO'
+      - type: object
+        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other categories and/or product offerings, resource or service candidates.
+        properties:
+          description:
+            type: string
+            description: Description of the category
+          isRoot:
+            type: boolean
+            description: If true, this Boolean indicates that the category is a root of categories
+          parent:
+            $ref: '#/components/schemas/CategoryRef_MVO'
+          productOffering:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProductOfferingRef_MVO'
+            description: List of product offerings that are referred to by the category
+          subCategory:
+            type: array
+            items:
+              $ref: '#/components/schemas/CategoryRef_MVO'
+            description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: Category version
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status
+          name:
+            type: string
+            description: Name of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Category: '#/components/schemas/Category_MVO'
+    Extensible_FVO:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    Entity_MVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+  examples:
+    Category_Update_example_with_JSON_Patch_Query_request:
+      value:
+      - op: remove
+        path: /subCategory?id=6087
+      description: Here is an example of a request for updating a category.
+    Category_retrieve_example_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-24T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-08-27T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@referredType': ProductOffering
+          '@type': ProductOfferingRef
+        '@type': Category
+      description: Here is an example of a request for retrieving a specific category.
+    Category_list_example_response:
+      value:
+      - id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-24T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-08-27T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@referredType': ProductOffering
+          '@type': ProductOfferingRef
+        '@type': Category
+      - id: '3435'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/3435
+        name: Business Services
+        description: A category to hold all available Business service offers
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-24T00:00:00Z'
+        lifecycleStatus: Active
+        isRoot: false
+        parent:
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/1708
+          id: '1708'
+          name: Services
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        lastUpdate: '2020-08-27T00:00:00Z'
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/3466
+          id: '3466'
+          name: Managed Services
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/3467
+          id: '3467'
+          name: Mobile for Corporates
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering: []
+        '@type': Category
+      description: Here is an example of a request for retrieving multiple categories.
+    Category_Implicit_Update_example_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-09-22T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@type': ProductOfferingRef
+          '@referredType': ProductOffering
+        '@type': Category
+      description: Here is an example of a request for updating a category.
+    Category_Update_example_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-09-22T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@type': ProductOfferingRef
+          '@referredType': ProductOffering
+        '@type': Category
+      description: Here is an example of a request for updating a category.
+    Category_Update_example_request:
+      value:
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        '@type': Category
+      description: Here is an example of a request for updating a category.
+    Category_Update_example_with_JSON_Patch_request:
+      value:
+      - op: replace
+        path: /version
+        value: '2.0'
+      - op: replace
+        path: /validFor/startDateTime
+        value: '2020-09-23T00:00:00Z'
+      - op: remove
+        path: /validFor/endDateTime
+      description: Here is an example of a request for updating a category.
+    Category_Create_example_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-24T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-08-27T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering: []
+        '@type': Category
+      description: Here is an example of a response for creating a category.
+    Category_Implicit_Update_example_request:
+      value:
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        '@type': Category
+      description: Here is an example of a request for updating a category.
+    Category_Update_example_with_JSON_Patch_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-09-22T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@type': ProductOfferingRef
+          '@referredType': ProductOffering
+        '@type': Category
+      description: Here is an example of a response for updating a category.
+    Category_Create_example_request:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-24T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-08-27T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6087
+          id: '6087'
+          name: Software as a Service
+          version: '2.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        '@type': Category
+      description: Here is an example of a request for creating a category.
+    Category_Update_example_with_JSON_Patch_Query_response:
+      value:
+        id: '1708'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Category/1708
+        name: Cloud Services
+        description: A category to hold all available cloud service offers
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        lifecycleStatus: Active
+        lastUpdate: '2020-09-22T00:00:00Z'
+        isRoot: true
+        subCategory:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/6086
+          id: '6086'
+          name: Cloud Storage
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        productOffering:
+        - id: '7655'
+          href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productOffering/7655
+          name: Hosted Basic Firewall for business
+          '@type': ProductOfferingRef
+          '@referredType': ProductOffering
+        '@type': Category
+      description: Here is an example of a response for updating a category.
+  parameters:
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+  headers:
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+  requestBodies:
+    Category_FVO:
+      description: The Category to be created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category_FVO'
+          examples:
+            Category_Create_example:
+              $ref: '#/components/examples/Category_Create_example_request'
+      required: true
+    Category_MVO:
+      description: The Category to be patched
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category_MVO'
+          examples:
+            Category_Implicit_Update_example:
+              $ref: '#/components/examples/Category_Implicit_Update_example_request'
+        application/merge-patch+json:
+          schema:
+            $ref: '#/components/schemas/Category_MVO'
+          examples:
+            Category_Update_example:
+              $ref: '#/components/examples/Category_Update_example_request'
+        application/json-patch+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            Category_Update_example_with_JSON_Patch:
+              $ref: '#/components/examples/Category_Update_example_with_JSON_Patch_request'
+        application/json-patch-query+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            Category_Update_example_with_JSON_Patch_Query:
+              $ref: '#/components/examples/Category_Update_example_with_JSON_Patch_Query_request'
+      required: true

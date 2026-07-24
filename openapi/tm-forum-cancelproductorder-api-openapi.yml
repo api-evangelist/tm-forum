@@ -1,0 +1,529 @@
+openapi: 3.0.1
+info:
+  title: Product Catalog Management agreement cancelProductOrder API
+  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 5.0.0
+servers:
+- url: https://serverRoot/productCatalogManagement/v5/
+tags:
+- name: cancelProductOrder
+  description: Operations for CancelProductOrder Resource
+paths:
+  /cancelProductOrder:
+    get:
+      tags:
+      - cancelProductOrder
+      summary: TM Forum List or Find CancelProductOrder Objects
+      description: List or find CancelProductOrder objects
+      operationId: listCancelProductOrder
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/200CancelProductOrderArray'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    post:
+      tags:
+      - cancelProductOrder
+      summary: TM Forum Creates a CancelProductOrder
+      description: This operation creates a CancelProductOrder entity.
+      operationId: createCancelProductOrder
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      requestBody:
+        $ref: '#/components/requestBodies/CancelProductOrder_FVO'
+      responses:
+        '201':
+          $ref: '#/components/responses/201CancelProductOrder'
+        '202':
+          description: Accepted
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+  /cancelProductOrder/{id}:
+    get:
+      tags:
+      - cancelProductOrder
+      summary: TM Forum Retrieves a CancelProductOrder by ID
+      description: This operation retrieves a CancelProductOrder entity. Attribute selection enabled for all first level attributes.
+      operationId: retrieveCancelProductOrder
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          $ref: '#/components/responses/200CancelProductOrder_Get'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+components:
+  schemas:
+    CancelProductOrder:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: Request for cancellation an existing product order
+        properties:
+          productOrder:
+            $ref: '#/components/schemas/ProductOrderRef'
+          creationDate:
+            type: string
+            format: date-time
+            description: Date and time when the CancelProductOrder was created
+          requestedCancellationDate:
+            type: string
+            format: date-time
+            description: Date when the submitter wants the order to be cancelled
+          cancellationReason:
+            type: string
+            description: Reason why the order is cancelled.
+          state:
+            $ref: '#/components/schemas/TaskStateType'
+          effectiveCancellationDate:
+            type: string
+            format: date-time
+            description: Date when the order is cancelled.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CancelProductOrder: '#/components/schemas/CancelProductOrder'
+    EntityRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    TaskStateType:
+      enum:
+      - acknowledged
+      - rejected
+      - inProgress
+      - cancelled
+      - done
+      - terminatedWithError
+      type: string
+      description: Possible values for the state of a task
+    Entity_FVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    Addressable_FVO:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        id:
+          type: string
+          description: unique identifier
+    Extensible_FVO:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    EntityRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    ProductOrderRef_FVO:
+      type: object
+      description: A reference to an existing Product Order.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOrderRef: '#/components/schemas/ProductOrderRef_FVO'
+    CancelProductOrder_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity_FVO'
+      - type: object
+        description: Request for cancellation an existing product order
+        properties:
+          productOrder:
+            $ref: '#/components/schemas/ProductOrderRef_FVO'
+          requestedCancellationDate:
+            type: string
+            format: date-time
+            description: Date when the submitter wants the order to be cancelled
+          cancellationReason:
+            type: string
+            description: Reason why the order is cancelled.
+        required:
+        - productOrder
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CancelProductOrder: '#/components/schemas/CancelProductOrder_FVO'
+    ProductOrderRef:
+      type: object
+      description: A reference to an existing Product Order.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOrderRef: '#/components/schemas/ProductOrderRef'
+  responses:
+    200CancelProductOrder_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CancelProductOrder'
+          examples:
+            retrieveCancelProductOrderById:
+              $ref: '#/components/examples/retrieveCancelProductOrderById_response'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200CancelProductOrderArray:
+      description: Success
+      headers:
+        X-Total-Count:
+          $ref: '#/components/headers/X-Total-Count'
+        X-Result-Count:
+          $ref: '#/components/headers/X-Result-Count'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/CancelProductOrder'
+          examples:
+            retrieveCancelProductOrderList:
+              $ref: '#/components/examples/retrieveCancelProductOrderList_response'
+            retrieveCancelProductOrderListwithFieldsSelection:
+              $ref: '#/components/examples/retrieveCancelProductOrderListwithFieldsSelection_response'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    201CancelProductOrder:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CancelProductOrder'
+          examples:
+            CreateCancelProductOrder:
+              $ref: '#/components/examples/CreateCancelProductOrder_response'
+    '409':
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  examples:
+    retrieveCancelProductOrderListwithFieldsSelection_response:
+      value:
+      - id: '6987'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      - id: '7412'
+        productOrder:
+          id: 45f-789-sdre
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-789-sdre
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      - id: '3214'
+        productOrder:
+          id: 45f-as4-os3f
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-as4-os3f
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      description: A collection of CancelProductOrder representation with filter selection
+    retrieveCancelProductOrderList_response:
+      value:
+      - id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: A collection of CancelProductOrder representation
+    CreateCancelProductOrder_response:
+      value:
+        id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: POST CancelProductOrder Response Description.
+    CreateCancelProductOrder_request:
+      value:
+        cancellationReason: Duplicate order
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      description: POST CancelProductOrder Request Example
+    retrieveCancelProductOrderById_response:
+      value:
+        id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        effectiveCancellationDate: '2021-08-30T11:14:46.145Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: CancelProductOrder representation.
+  parameters:
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+  headers:
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+  requestBodies:
+    CancelProductOrder_FVO:
+      description: The CancelProductOrder to be created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CancelProductOrder_FVO'
+          examples:
+            CreateCancelProductOrder:
+              $ref: '#/components/examples/CreateCancelProductOrder_request'
+      required: true

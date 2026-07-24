@@ -1,0 +1,1711 @@
+openapi: 3.0.1
+info:
+  title: Product Catalog Management agreement troubleTicketSpecification API
+  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 5.0.0
+servers:
+- url: https://serverRoot/productCatalogManagement/v5/
+tags:
+- name: troubleTicketSpecification
+  description: Operations for TroubleTicketSpecification Resource
+paths:
+  /troubleTicketSpecification:
+    get:
+      tags:
+      - troubleTicketSpecification
+      summary: TM Forum List or Find TroubleTicketSpecification Objects
+      description: List or find TroubleTicketSpecification objects
+      operationId: listTroubleTicketSpecification
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Before'
+      - $ref: '#/components/parameters/After'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200TroubleTicketSpecificationArray'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    post:
+      tags:
+      - troubleTicketSpecification
+      summary: TM Forum Creates a TroubleTicketSpecification
+      description: This operation creates a TroubleTicketSpecification entity.
+      operationId: createTroubleTicketSpecification
+      parameters:
+      - $ref: '#/components/parameters/Fields'
+      requestBody:
+        $ref: '#/components/requestBodies/TroubleTicketSpecification_FVO'
+      responses:
+        '201':
+          $ref: '#/components/responses/201TroubleTicketSpecification'
+        '202':
+          description: Accepted
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+  /troubleTicketSpecification/{id}:
+    get:
+      tags:
+      - troubleTicketSpecification
+      summary: TM Forum Retrieves a TroubleTicketSpecification by ID
+      description: This operation retrieves a TroubleTicketSpecification entity. Attribute selection enabled for all first level attributes.
+      operationId: retrieveTroubleTicketSpecification
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          $ref: '#/components/responses/200TroubleTicketSpecification_Get'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    patch:
+      tags:
+      - troubleTicketSpecification
+      summary: TM Forum Updates Partially a TroubleTicketSpecification
+      description: This operation updates partially a TroubleTicketSpecification entity.
+      operationId: patchTroubleTicketSpecification
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      - $ref: '#/components/parameters/Fields'
+      requestBody:
+        $ref: '#/components/requestBodies/TroubleTicketSpecification_MVO'
+      responses:
+        '200':
+          $ref: '#/components/responses/200TroubleTicketSpecification_Patch'
+        '202':
+          description: Accepted
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+    delete:
+      tags:
+      - troubleTicketSpecification
+      summary: TM Forum Deletes a TroubleTicketSpecification
+      description: This operation deletes a TroubleTicketSpecification entity.
+      operationId: deleteTroubleTicketSpecification
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '202':
+          $ref: '#/components/responses/202'
+        '204':
+          $ref: '#/components/responses/204'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '409':
+          $ref: '#/components/responses/409'
+        '500':
+          $ref: '#/components/responses/500'
+        '501':
+          $ref: '#/components/responses/501'
+        '503':
+          $ref: '#/components/responses/503'
+components:
+  responses:
+    '204':
+      description: Deleted
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Bad Request Error
+              value:
+                '@type': Error
+                code: ERR400
+                reason: Bad Request
+                message: The server could not understand the request due to invalid syntax. Please correct the syntax and try again.
+                referenceError: https://host/errors
+    200TroubleTicketSpecification_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_RES'
+          examples:
+            TroubleTicketSpecification_retrieve_example:
+              $ref: '#/components/examples/TroubleTicketSpecification_retrieve_example_response'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Unauthorized Error
+              value:
+                '@type': Error
+                code: ERR401
+                reason: Unauthorized
+                message: You are not authorized to access the requested resource. Please provide the correct credentials.
+                referenceError: https://host/errors
+    '202':
+      description: Accepted
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Method Not allowed Error
+              value:
+                '@type': Error
+                code: ERR405
+                reason: Method Not allowed
+                message: The method is not allowed for the requested URL.
+                referenceError: https://host/errors
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Forbidden Error
+              value:
+                '@type': Error
+                code: ERR403
+                reason: Forbidden
+                message: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+                referenceError: https://host/errors
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Service Unavailable Error
+              value:
+                '@type': Error
+                code: ERR503
+                reason: Service Unavailable
+                message: The service is currently unavailable. Please try again later.
+                referenceError: https://host/errors
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Internal Server Error example
+              value:
+                '@type': Error
+                code: ERR500
+                reason: Internal Server Error
+                message: The server encountered an internal error. Please contact the system administrator.
+                referenceError: https://host/errors
+    200TroubleTicketSpecificationArray:
+      description: Success
+      headers:
+        X-Total-Count:
+          $ref: '#/components/headers/X-Total-Count'
+        X-Result-Count:
+          $ref: '#/components/headers/X-Result-Count'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TroubleTicketSpecification_RES'
+          examples:
+            TroubleTicketSpecification_with_filter_and_fields_list_example:
+              $ref: '#/components/examples/TroubleTicketSpecification_with_filter_and_fields_list_example_response'
+            TroubleTicketSpecification_list_example:
+              $ref: '#/components/examples/TroubleTicketSpecification_list_example_response'
+    201TroubleTicketSpecification:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_RES'
+          examples:
+            TroubleTicketSpecification_create_example:
+              $ref: '#/components/examples/TroubleTicketSpecification_create_example_response'
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Not Implemented Error
+              value:
+                '@type': Error
+                code: ERR501
+                reason: The requested operation is not implemented
+                message: The requested operation is not implemented. Please contact the system administrator.
+                referenceError: https://host/errors
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Not Found Error
+              value:
+                '@type': Error
+                code: ERR404
+                reason: Not Found
+                message: The requested URL was not found on the server.
+                referenceError: https://host/errors
+    200TroubleTicketSpecification_Patch:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_RES'
+          examples:
+            TroubleTicketSpecification_partialupdate_application_json:
+              $ref: '#/components/examples/TroubleTicketSpecification_partialupdate_application_json_response'
+    '409':
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Conflict Error
+              value:
+                '@type': Error
+                code: ERR409
+                reason: Conflict
+                message: The request could not be completed due to a conflict with the current state of the target resource.
+                referenceError: https://host/errors
+  examples:
+    TroubleTicketSpecification_list_example_response:
+      value:
+      - href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/453180
+        id: '453180'
+        name: Bill Dispute
+        lifecycleStatus: active
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket for Billing issues...
+        creationDate: '2022-05-22T10:36:30.709Z'
+        lastUpdate: '2022-06-22T10:36:30.709Z'
+        relatedParty:
+        - role: approver
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+          '@type': RelatedPartyRefOrPartyRoleRef
+        specCharacteristic:
+        - id: '1'
+          configurable: true
+          description: The amount that is on dispute, it can be the entire charge amount or partial amount of the charge
+          maxCardinality: 0
+          minCardinality: 1
+          name: disputeAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+        - id: '2'
+          configurable: true
+          description: The positive amount to be credit, it can be equal or less than the dispute amount. In case credit is given a credit reason must be provided. In case no credit is given a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditAmount
+          valueType: number
+          charSpecRelationship:
+          - '@type': CharacteristicSpecificationRelationship
+            characteristicSpecificationId: '3'
+            name: creditReason
+            relationshipType: dependency
+            parentSpecificationId: '25632415'
+          '@type': CharacteristicSpecification
+        - id: '3'
+          configurable: true
+          description: The reason for giving the credit, in case credit apply. In case no credit apply a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '4'
+          configurable: true
+          description: The reason for rejecting the dispute, in case no credit apply.
+          maxCardinality: 0
+          minCardinality: 1
+          name: rejectReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '5'
+          configurable: true
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+          maxCardinality: 0
+          minCardinality: 1
+          name: currency
+          valueType: string
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2023-06-22T23:20:50.52Z'
+        version: '1'
+      - id: '453256'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/453256
+        name: Commerce Issue
+        lifecycleStatus: active
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket for Commerce issues...
+        creationDate: '2023-06-22T10:36:30.709Z'
+        lastUpdate: '2023-06-23T10:36:30.709Z'
+        relatedParty:
+        - role: approver
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+          '@type': RelatedPartyRefOrPartyRoleRef
+        specCharacteristic:
+        - id: '1'
+          configurable: true
+          description: The Order reference nubmer that has an issue
+          maxCardinality: 0
+          minCardinality: 1
+          name: orderReferenceNumber
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '2'
+          configurable: true
+          description: The creation date of the order that has an issue.
+          maxCardinality: 0
+          minCardinality: 0
+          name: orderCreationDate
+          valueType: string
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2023-06-23T23:20:50.52Z'
+        version: '1'
+      description: 'Here''s an example of a request for retrieving a list of trouble ticket specification(s).       '
+    TroubleTicketSpecification_retrieve_example_response:
+      value:
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/25632415
+        id: '25632415'
+        name: Bill Dispute
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket...
+        creationDate: '2022-05-22T10:36:30.709Z'
+        lastUpdate: '2022-06-22T10:36:30.709Z'
+        relatedParty:
+        - role: approver
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+          '@type': RelatedPartyRefOrPartyRoleRef
+        lifecycleStatus: active
+        specCharacteristic:
+        - id: '1'
+          configurable: true
+          description: The amount that is on dispute, it can be the entire charge amount or partial amount of the charge
+          maxCardinality: 0
+          minCardinality: 1
+          name: disputeAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+        - id: '2'
+          configurable: true
+          description: The positive amount to be credit, it can be equal or less than the dispute amount. In case credit is given a credit reason must be provided. In case no credit is given a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditAmount
+          valueType: number
+          charSpecRelationship:
+          - '@type': CharacteristicSpecificationRelationship
+            characteristicSpecificationId: '3'
+            name: creditReason
+            relationshipType: dependency
+            parentSpecificationId: '25632415'
+          '@type': CharacteristicSpecification
+        - id: '3'
+          configurable: true
+          description: The reason for giving the credit, in case credit apply. In case no credit apply a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '4'
+          configurable: true
+          description: The reason for rejecting the dispute, in case no credit apply.
+          maxCardinality: 0
+          minCardinality: 1
+          name: rejectReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '5'
+          configurable: true
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+          maxCardinality: 0
+          minCardinality: 1
+          name: currency
+          valueType: string
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2022-06-22T23:20:50.52Z'
+        version: '1'
+      description: Here's an example of a request for retrieving a spesific trouble ticket specification.
+    TroubleTicketSpecification_create_example_request:
+      value:
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket...
+        name: Bill Dispute
+        relatedParty:
+        - role: approver
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+        specCharacteristic:
+        - id: '1'
+          configurable: true
+          description: The amount that is on dispute, it can be the entire charge amount or partial amount of the charge
+          maxCardinality: 0
+          minCardinality: 1
+          name: disputeAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+        - id: '2'
+          configurable: true
+          description: The positive amount to be credit, it can be equal or less than the dispute amount. In case credit is given a credit reason must be provided. In case no credit is given a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+          charSpecRelationship:
+          - '@type': CharacteristicSpecificationRelationship
+            '@baseType': CharacteristicSpecificationRelationship
+            '@schemaLocation': /someUri
+            characteristicSpecificationId: '3'
+            name: creditReason
+            relationshipType: dependency
+            parentSpecificationId: '25632415'
+        - id: '3'
+          configurable: true
+          description: The reason for giving the credit, in case credit apply. In case no credit apply a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '4'
+          configurable: true
+          description: The reason for rejecting the dispute, in case no credit apply.
+          maxCardinality: 0
+          minCardinality: 1
+          name: rejectReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '5'
+          configurable: true
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+          maxCardinality: 0
+          minCardinality: 1
+          name: currency
+          valueType: string
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2022-06-22T23:20:50.52Z'
+        version: '1'
+      description: POST trouble ticket request example - only a subset of trouble ticket specification attributes are used in this example
+    TroubleTicketSpecification_partialupdate_application_merge_json_request:
+      value:
+        lifecycleStatus: active
+        description: Bill Dispute Specification
+        '@type': TroubleTicketSpecification
+      description: Here's an example of a request for updating a trouble ticket - set status to active and update description. This example illustrating patch merge, When PATCH is implemeted merge syntax is mandatory
+    TroubleTicketSpecification_create_example_response:
+      value:
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/25632415
+        id: '25632415'
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket...
+        creationDate: '2022-05-22T10:36:30.709Z'
+        lastUpdate: '2022-06-22T10:36:30.709Z'
+        name: Bill Dispute
+        relatedParty:
+        - role: approver
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+        lifecycleStatus: inDesgin
+        specCharacteristic:
+        - id: '1'
+          configurable: true
+          description: The amount that is on dispute, it can be the entire charge amount or partial amount of the charge
+          maxCardinality: 0
+          minCardinality: 1
+          name: disputeAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+        - id: '2'
+          configurable: true
+          description: The positive amount to be credit, it can be equal or less than the dispute amount. In case credit is given a credit reason must be provided. In case no credit is given a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditAmount
+          valueType: number
+          '@type': CharacteristicSpecification
+          charSpecRelationship:
+          - '@type': CharacteristicSpecificationRelationship
+            '@schemaLocation': string
+            characteristicSpecificationId: '3'
+            name: creditReason
+            relationshipType: dependency
+            parentSpecificationId: '25632415'
+        - id: '3'
+          configurable: true
+          description: The reason for giving the credit, in case credit apply. In case no credit apply a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          name: creditReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '4'
+          configurable: true
+          description: The reason for rejecting the dispute, in case no credit apply.
+          maxCardinality: 0
+          minCardinality: 1
+          name: rejectReason
+          valueType: string
+          '@type': CharacteristicSpecification
+        - id: '5'
+          configurable: true
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+          maxCardinality: 0
+          minCardinality: 1
+          name: currency
+          valueType: string
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2022-06-22T23:20:50.52Z'
+        version: '1'
+      description: POST Trouble Ticket Specification response description.
+    TroubleTicketSpecification_with_filter_and_fields_list_example_response:
+      value:
+      - id: '453180'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/453180
+        name: Billing Dispute
+        lifecycleStatus: active
+        '@type': TroubleTicketSpecification
+      - id: '453256'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/453256
+        name: Technical TroubleTicket Specification
+        lifecycleStatus: active
+        '@type': TroubleTicketSpecification
+      - id: '454563'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/5/troubleTicketSpecification/454563
+        name: Network and latency TicketSpecification
+        lifecycleStatus: active
+        '@type': TroubleTicketSpecification
+      description: Here's an example of a request for retrieving a list of trouble ticket specification(s). The given criteria is lifecycleStatus is active, and fields id,href,name,@type,lifecycleStatus
+    TroubleTicketSpecification_partialupdate_application_json_response:
+      value:
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicketSpecification/25632415
+        id: '25632415'
+        '@type': TroubleTicketSpecification
+        description: This trouble ticket specification describes the characteristic and rules to apply when creating a Trouble Ticket...
+        creationDate: '2022-05-22T10:36:30.709Z'
+        lastUpdate: '2022-06-22T10:36:30.709Z'
+        name: Bill Dispute Specification
+        relatedParty:
+        - role: approver
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '6678'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/6678
+            name: Sara Smith
+            '@type': PartyRef
+            '@referredType': Individual
+        lifecycleStatus: active
+        specCharacteristic:
+        - id: '1'
+          name: disputeAmount
+          valueType: number
+          configurable: true
+          description: The amount that is on dispute, it can be the entire charge amount or partial amount of the charge
+          maxCardinality: 0
+          minCardinality: 1
+          '@type': CharacteristicSpecification
+        - id: '2'
+          name: creditAmount
+          valueType: number
+          configurable: true
+          description: The positive amount to be credit, it can be equal or less than the dispute amount. In case credit is given a credit reason must be provided. In case no credit is given a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          charSpecRelationship:
+          - '@type': CharacteristicSpecificationRelationship
+            '@baseType': string
+            '@schemaLocation': string
+            characteristicSpecificationId: '3'
+            name: creditReason
+            relationshipType: dependency
+            parentSpecificationId: '25632415'
+          '@type': CharacteristicSpecification
+        - id: '3'
+          name: creditReason
+          valueType: string
+          configurable: true
+          description: The reason for giving the credit, in case credit apply. In case no credit apply a reject reason must be provided
+          maxCardinality: 0
+          minCardinality: 1
+          '@type': CharacteristicSpecification
+        - id: '4'
+          name: rejectReason
+          valueType: string
+          configurable: true
+          description: The reason for rejecting the dispute, in case no credit apply.
+          maxCardinality: 0
+          minCardinality: 1
+          '@type': CharacteristicSpecification
+        - id: '5'
+          name: currency
+          valueType: string
+          configurable: true
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+          maxCardinality: 0
+          minCardinality: 1
+          '@type': CharacteristicSpecification
+        validFor:
+          startDateTime: '2022-06-22T23:20:50.52Z'
+        version: '1'
+      description: Response message
+    TroubleTicketSpecification_partialupdate_application_json_request:
+      value:
+        lifecycleStatus: active
+        description: Bill Dispute Specification
+        '@type': TroubleTicketSpecification
+      description: Here's an example of a request for updating a trouble ticket - set status to active and update description. This example illustrating patch merge, When PATCH is implemeted merge syntax is mandatory
+    TroubleTicketSpecification_partialupdate_application_json_patch_request:
+      value:
+      - op: replace
+        path: /lifecycleStatus
+        value: active
+      - op: replace
+        path: /name
+        value: Bill Dispute Specification
+      description: Here's an example of a request for updating a trouble ticket spesification - set status to active and update description. This example illustrating patch json
+    TroubleTicketSpecification_partialupdate_application_json_patch_query_request:
+      value:
+      - op: replace
+        path: /specCharacteristic?id=5
+        value:
+          configurable: false
+      description: Here's an example of a request for updating a trouble ticket - set characteristic id=5 to readonly. This example illustrating patch query json
+  schemas:
+    JsonPatchOperations:
+      description: JSONPatch Operations document as defined by RFC 6902
+      type: array
+      items:
+        $ref: '#/components/schemas/JsonPatch'
+    PartyRefOrPartyRoleRef_FVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_FVO'
+      - $ref: '#/components/schemas/PartyRoleRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
+    TroubleTicketSpecification:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: TroubleTicketSpecification defines the common attributes and relationships of a set of related trouble tickets, while trouble ticket defines a specific instance that is based on a particular trouble ticket specification.
+        properties:
+          name:
+            type: string
+            description: Name given to the specification
+          description:
+            type: string
+            description: Description of the specification
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status of this specification such as inDesign,active,rejected,retired
+          specCharacteristic:
+            type: array
+            description: List of characteristics that the entity can take
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecification'
+          relatedParty:
+            type: array
+            description: Parties who manage or otherwise have an interest in this specification
+            items:
+              $ref: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+          creationDate:
+            type: string
+            format: date-time
+            description: The date on which the trouble ticket specification was created
+          lastUpdate:
+            type: string
+            format: date-time
+            description: Date and time of the last update of the specification
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecification: '#/components/schemas/TroubleTicketSpecification'
+    PartyRoleRef:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef'
+    PartyRefOrPartyRoleRef_MVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_MVO'
+      - $ref: '#/components/schemas/PartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
+    CharacteristicValueSpecification_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: 'specification of a value (number or text or an object) that can be assigned to a Characteristic. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : BooleanArrayCharacteristicValueSpecification, BooleanCharacteristicValueSpecification, FloatArrayCharacteristicValueSpecification, FloatCharacteristicValueSpecification, IntegerArrayCharacteristicValueSpecification, IntegerCharacteristicValueSpecification, MapArrayCharacteristicValueSpecification, MapCharacteristicValueSpecification, NumberArrayCharacteristicValueSpecification, NumberCharacteristicValueSpecification, ObjectArrayCharacteristicValueSpecification, ObjectCharacteristicValueSpecification, StringArrayCharacteristicValueSpecification, StringCharacteristicValueSpecification...'
+        properties:
+          valueType:
+            type: string
+            description: A kind of value that the characteristic value can take on, such as numeric, text and so forth
+          isDefault:
+            type: boolean
+            description: If true, the Boolean Indicates if the value is the default value for a characteristic
+          unitOfMeasure:
+            type: string
+            description: A length, surface, volume, dry measure, liquid measure, money, weight, time, and the like. In general, a determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values, as 1 foot, 1 yard, 1 mile, 1 square foot.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          valueFrom:
+            type: integer
+            description: The low range value that a characteristic can take on
+          valueTo:
+            type: integer
+            description: The upper range value that a characteristic can take on
+          rangeInterval:
+            type: string
+            description: An indicator that specifies the inclusion or exclusion of the valueFrom and valueTo attributes. If applicable, possible values are "open", "closed", "closedBottom" and "closedTop".
+          regex:
+            type: string
+            description: A regular expression constraint for given value
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          BooleanArrayCharacteristicValueSpecification: '#/components/schemas/BooleanArrayCharacteristicValueSpecification_FVO'
+          BooleanCharacteristicValueSpecification: '#/components/schemas/BooleanCharacteristicValueSpecification_FVO'
+          CharacteristicValueSpecification: '#/components/schemas/CharacteristicValueSpecification_FVO'
+          FloatArrayCharacteristicValueSpecification: '#/components/schemas/FloatArrayCharacteristicValueSpecification_FVO'
+          FloatCharacteristicValueSpecification: '#/components/schemas/FloatCharacteristicValueSpecification_FVO'
+          IntegerArrayCharacteristicValueSpecification: '#/components/schemas/IntegerArrayCharacteristicValueSpecification_FVO'
+          IntegerCharacteristicValueSpecification: '#/components/schemas/IntegerCharacteristicValueSpecification_FVO'
+          MapArrayCharacteristicValueSpecification: '#/components/schemas/MapArrayCharacteristicValueSpecification_FVO'
+          MapCharacteristicValueSpecification: '#/components/schemas/MapCharacteristicValueSpecification_FVO'
+          NumberArrayCharacteristicValueSpecification: '#/components/schemas/NumberArrayCharacteristicValueSpecification_FVO'
+          NumberCharacteristicValueSpecification: '#/components/schemas/NumberCharacteristicValueSpecification_FVO'
+          ObjectArrayCharacteristicValueSpecification: '#/components/schemas/ObjectArrayCharacteristicValueSpecification_FVO'
+          ObjectCharacteristicValueSpecification: '#/components/schemas/ObjectCharacteristicValueSpecification_FVO'
+          StringArrayCharacteristicValueSpecification: '#/components/schemas/StringArrayCharacteristicValueSpecification_FVO'
+          StringCharacteristicValueSpecification: '#/components/schemas/StringCharacteristicValueSpecification_FVO'
+    CharacteristicValueSpecification:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: 'specification of a value (number or text or an object) that can be assigned to a Characteristic. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : BooleanArrayCharacteristicValueSpecification, BooleanCharacteristicValueSpecification, FloatArrayCharacteristicValueSpecification, FloatCharacteristicValueSpecification, IntegerArrayCharacteristicValueSpecification, IntegerCharacteristicValueSpecification, MapArrayCharacteristicValueSpecification, MapCharacteristicValueSpecification, NumberArrayCharacteristicValueSpecification, NumberCharacteristicValueSpecification, ObjectArrayCharacteristicValueSpecification, ObjectCharacteristicValueSpecification, StringArrayCharacteristicValueSpecification, StringCharacteristicValueSpecification...'
+        properties:
+          valueType:
+            type: string
+            description: A kind of value that the characteristic value can take on, such as numeric, text and so forth
+          isDefault:
+            type: boolean
+            description: If true, the Boolean Indicates if the value is the default value for a characteristic
+          unitOfMeasure:
+            type: string
+            description: A length, surface, volume, dry measure, liquid measure, money, weight, time, and the like. In general, a determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values, as 1 foot, 1 yard, 1 mile, 1 square foot.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          valueFrom:
+            type: integer
+            description: The low range value that a characteristic can take on
+          valueTo:
+            type: integer
+            description: The upper range value that a characteristic can take on
+          rangeInterval:
+            type: string
+            description: An indicator that specifies the inclusion or exclusion of the valueFrom and valueTo attributes. If applicable, possible values are "open", "closed", "closedBottom" and "closedTop".
+          regex:
+            type: string
+            description: A regular expression constraint for given value
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          BooleanArrayCharacteristicValueSpecification: '#/components/schemas/BooleanArrayCharacteristicValueSpecification'
+          BooleanCharacteristicValueSpecification: '#/components/schemas/BooleanCharacteristicValueSpecification'
+          CharacteristicValueSpecification: '#/components/schemas/CharacteristicValueSpecification'
+          FloatArrayCharacteristicValueSpecification: '#/components/schemas/FloatArrayCharacteristicValueSpecification'
+          FloatCharacteristicValueSpecification: '#/components/schemas/FloatCharacteristicValueSpecification'
+          IntegerArrayCharacteristicValueSpecification: '#/components/schemas/IntegerArrayCharacteristicValueSpecification'
+          IntegerCharacteristicValueSpecification: '#/components/schemas/IntegerCharacteristicValueSpecification'
+          MapArrayCharacteristicValueSpecification: '#/components/schemas/MapArrayCharacteristicValueSpecification'
+          MapCharacteristicValueSpecification: '#/components/schemas/MapCharacteristicValueSpecification'
+          NumberArrayCharacteristicValueSpecification: '#/components/schemas/NumberArrayCharacteristicValueSpecification'
+          NumberCharacteristicValueSpecification: '#/components/schemas/NumberCharacteristicValueSpecification'
+          ObjectArrayCharacteristicValueSpecification: '#/components/schemas/ObjectArrayCharacteristicValueSpecification'
+          ObjectCharacteristicValueSpecification: '#/components/schemas/ObjectCharacteristicValueSpecification'
+          StringArrayCharacteristicValueSpecification: '#/components/schemas/StringArrayCharacteristicValueSpecification'
+          StringCharacteristicValueSpecification: '#/components/schemas/StringCharacteristicValueSpecification'
+    PartyRoleRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_MVO'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
+    CharacteristicSpecification_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: This class defines a characteristic specification.
+        properties:
+          id:
+            type: string
+            description: Unique ID for the characteristic
+          name:
+            type: string
+            description: A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications.
+          valueType:
+            type: string
+            description: A kind of value that the characteristic can take on, such as numeric, text and so forth
+          description:
+            type: string
+            description: A narrative that explains the CharacteristicSpecification.
+          configurable:
+            type: boolean
+            description: If true, the Boolean indicates that the target Characteristic is configurable
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          minCardinality:
+            type: integer
+            description: The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality.
+          maxCardinality:
+            type: integer
+            description: The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality.
+          isUnique:
+            type: boolean
+            description: Specifies if the value of this characteristic is unique across all entities instantiated from the specification that uses this characteristic. For example, consider a ProductSpecification for a set-top box, with a CharacteristicSpecification cardID. Each set-top box must have a different value for cardID, so this isUnique attribute would be set to true for the characteristic.
+          regex:
+            type: string
+            description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
+          extensible:
+            type: boolean
+            description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource.
+          '@valueSchemaLocation':
+            type: string
+            description: This (optional) field provides a link to the schema describing the value type.
+          charSpecRelationship:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecificationRelationship_MVO'
+            description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.
+          characteristicValueSpecification:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicValueSpecification_MVO'
+            description: A CharacteristicValueSpecification object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a CharacteristicSpecification object. The values of the attributes in the CharacteristicValueSpecification object describe the values of the attributes that a corresponding Characteristic object can take on.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecification: '#/components/schemas/CharacteristicSpecification_MVO'
+    CharacteristicSpecificationRelationship_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Characteristic specifications. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.
+        properties:
+          relationshipType:
+            type: string
+            description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
+          name:
+            type: string
+            description: Name of the target characteristic within the specification
+          characteristicSpecificationId:
+            type: string
+            description: Unique identifier of the characteristic within the specification
+          parentSpecificationHref:
+            type: string
+            format: uri
+            description: Hyperlink reference to the parent specification containing the target characteristic
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          parentSpecificationId:
+            type: string
+            description: Unique identifier of the parent specification containing the target characteristic
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecificationRelationship: '#/components/schemas/CharacteristicSpecificationRelationship_MVO'
+    RelatedPartyRefOrPartyRoleRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
+    CharacteristicValueSpecification_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: 'specification of a value (number or text or an object) that can be assigned to a Characteristic. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : BooleanArrayCharacteristicValueSpecification, BooleanCharacteristicValueSpecification, FloatArrayCharacteristicValueSpecification, FloatCharacteristicValueSpecification, IntegerArrayCharacteristicValueSpecification, IntegerCharacteristicValueSpecification, MapArrayCharacteristicValueSpecification, MapCharacteristicValueSpecification, NumberArrayCharacteristicValueSpecification, NumberCharacteristicValueSpecification, ObjectArrayCharacteristicValueSpecification, ObjectCharacteristicValueSpecification, StringArrayCharacteristicValueSpecification, StringCharacteristicValueSpecification...'
+        properties:
+          valueType:
+            type: string
+            description: A kind of value that the characteristic value can take on, such as numeric, text and so forth
+          isDefault:
+            type: boolean
+            description: If true, the Boolean Indicates if the value is the default value for a characteristic
+          unitOfMeasure:
+            type: string
+            description: A length, surface, volume, dry measure, liquid measure, money, weight, time, and the like. In general, a determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values, as 1 foot, 1 yard, 1 mile, 1 square foot.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          valueFrom:
+            type: integer
+            description: The low range value that a characteristic can take on
+          valueTo:
+            type: integer
+            description: The upper range value that a characteristic can take on
+          rangeInterval:
+            type: string
+            description: An indicator that specifies the inclusion or exclusion of the valueFrom and valueTo attributes. If applicable, possible values are "open", "closed", "closedBottom" and "closedTop".
+          regex:
+            type: string
+            description: A regular expression constraint for given value
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          BooleanArrayCharacteristicValueSpecification: '#/components/schemas/BooleanArrayCharacteristicValueSpecification_MVO'
+          BooleanCharacteristicValueSpecification: '#/components/schemas/BooleanCharacteristicValueSpecification_MVO'
+          CharacteristicValueSpecification: '#/components/schemas/CharacteristicValueSpecification_MVO'
+          FloatArrayCharacteristicValueSpecification: '#/components/schemas/FloatArrayCharacteristicValueSpecification_MVO'
+          FloatCharacteristicValueSpecification: '#/components/schemas/FloatCharacteristicValueSpecification_MVO'
+          IntegerArrayCharacteristicValueSpecification: '#/components/schemas/IntegerArrayCharacteristicValueSpecification_MVO'
+          IntegerCharacteristicValueSpecification: '#/components/schemas/IntegerCharacteristicValueSpecification_MVO'
+          MapArrayCharacteristicValueSpecification: '#/components/schemas/MapArrayCharacteristicValueSpecification_MVO'
+          MapCharacteristicValueSpecification: '#/components/schemas/MapCharacteristicValueSpecification_MVO'
+          NumberArrayCharacteristicValueSpecification: '#/components/schemas/NumberArrayCharacteristicValueSpecification_MVO'
+          NumberCharacteristicValueSpecification: '#/components/schemas/NumberCharacteristicValueSpecification_MVO'
+          ObjectArrayCharacteristicValueSpecification: '#/components/schemas/ObjectArrayCharacteristicValueSpecification_MVO'
+          ObjectCharacteristicValueSpecification: '#/components/schemas/ObjectCharacteristicValueSpecification_MVO'
+          StringArrayCharacteristicValueSpecification: '#/components/schemas/StringArrayCharacteristicValueSpecification_MVO'
+          StringCharacteristicValueSpecification: '#/components/schemas/StringCharacteristicValueSpecification_MVO'
+    CharacteristicSpecification_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: This class defines a characteristic specification.
+        properties:
+          id:
+            type: string
+            description: Unique ID for the characteristic
+          name:
+            type: string
+            description: A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications.
+          valueType:
+            type: string
+            description: A kind of value that the characteristic can take on, such as numeric, text and so forth
+          description:
+            type: string
+            description: A narrative that explains the CharacteristicSpecification.
+          configurable:
+            type: boolean
+            description: If true, the Boolean indicates that the target Characteristic is configurable
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          minCardinality:
+            type: integer
+            description: The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality.
+          maxCardinality:
+            type: integer
+            description: The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality.
+          isUnique:
+            type: boolean
+            description: Specifies if the value of this characteristic is unique across all entities instantiated from the specification that uses this characteristic. For example, consider a ProductSpecification for a set-top box, with a CharacteristicSpecification cardID. Each set-top box must have a different value for cardID, so this isUnique attribute would be set to true for the characteristic.
+          regex:
+            type: string
+            description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
+          extensible:
+            type: boolean
+            description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource.
+          '@valueSchemaLocation':
+            type: string
+            description: This (optional) field provides a link to the schema describing the value type.
+          charSpecRelationship:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecificationRelationship_FVO'
+            description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.
+          characteristicValueSpecification:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicValueSpecification_FVO'
+            description: A CharacteristicValueSpecification object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a CharacteristicSpecification object. The values of the attributes in the CharacteristicValueSpecification object describe the values of the attributes that a corresponding Characteristic object can take on.
+        required:
+        - name
+        - valueType
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecification: '#/components/schemas/CharacteristicSpecification_FVO'
+    CharacteristicSpecification:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: This class defines a characteristic specification.
+        properties:
+          id:
+            type: string
+            description: Unique ID for the characteristic
+          name:
+            type: string
+            description: A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications.
+          valueType:
+            type: string
+            description: A kind of value that the characteristic can take on, such as numeric, text and so forth
+          description:
+            type: string
+            description: A narrative that explains the CharacteristicSpecification.
+          configurable:
+            type: boolean
+            description: If true, the Boolean indicates that the target Characteristic is configurable
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          minCardinality:
+            type: integer
+            description: The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality.
+          maxCardinality:
+            type: integer
+            description: The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality.
+          isUnique:
+            type: boolean
+            description: Specifies if the value of this characteristic is unique across all entities instantiated from the specification that uses this characteristic. For example, consider a ProductSpecification for a set-top box, with a CharacteristicSpecification cardID. Each set-top box must have a different value for cardID, so this isUnique attribute would be set to true for the characteristic.
+          regex:
+            type: string
+            description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
+          extensible:
+            type: boolean
+            description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource.
+          '@valueSchemaLocation':
+            type: string
+            description: This (optional) field provides a link to the schema describing the value type.
+          charSpecRelationship:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecificationRelationship'
+            description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.
+          characteristicValueSpecification:
+            type: array
+            items:
+              $ref: '#/components/schemas/CharacteristicValueSpecification'
+            description: A CharacteristicValueSpecification object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a CharacteristicSpecification object. The values of the attributes in the CharacteristicValueSpecification object describe the values of the attributes that a corresponding Characteristic object can take on.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecification: '#/components/schemas/CharacteristicSpecification'
+    TroubleTicketSpecification_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: TroubleTicketSpecification defines the common attributes and relationships of a set of related trouble tickets, while trouble ticket defines a specific instance that is based on a particular trouble ticket specification.
+        properties:
+          name:
+            type: string
+            description: Name given to the specification
+          description:
+            type: string
+            description: Description of the specification
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status of this specification such as inDesign,active,rejected,retired
+          specCharacteristic:
+            type: array
+            description: List of characteristics that the entity can take
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecification_FVO'
+          relatedParty:
+            type: array
+            description: Parties who manage or otherwise have an interest in this specification
+            items:
+              $ref: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+        required:
+        - name
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecification: '#/components/schemas/TroubleTicketSpecification_FVO'
+    RelatedPartyRefOrPartyRoleRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
+    TroubleTicketSpecification_RES:
+      type: object
+      description: Response object for TroubleTicketSpecification
+      allOf:
+      - $ref: '#/components/schemas/TroubleTicketSpecification'
+      required:
+      - id
+      - href
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecification: '#/components/schemas/TroubleTicketSpecification'
+    Addressable:
+      type: object
+      description: Base schema for addressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    CharacteristicSpecificationRelationship:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Characteristic specifications. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.
+        properties:
+          relationshipType:
+            type: string
+            description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
+          name:
+            type: string
+            description: Name of the target characteristic within the specification
+          characteristicSpecificationId:
+            type: string
+            description: Unique identifier of the characteristic within the specification
+          parentSpecificationHref:
+            type: string
+            format: uri
+            description: Hyperlink reference to the parent specification containing the target characteristic
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          parentSpecificationId:
+            type: string
+            description: Unique identifier of the parent specification containing the target characteristic
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecificationRelationship: '#/components/schemas/CharacteristicSpecificationRelationship'
+    PartyRef_FVO:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    JsonPatch:
+      type: object
+      description: A JSONPatch document as defined by RFC 6902
+      required:
+      - op
+      - path
+      properties:
+        op:
+          type: string
+          description: The operation to be performed
+          enum:
+          - add
+          - remove
+          - replace
+          - move
+          - copy
+          - test
+        path:
+          type: string
+          description: A JSON-Pointer
+        value:
+          description: The value to be used within the operations.
+        from:
+          type: string
+          description: A string containing a JSON Pointer value.
+    TroubleTicketSpecification_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: TroubleTicketSpecification defines the common attributes and relationships of a set of related trouble tickets, while trouble ticket defines a specific instance that is based on a particular trouble ticket specification.
+        properties:
+          name:
+            type: string
+            description: Name given to the specification
+          description:
+            type: string
+            description: Description of the specification
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status of this specification such as inDesign,active,rejected,retired
+          specCharacteristic:
+            type: array
+            description: List of characteristics that the entity can take
+            items:
+              $ref: '#/components/schemas/CharacteristicSpecification_MVO'
+          relatedParty:
+            type: array
+            description: Parties who manage or otherwise have an interest in this specification
+            items:
+              $ref: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecification: '#/components/schemas/TroubleTicketSpecification_MVO'
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        startDateTime:
+          description: Start of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+        endDateTime:
+          description: End of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    PartyRef_MVO:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+    PartyRoleRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
+    PartyRefOrPartyRoleRef:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef'
+      - $ref: '#/components/schemas/PartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef'
+    RelatedPartyRefOrPartyRoleRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_FVO'
+        required:
+        - role
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
+    EntityRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+    PartyRef:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef'
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    EntityRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    CharacteristicSpecificationRelationship_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Characteristic specifications. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.
+        properties:
+          relationshipType:
+            type: string
+            description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
+          name:
+            type: string
+            description: Name of the target characteristic within the specification
+          characteristicSpecificationId:
+            type: string
+            description: Unique identifier of the characteristic within the specification
+          parentSpecificationHref:
+            type: string
+            format: uri
+            description: Hyperlink reference to the parent specification containing the target characteristic
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          parentSpecificationId:
+            type: string
+            description: Unique identifier of the parent specification containing the target characteristic
+        required:
+        - parentSpecificationId
+        - name
+        - relationshipType
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CharacteristicSpecificationRelationship: '#/components/schemas/CharacteristicSpecificationRelationship_FVO'
+  parameters:
+    Sort:
+      name: sort
+      in: query
+      description: The default direction is Ascending order, the use of the modifier in front of the sort field name, “-“, changes the sort order direction.
+      schema:
+        type: string
+    After:
+      name: after
+      in: query
+      description: An opaque string value representing the page results after the cursor value
+      schema:
+        type: string
+    Filter:
+      name: filter
+      in: query
+      description: Filter a collection using JSONPath
+      schema:
+        type: string
+        example: attachment[?(@size==300)]
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Before:
+      name: before
+      in: query
+      description: An opaque string value representing the page results before the cursor value
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+  headers:
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+  requestBodies:
+    TroubleTicketSpecification_FVO:
+      description: The TroubleTicketSpecification to be created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_FVO'
+          examples:
+            TroubleTicketSpecification_create_example:
+              $ref: '#/components/examples/TroubleTicketSpecification_create_example_request'
+      required: true
+    TroubleTicketSpecification_MVO:
+      description: The TroubleTicketSpecification to be patched
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_MVO'
+          examples:
+            TroubleTicketSpecification_partialupdate_application_json:
+              $ref: '#/components/examples/TroubleTicketSpecification_partialupdate_application_json_request'
+        application/merge-patch+json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicketSpecification_MVO'
+          examples:
+            TroubleTicketSpecification_partialupdate_application_merge_json:
+              $ref: '#/components/examples/TroubleTicketSpecification_partialupdate_application_merge_json_request'
+        application/json-patch+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            TroubleTicketSpecification_partialupdate_application_json_patch:
+              $ref: '#/components/examples/TroubleTicketSpecification_partialupdate_application_json_patch_request'
+        application/json-patch-query+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            TroubleTicketSpecification_partialupdate_application_json_patch_query:
+              $ref: '#/components/examples/TroubleTicketSpecification_partialupdate_application_json_patch_query_request'
+      required: true

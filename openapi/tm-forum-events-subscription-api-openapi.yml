@@ -1,0 +1,200 @@
+openapi: 3.0.1
+info:
+  title: Product Catalog Management agreement events subscription API
+  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 5.0.0
+servers:
+- url: https://serverRoot/productCatalogManagement/v5/
+tags:
+- name: events subscription
+  description: Endpoints to register and terminate an Event Listener
+paths:
+  /hub:
+    post:
+      operationId: createHub
+      summary: TM Forum Create a Subscription (hub) to Receive Events
+      description: Sets the communication endpoint to receive Events.
+      tags:
+      - events subscription
+      requestBody:
+        $ref: '#/components/requestBodies/Hub_FVO'
+      responses:
+        '201':
+          $ref: '#/components/responses/Hub'
+        default:
+          $ref: '#/components/responses/Error'
+  /hub/{id}:
+    delete:
+      operationId: hubDelete
+      summary: TM Forum Remove a Subscription (hub) to Receive Events
+      description: ''
+      tags:
+      - events subscription
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '204':
+          description: Deleted
+        default:
+          $ref: '#/components/responses/Error'
+    get:
+      operationId: hubGet
+      summary: TM Forum Retrieve a Subscription (hub)
+      description: This operation retrieves the subscription to receive Events.
+      tags:
+      - events subscription
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Hub_2'
+        default:
+          $ref: '#/components/responses/Error_2'
+components:
+  parameters:
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+  responses:
+    Error_2:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Error example
+              value:
+                '@type': Error
+                code: ERR001
+                reason: Missing information
+                message: Please provide the additional example information
+                referenceError: https://host/errors
+    Hub_2:
+      description: Notified
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub'
+          examples:
+            basic:
+              summary: Hub example
+              value:
+                '@type': Hub
+                callback: https://host/tmf-api/specificAPIName/v5/listener/specificEventListener
+    Hub:
+      description: Notified
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub'
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    Hub:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - properties:
+          id:
+            type: string
+            description: Id of the listener
+          callback:
+            type: string
+            description: The callback being registered.
+          query:
+            type: string
+            description: additional data to be passed
+        required:
+        - callback
+    Hub_FVO:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      required:
+      - callback
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - properties:
+          callback:
+            type: string
+            description: The callback being registered.
+          query:
+            type: string
+            description: additional data to be passed
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+  requestBodies:
+    Hub_FVO:
+      description: Data containing the callback endpoint to deliver the information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub_FVO'
+      required: true

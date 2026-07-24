@@ -1,0 +1,372 @@
+openapi: 3.0.1
+info:
+  title: Product Catalog Management agreement billPresentationMedia API
+  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 5.0.0
+servers:
+- url: https://serverRoot/productCatalogManagement/v5/
+tags:
+- name: billPresentationMedia
+paths:
+  /billPresentationMedia:
+    get:
+      operationId: listBillPresentationMedia
+      summary: List or find BillPresentationMedia objects
+      description: This operation list or find BillPresentationMedia entities
+      tags:
+      - billPresentationMedia
+      parameters:
+      - name: fields
+        description: Comma-separated properties to be provided in response
+        required: false
+        in: query
+        type: string
+      - name: offset
+        description: Requested index for start of resources to be provided in response
+        required: false
+        in: query
+        type: integer
+      - name: limit
+        description: Requested number of resources to be provided in response
+        required: false
+        in: query
+        type: integer
+      responses:
+        '200':
+          description: Success
+          headers:
+            X-Result-Count:
+              description: Actual number of items returned in the response body
+              type: integer
+            X-Total-Count:
+              description: Total number of items matching criteria
+              type: integer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BillPresentationMedia'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: Method Not allowed
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      operationId: createBillPresentationMedia
+      summary: Creates a BillPresentationMedia
+      description: This operation creates a BillPresentationMedia entity.
+      tags:
+      - billPresentationMedia
+      parameters:
+      - name: billPresentationMedia
+        description: The BillPresentationMedia to be created
+        required: true
+        schema:
+          $ref: '#/definitions/BillPresentationMedia_Create'
+        in: body
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/BillPresentationMedia'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: Method Not allowed
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+  /billPresentationMedia/{id}:
+    get:
+      operationId: retrieveBillPresentationMedia
+      summary: Retrieves a BillPresentationMedia by ID
+      description: This operation retrieves a BillPresentationMedia entity. Attribute selection is enabled for all first level attributes.
+      tags:
+      - billPresentationMedia
+      parameters:
+      - name: id
+        description: Identifier of the BillPresentationMedia
+        required: true
+        type: string
+        in: path
+      - name: fields
+        description: Comma-separated properties to provide in response
+        required: false
+        type: string
+        in: query
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/BillPresentationMedia'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: Method Not allowed
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    patch:
+      operationId: patchBillPresentationMedia
+      summary: Updates partially a BillPresentationMedia
+      description: This operation updates partially a BillPresentationMedia entity.
+      tags:
+      - billPresentationMedia
+      parameters:
+      - name: id
+        description: Identifier of the BillPresentationMedia
+        required: true
+        type: string
+        in: path
+      - name: billPresentationMedia
+        description: The BillPresentationMedia to be updated
+        required: true
+        schema:
+          $ref: '#/definitions/BillPresentationMedia_Update'
+        in: body
+      responses:
+        '200':
+          description: Updated
+          schema:
+            $ref: '#/definitions/BillPresentationMedia'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: Method Not allowed
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      operationId: deleteBillPresentationMedia
+      summary: Deletes a BillPresentationMedia
+      description: This operation deletes a BillPresentationMedia entity.
+      tags:
+      - billPresentationMedia
+      parameters:
+      - name: id
+        description: Identifier of the BillPresentationMedia
+        required: true
+        type: string
+        in: path
+      responses:
+        '204':
+          description: Deleted
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        '405':
+          description: Method Not allowed
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Error:
+    description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    type: object
+    required:
+    - code
+    - reason
+    properties:
+      code:
+        type: string
+        description: Application relevant detail, defined in the API or a common list.
+      reason:
+        type: string
+        description: Explanation of the reason for the error which can be shown to a client user.
+      message:
+        type: string
+        description: More details and corrective actions related to the error which can be shown to a client user.
+      status:
+        type: string
+        description: HTTP Error code extension
+      referenceError:
+        type: string
+        format: uri
+        description: URI of documentation describing the error.
+      '@baseType':
+        type: string
+        description: When sub-classing, this defines the super-class.
+      '@schemaLocation':
+        type: string
+        format: uri
+        description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      '@type':
+        type: string
+        description: When sub-classing, this defines the sub-class entity name.
+  BillPresentationMedia_Update:
+    type: object
+    description: 'A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
+
+      Skipped properties: id,href'
+    required:
+    - name
+    properties:
+      description:
+        type: string
+        description: An explanatory text describing this bill presentation media
+      name:
+        type: string
+        description: A short descriptive name
+      '@baseType':
+        type: string
+        description: When sub-classing, this defines the super-class
+      '@schemaLocation':
+        type: string
+        format: uri
+        description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      '@type':
+        type: string
+        description: When sub-classing, this defines the sub-class entity name
+  BillPresentationMedia_Create:
+    type: object
+    description: 'A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
+
+      Skipped properties: id,href'
+    required:
+    - name
+    properties:
+      description:
+        type: string
+        description: An explanatory text describing this bill presentation media
+      name:
+        type: string
+        description: A short descriptive name
+      '@baseType':
+        type: string
+        description: When sub-classing, this defines the super-class
+      '@schemaLocation':
+        type: string
+        format: uri
+        description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      '@type':
+        type: string
+        description: When sub-classing, this defines the sub-class entity name
+  BillPresentationMedia:
+    type: object
+    description: A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
+    required:
+    - name
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the bill presentation media
+      href:
+        type: string
+        description: Reference of the bill presentation media
+      description:
+        type: string
+        description: An explanatory text describing this bill presentation media
+      name:
+        type: string
+        description: A short descriptive name
+      '@baseType':
+        type: string
+        description: When sub-classing, this defines the super-class
+      '@schemaLocation':
+        type: string
+        format: uri
+        description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      '@type':
+        type: string
+        description: When sub-classing, this defines the sub-class entity name
