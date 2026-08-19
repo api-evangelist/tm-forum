@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement quote API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "quote",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or find Quote objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/quote",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation list or find Quote entities"
+        },
+        {
+          "info": {
+            "name": "Creates a Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/quote"
+          },
+          "docs": "This operation creates a Quote entity."
+        },
+        {
+          "info": {
+            "name": "Retrieves a Quote by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/quote/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Quote"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to provide in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a Quote entity. Attribute selection is enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "Updates partially a Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/quote/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Quote"
+              }
+            ]
+          },
+          "docs": "This operation updates partially a Quote entity."
+        },
+        {
+          "info": {
+            "name": "Deletes a Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/quote/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Quote"
+              }
+            ]
+          },
+          "docs": "This operation deletes a Quote entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2624 @@
+{
+  "item": [
+    {
+      "id": "2cbfa0c9-76c4-43a0-b884-d05372a28dc3",
+      "name": "productSpecification",
+      "description": {
+        "content": "Operations for ProductSpecification Resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eae7b11a-1dc2-4956-b0e0-a25e14e4d927",
+          "name": "TM Forum List or Find ProductSpecification Objects",
+          "request": {
+            "name": "TM Forum List or Find ProductSpecification Objects",
+            "description": {
+              "content": "List or find ProductSpecification objects",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productSpecification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Requested index for start of resources to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Requested number of resources to be provided in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f273936-fe35-49a8-aab8-f17994dcda48",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items matching criteria",
+                  "key": "X-Total-Count",
+                  "value": "5569"
+                },
+                {
+                  "disabled": false,
+                  "description": "Actual number of items returned in the response body",
+                  "key": "X-Result-Count",
+                  "value": "5569"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"9881\",\n    \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/9881\",\n    \"name\": \"Cisco Firepower NGFW\",\n    \"brand\": \"Cisco\",\n    \"productNumber\": \"CSC-340-NGFW\",\n    \"description\": \"Powerful product that integrates with a firewall, including intrusion prevention, advanced malware protection, cloud-based sandboxing, URL filtering, endpoint protection, web gateway, email security, network traffic analysis, network access control and CASB.\",\n    \"isBundle\": true,\n    \"lastUpdate\": \"2020-09-23T16:42:23Z\",\n    \"lifecycleStatus\": \"Active\",\n    \"validFor\": {\n      \"startDateTime\": \"2020-09-23T00:00:00Z\",\n      \"endDateTime\": \"2022-11-24T16:42:23Z\"\n    },\n    \"version\": \"2.0\",\n    \"relatedParty\": [\n      {\n        \"role\": \"Owner\",\n        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n        \"partyOrPartyRole\": {\n          \"id\": \"1234\",\n          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/partyRole/1234\",\n          \"name\": \"Gustave Flaubert\",\n          \"@type\": \"PartyRef\",\n          \"@referredType\": \"Individual\"\n        }\n      }\n    ],\n    \"attachment\": [\n      {\n        \"id\": \"22\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n        \"name\": \"Product Picture\",\n        \"mimeType\": \"image/jpeg\",\n        \"url\": \"https://mycsp.com:7070/docloader?docnum=774451234\",\n        \"@referredType\": \"Attachment\",\n        \"@type\": \"AttachmentRefOrValue\"\n      },\n      {\n        \"id\": \"33\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n        \"name\": \"Product Manual\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"https://mycsp.com:7070/docloader?docnum=774454321\",\n        \"@referredType\": \"Attachment\",\n        \"@type\": \"AttachmentRefOrValue\"\n      }\n    ],\n    \"bundledProductSpecification\": [\n      {\n        \"id\": \"15\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/15\",\n        \"name\": \"URL Filter\",\n        \"@type\": \"BundledProductSpecification\",\n        \"@baseType\": \"\",\n        \"lifecycleStatus\": \"Active\"\n      },\n      {\n        \"id\": \"64\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/64\",\n        \"name\": \"Malware Protector\",\n        \"@type\": \"BundledProductSpecification\",\n        \"@baseType\": \"\",\n        \"lifecycleStatus\": \"Active\"\n      }\n    ],\n    \"targetProductSchema\": {\n      \"@type\": \"Firewall\",\n      \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Product/Firewall.schema.json\"\n    },\n    \"productSpecificationRelationship\": [\n      {\n        \"id\": \"23\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/23\",\n        \"relationshipType\": \"OptionalFor\",\n        \"validFor\": {\n          \"startDateTime\": \"2020-09-23T16:42:23Z\"\n        },\n        \"name\": \"DataPlan\",\n        \"role\": \"A-Item\",\n        \"@referredType\": \"ProductSpecification\",\n        \"@type\": \"ProductSpecificationRelationship\"\n      }\n    ],\n    \"serviceSpecification\": [\n      {\n        \"id\": \"22\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v5/serviceSpecification/22\",\n        \"name\": \"Firewall\",\n        \"version\": \"1.0\",\n        \"@referredType\": \"ServiceSpecification\",\n        \"@type\": \"ServiceSpecificationRef\"\n      }\n    ],\n    \"resourceSpecification\": [\n      {\n        \"id\": \"63\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/resourceCatalogManagement/v5/resourceSpecification/63\",\n        \"name\": \"Firewall Port\",\n        \"version\": \"1.0\",\n        \"@referredType\": \"PhysicalResourceSpecification\",\n        \"@type\": \"ResourceSpecificationRef\"\n      }\n    ],\n    \"productSpecCharacteristic\": [\n      {\n        \"name\": \"Number of Ports\",\n        \"description\": \"The total Number of Ports for this product\",\n        \"valueType\": \"number\",\n        \"configurable\": true,\n        \"minCardinality\": 1,\n        \"maxCardinality\": 1,\n        \"isUnique\": true,\n        \"@type\": \"CharacteristicSpecification\",\n        \"charSpecRelationship\": [\n          {\n            \"parentSpecificationId\": \"43\",\n            \"parentSpecificationHref\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/43\",\n            \"characteristicSpecificationId\": \"2\",\n            \"name\": \"Bandwidth\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T16:42:23-04:00\"\n            },\n            \"@type\": \"CharacteristicSpecificationRelationship\"\n          }\n        ],\n        \"characteristicValueSpecification\": [\n          {\n            \"isDefault\": true,\n            \"valueType\": \"number\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T00:00:00Z\",\n              \"endDateTime\": \"2022-11-24T00:00:00Z\"\n            },\n            \"value\": \"8\",\n            \"@type\": \"NumberCharacteristicValueSpecification\"\n          },\n          {\n            \"isDefault\": false,\n            \"valueType\": \"number\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T00:00:00Z\",\n              \"endDateTime\": \"2022-11-24T00:00:00Z\"\n            },\n            \"value\": \"16\",\n            \"@type\": \"NumberCharacteristicValueSpecification\"\n          },\n          {\n            \"isDefault\": false,\n            \"valueType\": \"number\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T00:00:00Z\",\n              \"endDateTime\": \"2022-11-24T00:00:00Z\"\n            },\n            \"value\": \"24\",\n            \"@type\": \"NumberCharacteristicValueSpecification\"\n          }\n        ],\n        \"validFor\": {\n          \"startDateTime\": \"2020-09-23T16:42:23Z\"\n        }\n      },\n      {\n        \"name\": \"Color\",\n        \"description\": \"Color of the Firewall housing\",\n        \"valueType\": \"string\",\n        \"configurable\": true,\n        \"minCardinality\": 1,\n        \"maxCardinality\": 1,\n        \"extensible\": true,\n        \"isUnique\": true,\n        \"@type\": \"CharacteristicSpecification\",\n        \"characteristicValueSpecification\": [\n          {\n            \"isDefault\": true,\n            \"valueType\": \"string\",\n            \"value\": \"Black\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          },\n          {\n            \"isDefault\": false,\n            \"valueType\": \"string\",\n            \"value\": \"White\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          }\n        ],\n        \"validFor\": {\n          \"startDateTime\": \"2020-09-23T16:42:23Z\"\n        }\n      }\n    ],\n    \"@type\": \"ProductSpecification\"\n  },\n  {\n    \"id\": \"5563\",\n    \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/5563\",\n    \"name\": \"Deep Packet Inspection\",\n    \"brand\": \"HPE\",\n    \"productNumber\": \"HPE-367-DPI\",\n    \"description\": \"This product specification describes a Deep Packet Inspection product that can be deployed in customer premise.\",\n    \"isBundle\": false,\n    \"lastUpdate\": \"2020-10-23T16:42:23Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"validFor\": {\n      \"startDateTime\": \"2020-09-23T00:00:00Z\",\n      \"endDateTime\": \"2022-11-24T16:42:23Z\"\n    },\n    \"version\": \"1.0\",\n    \"relatedParty\": [\n      {\n        \"role\": \"Owner\",\n        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n        \"partyOrPartyRole\": {\n          \"id\": \"1234\",\n          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/partyRole/1234\",\n          \"name\": \"Gustave Flaubert\",\n          \"@type\": \"PartyRef\",\n          \"@referredType\": \"Individual\"\n        }\n      }\n    ],\n    \"attachment\": [\n      {\n        \"id\": \"2017\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/2017\",\n        \"name\": \"Product Manual\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"https://mycsp.com:7070/docloader?docnum=4168051665\",\n        \"@referredType\": \"Attachment\",\n        \"@type\": \"AttachmentRefOrValue\"\n      }\n    ],\n    \"targetProductSchema\": {\n      \"@type\": \"DPI\",\n      \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Product/Firewall.schema.json\"\n    },\n    \"serviceSpecification\": [\n      {\n        \"id\": \"5059\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v5/serviceSpecification/5059\",\n        \"name\": \"DPI Service\",\n        \"version\": \"1.0\",\n        \"@referredType\": \"ServiceSpecification\",\n        \"@type\": \"ServiceSpecificationRef\"\n      }\n    ],\n    \"productSpecCharacteristic\": [\n      {\n        \"name\": \"httpIncomingTraffic\",\n        \"description\": \"DPI for http Incoming Traffic\",\n        \"valueType\": \"string\",\n        \"configurable\": true,\n        \"minCardinality\": 1,\n        \"maxCardinality\": 1,\n        \"isUnique\": true,\n        \"@type\": \"CharacteristicSpecification\",\n        \"characteristicValueSpecification\": [\n          {\n            \"isDefault\": true,\n            \"valueType\": \"string\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T00:00:00Z\",\n              \"endDateTime\": \"2022-11-24T00:00:00Z\"\n            },\n            \"value\": \"enabled\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          },\n          {\n            \"isDefault\": false,\n            \"valueType\": \"string\",\n            \"validFor\": {\n              \"startDateTime\": \"2020-09-23T00:00:00Z\",\n              \"endDateTime\": \"2022-11-24T00:00:00Z\"\n            },\n            \"value\": \"disabled\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          }\n        ],\n        \"validFor\": {\n          \"startDateTime\": \"2020-09-23T16:42:23Z\"\n        }\n      },\n      {\n        \"name\": \"httpIOutgoingTraffic\",\n        \"description\": \"DPI for http Outgoing Traffic\",\n        \"valueType\": \"string\",\n        \"configurable\": true,\n        \"minCardinality\": 1,\n        \"maxCardinality\": 1,\n        \"extensible\": true,\n        \"isUnique\": true,\n        \"@type\": \"CharacteristicSpecification\",\n        \"characteristicValueSpecification\": [\n          {\n            \"isDefault\": false,\n            \"valueType\": \"string\",\n            \"value\": \"enabled\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          },\n          {\n            \"isDefault\": true,\n            \"valueType\": \"string\",\n            \"value\": \"disabled\",\n            \"@type\": \"StringCharacteristicValueSpecification\"\n          }\n        ],\n        \"validFor\": {\n          \"startDateTime\": \"2020-09-23T16:42:23Z\"\n        }\n      }\n    ],\n    \"@type\": \"ProductSpecification\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f93e72a0-fc05-4ff7-bc52-3e3fadd3718c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b43aec-316f-44e2-9ea1-fe08c9a8925c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cfe0529-4d61-4452-9567-4182459a0391",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4537bc4c-4b5a-4cf1-870a-5b75ff5fa05f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46921a4b-ede6-4fb6-bc9a-6166038ac04a",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af51b963-f84e-4a00-94df-ddc4368be168",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc5b3054-873e-4b45-a564-b2da7a928e00",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0b3f42e-79aa-4354-876e-03330a7e90c9",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a696302a-119c-4641-af1f-4fe3fb35d450",
+          "name": "TM Forum Creates a ProductSpecification",
+          "request": {
+            "name": "TM Forum Creates a ProductSpecification",
+            "description": {
+              "content": "This operation creates a ProductSpecification entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productSpecification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1f20895-9b25-48c2-a3dd-0091b3d58ece",
+              "name": "OK/Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"9881\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/9881\",\n  \"name\": \"Cisco Firepower NGFW\",\n  \"brand\": \"Cisco\",\n  \"productNumber\": \"CSC-340-NGFW\",\n  \"description\": \"Powerful product that integrates with a firewall, including intrusion prevention, advanced malware protection, cloud-based sandboxing, URL filtering, endpoint protection, web gateway, email security, network traffic analysis, network access control and CASB.\",\n  \"isBundle\": true,\n  \"lastUpdate\": \"2020-09-23T16:42:23Z\",\n  \"lifecycleStatus\": \"Active\",\n  \"validFor\": {\n    \"startDateTime\": \"2020-09-23T00:00:00Z\",\n    \"endDateTime\": \"2022-11-24T16:42:23Z\"\n  },\n  \"version\": \"1.0\",\n  \"relatedParty\": [\n    {\n      \"role\": \"Owner\",\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n      \"partyOrPartyRole\": {\n        \"id\": \"1234\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/partyRole/1234\",\n        \"name\": \"Gustave Flaubert\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      }\n    }\n  ],\n  \"attachment\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Picture\",\n      \"mimeType\": \"image/jpeg\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774451234\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    },\n    {\n      \"id\": \"33\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Manual\",\n      \"mimeType\": \"application/pdf\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774454321\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    }\n  ],\n  \"bundledProductSpecification\": [\n    {\n      \"id\": \"15\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/15\",\n      \"name\": \"URL Filter\",\n      \"@type\": \"BundledProductSpecification\",\n      \"lifecycleStatus\": \"Active\"\n    },\n    {\n      \"id\": \"64\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/64\",\n      \"name\": \"Malware Protector\",\n      \"@type\": \"BundledProductSpecification\",\n      \"lifecycleStatus\": \"Active\"\n    }\n  ],\n  \"targetProductSchema\": {\n    \"@type\": \"Firewall\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Product/Firewall.schema.json\"\n  },\n  \"productSpecificationRelationship\": [\n    {\n      \"id\": \"23\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/23\",\n      \"relationshipType\": \"OptionalFor\",\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      },\n      \"name\": \"DataPlan\",\n      \"role\": \"A-Item\",\n      \"@referredType\": \"ProductSpecification\",\n      \"@type\": \"ProductSpecificationRelationship\"\n    }\n  ],\n  \"serviceSpecification\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v5/serviceSpecification/22\",\n      \"name\": \"Firewall\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"ServiceSpecification\",\n      \"@type\": \"ServiceSpecificationRef\"\n    }\n  ],\n  \"resourceSpecification\": [\n    {\n      \"id\": \"63\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/resourceCatalogManagement/v5/resourceSpecification/63\",\n      \"name\": \"Firewall Port\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"PhysicalResourceSpecification\",\n      \"@type\": \"ResourceSpecificationRef\"\n    }\n  ],\n  \"productSpecCharacteristic\": [\n    {\n      \"name\": \"Number of Ports\",\n      \"description\": \"The total Number of Ports for this product\",\n      \"valueType\": \"number\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"charSpecRelationship\": [\n        {\n          \"parentSpecificationId\": \"43\",\n          \"parentSpecificationHref\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/43\",\n          \"characteristicSpecificationId\": \"2\",\n          \"name\": \"Bandwidth\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T16:42:23-04:00\"\n          },\n          \"@type\": \"CharacteristicSpecificationRelationship\"\n        }\n      ],\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": \"8\",\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": \"16\",\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": \"24\",\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    },\n    {\n      \"name\": \"Color\",\n      \"description\": \"Color of the Firewall housing\",\n      \"valueType\": \"string\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"extensible\": true,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"string\",\n          \"value\": \"Black\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"string\",\n          \"value\": \"White\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    }\n  ],\n  \"@type\": \"ProductSpecification\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82d68e62-3604-4ae1-84ee-5882688a6bcd",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77f13c70-cc4e-4ddf-9297-7e8dfecb0179",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb98f4e1-8d90-411c-920d-55342756b3de",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2d9eb2f-3612-43b7-b83f-1674b0894840",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ba1f98a-e47b-4c58-a763-559ffcba274b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f98334f6-b815-4077-978a-7459423b0ae4",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac76aedc-34bb-4580-98de-6317d8321ead",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78e63e93-6b1f-49f0-9ce5-0f5d7aed7219",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97a33480-5771-4c6e-971b-4285b69f68e9",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32649448-dc63-4b23-af0f-e3c2954e4d8c",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d48544c-45ba-46f1-951a-195e4ade80d9",
+          "name": "TM Forum Retrieves a ProductSpecification by ID",
+          "request": {
+            "name": "TM Forum Retrieves a ProductSpecification by ID",
+            "description": {
+              "content": "This operation retrieves a ProductSpecification entity. Attribute selection enabled for all first level attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productSpecification",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a5b8fc2-ac3b-45fb-9fd3-73bbdcc66888",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"9881\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/9881\",\n  \"name\": \"Cisco Firepower NGFW\",\n  \"brand\": \"Cisco\",\n  \"productNumber\": \"CSC-340-NGFW\",\n  \"description\": \"Powerful product that integrates with a firewall, including intrusion prevention, advanced malware protection, cloud-based sandboxing, URL filtering, endpoint protection, web gateway, email security, network traffic analysis, network access control and CASB.\",\n  \"isBundle\": true,\n  \"lastUpdate\": \"2020-09-23T16:42:23Z\",\n  \"lifecycleStatus\": \"Active\",\n  \"validFor\": {\n    \"startDateTime\": \"2020-09-23T00:00:00Z\",\n    \"endDateTime\": \"2022-11-24T16:42:23Z\"\n  },\n  \"version\": \"2.0\",\n  \"relatedParty\": [\n    {\n      \"role\": \"Owner\",\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n      \"partyOrPartyRole\": {\n        \"id\": \"1234\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/partyRole/1234\",\n        \"name\": \"Gustave Flaubert\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      }\n    }\n  ],\n  \"attachment\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Picture\",\n      \"mimeType\": \"image/jpeg\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774451234\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    },\n    {\n      \"id\": \"33\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Manual\",\n      \"mimeType\": \"application/pdf\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774454321\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    }\n  ],\n  \"bundledProductSpecification\": [\n    {\n      \"id\": \"15\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/15\",\n      \"name\": \"URL Filter\",\n      \"@type\": \"BundledProductSpecification\",\n      \"lifecycleStatus\": \"Active\"\n    },\n    {\n      \"id\": \"64\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/64\",\n      \"name\": \"Malware Protector\",\n      \"@type\": \"BundledProductSpecification\",\n      \"lifecycleStatus\": \"Active\"\n    }\n  ],\n  \"targetProductSchema\": {\n    \"@type\": \"Firewall\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Product/Firewall.schema.json\"\n  },\n  \"productSpecificationRelationship\": [\n    {\n      \"id\": \"23\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/23\",\n      \"relationshipType\": \"OptionalFor\",\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      },\n      \"name\": \"DataPlan\",\n      \"role\": \"A-Item\",\n      \"@referredType\": \"ProductSpecification\",\n      \"@type\": \"ProductSpecificationRelationship\"\n    }\n  ],\n  \"serviceSpecification\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v5/serviceSpecification/22\",\n      \"name\": \"Firewall\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"ServiceSpecification\",\n      \"@type\": \"ServiceSpecificationRef\"\n    }\n  ],\n  \"resourceSpecification\": [\n    {\n      \"id\": \"63\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/resourceCatalogManagement/v5/resourceSpecification/63\",\n      \"name\": \"Firewall Port\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"PhysicalResourceSpecification\",\n      \"@type\": \"ResourceSpecificationRef\"\n    }\n  ],\n  \"productSpecCharacteristic\": [\n    {\n      \"name\": \"Number of Ports\",\n      \"description\": \"The total Number of Ports for this product\",\n      \"valueType\": \"number\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"charSpecRelationship\": [\n        {\n          \"parentSpecificationId\": \"43\",\n          \"parentSpecificationHref\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/43\",\n          \"characteristicSpecificationId\": \"2\",\n          \"relationshipType\": \"Dependency\",\n          \"name\": \"Bandwidth\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T16:42:23-04:00\"\n          },\n          \"@type\": \"CharacteristicSpecificationRelationship\"\n        }\n      ],\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 8,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 16,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 24,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    },\n    {\n      \"name\": \"Color\",\n      \"description\": \"Color of the Firewall housing\",\n      \"valueType\": \"string\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"extensible\": true,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"string\",\n          \"value\": \"Black\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"string\",\n          \"value\": \"White\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    }\n  ],\n  \"@type\": \"ProductSpecification\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5411ed49-7593-48b7-80ab-27fe106b756f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8b2a624-112c-486e-a879-197351d51b3f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c023bdd-388f-4b33-8a19-7f4e4de0af23",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4fe3ec1-784a-45ff-beee-47be520c7ca3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4afb34e7-d88d-4e71-8026-54ee04559565",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e02d0e2b-87a9-4c01-814a-4e14d8a9ca32",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44154318-bec1-4d4d-bc1a-a6937e70d635",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea0ee017-e8ab-42fc-b824-f9d1f790f33f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "facb520e-768c-496c-a338-09192e87cc57",
+          "name": "TM Forum Updates Partially a ProductSpecification",
+          "request": {
+            "name": "TM Forum Updates Partially a ProductSpecification",
+            "description": {
+              "content": "This operation updates partially a ProductSpecification entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productSpecification",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d76bebd2-2c7f-4763-b2ac-96cf10c9eba0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"9881\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/9881\",\n  \"name\": \"Cisco Firepower NGFW\",\n  \"brand\": \"Cisco\",\n  \"productNumber\": \"CSC-340-NGFW\",\n  \"description\": \"Powerful product that integrates with a firewall, including intrusion prevention, advanced malware protection, cloud-based sandboxing, URL filtering, endpoint protection, web gateway, email security, network traffic analysis, network access control and CASB.\",\n  \"isBundle\": true,\n  \"lastUpdate\": \"2020-09-23T16:42:23Z\",\n  \"lifecycleStatus\": \"Active\",\n  \"version\": \"3.1\",\n  \"validFor\": {\n    \"startDateTime\": \"2020-11-24T00:00:00Z\",\n    \"endDateTime\": \"2022-11-24T00:00:00Z\"\n  },\n  \"relatedParty\": [\n    {\n      \"role\": \"Owner\",\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n      \"partyOrPartyRole\": {\n        \"id\": \"1234\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/partyRole/1234\",\n        \"name\": \"Gustave Flaubert\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      }\n    }\n  ],\n  \"attachment\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Picture\",\n      \"mimeType\": \"image/jpeg\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774451234\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    },\n    {\n      \"id\": \"33\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v5/attachment/22\",\n      \"name\": \"Product Manual\",\n      \"mimeType\": \"application/pdf\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=774454321\",\n      \"@referredType\": \"Attachment\",\n      \"@type\": \"AttachmentRefOrValue\"\n    }\n  ],\n  \"bundledProductSpecification\": [\n    {\n      \"id\": \"15\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/15\",\n      \"name\": \"URL Filter\",\n      \"@type\": \"BundledProductSpecification\",\n      \"@baseType\": \"\",\n      \"lifecycleStatus\": \"Active\"\n    },\n    {\n      \"id\": \"64\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/64\",\n      \"name\": \"Malware Protector\",\n      \"@type\": \"BundledProductSpecification\",\n      \"@baseType\": \"\",\n      \"lifecycleStatus\": \"Active\"\n    }\n  ],\n  \"targetProductSchema\": {\n    \"@type\": \"Firewall\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Product/Firewall.schema.json\"\n  },\n  \"productSpecificationRelationship\": [\n    {\n      \"id\": \"23\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/23\",\n      \"relationshipType\": \"OptionalFor\",\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      },\n      \"name\": \"DataPlan\",\n      \"role\": \"A-Item\",\n      \"@referredType\": \"ProductSpecification\",\n      \"@type\": \"ProductSpecificationRelationship\"\n    }\n  ],\n  \"serviceSpecification\": [\n    {\n      \"id\": \"22\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v5/serviceSpecification/22\",\n      \"name\": \"Firewall\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"ServiceSpecification\",\n      \"@type\": \"ServiceSpecificationRef\"\n    }\n  ],\n  \"resourceSpecification\": [\n    {\n      \"id\": \"63\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/resourceCatalogManagement/v5/resourceSpecification/63\",\n      \"name\": \"Firewall Port\",\n      \"version\": \"1.0\",\n      \"@referredType\": \"PhysicalResourceSpecification\",\n      \"@type\": \"ResourceSpecificationRef\"\n    }\n  ],\n  \"productSpecCharacteristic\": [\n    {\n      \"name\": \"Number of Ports\",\n      \"description\": \"The total Number of Ports for this product\",\n      \"valueType\": \"number\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"productSpecCharRelationship\": [\n        {\n          \"parentSpecificationId\": \"43\",\n          \"parentSpecificationHref\": \"https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/productSpecification/43\",\n          \"characteristicSpecificationId\": \"2\",\n          \"relationshipType\": \"Dependency\",\n          \"name\": \"Bandwidth\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T16:42:23-04:00\"\n          },\n          \"@type\": \"CharacteristicSpecificationRelationship\"\n        }\n      ],\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 8,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 16,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"number\",\n          \"validFor\": {\n            \"startDateTime\": \"2020-09-23T00:00:00Z\",\n            \"endDateTime\": \"2022-11-24T00:00:00Z\"\n          },\n          \"value\": 24,\n          \"@type\": \"NumberCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    },\n    {\n      \"name\": \"Color\",\n      \"description\": \"Color of the Firewall housing\",\n      \"valueType\": \"string\",\n      \"configurable\": true,\n      \"minCardinality\": 1,\n      \"maxCardinality\": 1,\n      \"extensible\": true,\n      \"isUnique\": true,\n      \"@type\": \"CharacteristicSpecification\",\n      \"characteristicValueSpecification\": [\n        {\n          \"isDefault\": true,\n          \"valueType\": \"string\",\n          \"value\": \"Black\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        },\n        {\n          \"isDefault\": false,\n          \"valueType\": \"string\",\n          \"value\": \"White\",\n          \"@type\": \"StringCharacteristicValueSpecification\"\n        }\n      ],\n      \"validFor\": {\n        \"startDateTime\": \"2020-09-23T16:42:23Z\"\n      }\n    }\n  ],\n  \"@type\": \"ProductSpecification\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e96245bf-9518-4b12-a243-1dc304d2c215",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f6acf3e-c4bc-4fcc-9495-36bebae53688",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a229a7bc-037d-4717-a631-17e87c628fc3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59bc64cf-09df-40fc-81ab-e177f450b0e3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa5c71a6-fadc-487f-8e7e-5e5a54eb379a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1b4490b-b335-4af5-9350-fd1d7a395db8",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4d455b9-e46c-4f1d-ae63-f2067c5d3317",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46ada6fe-e73d-43b8-acc7-8891ebd1f07c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f4e753c-5226-4a0e-976b-8913832127b0",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3813e93d-90c9-4447-b951-6603f0ce17ed",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd76d777-8a58-4df6-ad0b-492664a12f89",
+          "name": "TM Forum Deletes a ProductSpecification",
+          "request": {
+            "name": "TM Forum Deletes a ProductSpecification",
+            "description": {
+              "content": "This operation deletes a ProductSpecification entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productSpecification",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "530231a8-f4f8-42ab-8a09-fc7e1688e614",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbc72571-6837-447e-a1da-588445542646",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c158802b-9691-4a09-9f2d-ee4a36184107",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec169da5-da19-4744-9ed4-c2b55040bc31",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64d2ce1d-166b-42b7-873f-b5c5320697c8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7642d79b-69be-4281-a402-1a0925e6ef20",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c70d37f-ae29-49e8-8673-4d144dc1fdcc",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92b9b8b5-0a4b-4390-b4f2-5b964adcda97",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0aac8126-655f-4683-931b-db42e0136bf1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "380d200f-db5c-40da-ab2e-7b101323ac01",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f94ee351-7dcf-4aa4-99ec-962d2f6534c8",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productSpecification",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://serverRoot/productCatalogManagement/v5/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "654fdafc-0715-4fb6-8ce4-96b548964410",
+    "name": "Product Catalog Management agreement productSpecification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events",
+      "type": "text/plain"
+    }
+  }
+}

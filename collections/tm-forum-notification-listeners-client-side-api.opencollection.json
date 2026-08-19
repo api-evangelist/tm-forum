@@ -1,0 +1,700 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement notification listeners (client side) API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification listeners (client side)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCatalogCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCatalogCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCatalogCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCatalogChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCatalogChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCatalogChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCatalogBatchEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCatalogBatchEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCatalogBatchEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCatalogDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCatalogDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCatalogDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCategoryCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCategoryCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCategoryCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCategoryChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCategoryChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCategoryChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCategoryDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCategoryDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCategoryDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCandidateCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCandidateCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCandidateCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCandidateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCandidateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCandidateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceCandidateDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceCandidateDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceCandidateDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceSpecificationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceSpecificationCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceSpecificationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceSpecificationChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceSpecificationChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceSpecificationChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceSpecificationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceSpecificationDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceSpecificationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCatalogCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCatalogCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCatalogCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCatalogChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCatalogChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCatalogChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCatalogDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCatalogDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCatalogDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCategoryCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCategoryCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCategoryCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCategoryChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCategoryChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCategoryChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCategoryDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCategoryDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCategoryDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCandidateCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCandidateCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCandidateCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCandidateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCandidateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCandidateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceCandidateDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceCandidateDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceCandidateDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceSpecificationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceSpecificationCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceSpecificationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceSpecificationChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceSpecificationChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceSpecificationChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ResourceSpecificationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/resourceSpecificationDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ResourceSpecificationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ImportJobCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/importJobCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ImportJobCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ImportJobStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/importJobStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ImportJobStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ExportJobCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/exportJobCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ExportJobCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ExportJobStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/exportJobStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ExportJobStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderInformationRequiredEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderMilestoneEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderMilestoneEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderMilestoneEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity ServiceOrderJeopardyEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/serviceOrderJeopardyEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification ServiceOrderJeopardyEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity CancelServiceOrderCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelServiceOrderCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification CancelServiceOrderCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity CancelServiceOrderStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelServiceOrderStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification CancelServiceOrderStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity CancelServiceOrderInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelServiceOrderInformationRequiredEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification CancelServiceOrderInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity QuoteCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/quoteCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification QuoteCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity QuoteStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/quoteStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification QuoteStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity QuoteDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/quoteDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification QuoteDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity QuoteInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/quoteInformationRequiredEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification QuoteInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity QuoteAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/quoteAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification QuoteAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementSpecificationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementSpecificationCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementSpecificationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementSpecificationAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementSpecificationAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementSpecificationAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementSpecificationStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementSpecificationStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementSpecificationStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity AgreementSpecificationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/agreementSpecificationDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification AgreementSpecificationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity PartyAccountAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/partyAccountAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification PartyAccountAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity PartyAccountStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/partyAccountStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification PartyAccountStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity BillingAccountAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/billingAccountAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification BillingAccountAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity BillingAccountStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/billingAccountStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification BillingAccountStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity SettlementAccountAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/settlementAccountAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification SettlementAccountAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity SettlementAccountStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/settlementAccountStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification SettlementAccountStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity FinancialAccountCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/financialAccountCreateEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification FinancialAccountCreateEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity FinancialAccountAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/financialAccountAttributeValueChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification FinancialAccountAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity FinancialAccountStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/financialAccountStateChangeEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification FinancialAccountStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "Client listener for entity FinancialAccountDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/financialAccountDeleteEvent"
+          },
+          "docs": "Example of a client listener for receiving the notification FinancialAccountDeleteEvent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

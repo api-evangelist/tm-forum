@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement productCatalog API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "productCatalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TM Forum List or Find ProductCatalog Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/productCatalog",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "List or find ProductCatalog objects"
+        },
+        {
+          "info": {
+            "name": "TM Forum Creates a ProductCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/productCatalog",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation creates a ProductCatalog entity."
+        },
+        {
+          "info": {
+            "name": "TM Forum Retrieves a ProductCatalog by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/productCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a ProductCatalog entity. Attribute selection enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "TM Forum Updates Partially a ProductCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/productCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation updates partially a ProductCatalog entity."
+        },
+        {
+          "info": {
+            "name": "TM Forum Deletes a ProductCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/productCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              }
+            ]
+          },
+          "docs": "This operation deletes a ProductCatalog entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

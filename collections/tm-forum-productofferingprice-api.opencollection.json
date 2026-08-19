@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement productOfferingPrice API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "productOfferingPrice",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TM Forum List or Find ProductOfferingPrice Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/productOfferingPrice",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "List or find ProductOfferingPrice objects"
+        },
+        {
+          "info": {
+            "name": "TM Forum Creates a ProductOfferingPrice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/productOfferingPrice",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation creates a ProductOfferingPrice entity."
+        },
+        {
+          "info": {
+            "name": "TM Forum Retrieves a ProductOfferingPrice by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/productOfferingPrice/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a ProductOfferingPrice entity. Attribute selection enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "TM Forum Updates Partially a ProductOfferingPrice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/productOfferingPrice/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation updates partially a ProductOfferingPrice entity."
+        },
+        {
+          "info": {
+            "name": "TM Forum Deletes a ProductOfferingPrice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/productOfferingPrice/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              }
+            ]
+          },
+          "docs": "This operation deletes a ProductOfferingPrice entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

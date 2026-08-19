@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement exportJob API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "exportJob",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TM Forum List or Find ExportJob Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/exportJob",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "List or find ExportJob objects"
+        },
+        {
+          "info": {
+            "name": "TM Forum Creates a ExportJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/exportJob",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This operation creates a ExportJob entity."
+        },
+        {
+          "info": {
+            "name": "TM Forum Retrieves a ExportJob by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/exportJob/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a ExportJob entity. Attribute selection enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "TM Forum Deletes a ExportJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/exportJob/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              }
+            ]
+          },
+          "docs": "This operation deletes a ExportJob entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,948 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement notification listener API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification listener",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CategoryAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/categoryAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CategoryAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CategoryCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/categoryCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CategoryCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CategoryDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/categoryDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CategoryDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CategoryStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/categoryStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CategoryStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ExportJobCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/exportJobCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ExportJobCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ExportJobStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/exportJobStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ExportJobStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ImportJobCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/importJobCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ImportJobCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ImportJobStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/importJobStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ImportJobStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductCatalogAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productCatalogAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductCatalogAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductCatalogCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productCatalogCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductCatalogCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductCatalogDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productCatalogDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductCatalogDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductCatalogStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productCatalogStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductCatalogStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingPriceAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingPriceAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingPriceAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingPriceCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingPriceCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingPriceCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingPriceDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingPriceDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingPriceDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingPriceStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingPriceStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingPriceStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOfferingStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOfferingStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOfferingStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductSpecificationAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productSpecificationAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductSpecificationAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductSpecificationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productSpecificationCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductSpecificationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductSpecificationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productSpecificationDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductSpecificationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductSpecificationStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productSpecificationStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductSpecificationStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketInformationRequiredEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketResolvedEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketResolvedEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketResolvedEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketSpecificationAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketSpecificationAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketSpecificationAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketSpecificationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketSpecificationCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketSpecificationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketSpecificationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketSpecificationDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketSpecificationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketSpecificationStatusChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketSpecificationStatusChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketSpecificationStatusChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity TroubleTicketStatusChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/troubleTicketStatusChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification TroubleTicketStatusChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CancelProductOrderCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelProductOrderCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CancelProductOrderCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CancelProductOrderInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelProductOrderInformationRequiredEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CancelProductOrderInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CancelProductOrderStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/cancelProductOrderStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CancelProductOrderStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderErrorMessageEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderErrorMessageEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderErrorMessageEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderInformationRequiredEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderInformationRequiredEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderInformationRequiredEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderJeopardyAlertEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderJeopardyAlertEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderJeopardyAlertEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderMilestoneEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderMilestoneEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderMilestoneEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductOrderStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productOrderStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductOrderStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CustomerAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/customerAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CustomerAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CustomerCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/customerCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CustomerCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CustomerDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/customerDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CustomerDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity CustomerStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/customerStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification CustomerStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity IndividualAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/individualAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification IndividualAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity IndividualCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/individualCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification IndividualCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity IndividualDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/individualDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification IndividualDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity IndividualStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/individualStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification IndividualStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity OrganizationAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/organizationAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification OrganizationAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity OrganizationCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/organizationCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification OrganizationCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity OrganizationDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/organizationDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification OrganizationDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity OrganizationStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/organizationStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification OrganizationStateChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductAttributeValueChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productAttributeValueChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductAttributeValueChangeEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductCreateEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productCreateEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductCreateEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductDeleteEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productDeleteEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductDeleteEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductProductBatchEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productProductBatchEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductProductBatchEvent"
+        },
+        {
+          "info": {
+            "name": "TM Forum Client Listener for Entity ProductStateChangeEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/listener/productStateChangeEvent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example of a client listener for receiving the notification ProductStateChangeEvent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement cancelServiceOrder API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cancelServiceOrder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or find CancelServiceOrder objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/cancelServiceOrder",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation list or find CancelServiceOrder entities"
+        },
+        {
+          "info": {
+            "name": "Creates a CancelServiceOrder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/cancelServiceOrder"
+          },
+          "docs": "This operation creates a CancelServiceOrder entity."
+        },
+        {
+          "info": {
+            "name": "Retrieves a CancelServiceOrder by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/cancelServiceOrder/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the CancelServiceOrder"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to provide in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a CancelServiceOrder entity. Attribute selection is enabled for all first level attributes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

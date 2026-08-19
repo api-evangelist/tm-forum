@@ -1,0 +1,2624 @@
+{
+  "item": [
+    {
+      "id": "1d714245-afe4-426d-a7cd-75ce2752fee0",
+      "name": "individual",
+      "description": {
+        "content": "Operations for Individual Resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "513f640e-a358-49e2-af13-3787ea1a0cec",
+          "name": "TM Forum List or Find Individual Objects",
+          "request": {
+            "name": "TM Forum List or Find Individual Objects",
+            "description": {
+              "content": "List or find Individual objects",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "individual"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Requested index for start of resources to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Requested number of resources to be provided in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a7f956d-f401-4811-9a37-caa93efa9cde",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items matching criteria",
+                  "key": "X-Total-Count",
+                  "value": "6755"
+                },
+                {
+                  "disabled": false,
+                  "description": "Actual number of items returned in the response body",
+                  "key": "X-Result-Count",
+                  "value": "6755"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"42\",\n    \"href\": \"https://serverRoot/tmf-api/party/v5/individual/42\",\n    \"@type\": \"Individual\",\n    \"@baseType\": \"Party\",\n    \"givenName\": \"Jane\",\n    \"familyName\": \"Lamborgizzia\"\n  },\n  {\n    \"id\": \"52\",\n    \"href\": \"https://serverRoot/tmf-api/party/v5/individual/52\",\n    \"@type\": \"Individual\",\n    \"@baseType\": \"Party\",\n    \"givenName\": \"Paul\",\n    \"familyName\": \"Newman\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8eb93b9a-664a-4257-8d88-dd8a882e502a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "044e0623-4851-4d5c-80cd-fad63ff81f41",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfa93217-899b-4d7d-8127-746ef4364ed4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f73fb84-f830-4637-80a2-67fb4752f4b0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "109d8d00-d7b9-4a5e-a0a8-3507e7c579eb",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72301515-807e-410e-a9eb-f26c264ebfff",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6c5611a-4a73-4733-8920-e8d3223d8309",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58369da5-79db-4ed3-b7f6-fb694f028f56",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bddf1896-d4f4-4075-883e-b2e5321e0a6d",
+          "name": "TM Forum Creates a Individual",
+          "request": {
+            "name": "TM Forum Creates a Individual",
+            "description": {
+              "content": "This operation creates a Individual entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "individual"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8934e26-63e5-4952-9ccc-b58f66985a46",
+              "name": "OK/Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"42\",\n  \"href\": \"https://serverRoot/tmf-api/party/v5/individual/42\",\n  \"@type\": \"Individual\",\n  \"@baseType\": \"Party\",\n  \"givenName\": \"Jane\",\n  \"familyName\": \"Lamborgizzia\",\n  \"status\": \"initialized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fee5597d-3187-4ebf-839a-1b0a04d29255",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ae2f022-6a20-4f10-bf96-5025316dd97e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18243d65-c0a9-4780-8bfe-fe4a664952f3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c85a013-8de0-441d-9c18-325c06fc0d4d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb0d10ff-bc6e-4e89-9db2-d2d21d3cf3ce",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "478932e9-10a0-4272-9e05-b7eeb3dd8884",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f50b718-d755-40df-8fdd-9b95d58863ff",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f2255a9-799b-4cad-a14c-6fdee9932885",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a647d24-981e-4024-acd3-6f93f4b9ea48",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1d854be-f889-4109-8e59-37e4e8f741fb",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30440517-30ab-4ee6-a961-49c094d37f9a",
+          "name": "TM Forum Retrieves a Individual by ID",
+          "request": {
+            "name": "TM Forum Retrieves a Individual by ID",
+            "description": {
+              "content": "This operation retrieves a Individual entity. Attribute selection enabled for all first level attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "individual",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b504c5e5-edc0-499d-94bc-906aaa455dd0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"42\",\n  \"href\": \"https://serverRoot/tmf-api/party/v5/individual/42\",\n  \"@type\": \"Individual\",\n  \"@baseType\": \"Party\",\n  \"gender\": \"female\",\n  \"countryOfBirth\": \"United States\",\n  \"nationality\": \"American\",\n  \"maritalStatus\": \"married\",\n  \"birthDate\": \"1967-09-26T05:00:00.246Z\",\n  \"givenName\": \"Jane\",\n  \"preferredGivenName\": \"Lamborgizzia\",\n  \"familyName\": \"Lamborgizzia\",\n  \"legalName\": \"Smith\",\n  \"middleName\": \"JL\",\n  \"fullName\": \"Jane Smith ep Lamborgizzia\",\n  \"formattedName\": \"Jane Smith ep Lamborgizzia\",\n  \"status\": \"validated\",\n  \"externalReference\": [\n    {\n      \"name\": \"http://facebook.com/17263635\",\n      \"externalIdentifierType\": \"facebookId\",\n      \"@type\": \"ExternalIdentifier\"\n    },\n    {\n      \"name\": \"http://google.com/17263635\",\n      \"externalIdentifierType\": \"googleId\",\n      \"@type\": \"ExternalIdentifier\"\n    }\n  ],\n  \"partyCharacteristic\": [\n    {\n      \"name\": \"hobby\",\n      \"value\": [\n        \"Modern Jazz\",\n        \"Cinema\"\n      ],\n      \"valueType\": \"array\",\n      \"@type\": \"StringArrayCharacteristic\"\n    }\n  ],\n  \"otherName\": [\n    {\n      \"@type\": \"OtherNameIndividual\",\n      \"givenName\": \"Jane\",\n      \"familyName\": \"Smith\",\n      \"validFor\": {\n        \"startDateTime\": \"1967-09-26T00:00:00.246Z\",\n        \"endDateTime\": \"2015-06-15T00:00:00.246Z\"\n      }\n    }\n  ],\n  \"individualIdentification\": [\n    {\n      \"@type\": \"IndividualIdentification\",\n      \"identificationType\": \"passport\",\n      \"identificationId\": \"51DD1234\",\n      \"issuingAuthority\": \"US Government\",\n      \"issuingDate\": \"2017-10-22T07:49:25.246Z\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-10-22T07:49:25.246Z\",\n        \"endDateTime\": \"2027-10-21T07:49:25.246Z\"\n      },\n      \"attachment\": {\n        \"@type\": \"Attachment\",\n        \"id\": \"6662326757667\",\n        \"href\": \"https://serverRoot/tmf-api/document/v5/attachment/6662326757667\",\n        \"attachmentType\": \"passportCopy\",\n        \"name\": \"PassportCopy321.pdf\",\n        \"description\": \"Scanned copy of the passport\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"http://DocumentManager/321/PassportCopy321.pdf\"\n      }\n    }\n  ],\n  \"taxExemptionCertificate\": [\n    {\n      \"@type\": \"TaxExemptionCertificate\",\n      \"id\": \"1\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      },\n      \"certificateNumber\": \"98765432345\",\n      \"issuingJurisdiction\": \"USA\",\n      \"taxDefinition\": [\n        {\n          \"@type\": \"TaxDefinitionRef\",\n          \"id\": \"96\",\n          \"name\": \"Value Added Tax\",\n          \"taxType\": \"federalVat\"\n        }\n      ],\n      \"attachment\": {\n        \"@type\": \"Attachment\",\n        \"id\": \"5565734535\",\n        \"href\": \"https://serverRoot/tmf-api/document/v5/attachment/5565734535\",\n        \"attachmentType\": \"taxExemptionCertificate\",\n        \"name\": \"TaxExemptionCertificate-566655.pdf\",\n        \"description\": \"Electronic version of the tax exemption certificate\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"https://mycsp.com:8080/DocumentManager/666/TaxExemptionCertificate-566655.pdf\"\n      }\n    }\n  ],\n  \"creditRating\": [\n    {\n      \"@type\": \"CreditRating\",\n      \"creditAgencyName\": \"Experian\",\n      \"creditAgencyType\": \"externalAgency\",\n      \"ratingReference\": \"ref123\",\n      \"ratingScore\": 680,\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"relatedParty\": [\n    {\n      \"role\": \"employer\",\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n      \"partyOrPartyRole\": {\n        \"id\": \"128\",\n        \"href\": \"https://serverRoot/tmf-api/party/v5/organization/128\",\n        \"name\": \"Coffee Do Brazil Fair Trade Marketing Department\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Organization\"\n      }\n    }\n  ],\n  \"contactMedium\": [\n    {\n      \"preferred\": true,\n      \"mediumType\": \"email\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-03-15T07:49:25.246Z\"\n      },\n      \"@type\": \"EmailContactMedium\",\n      \"emailAddress\": \"jane.lamborgizzia@gmail.com\"\n    },\n    {\n      \"preferred\": false,\n      \"mediumType\": \"postalAddress\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-03-15T07:49:25.246Z\"\n      },\n      \"@type\": \"GeographicAddressContactMedium\",\n      \"city\": \"Morristown\",\n      \"country\": \"USA\",\n      \"postCode\": 7960,\n      \"stateOrProvince\": \"New Jersey\",\n      \"street1\": \"240 Headquarters Plazza\",\n      \"street2\": \"East Tower - 10th Floor\"\n    }\n  ],\n  \"disability\": [\n    {\n      \"disabilityCode\": \"BLD\",\n      \"disabilityName\": \"Blind\",\n      \"validFor\": {\n        \"startDateTime\": \"1967-09-26T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"languageAbility\": [\n    {\n      \"languageCode\": \"FR\",\n      \"languageName\": \"French\",\n      \"isFavouriteLanguage\": true,\n      \"writingProficiency\": \"advanced\",\n      \"readingProficiency\": \"advanced\",\n      \"speakingProficiency\": \"intermediate\",\n      \"listeningProficiency\": \"intermediate\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    },\n    {\n      \"languageCode\": \"SP\",\n      \"languageName\": \"Spanish\",\n      \"isFavouriteLanguage\": false,\n      \"writingProficiency\": \"scholar\",\n      \"readingProficiency\": \"scholar\",\n      \"speakingProficiency\": \"scholar\",\n      \"listeningProficiency\": \"scholar\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"skill\": [\n    {\n      \"skillCode\": \"SK001\",\n      \"skillName\": \"marketing\",\n      \"evaluatedLevel\": \"Advanced\",\n      \"comment\": \"Ten years experience\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    },\n    {\n      \"skillCode\": \"SK002\",\n      \"skillName\": \"Project Management\",\n      \"evaluatedLevel\": \"newbie\",\n      \"comment\": \"First work experience\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7abeaaf5-3b8c-4db8-9b03-dbec32586a84",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50a315c5-1712-499f-a741-8f29be5504d6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78426712-1f1d-4c61-829b-5127f7468262",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db164b6a-eb3f-47a0-be35-e0a1201c0b41",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f8298bd-d369-4105-9cbe-be4c47e6ac00",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f988572-bedd-4471-a265-b62940885787",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d621ecf9-02ff-4c9d-b590-63947013f006",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac4b7c2e-5040-4efd-af75-2f44f6bf8c1b",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"string\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"string\",\n  \"@schemaLocation\": \"string\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f45e144-5f66-486d-aa56-99be47c4dbc8",
+          "name": "TM Forum Updates Partially a Individual",
+          "request": {
+            "name": "TM Forum Updates Partially a Individual",
+            "description": {
+              "content": "This operation updates partially a Individual entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "individual",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a72e044-97e2-433a-bd75-26d2a015ac82",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"42\",\n  \"href\": \"https://serverRoot/tmf-api/party/v5/individual/42\",\n  \"@type\": \"Individual\",\n  \"@baseType\": \"Party\",\n  \"gender\": \"female\",\n  \"countryOfBirth\": \"United States\",\n  \"nationality\": \"American\",\n  \"maritalStatus\": \"divorced\",\n  \"birthDate\": \"1967-09-26T05:00:00.246Z\",\n  \"givenName\": \"Jane\",\n  \"preferredGivenName\": \"Lamborgizzia\",\n  \"familyName\": \"Lamborgizzia\",\n  \"legalName\": \"Smith\",\n  \"middleName\": \"JL\",\n  \"fullName\": \"Jane Smith ep Lamborgizzia\",\n  \"formattedName\": \"Jane Smith ep Lamborgizzia\",\n  \"status\": \"validated\",\n  \"externalReference\": [\n    {\n      \"name\": \"http://facebook.com/17263635\",\n      \"externalIdentifierType\": \"facebookId\",\n      \"@type\": \"ExternalIdentifier\"\n    },\n    {\n      \"name\": \"http://google.com/17263635\",\n      \"externalIdentifierType\": \"googleId\",\n      \"@type\": \"ExternalIdentifier\"\n    }\n  ],\n  \"partyCharacteristic\": [\n    {\n      \"name\": \"hobby\",\n      \"value\": [\n        \"Modern Jazz\",\n        \"Cinema\"\n      ],\n      \"valueType\": \"array\",\n      \"@type\": \"StringArrayCharacteristic\"\n    },\n    {\n      \"name\": \"childrenNumber\",\n      \"value\": 1,\n      \"valueType\": \"number\",\n      \"@type\": \"IntegerCharacteristic\"\n    }\n  ],\n  \"otherName\": [\n    {\n      \"@type\": \"OtherNameIndividual\",\n      \"givenName\": \"Jane\",\n      \"familyName\": \"Smith\",\n      \"validFor\": {\n        \"startDateTime\": \"1967-09-26T00:00:00.246Z\",\n        \"endDateTime\": \"2015-06-15T00:00:00.246Z\"\n      }\n    }\n  ],\n  \"individualIdentification\": [\n    {\n      \"@type\": \"IndividualIdentification\",\n      \"identificationType\": \"passport\",\n      \"identificationId\": \"51DD1234\",\n      \"issuingAuthority\": \"US Government\",\n      \"issuingDate\": \"2017-10-22T07:49:25.246Z\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-10-22T07:49:25.246Z\",\n        \"endDateTime\": \"2027-10-21T07:49:25.246Z\"\n      },\n      \"attachment\": {\n        \"@type\": \"Attachment\",\n        \"attachmentType\": \"passportCopy\",\n        \"name\": \"PassportCopy321.pdf\",\n        \"description\": \"Scanned copy of the passport\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"http://DocumentManager/321/PassportCopy321.pdf\"\n      }\n    }\n  ],\n  \"taxExemptionCertificate\": [\n    {\n      \"@type\": \"TaxExemptionCertificate\",\n      \"id\": \"1\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      },\n      \"certificateNumber\": \"98765432345\",\n      \"issuingJurisdiction\": \"USA\",\n      \"taxDefinition\": [\n        {\n          \"@type\": \"TaxDefinitionRef\",\n          \"id\": \"96\",\n          \"name\": \"Value Added Tax\",\n          \"taxType\": \"federalVat\"\n        }\n      ],\n      \"attachment\": {\n        \"@type\": \"Attachment\",\n        \"attachmentType\": \"taxExemptionCertificate\",\n        \"name\": \"TaxExemptionCertificate-566655.pdf\",\n        \"description\": \"Electronic version of the tax exemption certificate\",\n        \"mimeType\": \"application/pdf\",\n        \"url\": \"https://mycsp.com:8080/DocumentManager/666/TaxExemptionCertificate-566655.pdf\"\n      }\n    }\n  ],\n  \"creditRating\": [\n    {\n      \"@type\": \"CreditRating\",\n      \"creditAgencyName\": \"Experian\",\n      \"creditAgencyType\": \"externalAgency\",\n      \"ratingReference\": \"ref123\",\n      \"ratingScore\": 680,\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"relatedParty\": [\n    {\n      \"role\": \"employer\",\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n      \"partyOrPartyRole\": {\n        \"id\": \"128\",\n        \"href\": \"https://serverRoot/tmf-api/party/v5/organization/128\",\n        \"name\": \"Coffee Do Brazil Fair Trade Marketing Department\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Organization\"\n      }\n    }\n  ],\n  \"contactMedium\": [\n    {\n      \"preferred\": true,\n      \"mediumType\": \"email\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-03-15T07:49:25.246Z\"\n      },\n      \"@type\": \"EmailContactMedium\",\n      \"emailAddress\": \"jane.lamborgizzia@gmail.com\"\n    },\n    {\n      \"preferred\": false,\n      \"mediumType\": \"postalAddress\",\n      \"validFor\": {\n        \"startDateTime\": \"2017-03-15T07:49:25.246Z\"\n      },\n      \"@type\": \"GeographicAddressContactMedium\",\n      \"city\": \"Morristown\",\n      \"country\": \"USA\",\n      \"postCode\": 7960,\n      \"stateOrProvince\": \"New Jersey\",\n      \"street1\": \"240 Headquarters Plazza\",\n      \"street2\": \"East Tower - 10th Floor\"\n    }\n  ],\n  \"disability\": [\n    {\n      \"disabilityCode\": \"BLD\",\n      \"disabilityName\": \"Blind\",\n      \"validFor\": {\n        \"startDateTime\": \"1967-09-26T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"languageAbility\": [\n    {\n      \"languageCode\": \"FR\",\n      \"languageName\": \"French\",\n      \"isFavouriteLanguage\": true,\n      \"writingProficiency\": \"advanced\",\n      \"readingProficiency\": \"advanced\",\n      \"speakingProficiency\": \"intermediate\",\n      \"listeningProficiency\": \"intermediate\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    },\n    {\n      \"languageCode\": \"SP\",\n      \"languageName\": \"Spanish\",\n      \"isFavouriteLanguage\": false,\n      \"writingProficiency\": \"scholar\",\n      \"readingProficiency\": \"scholar\",\n      \"speakingProficiency\": \"scholar\",\n      \"listeningProficiency\": \"scholar\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ],\n  \"skill\": [\n    {\n      \"skillCode\": \"SK001\",\n      \"skillName\": \"marketing\",\n      \"evaluatedLevel\": \"Advanced\",\n      \"comment\": \"Ten years experience\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    },\n    {\n      \"skillCode\": \"SK002\",\n      \"skillName\": \"Project Management\",\n      \"evaluatedLevel\": \"newbie\",\n      \"comment\": \"First work experience\",\n      \"validFor\": {\n        \"startDateTime\": \"2018-10-22T07:49:25.246Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "193abc41-428d-401d-8b3c-f361fe85bc52",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "794c326f-a793-486c-a156-2001bb343c39",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af22affc-a8b5-4e53-8e40-7046cc81a135",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "997cb400-31f6-4c69-a986-ade86eaa9cd4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "059bc514-4c56-4f77-81a1-30a2195595d0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f22862e-be25-4ee5-8de5-4af101d52222",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f424b9c-74d8-40d0-8424-10ba6cd2e8b7",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6710ebb2-273a-47d9-aa95-0bd958b1d200",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87131bf9-bc88-4fe6-89dc-982a9058b994",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dba4c8f4-0da9-43bb-bbb5-d4f4efd96be6",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fb00a6e-55aa-4d27-a467-d534a085a6b0",
+          "name": "TM Forum Deletes a Individual",
+          "request": {
+            "name": "TM Forum Deletes a Individual",
+            "description": {
+              "content": "This operation deletes a Individual entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "individual",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d57ecc5e-bd33-43d7-a15c-0e21cecb1f26",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e6706c1-f52f-4a4a-85a6-4c1ca8ecda2a",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c51cc7fd-f135-4bd3-966f-7d851fb18784",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc964016-5e4b-4cb5-955a-d518308d9da2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb7739b5-c593-44ae-822c-e2db8a76d65f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccec9580-2ce2-4e78-8a37-5cf26dc7c068",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91edfc87-83fb-472d-b911-075948892f42",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df8ce2e2-a5a1-4bff-8fff-b12210224d04",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1f2533e-eeae-40d0-afd8-1abc2fce6ca0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0667612-d6c9-4bbd-808d-651a65fe95c4",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6e4ed8b-a9ae-4fc9-884a-ef9fb444dbe9",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individual",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"<string>\",\n  \"code\": \"string\",\n  \"reason\": \"string\",\n  \"@baseType\": \"<string>\",\n  \"@schemaLocation\": \"<string>\",\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"referenceError\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://serverRoot/productCatalogManagement/v5/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7ef5f061-786d-4e6f-8b8b-aaea74a36795",
+    "name": "Product Catalog Management agreement individual API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events",
+      "type": "text/plain"
+    }
+  }
+}

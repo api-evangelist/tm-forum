@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement billFormat API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "billFormat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or find BillFormat objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/billFormat",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation list or find BillFormat entities"
+        },
+        {
+          "info": {
+            "name": "Creates a BillFormat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/billFormat"
+          },
+          "docs": "This operation creates a BillFormat entity."
+        },
+        {
+          "info": {
+            "name": "Retrieves a BillFormat by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/billFormat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the BillFormat"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to provide in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a BillFormat entity. Attribute selection is enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "Updates partially a BillFormat",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/billFormat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the BillFormat"
+              }
+            ]
+          },
+          "docs": "This operation updates partially a BillFormat entity."
+        },
+        {
+          "info": {
+            "name": "Deletes a BillFormat",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/billFormat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the BillFormat"
+              }
+            ]
+          },
+          "docs": "This operation deletes a BillFormat entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement resourceCategory API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "resourceCategory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or find ResourceCategory objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/resourceCategory",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation list or find ResourceCategory entities"
+        },
+        {
+          "info": {
+            "name": "Creates a ResourceCategory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/resourceCategory"
+          },
+          "docs": "This operation creates a ResourceCategory entity."
+        },
+        {
+          "info": {
+            "name": "Retrieves a ResourceCategory by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/resourceCategory/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ResourceCategory"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to provide in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a ResourceCategory entity. Attribute selection is enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "Updates partially a ResourceCategory",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/resourceCategory/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ResourceCategory"
+              }
+            ]
+          },
+          "docs": "This operation updates partially a ResourceCategory entity."
+        },
+        {
+          "info": {
+            "name": "Deletes a ResourceCategory",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/resourceCategory/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ResourceCategory"
+              }
+            ]
+          },
+          "docs": "This operation deletes a ResourceCategory entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

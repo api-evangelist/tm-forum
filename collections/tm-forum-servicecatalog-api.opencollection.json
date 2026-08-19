@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement serviceCatalog API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "serviceCatalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List or find ServiceCatalog objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/serviceCatalog",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to be provided in response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Requested index for start of resources to be provided in response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Requested number of resources to be provided in response"
+              }
+            ]
+          },
+          "docs": "This operation list or find ServiceCatalog entities"
+        },
+        {
+          "info": {
+            "name": "Creates a ServiceCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/serviceCatalog"
+          },
+          "docs": "This operation creates a ServiceCatalog entity."
+        },
+        {
+          "info": {
+            "name": "Retrieves a ServiceCatalog by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/serviceCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ServiceCatalog"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated properties to provide in response"
+              }
+            ]
+          },
+          "docs": "This operation retrieves a ServiceCatalog entity. Attribute selection is enabled for all first level attributes."
+        },
+        {
+          "info": {
+            "name": "Updates partially a ServiceCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://serverRoot/productCatalogManagement/v5/serviceCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ServiceCatalog"
+              }
+            ]
+          },
+          "docs": "This operation updates partially a ServiceCatalog entity."
+        },
+        {
+          "info": {
+            "name": "Deletes a ServiceCatalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/serviceCatalog/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ServiceCatalog"
+              }
+            ]
+          },
+          "docs": "This operation deletes a ServiceCatalog entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

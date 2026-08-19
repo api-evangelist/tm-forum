@@ -1,0 +1,2792 @@
+{
+  "item": [
+    {
+      "id": "5bd4f439-d981-44cd-9165-b5c34e1c4f65",
+      "name": "troubleTicket",
+      "description": {
+        "content": "Operations for TroubleTicket Resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74bc46be-3f30-4872-9f2b-0ea2ccb6ab55",
+          "name": "TM Forum List or Find TroubleTicket Objects",
+          "request": {
+            "name": "TM Forum List or Find TroubleTicket Objects",
+            "description": {
+              "content": "List or find TroubleTicket objects",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "troubleTicket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Requested index for start of resources to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Requested number of resources to be provided in response"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "An opaque string value representing the page results before the cursor value"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "An opaque string value representing the page results after the cursor value"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The default direction is Ascending order, the use of the modifier in front of the sort field name, “-“, changes the sort order direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter a collection using JSONPath"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff350c84-a671-42e4-a316-dc8b3cf1e754",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items matching criteria",
+                  "key": "X-Total-Count",
+                  "value": "841"
+                },
+                {
+                  "disabled": false,
+                  "description": "Actual number of items returned in the response body",
+                  "key": "X-Result-Count",
+                  "value": "841"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3180\",\n    \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180\",\n    \"name\": \"complaint over last bill\",\n    \"priority\": \"High\",\n    \"@type\": \"TroubleTicket\"\n  },\n  {\n    \"id\": \"3256\",\n    \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3256\",\n    \"name\": \"Commerce problem\",\n    \"priority\": \"High\",\n    \"@type\": \"TroubleTicket\"\n  },\n  {\n    \"id\": \"4563\",\n    \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/5/troubleTicket/4563\",\n    \"name\": \"Network latency\",\n    \"priority\": \"High\",\n    \"@type\": \"TroubleTicket\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b36a3faf-f5cf-493b-b347-ab736e1c9dcb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR400\",\n  \"reason\": \"Bad Request\",\n  \"message\": \"The server could not understand the request due to invalid syntax. Please correct the syntax and try again.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a875dc2-a18d-4ee9-807c-dab0cd13049a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR401\",\n  \"reason\": \"Unauthorized\",\n  \"message\": \"You are not authorized to access the requested resource. Please provide the correct credentials.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15794358-2b24-4477-ad3f-4c96bdaa39fd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR403\",\n  \"reason\": \"Forbidden\",\n  \"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02ebc5f6-2f0e-4891-a27e-ea8f2fd33f1e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR404\",\n  \"reason\": \"Not Found\",\n  \"message\": \"The requested URL was not found on the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d643b86-a31a-4494-8b09-2373f31c5a0e",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR405\",\n  \"reason\": \"Method Not allowed\",\n  \"message\": \"The method is not allowed for the requested URL.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb96190e-2c46-4589-b25c-5278cb3dd3e8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR500\",\n  \"reason\": \"Internal Server Error\",\n  \"message\": \"The server encountered an internal error. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22176e37-92d2-45ba-9847-9dcb8b83871e",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR501\",\n  \"reason\": \"The requested operation is not implemented\",\n  \"message\": \"The requested operation is not implemented. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06708cc7-5eff-4f72-a083-dc664c179b2f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "attachment[?(@size==300)]"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR503\",\n  \"reason\": \"Service Unavailable\",\n  \"message\": \"The service is currently unavailable. Please try again later.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54420b37-cab2-4d29-aa02-f9fc178ca368",
+          "name": "TM Forum Creates a TroubleTicket",
+          "request": {
+            "name": "TM Forum Creates a TroubleTicket",
+            "description": {
+              "content": "This operation creates a TroubleTicket entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "troubleTicket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aacccdc9-bff4-4bc2-9d7b-8e3b5fa1911e",
+              "name": "OK/Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3180\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180\",\n  \"creationDate\": \"2022-05-31T07:34:45.968Z\",\n  \"description\": \"I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle \",\n  \"expectedResolutionDate\": \"2019-06-10T07:34:45.968Z\",\n  \"lastUpdate\": \"2022-05-31T07:34:45.968Z\",\n  \"name\": \"complaint over last bill\",\n  \"priority\": \"High\",\n  \"requestedResolutionDate\": \"2019-05-31T07:34:45.968Z\",\n  \"severity\": \"Major\",\n  \"status\": \"pending\",\n  \"statusChangeDate\": \"2019-05-31T07:34:45.968Z\",\n  \"statusChangeReason\": \"Need more information from the customer\",\n  \"ticketType\": \"Bill Dispute\",\n  \"attachment\": [\n    {\n      \"description\": \"Scanned disputed bill\",\n      \"attachmentType\": \"billCopy\",\n      \"mimeType\": \"image/png\",\n      \"name\": \"March Bill\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=3534555\",\n      \"@type\": \"Attachment\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"8774\",\n    \"name\": \"self service\",\n    \"@type\": \"ChannelRef\"\n  },\n  \"note\": [\n    {\n      \"id\": \"77456\",\n      \"author\": \"Jack Smith\",\n      \"date\": \"2019-05-31T07:34:45.968Z\",\n      \"text\": \"This is quite important, please approach  me as soon as possible\",\n      \"@type\": \"Note\"\n    }\n  ],\n  \"relatedEntity\": [\n    {\n      \"role\": \"disputedBill\",\n      \"@type\": \"RelatedEntity\",\n      \"entity\": {\n        \"id\": \"3472\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297\",\n        \"name\": \"March 2019 Bill\",\n        \"@type\": \"EntityRef\",\n        \"@referredType\": \"CustomerBill\"\n      }\n    }\n  ],\n  \"relatedParty\": [\n    {\n      \"role\": \"member\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9866\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866\",\n        \"name\": \"Sandy Smith\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"reporter\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9877\",\n        \"name\": \"Jacob Jac Miller\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"customer\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9176\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176\",\n        \"name\": \"Jack Smith\",\n        \"@type\": \"PartyRoleRef\",\n        \"@referredType\": \"Customer\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    }\n  ],\n  \"statusChangeHistory\": [\n    {\n      \"statusChangeDate\": \"2019-05-31T07:34:45.968Z\",\n      \"statusChangeReason\": \"Need more information from the customer\",\n      \"status\": \"pending\",\n      \"@type\": \"StatusChange\"\n    }\n  ],\n  \"troubleTicketRelationship\": [\n    {\n      \"id\": \"567433\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/567433\",\n      \"name\": \"Network Coverage\",\n      \"relationshipType\": \"dependecy\",\n      \"@type\": \"TroubleTicketRelationship\"\n    }\n  ],\n  \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/schema/troubleTicket.yaml\",\n  \"@type\": \"TroubleTicket\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb35f815-f934-4cb8-9bbe-7745f6f0213b",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b919bcc2-d22a-4e0f-9a0e-8b8e31aa03d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR400\",\n  \"reason\": \"Bad Request\",\n  \"message\": \"The server could not understand the request due to invalid syntax. Please correct the syntax and try again.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d4c49c9-3ac8-446a-8ae0-2f261d8ca65d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR401\",\n  \"reason\": \"Unauthorized\",\n  \"message\": \"You are not authorized to access the requested resource. Please provide the correct credentials.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7abf16d7-45b7-4dd0-83fc-3b943c96c230",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR403\",\n  \"reason\": \"Forbidden\",\n  \"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42ad899f-c780-407d-97c2-e538ec04003d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR404\",\n  \"reason\": \"Not Found\",\n  \"message\": \"The requested URL was not found on the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93e428b5-3ff1-4a66-bf27-ecf902fca964",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR405\",\n  \"reason\": \"Method Not allowed\",\n  \"message\": \"The method is not allowed for the requested URL.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55c6bfdd-4588-4aad-b4b8-61bdce68fdc1",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR409\",\n  \"reason\": \"Conflict\",\n  \"message\": \"The request could not be completed due to a conflict with the current state of the target resource.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31e7d1fb-5197-46b1-a7a6-2067b10286d3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR500\",\n  \"reason\": \"Internal Server Error\",\n  \"message\": \"The server encountered an internal error. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf299703-7028-4b4b-90d2-061515e59871",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR501\",\n  \"reason\": \"The requested operation is not implemented\",\n  \"message\": \"The requested operation is not implemented. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "374a7880-78dd-4310-93f1-93e268c13e5f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR503\",\n  \"reason\": \"Service Unavailable\",\n  \"message\": \"The service is currently unavailable. Please try again later.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8adc0d2f-56b6-446d-af55-c80f6c972ff5",
+          "name": "TM Forum Retrieves a TroubleTicket by ID",
+          "request": {
+            "name": "TM Forum Retrieves a TroubleTicket by ID",
+            "description": {
+              "content": "This operation retrieves a TroubleTicket entity. Attribute selection enabled for all first level attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "troubleTicket",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4f293d8-bd95-4b95-927e-e6660ce02a74",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3180\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180\",\n  \"creationDate\": \"2022-05-31T07:34:45.968Z\",\n  \"description\": \"I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle \",\n  \"expectedResolutionDate\": \"2019-06-10T07:34:45.968Z\",\n  \"lastUpdate\": \"2022-05-31T07:34:45.968Z\",\n  \"name\": \"complaint over last bill\",\n  \"priority\": \"High\",\n  \"requestedResolutionDate\": \"2022-05-31T07:34:45.968Z\",\n  \"resolutionDate\": \"2022-05-31T07:34:45.968Z\",\n  \"severity\": \"Minor\",\n  \"status\": \"resolved\",\n  \"statusChangeDate\": \"2022-05-31T07:34:45.968Z\",\n  \"statusChangeReason\": \"Apply full credit\",\n  \"ticketType\": \"Bill Dispute\",\n  \"troubleTicketCharacteristic\": [\n    {\n      \"id\": \"1\",\n      \"name\": \"disputeAmount\",\n      \"valueType\": \"number\",\n      \"value\": 40,\n      \"@type\": \"NumberCharacteristic\"\n    },\n    {\n      \"id\": \"2\",\n      \"name\": \"creditAmount\",\n      \"valueType\": \"number\",\n      \"value\": 40,\n      \"characteristicRelationship\": [\n        {\n          \"id\": \"4\",\n          \"relationshipType\": \"dependency\",\n          \"@type\": \"CharacteristicRelationship\"\n        }\n      ],\n      \"@type\": \"NumberCharacteristic\"\n    },\n    {\n      \"id\": \"3\",\n      \"name\": \"currency\",\n      \"valueType\": \"string\",\n      \"value\": \"USD\",\n      \"@type\": \"StringCharacteristic\"\n    },\n    {\n      \"id\": \"4\",\n      \"name\": \"creditReason\",\n      \"valueType\": \"string\",\n      \"value\": \"Network connectivity issues\",\n      \"@type\": \"StringCharacteristic\"\n    }\n  ],\n  \"attachment\": [\n    {\n      \"description\": \"Scanned disputed bill\",\n      \"attachmentType\": \"billCopy\",\n      \"mimeType\": \"image/png\",\n      \"name\": \"March Bill\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=3534555\",\n      \"@type\": \"Attachment\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"8774\",\n    \"name\": \"self service\",\n    \"@type\": \"ChannelRef\"\n  },\n  \"note\": [\n    {\n      \"id\": \"77456\",\n      \"author\": \"Jack Smith\",\n      \"date\": \"2019-05-31T07:34:45.968Z\",\n      \"text\": \"This is quite important, please approach me as soon as possible\",\n      \"@type\": \"Note\"\n    }\n  ],\n  \"relatedEntity\": [\n    {\n      \"role\": \"disputedBill\",\n      \"@type\": \"RelatedEntity\",\n      \"entity\": {\n        \"id\": \"3472\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297\",\n        \"name\": \"March 2019 Bill\",\n        \"@type\": \"EntityRef\",\n        \"@referredType\": \"CustomerBill\"\n      }\n    }\n  ],\n  \"relatedParty\": [\n    {\n      \"role\": \"member\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9866\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866\",\n        \"name\": \"Sandy Smith\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"reporter\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9877\",\n        \"name\": \"Jacob Jac Miller\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"customer\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9176\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176\",\n        \"name\": \"Jack Smith\",\n        \"@type\": \"PartyRoleRef\",\n        \"@referredType\": \"Customer\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    }\n  ],\n  \"statusChangeHistory\": [\n    {\n      \"statusChangeDate\": \"2022-05-28T07:34:45.968Z\",\n      \"statusChangeReason\": \"trouble ticket created \",\n      \"status\": \"acknowledged\",\n      \"@type\": \"StatusChange\"\n    },\n    {\n      \"statusChangeDate\": \"2022-05-28T08:34:45.968Z\",\n      \"statusChangeReason\": \"start process\",\n      \"status\": \"inProgress\",\n      \"@type\": \"StatusChange\"\n    },\n    {\n      \"statusChangeDate\": \"2022-05-29T07:34:45.968Z\",\n      \"statusChangeReason\": \"Need more information from the customer\",\n      \"status\": \"pending\",\n      \"@type\": \"StatusChange\"\n    },\n    {\n      \"statusChangeDate\": \"2022-05-31T07:34:45.968Z\",\n      \"statusChangeReason\": \"Apply full credit\",\n      \"status\": \"resolved\",\n      \"@type\": \"StatusChange\"\n    }\n  ],\n  \"troubleTicketRelationship\": [\n    {\n      \"id\": \"567433\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/567433\",\n      \"name\": \"Network Coverage\",\n      \"relationshipType\": \"dependecy\",\n      \"@type\": \"TroubleTicketRelationship\"\n    }\n  ],\n  \"externalIdentifier\": [\n    {\n      \"id\": \"3331234\",\n      \"owner\": \"BMC Remedy\",\n      \"externalIdentifierType\": \"Incident\",\n      \"@type\": \"ExternalIdentifier\"\n    }\n  ],\n  \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/troubleTicket/5/schema/troubleTicket.yaml\",\n  \"@type\": \"TroubleTicket\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aadd6cd7-b42f-4425-9618-8d5e6dede591",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR400\",\n  \"reason\": \"Bad Request\",\n  \"message\": \"The server could not understand the request due to invalid syntax. Please correct the syntax and try again.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31015a83-54e2-4082-b758-722a2a103e7e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR401\",\n  \"reason\": \"Unauthorized\",\n  \"message\": \"You are not authorized to access the requested resource. Please provide the correct credentials.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b16b0487-c29c-4554-ad25-b39a4704e2e5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR403\",\n  \"reason\": \"Forbidden\",\n  \"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f322f08-e5ef-4725-af3e-c5cd8d1edbb5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR404\",\n  \"reason\": \"Not Found\",\n  \"message\": \"The requested URL was not found on the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b346a3bb-6575-44db-bb21-95a80a647934",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR405\",\n  \"reason\": \"Method Not allowed\",\n  \"message\": \"The method is not allowed for the requested URL.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6367797d-9238-4c18-b0ae-5689e52535c1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR500\",\n  \"reason\": \"Internal Server Error\",\n  \"message\": \"The server encountered an internal error. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2425f510-b48a-4dca-80b6-6c8f0f04ecd7",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR501\",\n  \"reason\": \"The requested operation is not implemented\",\n  \"message\": \"The requested operation is not implemented. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b7aaa46-1d0d-4839-9908-6447e9b2a5e4",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR503\",\n  \"reason\": \"Service Unavailable\",\n  \"message\": \"The service is currently unavailable. Please try again later.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71d05753-b946-4844-b6e9-8093de9002d7",
+          "name": "TM Forum Updates Partially a TroubleTicket",
+          "request": {
+            "name": "TM Forum Updates Partially a TroubleTicket",
+            "description": {
+              "content": "This operation updates partially a TroubleTicket entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "troubleTicket",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated properties to be provided in response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b74ec622-badf-4ab7-959b-26bdb9af6634",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3180\",\n  \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180\",\n  \"creationDate\": \"2022-05-31T07:34:45.968Z\",\n  \"description\": \"I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle \",\n  \"expectedResolutionDate\": \"2019-06-10T07:34:45.968Z\",\n  \"lastUpdate\": \"2022-06-01T07:34:45.968Z\",\n  \"name\": \"complaint over last bill\",\n  \"priority\": \"High\",\n  \"requestedResolutionDate\": \"2022-05-31T07:34:45.968Z\",\n  \"resolutionDate\": \"2022-06-01T07:34:45.968Z\",\n  \"severity\": \"Major\",\n  \"status\": \"resolved\",\n  \"statusChangeDate\": \"2022-06-01T07:34:45.968Z\",\n  \"statusChangeReason\": \"Give credit and resent bill to customer\",\n  \"ticketType\": \"Bill Dispute\",\n  \"attachment\": [\n    {\n      \"description\": \"Scanned disputed bill\",\n      \"attachmentType\": \"billCopy\",\n      \"mimeType\": \"image/png\",\n      \"name\": \"March Bill\",\n      \"url\": \"https://mycsp.com:7070/docloader?docnum=3534555\",\n      \"@type\": \"Attachment\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"8774\",\n    \"name\": \"self service\",\n    \"@type\": \"ChannelRef\"\n  },\n  \"note\": [\n    {\n      \"id\": \"77456\",\n      \"author\": \"Jack Smith\",\n      \"date\": \"2022-05-31T07:34:45.968Z\",\n      \"text\": \"This is quite important, please approach me as soon as possible\",\n      \"@type\": \"Note\"\n    }\n  ],\n  \"relatedEntity\": [\n    {\n      \"role\": \"disputedBill\",\n      \"@type\": \"RelatedEntity\",\n      \"entity\": {\n        \"id\": \"3472\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297\",\n        \"name\": \"March 2019 Bill\",\n        \"@type\": \"EntityRef\",\n        \"@referredType\": \"CustomerBill\"\n      }\n    }\n  ],\n  \"relatedParty\": [\n    {\n      \"role\": \"member\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9866\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866\",\n        \"name\": \"Sandy Smith\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"reporter\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9877\",\n        \"name\": \"Jacob Jac Miller\",\n        \"@type\": \"PartyRef\",\n        \"@referredType\": \"Individual\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    },\n    {\n      \"role\": \"customer\",\n      \"partyOrPartyRole\": {\n        \"id\": \"9176\",\n        \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176\",\n        \"name\": \"Jack Smith\",\n        \"@type\": \"PartyRoleRef\",\n        \"@referredType\": \"Customer\"\n      },\n      \"@type\": \"RelatedPartyRefOrPartyRoleRef\"\n    }\n  ],\n  \"statusChangeHistory\": [\n    {\n      \"statusChangeDate\": \"2022-05-31T07:34:45.968Z\",\n      \"statusChangeReason\": \"Need more information from the customer\",\n      \"status\": \"pending\",\n      \"@type\": \"StatusChange\"\n    },\n    {\n      \"statusChangeDate\": \"2022-06-01T07:34:45.968Z\",\n      \"statusChangeReason\": \"Give credit and resent bill to customer\",\n      \"status\": \"resolved\",\n      \"@type\": \"StatusChange\"\n    }\n  ],\n  \"troubleTicketRelationship\": [\n    {\n      \"id\": \"567433\",\n      \"href\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/567433\",\n      \"name\": \"Network Coverage\",\n      \"relationshipType\": \"dependecy\",\n      \"@type\": \"TroubleTicketRelationship\"\n    }\n  ],\n  \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/troubleTicket/v5/schema/troubleTicket.yml\",\n  \"@type\": \"TroubleTicket\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51ddf8ca-6d13-4713-b54e-cf251cb2fd3f",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3423d068-4bfa-4706-ae20-fb05bc1369d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR400\",\n  \"reason\": \"Bad Request\",\n  \"message\": \"The server could not understand the request due to invalid syntax. Please correct the syntax and try again.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c88aceae-6dda-408f-94af-c0d7cb521f9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR401\",\n  \"reason\": \"Unauthorized\",\n  \"message\": \"You are not authorized to access the requested resource. Please provide the correct credentials.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "178aec92-1920-4137-9fef-2b30a62acf06",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR403\",\n  \"reason\": \"Forbidden\",\n  \"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6a02f6f-4c63-4ec8-ad3c-4a0fe781eadc",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR404\",\n  \"reason\": \"Not Found\",\n  \"message\": \"The requested URL was not found on the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "566ad219-5d93-423c-9169-637138474c67",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR405\",\n  \"reason\": \"Method Not allowed\",\n  \"message\": \"The method is not allowed for the requested URL.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5271b45a-27ac-4e17-89d7-15ff40a781d6",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR409\",\n  \"reason\": \"Conflict\",\n  \"message\": \"The request could not be completed due to a conflict with the current state of the target resource.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71159b51-41ad-473f-acb4-3c7b276a2a2f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR500\",\n  \"reason\": \"Internal Server Error\",\n  \"message\": \"The server encountered an internal error. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10015b99-86f0-427a-9051-cb41f048c054",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR501\",\n  \"reason\": \"The requested operation is not implemented\",\n  \"message\": \"The requested operation is not implemented. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0b0d8bc-7fcf-45aa-907c-17fd67466050",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR503\",\n  \"reason\": \"Service Unavailable\",\n  \"message\": \"The service is currently unavailable. Please try again later.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "489a629c-5c5e-47c9-98a2-2ea53b65f1ab",
+          "name": "TM Forum Deletes a TroubleTicket",
+          "request": {
+            "name": "TM Forum Deletes a TroubleTicket",
+            "description": {
+              "content": "This operation deletes a TroubleTicket entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "troubleTicket",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the Resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03ecaf80-055f-4db6-8e77-694b2379f7c2",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10b6ee31-6c79-491c-bbc2-39ce1d685a43",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccaa0bcf-49dd-45cb-8918-1103a8e8c989",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR400\",\n  \"reason\": \"Bad Request\",\n  \"message\": \"The server could not understand the request due to invalid syntax. Please correct the syntax and try again.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeb1d87a-c51c-4004-8258-e6ccc1e5a12f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR401\",\n  \"reason\": \"Unauthorized\",\n  \"message\": \"You are not authorized to access the requested resource. Please provide the correct credentials.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee61cd45-d4c4-418f-857d-456785fa3be0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR403\",\n  \"reason\": \"Forbidden\",\n  \"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46b471e8-ecaa-4ebf-b720-7a3fd0b2d4e9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR404\",\n  \"reason\": \"Not Found\",\n  \"message\": \"The requested URL was not found on the server.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68121647-eeb1-4f3d-a30a-522c8cce29fa",
+              "name": "Method Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR405\",\n  \"reason\": \"Method Not allowed\",\n  \"message\": \"The method is not allowed for the requested URL.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b9e583e-42b5-48c8-bcd7-d5e518a8159a",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR409\",\n  \"reason\": \"Conflict\",\n  \"message\": \"The request could not be completed due to a conflict with the current state of the target resource.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a6808d0-ec94-4614-bca9-dd55b28492bf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR500\",\n  \"reason\": \"Internal Server Error\",\n  \"message\": \"The server encountered an internal error. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ca51782-1926-4eb9-8a1f-13a37d130846",
+              "name": "Not Implemented",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR501\",\n  \"reason\": \"The requested operation is not implemented\",\n  \"message\": \"The requested operation is not implemented. Please contact the system administrator.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4502f03-2444-4edc-ae8b-b9566e56b781",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "troubleTicket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the Resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@type\": \"Error\",\n  \"code\": \"ERR503\",\n  \"reason\": \"Service Unavailable\",\n  \"message\": \"The service is currently unavailable. Please try again later.\",\n  \"referenceError\": \"https://host/errors\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://serverRoot/productCatalogManagement/v5/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dde90f5b-4d49-462e-8c70-30034b6e9983",
+    "name": "Product Catalog Management agreement troubleTicket API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events",
+      "type": "text/plain"
+    }
+  }
+}

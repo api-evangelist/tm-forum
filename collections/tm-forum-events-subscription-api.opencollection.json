@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Product Catalog Management agreement events subscription API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events subscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TM Forum Create a Subscription (hub) to Receive Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://serverRoot/productCatalogManagement/v5/hub",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets the communication endpoint to receive Events."
+        },
+        {
+          "info": {
+            "name": "TM Forum Retrieve a Subscription (hub)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://serverRoot/productCatalogManagement/v5/hub/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              }
+            ]
+          },
+          "docs": "This operation retrieves the subscription to receive Events."
+        },
+        {
+          "info": {
+            "name": "TM Forum Remove a Subscription (hub) to Receive Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://serverRoot/productCatalogManagement/v5/hub/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the Resource"
+              }
+            ]
+          },
+          "docs": "TM Forum Remove a Subscription (hub) to Receive Events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
