@@ -42,6 +42,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Agreement
+  tags_raw:
   - agreement
   properties:
   - type: OpenAPI
@@ -77,7 +79,8 @@ apis:
     The agreementSpecification API from TM Forum — 2 operation(s) for agreementspecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - agreementSpecification
   properties:
   - type: OpenAPI
@@ -112,7 +115,8 @@ apis:
   description: The billFormat API from TM Forum — 2 operation(s) for billformat.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - billFormat
   properties:
   - type: OpenAPI
@@ -148,6 +152,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Billing Account
+  tags_raw:
   - billingAccount
   properties:
   - type: OpenAPI
@@ -183,7 +189,8 @@ apis:
     The billingCycleSpecification API from TM Forum — 2 operation(s) for billingcyclespecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - billingCycleSpecification
   properties:
   - type: OpenAPI
@@ -218,7 +225,8 @@ apis:
   description: The billPresentationMedia API from TM Forum — 2 operation(s) for billpresentationmedia.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - billPresentationMedia
   properties:
   - type: OpenAPI
@@ -253,7 +261,8 @@ apis:
   description: Operations for CancelProductOrder Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - cancelProductOrder
   properties:
   - type: OpenAPI
@@ -288,7 +297,8 @@ apis:
   description: The cancelServiceOrder API from TM Forum — 2 operation(s) for cancelserviceorder.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - cancelServiceOrder
   properties:
   - type: OpenAPI
@@ -324,6 +334,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Category
+  tags_raw:
   - category
   properties:
   - type: OpenAPI
@@ -359,6 +371,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Customers
+  tags_raw:
   - customer
   properties:
   - type: OpenAPI
@@ -429,6 +443,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - ExportJob
+  tags_raw:
   - exportJob
   properties:
   - type: OpenAPI
@@ -464,6 +480,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Financial Account
+  tags_raw:
   - financialAccount
   properties:
   - type: OpenAPI
@@ -498,7 +516,8 @@ apis:
   description: Operations for ImportJob Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - importJob
   properties:
   - type: OpenAPI
@@ -534,6 +553,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Individual
+  tags_raw:
   - individual
   properties:
   - type: OpenAPI
@@ -641,6 +662,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Organization
+  tags_raw:
   - organization
   properties:
   - type: OpenAPI
@@ -675,7 +698,8 @@ apis:
   description: The partyAccount API from TM Forum — 2 operation(s) for partyaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - partyAccount
   properties:
   - type: OpenAPI
@@ -711,6 +735,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Product
+  tags_raw:
   - product
   properties:
   - type: OpenAPI
@@ -746,6 +772,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Product Catalog
+  tags_raw:
   - productCatalog
   properties:
   - type: OpenAPI
@@ -780,7 +808,8 @@ apis:
   description: Operations for ProductOffering Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - productOffering
   properties:
   - type: OpenAPI
@@ -815,7 +844,8 @@ apis:
   description: Operations for ProductOfferingPrice Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - productOfferingPrice
   properties:
   - type: OpenAPI
@@ -850,7 +880,8 @@ apis:
   description: Operations for ProductOrder Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - productOrder
   properties:
   - type: OpenAPI
@@ -885,7 +916,8 @@ apis:
   description: Operations for ProductSpecification Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - productSpecification
   properties:
   - type: OpenAPI
@@ -921,6 +953,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Quotes
+  tags_raw:
   - quote
   properties:
   - type: OpenAPI
@@ -955,7 +989,8 @@ apis:
   description: The resourceCandidate API from TM Forum — 2 operation(s) for resourcecandidate.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - resourceCandidate
   properties:
   - type: OpenAPI
@@ -990,7 +1025,8 @@ apis:
   description: The resourceCatalog API from TM Forum — 2 operation(s) for resourcecatalog.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - resourceCatalog
   properties:
   - type: OpenAPI
@@ -1025,7 +1061,8 @@ apis:
   description: The resourceCategory API from TM Forum — 2 operation(s) for resourcecategory.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - resourceCategory
   properties:
   - type: OpenAPI
@@ -1060,7 +1097,8 @@ apis:
   description: The resourceSpecification API from TM Forum — 2 operation(s) for resourcespecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - resourceSpecification
   properties:
   - type: OpenAPI
@@ -1095,7 +1133,8 @@ apis:
   description: The serviceCandidate API from TM Forum — 2 operation(s) for servicecandidate.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - serviceCandidate
   properties:
   - type: OpenAPI
@@ -1131,6 +1170,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Service Catalog
+  tags_raw:
   - serviceCatalog
   properties:
   - type: OpenAPI
@@ -1166,6 +1207,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - ServiceCategory
+  tags_raw:
   - serviceCategory
   properties:
   - type: OpenAPI
@@ -1201,6 +1244,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - ServiceOrder
+  tags_raw:
   - serviceOrder
   properties:
   - type: OpenAPI
@@ -1235,7 +1280,8 @@ apis:
   description: The serviceSpecification API from TM Forum — 2 operation(s) for servicespecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - serviceSpecification
   properties:
   - type: OpenAPI
@@ -1270,7 +1316,8 @@ apis:
   description: The settlementAccount API from TM Forum — 2 operation(s) for settlementaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - settlementAccount
   properties:
   - type: OpenAPI
@@ -1306,6 +1353,8 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
+  - Trouble Ticket
+  tags_raw:
   - troubleTicket
   properties:
   - type: OpenAPI
@@ -1340,7 +1389,8 @@ apis:
   description: Operations for TroubleTicketSpecification Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
+  tags: []
+  tags_raw:
   - troubleTicketSpecification
   properties:
   - type: OpenAPI
