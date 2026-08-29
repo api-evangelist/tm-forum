@@ -9,6 +9,17 @@ description: >-
   management. The Open APIs implement consistent REST/JSON patterns aligned to the TM Forum Information Framework (SID)
   and enable interoperability across telecom ecosystems.
 kind: contract
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: approval
@@ -1421,6 +1432,9 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 common:
+  - type: CapabilityMap
+    url: capabilities/tm-forum-capability-edges.yml
+    name: TM Forum Business Capability Map
   - type: AgenticAccess
     url: agentic-access/tm-forum-agentic-access.yml
   - type: DomainSecurity
