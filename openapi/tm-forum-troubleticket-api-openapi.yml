@@ -1,10 +1,17 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Product Catalog Management agreement troubleTicket API
-  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
-  version: 5.0.0
+  title: Trouble Ticket API
+  description: "**TMF API Reference : TMF - 621 Trouble Ticket**\nThe Trouble Ticket API provides a standardized client interface to Trouble Ticket Management Systems for creating, tracking and managing trouble tickets as a result of an issue or problem identified by a customer or another system. \nExamples of Trouble Ticket API originators (clients) include CRM applications, network management or fault management systems, or other Trouble Ticket management systems (e.g. B2B).\nThe API supports the ability to send requests to create a new trouble ticket specifying the nature and severity of the trouble or issue as well as all necessary related information. The API also includes mechanisms to search for and update existing trouble tickets. Notifications are defined to provide information when a trouble ticket has been updated, including status changes. A basic set of states of a trouble ticket has been specified (as an example) to handle trouble ticket lifecycle management.\nTrouble Ticketing API manages trouble ticket resource:\n  -\tA trouble ticket represents a record, or an issue raised by requestor that need to be solved, used for reporting and managing the resolution of problems, incidents or request \n -\tMain trouble ticket attributes are its description, severity, type, related dates (creation, expected resolution, resolution), state and related information (change reason and change date), related parties (originator, owner, reviser, etc.), related entities (product, product order, customer bill) and notes \n Trouble Ticket API performs the following operations on trouble ticket: \n -\tRetrieval of a trouble ticket or a collection of trouble ticket depending on filter criteria \n -\tPartial update of a trouble ticket \n -\tCreation of a trouble ticket \n \tNotification of events on trouble ticket: \n \t-\tTrouble ticket state change \n \t-\tTrouble ticket attribute value change \n \t-\tTrouble ticket resoled \n \t-\tTrouble ticket delete (typically restricted to admin role) \n \t-\tTrouble ticket created  \n \t-\tTrouble ticket Information required \n Trouble Ticket API performs the following operations on trouble ticket specification \n-\tRetrieval of a trouble ticket specification or a collection of trouble ticket specification depending on filter criteria \n -\tPartial update of a trouble ticket specification \n-\tCreation of a trouble ticket specification \n-\tNotification of events on trouble ticket specification: \n \t-\tTrouble ticket specification state change \n \t-\tTrouble ticket specification attribute value change \n \t-\tTrouble ticket specification delete (typically restricted to admin role) \n \t-\tTrouble ticket specification created "
+  version: 5.0.1
+  x-generation-tooling-version: v8.5.3-hotfix.0
+  x-generation-data-model-version: unknown
 servers:
-- url: https://serverRoot/productCatalogManagement/v5/
+- url: '{apiRoot}/tmf-api/troubleTicket/v5/'
+  variables:
+    apiRoot:
+      default: https://serverRoot
+      enum:
+      - https://serverRoot
 tags:
 - name: troubleTicket
   description: Operations for TroubleTicket Resource
@@ -172,56 +179,6 @@ paths:
           $ref: '#/components/responses/503'
 components:
   schemas:
-    TroubleTicketStatusType:
-      enum:
-      - acknowledged
-      - rejected
-      - pending
-      - held
-      - inProgress
-      - cancelled
-      - closed
-      - resolved
-      type: string
-      description: Possible values for the status of the trouble ticket
-    PartyRefOrPartyRoleRef_MVO:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef_MVO'
-      - $ref: '#/components/schemas/PartyRoleRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_MVO'
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
-    Note_FVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Extra information about a given entity
-        properties:
-          id:
-            type: string
-            description: Identifier of the note within its containing entity
-            example: afa9-3d90aaa8da0f
-          author:
-            type: string
-            description: Author of the note
-            example: Mr. N. Bene
-          date:
-            type: string
-            format: date-time
-            description: Date of the note
-            example: '2020-11-20T08:00:00Z'
-          text:
-            type: string
-            description: Text of the note
-            example: This is important
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Note: '#/components/schemas/Note_FVO'
     PartyRoleRef_MVO:
       allOf:
       - $ref: '#/components/schemas/EntityRef_MVO'
@@ -238,7 +195,55 @@ components:
         propertyName: '@type'
         mapping:
           PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
-    Attachment:
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        startDateTime:
+          description: Start of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+        endDateTime:
+          description: End of the time period, using IETC-RFC-3339 format
+          type: string
+          format: date-time
+          example: '1985-04-12T23:20:50.52Z'
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    StatusChange:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: Holds the status, reasons and associated date the status changed, populated by the server
+        properties:
+          statusChangeDate:
+            type: string
+            format: date-time
+            description: The date and time the status changed.
+          statusChangeReason:
+            type: string
+            description: The reason why the status changed.
+          status:
+            $ref: '#/components/schemas/TroubleTicketStatusType'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          StatusChange: '#/components/schemas/StatusChange'
+    PartyRef:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef'
+    Attachment_MVO:
       allOf:
       - $ref: '#/components/schemas/Entity'
       - type: object
@@ -272,56 +277,49 @@ components:
       discriminator:
         propertyName: '@type'
         mapping:
-          Attachment: '#/components/schemas/Attachment'
-    ChannelRef_FVO:
+          Attachment: '#/components/schemas/Attachment_MVO'
+    Extensible:
       type: object
-      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ChannelRef: '#/components/schemas/ChannelRef_FVO'
-    RelatedEntity_MVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: A reference to an entity, where the type of the entity is not known in advance.
-        properties:
-          role:
-            type: string
-          entity:
-            $ref: '#/components/schemas/EntityRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          RelatedEntity: '#/components/schemas/RelatedEntity_MVO'
-    TroubleTicketSpecificationRef_MVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_MVO'
-      - type: object
-        description: reference to an TroubleTicketSpecification object
-        properties:
-          version:
-            type: string
-            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef_MVO'
-    TroubleTicketSpecificationRef_FVO:
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    PartyRoleRef:
       allOf:
       - $ref: '#/components/schemas/EntityRef'
       - type: object
-        description: reference to an TroubleTicketSpecification object
+        description: Party role reference. A party role represents the part played by a party in a given context.
         properties:
-          version:
+          partyId:
             type: string
-            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
       discriminator:
         propertyName: '@type'
         mapping:
-          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef_FVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef'
+    PartyRefOrPartyRoleRef_FVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_FVO'
+      - $ref: '#/components/schemas/PartyRoleRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
     RelatedEntity_FVO:
       allOf:
       - $ref: '#/components/schemas/Extensible'
@@ -339,51 +337,32 @@ components:
         propertyName: '@type'
         mapping:
           RelatedEntity: '#/components/schemas/RelatedEntity_FVO'
-    PartyRoleRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Party role reference. A party role represents the part played by a party in a given context.
-        properties:
-          partyId:
-            type: string
-            description: The identifier of the engaged party that is linked to the PartyRole object.
-          partyName:
-            type: string
-            description: The name of the engaged party that is linked to the PartyRole object.
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
-    StatusChange_MVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Holds the status, reasons and associated date the status changed, populated by the server
-        properties:
-          statusChangeDate:
-            type: string
-            format: date-time
-            description: The date and time the status changed.
-          statusChangeReason:
-            type: string
-            description: The reason why the status changed.
-          status:
-            $ref: '#/components/schemas/TroubleTicketStatusType'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          StatusChange: '#/components/schemas/StatusChange_MVO'
-    ChannelRef_MVO:
+    JsonPatch:
       type: object
-      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ChannelRef: '#/components/schemas/ChannelRef_MVO'
-    Characteristic_FVO:
+      description: A JSONPatch document as defined by RFC 6902
+      required:
+      - op
+      - path
+      properties:
+        op:
+          type: string
+          description: The operation to be performed
+          enum:
+          - add
+          - remove
+          - replace
+          - move
+          - copy
+          - test
+        path:
+          type: string
+          description: A JSON-Pointer
+        value:
+          description: The value to be used within the operations.
+        from:
+          type: string
+          description: A string containing a JSON Pointer value.
+    Characteristic:
       allOf:
       - $ref: '#/components/schemas/Extensible'
       - type: object
@@ -402,43 +381,247 @@ components:
             type: array
             description: Collection of characteristic relationships
             items:
-              $ref: '#/components/schemas/CharacteristicRelationship_FVO'
-        required:
-        - name
+              $ref: '#/components/schemas/CharacteristicRelationship'
       discriminator:
         propertyName: '@type'
         mapping:
-          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic_FVO'
-          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic_FVO'
-          Characteristic: '#/components/schemas/Characteristic_FVO'
-          FloatCharacteristic: '#/components/schemas/FloatCharacteristic_FVO'
-          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic_FVO'
-          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic_FVO'
-          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic_FVO'
-          NumberCharacteristic: '#/components/schemas/NumberCharacteristic_FVO'
-          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic_FVO'
-          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic_FVO'
-          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic_FVO'
-          StringCharacteristic: '#/components/schemas/StringCharacteristic_FVO'
-    EntityRef_MVO:
+          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic'
+          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic'
+          Characteristic: '#/components/schemas/Characteristic'
+          FloatCharacteristic: '#/components/schemas/FloatCharacteristic'
+          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic'
+          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic'
+          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic'
+          NumberCharacteristic: '#/components/schemas/NumberCharacteristic'
+          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic'
+          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic'
+          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic'
+          StringCharacteristic: '#/components/schemas/StringCharacteristic'
+    ChannelRef_FVO:
+      type: object
+      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ChannelRef: '#/components/schemas/ChannelRef_FVO'
+    Note_MVO:
       allOf:
       - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
       - type: object
-        description: Entity reference schema to be use for all entityRef class.
+        description: Extra information about a given entity
         properties:
           id:
             type: string
-            description: The identifier of the referred entity.
-          href:
+            description: Identifier of the note within its containing entity
+            example: afa9-3d90aaa8da0f
+          author:
             type: string
-            description: The URI of the referred entity.
-          name:
+            description: Author of the note
+            example: Mr. N. Bene
+          date:
             type: string
-            description: Name of the referred entity.
-          '@referredType':
+            format: date-time
+            description: Date of the note
+            example: '2020-11-20T08:00:00Z'
+          text:
             type: string
-            description: The actual type of the target instance when needed for disambiguation.
+            description: Text of the note
+            example: This is important
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Note: '#/components/schemas/Note_MVO'
+    AttachmentRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
+        properties:
+          description:
+            type: string
+            description: A narrative text describing the content of the attachment
+          url:
+            description: Link to the attachment media/content
+            type: string
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          AttachmentRef: '#/components/schemas/AttachmentRef_FVO'
+    PartyRefOrPartyRoleRef:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef'
+      - $ref: '#/components/schemas/PartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef'
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    PartyRoleRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
+    Note_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: Extra information about a given entity
+        properties:
+          id:
+            type: string
+            description: Identifier of the note within its containing entity
+            example: afa9-3d90aaa8da0f
+          author:
+            type: string
+            description: Author of the note
+            example: Mr. N. Bene
+          date:
+            type: string
+            format: date-time
+            description: Date of the note
+            example: '2020-11-20T08:00:00Z'
+          text:
+            type: string
+            description: Text of the note
+            example: This is important
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Note: '#/components/schemas/Note_FVO'
+    Note:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: Extra information about a given entity
+        properties:
+          id:
+            type: string
+            description: Identifier of the note within its containing entity
+            example: afa9-3d90aaa8da0f
+          author:
+            type: string
+            description: Author of the note
+            example: Mr. N. Bene
+          date:
+            type: string
+            format: date-time
+            description: Date of the note
+            example: '2020-11-20T08:00:00Z'
+          text:
+            type: string
+            description: Text of the note
+            example: This is important
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Note: '#/components/schemas/Note'
+    ExternalIdentifier_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: An identification of an entity that is owned by or originates in a software system different from the current system, for example a ProductOrder handed off from a commerce platform into an order handling system. The structure identifies the system itself, the nature of the entity within the system (e.g. class name) and the unique ID of the entity within the system. It is anticipated that multiple external IDs can be held for a single entity, e.g. if the entity passed through multiple systems on the way to the current system. In this case the consumer is expected to sequence the IDs in the array in reverse order of provenance, i.e. most recent system first in the list.
+        properties:
+          owner:
+            type: string
+            description: Name of the external system that owns the entity.
+            example: MagentoCommerce
+          externalIdentifierType:
+            type: string
+            description: Type of the identification, typically would be the type of the entity within the external system
+            example: ProductOrder
+          id:
+            type: string
+            description: identification of the entity within the external system.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ExternalIdentifier: '#/components/schemas/ExternalIdentifier_MVO'
+    RelatedPartyRefOrPartyRoleRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_FVO'
+        required:
+        - role
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
+    TroubleTicket_RES:
+      type: object
+      description: Response object for TroubleTicket
+      allOf:
+      - $ref: '#/components/schemas/TroubleTicket'
+      required:
+      - id
+      - href
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicket: '#/components/schemas/TroubleTicket'
+    RelatedEntity:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: A reference to an entity, where the type of the entity is not known in advance.
+        properties:
+          role:
+            type: string
+          entity:
+            $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedEntity: '#/components/schemas/RelatedEntity'
     TroubleTicket:
       allOf:
       - $ref: '#/components/schemas/Entity'
@@ -536,23 +719,6 @@ components:
         propertyName: '@type'
         mapping:
           TroubleTicket: '#/components/schemas/TroubleTicket'
-    JsonPatchOperations:
-      description: JSONPatch Operations document as defined by RFC 6902
-      type: array
-      items:
-        $ref: '#/components/schemas/JsonPatch'
-    Quantity:
-      type: object
-      description: An amount in a given unit
-      properties:
-        amount:
-          type: number
-          format: float
-          default: 1
-          description: Numeric value in a given unit
-        units:
-          type: string
-          description: Unit
     CharacteristicRelationship_MVO:
       allOf:
       - $ref: '#/components/schemas/Extensible'
@@ -569,72 +735,101 @@ components:
         propertyName: '@type'
         mapping:
           CharacteristicRelationship: '#/components/schemas/CharacteristicRelationship_MVO'
-    PartyRoleRef:
+    CharacteristicRelationship_FVO:
       allOf:
-      - $ref: '#/components/schemas/EntityRef'
+      - $ref: '#/components/schemas/Extensible'
       - type: object
-        description: Party role reference. A party role represents the part played by a party in a given context.
+        description: Another Characteristic that is related to the current Characteristic;
         properties:
-          partyId:
+          id:
             type: string
-            description: The identifier of the engaged party that is linked to the PartyRole object.
-          partyName:
+            description: Unique identifier of the characteristic
+          relationshipType:
             type: string
-            description: The name of the engaged party that is linked to the PartyRole object.
+            description: The type of relationship
+        required:
+        - id
+        - relationshipType
       discriminator:
         propertyName: '@type'
         mapping:
-          PartyRoleRef: '#/components/schemas/PartyRoleRef'
-    Attachment_FVO:
+          CharacteristicRelationship: '#/components/schemas/CharacteristicRelationship_FVO'
+    AttachmentRef_MVO:
       allOf:
-      - $ref: '#/components/schemas/Entity'
+      - $ref: '#/components/schemas/EntityRef_MVO'
       - type: object
-        description: Complements the description of an element (for instance a product) through video, pictures...
+        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
         properties:
-          name:
-            type: string
-            description: The name of the attachment
           description:
             type: string
             description: A narrative text describing the content of the attachment
-            example: Photograph of the Product
           url:
+            description: Link to the attachment media/content
             type: string
-            description: Uniform Resource Locator, is a web page address (a subset of URI)
-            example: https://host/Content/4aafacbd-11ff-4dc8-b445-305f2215715f
-          content:
-            type: string
-            format: base64
-            description: The actual contents of the attachment object, if embedded, encoded as base64
-          size:
-            $ref: '#/components/schemas/Quantity'
-          validFor:
-            $ref: '#/components/schemas/TimePeriod'
-          attachmentType:
-            type: string
-            description: a business characterization of the purpose of the attachment, for example logo, instructionManual, contractCopy
-          mimeType:
-            type: string
-            description: a technical characterization of the attachment content format using IETF Mime Types
-        required:
-        - attachmentType
-        - mimeType
       discriminator:
         propertyName: '@type'
         mapping:
-          Attachment: '#/components/schemas/Attachment_FVO'
-    AttachmentRefOrValue_FVO:
+          AttachmentRef: '#/components/schemas/AttachmentRef_MVO'
+    PartyRef_MVO:
       type: object
-      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
-      oneOf:
-      - $ref: '#/components/schemas/Attachment_FVO'
-      - $ref: '#/components/schemas/AttachmentRef_FVO'
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_MVO'
       discriminator:
         propertyName: '@type'
         mapping:
-          Attachment: '#/components/schemas/Attachment_FVO'
-          AttachmentRef: '#/components/schemas/AttachmentRef_FVO'
-    ExternalIdentifier_MVO:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+    TroubleTicketSpecificationRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: reference to an TroubleTicketSpecification object
+        properties:
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef_FVO'
+    EntityRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+    ChannelRef_MVO:
+      type: object
+      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ChannelRef: '#/components/schemas/ChannelRef_MVO'
+    PartyRef_FVO:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+    ExternalIdentifier:
       allOf:
       - $ref: '#/components/schemas/Extensible'
       - type: object
@@ -654,58 +849,73 @@ components:
       discriminator:
         propertyName: '@type'
         mapping:
-          ExternalIdentifier: '#/components/schemas/ExternalIdentifier_MVO'
-    PartyRef_MVO:
-      type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_MVO'
-    TroubleTicketRelationship:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Represents a relationship between trouble tickets
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the related trouble ticket
-          name:
-            type: string
-            description: Name of the trouble ticket
-          relationshipType:
-            type: string
-            description: Type of relationship
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship'
-    PartyRef:
-      type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef'
-    RelatedEntity:
+          ExternalIdentifier: '#/components/schemas/ExternalIdentifier'
+    CharacteristicRelationship:
       allOf:
       - $ref: '#/components/schemas/Extensible'
       - type: object
-        description: A reference to an entity, where the type of the entity is not known in advance.
+        description: Another Characteristic that is related to the current Characteristic;
         properties:
-          role:
+          id:
             type: string
-          entity:
-            $ref: '#/components/schemas/EntityRef'
+            description: Unique identifier of the characteristic
+          relationshipType:
+            type: string
+            description: The type of relationship
       discriminator:
         propertyName: '@type'
         mapping:
-          RelatedEntity: '#/components/schemas/RelatedEntity'
+          CharacteristicRelationship: '#/components/schemas/CharacteristicRelationship'
+    AttachmentRef:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
+        properties:
+          description:
+            type: string
+            description: A narrative text describing the content of the attachment
+          url:
+            description: Link to the attachment media/content
+            type: string
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          AttachmentRef: '#/components/schemas/AttachmentRef'
+    TroubleTicketSpecificationRef:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: reference to an TroubleTicketSpecification object
+        properties:
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef'
+    ChannelRef:
+      type: object
+      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ChannelRef: '#/components/schemas/ChannelRef'
+    TroubleTicketStatusType:
+      enum:
+      - acknowledged
+      - rejected
+      - pending
+      - held
+      - inProgress
+      - cancelled
+      - closed
+      - resolved
+      type: string
+      description: Possible values for the status of the trouble ticket
     TroubleTicket_FVO:
       allOf:
       - $ref: '#/components/schemas/Entity'
@@ -794,42 +1004,7 @@ components:
         propertyName: '@type'
         mapping:
           TroubleTicket: '#/components/schemas/TroubleTicket_FVO'
-    Characteristic_MVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: 'Describes a given characteristic of an object or entity through a name/value pair. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : StringCharacteristic, ObjectCharacteristic, FloatCharacteristic, BooleanCharacteristic, NumberCharacteristic, IntegerCharacteristic, StringArrayCharacteristic, ObjectArrayCharacteristic, BooleanArrayCharacteristic, NumberArrayCharacteristic, IntegerArrayCharacteristic...'
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the characteristic
-          name:
-            type: string
-            description: Name of the characteristic
-          valueType:
-            type: string
-            description: Data type of the value of the characteristic
-          characteristicRelationship:
-            type: array
-            description: Collection of characteristic relationships
-            items:
-              $ref: '#/components/schemas/CharacteristicRelationship_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic_MVO'
-          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic_MVO'
-          Characteristic: '#/components/schemas/Characteristic_MVO'
-          FloatCharacteristic: '#/components/schemas/FloatCharacteristic_MVO'
-          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic_MVO'
-          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic_MVO'
-          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic_MVO'
-          NumberCharacteristic: '#/components/schemas/NumberCharacteristic_MVO'
-          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic_MVO'
-          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic_MVO'
-          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic_MVO'
-          StringCharacteristic: '#/components/schemas/StringCharacteristic_MVO'
-    Attachment_MVO:
+    Attachment:
       allOf:
       - $ref: '#/components/schemas/Entity'
       - type: object
@@ -863,10 +1038,45 @@ components:
       discriminator:
         propertyName: '@type'
         mapping:
-          Attachment: '#/components/schemas/Attachment_MVO'
-    TroubleTicketRelationship_MVO:
+          Attachment: '#/components/schemas/Attachment'
+    TroubleTicketSpecificationRef_MVO:
       allOf:
       - $ref: '#/components/schemas/EntityRef_MVO'
+      - type: object
+        description: reference to an TroubleTicketSpecification object
+        properties:
+          version:
+            type: string
+            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef_MVO'
+    TroubleTicketRelationship_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Represents a relationship between trouble tickets
+        properties:
+          id:
+            type: string
+            description: Unique identifier of the related trouble ticket
+          name:
+            type: string
+            description: Name of the trouble ticket
+          relationshipType:
+            type: string
+            description: Type of relationship
+        required:
+        - id
+        - relationshipType
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship_FVO'
+    TroubleTicketRelationship:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
       - type: object
         description: Represents a relationship between trouble tickets
         properties:
@@ -882,34 +1092,139 @@ components:
       discriminator:
         propertyName: '@type'
         mapping:
-          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship_MVO'
-    Note_MVO:
+          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship'
+    RelatedEntity_MVO:
       allOf:
       - $ref: '#/components/schemas/Extensible'
       - type: object
-        description: Extra information about a given entity
+        description: A reference to an entity, where the type of the entity is not known in advance.
         properties:
-          id:
+          role:
             type: string
-            description: Identifier of the note within its containing entity
-            example: afa9-3d90aaa8da0f
-          author:
-            type: string
-            description: Author of the note
-            example: Mr. N. Bene
-          date:
-            type: string
-            format: date-time
-            description: Date of the note
-            example: '2020-11-20T08:00:00Z'
-          text:
-            type: string
-            description: Text of the note
-            example: This is important
+          entity:
+            $ref: '#/components/schemas/EntityRef_MVO'
       discriminator:
         propertyName: '@type'
         mapping:
-          Note: '#/components/schemas/Note_MVO'
+          RelatedEntity: '#/components/schemas/RelatedEntity_MVO'
+    EntityRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    AttachmentRefOrValue_MVO:
+      type: object
+      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
+      oneOf:
+      - $ref: '#/components/schemas/Attachment_MVO'
+      - $ref: '#/components/schemas/AttachmentRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Attachment: '#/components/schemas/Attachment_MVO'
+          AttachmentRef: '#/components/schemas/AttachmentRef_MVO'
+    PartyRefOrPartyRoleRef_MVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_MVO'
+      - $ref: '#/components/schemas/PartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
+    Quantity:
+      type: object
+      description: An amount in a given unit
+      properties:
+        amount:
+          type: number
+          format: float
+          default: 1
+          description: Numeric value in a given unit
+        units:
+          type: string
+          description: Unit
+    AttachmentRefOrValue_FVO:
+      type: object
+      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
+      oneOf:
+      - $ref: '#/components/schemas/Attachment_FVO'
+      - $ref: '#/components/schemas/AttachmentRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Attachment: '#/components/schemas/Attachment_FVO'
+          AttachmentRef: '#/components/schemas/AttachmentRef_FVO'
+    Characteristic_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: 'Describes a given characteristic of an object or entity through a name/value pair. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : StringCharacteristic, ObjectCharacteristic, FloatCharacteristic, BooleanCharacteristic, NumberCharacteristic, IntegerCharacteristic, StringArrayCharacteristic, ObjectArrayCharacteristic, BooleanArrayCharacteristic, NumberArrayCharacteristic, IntegerArrayCharacteristic...'
+        properties:
+          id:
+            type: string
+            description: Unique identifier of the characteristic
+          name:
+            type: string
+            description: Name of the characteristic
+          valueType:
+            type: string
+            description: Data type of the value of the characteristic
+          characteristicRelationship:
+            type: array
+            description: Collection of characteristic relationships
+            items:
+              $ref: '#/components/schemas/CharacteristicRelationship_FVO'
+        required:
+        - name
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic_FVO'
+          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic_FVO'
+          Characteristic: '#/components/schemas/Characteristic_FVO'
+          FloatCharacteristic: '#/components/schemas/FloatCharacteristic_FVO'
+          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic_FVO'
+          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic_FVO'
+          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic_FVO'
+          NumberCharacteristic: '#/components/schemas/NumberCharacteristic_FVO'
+          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic_FVO'
+          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic_FVO'
+          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic_FVO'
+          StringCharacteristic: '#/components/schemas/StringCharacteristic_FVO'
+    RelatedPartyRefOrPartyRoleRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
     TroubleTicket_MVO:
       allOf:
       - $ref: '#/components/schemas/Entity'
@@ -995,450 +1310,6 @@ components:
         propertyName: '@type'
         mapping:
           TroubleTicket: '#/components/schemas/TroubleTicket_MVO'
-    RelatedPartyRefOrPartyRoleRef:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
-    RelatedPartyRefOrPartyRoleRef_MVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
-    TroubleTicketSpecificationRef:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: reference to an TroubleTicketSpecification object
-        properties:
-          version:
-            type: string
-            description: The version of the trouble ticket specification, in case it is desired to maintain multiple versions of trouble ticket specifications
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          TroubleTicketSpecificationRef: '#/components/schemas/TroubleTicketSpecificationRef'
-    TroubleTicketRelationship_FVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Represents a relationship between trouble tickets
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the related trouble ticket
-          name:
-            type: string
-            description: Name of the trouble ticket
-          relationshipType:
-            type: string
-            description: Type of relationship
-        required:
-        - id
-        - relationshipType
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship_FVO'
-    ChannelRef:
-      type: object
-      description: The channel to which the resource reference to. e.g. channel for selling product offerings, channel for opening a trouble ticket etc..
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ChannelRef: '#/components/schemas/ChannelRef'
-    Error:
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Error: '#/components/schemas/Error'
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        required:
-        - code
-        - reason
-        properties:
-          code:
-            type: string
-            description: Application relevant detail, defined in the API or a common list.
-          reason:
-            type: string
-            description: Explanation of the reason for the error which can be shown to a client user.
-          message:
-            type: string
-            description: More details and corrective actions related to the error which can be shown to a client user.
-          status:
-            type: string
-            description: HTTP Error code extension
-          referenceError:
-            type: string
-            description: URI of documentation describing the error.
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    CharacteristicRelationship:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Another Characteristic that is related to the current Characteristic;
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the characteristic
-          relationshipType:
-            type: string
-            description: The type of relationship
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          CharacteristicRelationship: '#/components/schemas/CharacteristicRelationship'
-    JsonPatch:
-      type: object
-      description: A JSONPatch document as defined by RFC 6902
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          description: The operation to be performed
-          enum:
-          - add
-          - remove
-          - replace
-          - move
-          - copy
-          - test
-        path:
-          type: string
-          description: A JSON-Pointer
-        value:
-          description: The value to be used within the operations.
-        from:
-          type: string
-          description: A string containing a JSON Pointer value.
-    Entity:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
-    TimePeriod:
-      type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        startDateTime:
-          description: Start of the time period, using IETC-RFC-3339 format
-          type: string
-          format: date-time
-          example: '1985-04-12T23:20:50.52Z'
-        endDateTime:
-          description: End of the time period, using IETC-RFC-3339 format
-          type: string
-          format: date-time
-          example: '1985-04-12T23:20:50.52Z'
-    PartyRefOrPartyRoleRef_FVO:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef_FVO'
-      - $ref: '#/components/schemas/PartyRoleRef_FVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_FVO'
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
-    AttachmentRefOrValue_MVO:
-      type: object
-      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
-      oneOf:
-      - $ref: '#/components/schemas/Attachment_MVO'
-      - $ref: '#/components/schemas/AttachmentRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Attachment: '#/components/schemas/Attachment_MVO'
-          AttachmentRef: '#/components/schemas/AttachmentRef_MVO'
-    AttachmentRef_MVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_MVO'
-      - type: object
-        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
-        properties:
-          description:
-            type: string
-            description: A narrative text describing the content of the attachment
-          url:
-            description: Link to the attachment media/content
-            type: string
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          AttachmentRef: '#/components/schemas/AttachmentRef_MVO'
-    CharacteristicRelationship_FVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Another Characteristic that is related to the current Characteristic;
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the characteristic
-          relationshipType:
-            type: string
-            description: The type of relationship
-        required:
-        - id
-        - relationshipType
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          CharacteristicRelationship: '#/components/schemas/CharacteristicRelationship_FVO'
-    Characteristic:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: 'Describes a given characteristic of an object or entity through a name/value pair. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : StringCharacteristic, ObjectCharacteristic, FloatCharacteristic, BooleanCharacteristic, NumberCharacteristic, IntegerCharacteristic, StringArrayCharacteristic, ObjectArrayCharacteristic, BooleanArrayCharacteristic, NumberArrayCharacteristic, IntegerArrayCharacteristic...'
-        properties:
-          id:
-            type: string
-            description: Unique identifier of the characteristic
-          name:
-            type: string
-            description: Name of the characteristic
-          valueType:
-            type: string
-            description: Data type of the value of the characteristic
-          characteristicRelationship:
-            type: array
-            description: Collection of characteristic relationships
-            items:
-              $ref: '#/components/schemas/CharacteristicRelationship'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic'
-          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic'
-          Characteristic: '#/components/schemas/Characteristic'
-          FloatCharacteristic: '#/components/schemas/FloatCharacteristic'
-          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic'
-          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic'
-          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic'
-          NumberCharacteristic: '#/components/schemas/NumberCharacteristic'
-          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic'
-          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic'
-          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic'
-          StringCharacteristic: '#/components/schemas/StringCharacteristic'
-    ExternalIdentifier:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: An identification of an entity that is owned by or originates in a software system different from the current system, for example a ProductOrder handed off from a commerce platform into an order handling system. The structure identifies the system itself, the nature of the entity within the system (e.g. class name) and the unique ID of the entity within the system. It is anticipated that multiple external IDs can be held for a single entity, e.g. if the entity passed through multiple systems on the way to the current system. In this case the consumer is expected to sequence the IDs in the array in reverse order of provenance, i.e. most recent system first in the list.
-        properties:
-          owner:
-            type: string
-            description: Name of the external system that owns the entity.
-            example: MagentoCommerce
-          externalIdentifierType:
-            type: string
-            description: Type of the identification, typically would be the type of the entity within the external system
-            example: ProductOrder
-          id:
-            type: string
-            description: identification of the entity within the external system.
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ExternalIdentifier: '#/components/schemas/ExternalIdentifier'
-    Addressable:
-      type: object
-      description: Base schema for addressable entities
-      properties:
-        href:
-          type: string
-          description: Hyperlink reference
-        id:
-          type: string
-          description: unique identifier
-    Note:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Extra information about a given entity
-        properties:
-          id:
-            type: string
-            description: Identifier of the note within its containing entity
-            example: afa9-3d90aaa8da0f
-          author:
-            type: string
-            description: Author of the note
-            example: Mr. N. Bene
-          date:
-            type: string
-            format: date-time
-            description: Date of the note
-            example: '2020-11-20T08:00:00Z'
-          text:
-            type: string
-            description: Text of the note
-            example: This is important
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Note: '#/components/schemas/Note'
-    PartyRef_FVO:
-      type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_FVO'
-    AttachmentRefOrValue:
-      type: object
-      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
-      oneOf:
-      - $ref: '#/components/schemas/Attachment'
-      - $ref: '#/components/schemas/AttachmentRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Attachment: '#/components/schemas/Attachment'
-          AttachmentRef: '#/components/schemas/AttachmentRef'
-    TroubleTicket_RES:
-      type: object
-      description: Response object for TroubleTicket
-      allOf:
-      - $ref: '#/components/schemas/TroubleTicket'
-      required:
-      - id
-      - href
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          TroubleTicket: '#/components/schemas/TroubleTicket'
-    PartyRefOrPartyRoleRef:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef'
-      - $ref: '#/components/schemas/PartyRoleRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef'
-          PartyRoleRef: '#/components/schemas/PartyRoleRef'
-    StatusChange:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: Holds the status, reasons and associated date the status changed, populated by the server
-        properties:
-          statusChangeDate:
-            type: string
-            format: date-time
-            description: The date and time the status changed.
-          statusChangeReason:
-            type: string
-            description: The reason why the status changed.
-          status:
-            $ref: '#/components/schemas/TroubleTicketStatusType'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          StatusChange: '#/components/schemas/StatusChange'
-    RelatedPartyRefOrPartyRoleRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_FVO'
-        required:
-        - role
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
-    AttachmentRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
-        properties:
-          description:
-            type: string
-            description: A narrative text describing the content of the attachment
-          url:
-            description: Link to the attachment media/content
-            type: string
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          AttachmentRef: '#/components/schemas/AttachmentRef_FVO'
-    Extensible:
-      type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    EntityRef:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
-      - type: object
-        description: Entity reference schema to be use for all entityRef class.
-        properties:
-          id:
-            type: string
-            description: The identifier of the referred entity.
-          href:
-            type: string
-            description: The URI of the referred entity.
-          name:
-            type: string
-            description: Name of the referred entity.
-          '@referredType':
-            type: string
-            description: The actual type of the target instance when needed for disambiguation.
-        required:
-        - id
     ExternalIdentifier_FVO:
       allOf:
       - $ref: '#/components/schemas/Extensible'
@@ -1462,137 +1333,168 @@ components:
         propertyName: '@type'
         mapping:
           ExternalIdentifier: '#/components/schemas/ExternalIdentifier_FVO'
-    AttachmentRef:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
-        properties:
-          description:
-            type: string
-            description: A narrative text describing the content of the attachment
-          url:
-            description: Link to the attachment media/content
-            type: string
+    AttachmentRefOrValue:
+      type: object
+      description: The polymorphic attributes @type, @schemaLocation & @referredType are related to the Attachment entity and not the AttachmentRefOrValue class itself
+      oneOf:
+      - $ref: '#/components/schemas/Attachment'
+      - $ref: '#/components/schemas/AttachmentRef'
       discriminator:
         propertyName: '@type'
         mapping:
+          Attachment: '#/components/schemas/Attachment'
           AttachmentRef: '#/components/schemas/AttachmentRef'
-  requestBodies:
-    TroubleTicket_FVO:
-      description: The TroubleTicket to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_FVO'
-          examples:
-            TroubleTicket_create_example:
-              $ref: '#/components/examples/TroubleTicket_create_example_request'
-      required: true
-    TroubleTicket_MVO:
-      description: The TroubleTicket to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_MVO'
-          examples:
-            TroubleTicket_partialupdate_example_application_json:
-              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_MVO'
-          examples:
-            TroubleTicket_partialupdate_example_application_merge_json:
-              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_merge_json_request'
-        application/json-patch+json:
-          schema:
-            $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            TroubleTicket_partialupdate_example_application_json_patch:
-              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_patch_request'
-        application/json-patch-query+json:
-          schema:
-            $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            TroubleTicket_partialupdate_example_application_json_patch_query:
-              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_patch_query_request'
-      required: true
-  parameters:
-    Sort:
-      name: sort
-      in: query
-      description: The default direction is Ascending order, the use of the modifier in front of the sort field name, “-“, changes the sort order direction.
-      schema:
-        type: string
-    Offset:
-      name: offset
-      in: query
-      description: Requested index for start of resources to be provided in response
-      schema:
-        type: integer
-    After:
-      name: after
-      in: query
-      description: An opaque string value representing the page results after the cursor value
-      schema:
-        type: string
-    Filter:
-      name: filter
-      in: query
-      description: Filter a collection using JSONPath
-      schema:
-        type: string
-        example: attachment[?(@size==300)]
-    Limit:
-      name: limit
-      in: query
-      description: Requested number of resources to be provided in response
-      schema:
-        type: integer
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated properties to be provided in response
-      schema:
-        type: string
-    Before:
-      name: before
-      in: query
-      description: An opaque string value representing the page results before the cursor value
-      schema:
-        type: string
-  headers:
-    X-Result-Count:
-      description: Actual number of items returned in the response body
-      schema:
-        type: integer
-    X-Total-Count:
-      description: Total number of items matching criteria
-      schema:
-        type: integer
+    Addressable:
+      type: object
+      description: Base schema for addressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    StatusChange_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: Holds the status, reasons and associated date the status changed, populated by the server
+        properties:
+          statusChangeDate:
+            type: string
+            format: date-time
+            description: The date and time the status changed.
+          statusChangeReason:
+            type: string
+            description: The reason why the status changed.
+          status:
+            $ref: '#/components/schemas/TroubleTicketStatusType'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          StatusChange: '#/components/schemas/StatusChange_MVO'
+    JsonPatchOperations:
+      description: JSONPatch Operations document as defined by RFC 6902
+      type: array
+      items:
+        $ref: '#/components/schemas/JsonPatch'
+    RelatedPartyRefOrPartyRoleRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
+    Attachment_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: Complements the description of an element (for instance a product) through video, pictures...
+        properties:
+          name:
+            type: string
+            description: The name of the attachment
+          description:
+            type: string
+            description: A narrative text describing the content of the attachment
+            example: Photograph of the Product
+          url:
+            type: string
+            description: Uniform Resource Locator, is a web page address (a subset of URI)
+            example: https://host/Content/4aafacbd-11ff-4dc8-b445-305f2215715f
+          content:
+            type: string
+            format: base64
+            description: The actual contents of the attachment object, if embedded, encoded as base64
+          size:
+            $ref: '#/components/schemas/Quantity'
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
+          attachmentType:
+            type: string
+            description: a business characterization of the purpose of the attachment, for example logo, instructionManual, contractCopy
+          mimeType:
+            type: string
+            description: a technical characterization of the attachment content format using IETF Mime Types
+        required:
+        - attachmentType
+        - mimeType
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Attachment: '#/components/schemas/Attachment_FVO'
+    TroubleTicketRelationship_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_MVO'
+      - type: object
+        description: Represents a relationship between trouble tickets
+        properties:
+          id:
+            type: string
+            description: Unique identifier of the related trouble ticket
+          name:
+            type: string
+            description: Name of the trouble ticket
+          relationshipType:
+            type: string
+            description: Type of relationship
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          TroubleTicketRelationship: '#/components/schemas/TroubleTicketRelationship_MVO'
+    Characteristic_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: 'Describes a given characteristic of an object or entity through a name/value pair. This is an abstract base class, the actual value is in one of the strongly-typed subclasses : StringCharacteristic, ObjectCharacteristic, FloatCharacteristic, BooleanCharacteristic, NumberCharacteristic, IntegerCharacteristic, StringArrayCharacteristic, ObjectArrayCharacteristic, BooleanArrayCharacteristic, NumberArrayCharacteristic, IntegerArrayCharacteristic...'
+        properties:
+          id:
+            type: string
+            description: Unique identifier of the characteristic
+          name:
+            type: string
+            description: Name of the characteristic
+          valueType:
+            type: string
+            description: Data type of the value of the characteristic
+          characteristicRelationship:
+            type: array
+            description: Collection of characteristic relationships
+            items:
+              $ref: '#/components/schemas/CharacteristicRelationship_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          BooleanArrayCharacteristic: '#/components/schemas/BooleanArrayCharacteristic_MVO'
+          BooleanCharacteristic: '#/components/schemas/BooleanCharacteristic_MVO'
+          Characteristic: '#/components/schemas/Characteristic_MVO'
+          FloatCharacteristic: '#/components/schemas/FloatCharacteristic_MVO'
+          IntegerArrayCharacteristic: '#/components/schemas/IntegerArrayCharacteristic_MVO'
+          IntegerCharacteristic: '#/components/schemas/IntegerCharacteristic_MVO'
+          NumberArrayCharacteristic: '#/components/schemas/NumberArrayCharacteristic_MVO'
+          NumberCharacteristic: '#/components/schemas/NumberCharacteristic_MVO'
+          ObjectArrayCharacteristic: '#/components/schemas/ObjectArrayCharacteristic_MVO'
+          ObjectCharacteristic: '#/components/schemas/ObjectCharacteristic_MVO'
+          StringArrayCharacteristic: '#/components/schemas/StringArrayCharacteristic_MVO'
+          StringCharacteristic: '#/components/schemas/StringCharacteristic_MVO'
   responses:
-    '403':
-      description: Forbidden
+    200TroubleTicket_Get:
+      description: Success
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/TroubleTicket_RES'
           examples:
-            basic:
-              summary: Forbidden Error
-              value:
-                '@type': Error
-                code: ERR403
-                reason: Forbidden
-                message: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-                referenceError: https://host/errors
+            TroubleTicket_retrieve_example:
+              $ref: '#/components/examples/TroubleTicket_retrieve_example_response'
     200TroubleTicketArray:
       description: Success
       headers:
@@ -1611,80 +1513,6 @@ components:
               $ref: '#/components/examples/TroubleTicket_list_with_filter_and_fields_example_response'
             TroubleTicket_list_example:
               $ref: '#/components/examples/TroubleTicket_list_example_response'
-    200TroubleTicket_Get:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_RES'
-          examples:
-            TroubleTicket_retrieve_example:
-              $ref: '#/components/examples/TroubleTicket_retrieve_example_response'
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            basic:
-              summary: Service Unavailable Error
-              value:
-                '@type': Error
-                code: ERR503
-                reason: Service Unavailable
-                message: The service is currently unavailable. Please try again later.
-                referenceError: https://host/errors
-    201TroubleTicket:
-      description: OK/Created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_RES'
-          examples:
-            TroubleTicket_create_example:
-              $ref: '#/components/examples/TroubleTicket_create_example_response'
-    '400':
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            basic:
-              summary: Bad Request Error
-              value:
-                '@type': Error
-                code: ERR400
-                reason: Bad Request
-                message: The server could not understand the request due to invalid syntax. Please correct the syntax and try again.
-                referenceError: https://host/errors
-    200TroubleTicket_Patch:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/TroubleTicket_RES'
-          examples:
-            TroubleTicket_partialupdate_example_application_json:
-              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_response'
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          examples:
-            basic:
-              summary: Unauthorized Error
-              value:
-                '@type': Error
-                code: ERR401
-                reason: Unauthorized
-                message: You are not authorized to access the requested resource. Please provide the correct credentials.
-                referenceError: https://host/errors
-    '202':
-      description: Accepted
     '500':
       description: Internal Server Error
       content:
@@ -1699,6 +1527,36 @@ components:
                 code: ERR500
                 reason: Internal Server Error
                 message: The server encountered an internal error. Please contact the system administrator.
+                referenceError: https://host/errors
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Method Not allowed Error
+              value:
+                '@type': Error
+                code: ERR405
+                reason: Method Not allowed
+                message: The method is not allowed for the requested URL.
+                referenceError: https://host/errors
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Forbidden Error
+              value:
+                '@type': Error
+                code: ERR403
+                reason: Forbidden
+                message: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
                 referenceError: https://host/errors
     '501':
       description: Not Implemented
@@ -1715,6 +1573,15 @@ components:
                 reason: The requested operation is not implemented
                 message: The requested operation is not implemented. Please contact the system administrator.
                 referenceError: https://host/errors
+    200TroubleTicket_Patch:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicket_RES'
+          examples:
+            TroubleTicket_partialupdate_example_application_json:
+              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_response'
     '404':
       description: Not Found
       content:
@@ -1745,23 +1612,64 @@ components:
                 reason: Conflict
                 message: The request could not be completed due to a conflict with the current state of the target resource.
                 referenceError: https://host/errors
-    '204':
-      description: Deleted
-    '405':
-      description: Method Not allowed
+    '400':
+      description: Bad Request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
           examples:
             basic:
-              summary: Method Not allowed Error
+              summary: Bad Request Error
               value:
                 '@type': Error
-                code: ERR405
-                reason: Method Not allowed
-                message: The method is not allowed for the requested URL.
+                code: ERR400
+                reason: Bad Request
+                message: The server could not understand the request due to invalid syntax. Please correct the syntax and try again.
                 referenceError: https://host/errors
+    201TroubleTicket:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicket_RES'
+          examples:
+            TroubleTicket_create_example:
+              $ref: '#/components/examples/TroubleTicket_create_example_response'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Unauthorized Error
+              value:
+                '@type': Error
+                code: ERR401
+                reason: Unauthorized
+                message: You are not authorized to access the requested resource. Please provide the correct credentials.
+                referenceError: https://host/errors
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Service Unavailable Error
+              value:
+                '@type': Error
+                code: ERR503
+                reason: Service Unavailable
+                message: The service is currently unavailable. Please try again later.
+                referenceError: https://host/errors
+    '202':
+      description: Accepted
+    '204':
+      description: Deleted
   examples:
     TroubleTicket_partialupdate_example_application_merge_json_request:
       value:
@@ -1769,6 +1677,215 @@ components:
         status: resolved
         statusChangeReason: Give credit and resent bill to customer
       description: Here's an example of a request for updating a trouble ticket - set status to resolved. This example illustrating patch merge, When PATCH is implemeted merge syntax is mandatory
+    TroubleTicket_partialupdate_example_application_json_request:
+      value:
+        '@type': TroubleTicket
+        status: resolved
+        statusChangeReason: Give credit and resent bill to customer
+      description: Here's an example of a request for updating a trouble ticket - set status to resolved. This example illustrating patch application/json
+    TroubleTicket_retrieve_example_response:
+      value:
+        id: '3180'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180
+        creationDate: '2022-05-31T07:34:45.968Z'
+        description: 'I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle '
+        expectedResolutionDate: '2019-06-10T07:34:45.968Z'
+        lastUpdate: '2022-05-31T07:34:45.968Z'
+        name: complaint over last bill
+        priority: High
+        requestedResolutionDate: '2022-05-31T07:34:45.968Z'
+        resolutionDate: '2022-05-31T07:34:45.968Z'
+        severity: Minor
+        status: resolved
+        statusChangeDate: '2022-05-31T07:34:45.968Z'
+        statusChangeReason: Apply full credit
+        ticketType: Bill Dispute
+        troubleTicketCharacteristic:
+        - id: '1'
+          name: disputeAmount
+          valueType: number
+          value: 40
+          '@type': NumberCharacteristic
+        - id: '2'
+          name: creditAmount
+          valueType: number
+          value: 40
+          characteristicRelationship:
+          - id: '4'
+            relationshipType: dependency
+            '@type': CharacteristicRelationship
+          '@type': NumberCharacteristic
+        - id: '3'
+          name: currency
+          valueType: string
+          value: USD
+          '@type': StringCharacteristic
+        - id: '4'
+          name: creditReason
+          valueType: string
+          value: Network connectivity issues
+          '@type': StringCharacteristic
+        attachment:
+        - description: Scanned disputed bill
+          attachmentType: billCopy
+          mimeType: image/png
+          name: March Bill
+          url: https://mycsp.com:7070/docloader?docnum=3534555
+          '@type': Attachment
+        channel:
+          id: '8774'
+          name: self service
+          '@type': ChannelRef
+        note:
+        - id: '77456'
+          author: Jack Smith
+          date: '2019-05-31T07:34:45.968Z'
+          text: This is quite important, please approach me as soon as possible
+          '@type': Note
+        relatedEntity:
+        - role: disputedBill
+          '@type': RelatedEntity
+          entity:
+            id: '3472'
+            href: https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297
+            name: March 2019 Bill
+            '@type': EntityRef
+            '@referredType': CustomerBill
+        relatedParty:
+        - role: member
+          partyOrPartyRole:
+            id: '9866'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866
+            name: Sandy Smith
+            '@type': PartyRef
+            '@referredType': Individual
+          '@type': RelatedPartyRefOrPartyRoleRef
+        - role: reporter
+          partyOrPartyRole:
+            id: '9877'
+            name: Jacob Jac Miller
+            '@type': PartyRef
+            '@referredType': Individual
+          '@type': RelatedPartyRefOrPartyRoleRef
+        - role: customer
+          partyOrPartyRole:
+            id: '9176'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176
+            name: Jack Smith
+            '@type': PartyRoleRef
+            '@referredType': Customer
+          '@type': RelatedPartyRefOrPartyRoleRef
+        statusChangeHistory:
+        - statusChangeDate: '2022-05-28T07:34:45.968Z'
+          statusChangeReason: 'trouble ticket created '
+          status: acknowledged
+          '@type': StatusChange
+        - statusChangeDate: '2022-05-28T08:34:45.968Z'
+          statusChangeReason: start process
+          status: inProgress
+          '@type': StatusChange
+        - statusChangeDate: '2022-05-29T07:34:45.968Z'
+          statusChangeReason: Need more information from the customer
+          status: pending
+          '@type': StatusChange
+        - statusChangeDate: '2022-05-31T07:34:45.968Z'
+          statusChangeReason: Apply full credit
+          status: resolved
+          '@type': StatusChange
+        troubleTicketRelationship:
+        - id: '567433'
+          href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/567433
+          name: Network Coverage
+          relationshipType: dependecy
+          '@type': TroubleTicketRelationship
+        externalIdentifier:
+        - id: '3331234'
+          owner: BMC Remedy
+          externalIdentifierType: Incident
+          '@type': ExternalIdentifier
+        '@schemaLocation': https://mycsp.com:8080/tmf-api/troubleTicket/5/schema/troubleTicket.yaml
+        '@type': TroubleTicket
+      description: Here's an example of a request for retrieving a spesific trouble ticket with id 3180.
+    TroubleTicket_create_example_request:
+      value:
+        name: complaint over last bill
+        description: 'I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle '
+        severity: Major
+        status: inProgress
+        ticketType: Bill Dispute
+        expectedResolutionDate: '2019-06-10T07:34:45.968Z'
+        requestedResolutionDate: '2022-05-31T07:34:45.968Z'
+        attachment:
+        - id: '34345'
+          description: Scanned disputed bill
+          attachmentType: billCopy
+          mimeType: image/png
+          name: March Bill
+          url: https://mycsp.com:7070/docloader?docnum=3534555
+          '@type': Attachment
+        channel:
+          id: '8774'
+          name: self service
+          '@type': ChannelRef
+        note:
+        - id: '77456'
+          author: Jack Smith
+          date: '2022-05-31T07:34:45.968Z'
+          text: This is quite important, please aproch me as soon as posible
+          '@type': Note
+        relatedEntity:
+        - role: disputedBill
+          '@type': RelatedEntity
+          entity:
+            id: '3472'
+            href: https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297
+            name: March 2019 Bill
+            '@type': EntityRef
+            '@referredType': CustomerBill
+        relatedParty:
+        - role: member
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '9866'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866
+            name: Sandy Smith
+            '@type': PartyRef
+            '@referredType': Individual
+        - role: reporter
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '9867'
+            name: Jacob Jac Miller
+            '@type': PartyRef
+            '@referredType': Individual
+        - role: customer
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '9176'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176
+            name: Jack Smith
+            '@type': PartyRoleRef
+            '@referredType': Customer
+        '@type': TroubleTicket
+      description: POST trouble ticket request example - only a subset of trouble ticket attributes are used in this example
+    TroubleTicket_list_with_filter_and_fields_example_response:
+      value:
+      - id: '3180'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180
+        name: complaint over last bill
+        priority: High
+        '@type': TroubleTicket
+      - id: '3256'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3256
+        name: Commerce problem
+        priority: High
+        '@type': TroubleTicket
+      - id: '4563'
+        href: https://mycsp.com:8080/tmf-api/troubleTicket/5/troubleTicket/4563
+        name: Network latency
+        priority: High
+        '@type': TroubleTicket
+      description: Here's an example of a request for retrieving a list of trouble ticket(s). The given filter criteria is priority High and fields id,href,name,@type,priority
     TroubleTicket_partialupdate_example_application_json_patch_request:
       value:
       - op: replace
@@ -1994,13 +2111,7 @@ components:
           '@type': ExternalIdentifier
         '@type': TroubleTicket
       description: Here's an example of a request for retrieving a list of trouble ticket(s).
-    TroubleTicket_partialupdate_example_application_json_request:
-      value:
-        '@type': TroubleTicket
-        status: resolved
-        statusChangeReason: Give credit and resent bill to customer
-      description: Here's an example of a request for updating a trouble ticket - set status to resolved. This example illustrating patch application/json
-    TroubleTicket_retrieve_example_response:
+    TroubleTicket_create_example_response:
       value:
         id: '3180'
         href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180
@@ -2010,38 +2121,12 @@ components:
         lastUpdate: '2022-05-31T07:34:45.968Z'
         name: complaint over last bill
         priority: High
-        requestedResolutionDate: '2022-05-31T07:34:45.968Z'
-        resolutionDate: '2022-05-31T07:34:45.968Z'
-        severity: Minor
-        status: resolved
-        statusChangeDate: '2022-05-31T07:34:45.968Z'
-        statusChangeReason: Apply full credit
+        requestedResolutionDate: '2019-05-31T07:34:45.968Z'
+        severity: Major
+        status: pending
+        statusChangeDate: '2019-05-31T07:34:45.968Z'
+        statusChangeReason: Need more information from the customer
         ticketType: Bill Dispute
-        troubleTicketCharacteristic:
-        - id: '1'
-          name: disputeAmount
-          valueType: number
-          value: 40
-          '@type': NumberCharacteristic
-        - id: '2'
-          name: creditAmount
-          valueType: number
-          value: 40
-          characteristicRelationship:
-          - id: '4'
-            relationshipType: dependency
-            '@type': CharacteristicRelationship
-          '@type': NumberCharacteristic
-        - id: '3'
-          name: currency
-          valueType: string
-          value: USD
-          '@type': StringCharacteristic
-        - id: '4'
-          name: creditReason
-          valueType: string
-          value: Network connectivity issues
-          '@type': StringCharacteristic
         attachment:
         - description: Scanned disputed bill
           attachmentType: billCopy
@@ -2057,7 +2142,7 @@ components:
         - id: '77456'
           author: Jack Smith
           date: '2019-05-31T07:34:45.968Z'
-          text: This is quite important, please approach me as soon as possible
+          text: This is quite important, please approach  me as soon as possible
           '@type': Note
         relatedEntity:
         - role: disputedBill
@@ -2093,21 +2178,9 @@ components:
             '@referredType': Customer
           '@type': RelatedPartyRefOrPartyRoleRef
         statusChangeHistory:
-        - statusChangeDate: '2022-05-28T07:34:45.968Z'
-          statusChangeReason: 'trouble ticket created '
-          status: acknowledged
-          '@type': StatusChange
-        - statusChangeDate: '2022-05-28T08:34:45.968Z'
-          statusChangeReason: start process
-          status: inProgress
-          '@type': StatusChange
-        - statusChangeDate: '2022-05-29T07:34:45.968Z'
+        - statusChangeDate: '2019-05-31T07:34:45.968Z'
           statusChangeReason: Need more information from the customer
           status: pending
-          '@type': StatusChange
-        - statusChangeDate: '2022-05-31T07:34:45.968Z'
-          statusChangeReason: Apply full credit
-          status: resolved
           '@type': StatusChange
         troubleTicketRelationship:
         - id: '567433'
@@ -2115,14 +2188,20 @@ components:
           name: Network Coverage
           relationshipType: dependecy
           '@type': TroubleTicketRelationship
-        externalIdentifier:
-        - id: '3331234'
-          owner: BMC Remedy
-          externalIdentifierType: Incident
-          '@type': ExternalIdentifier
-        '@schemaLocation': https://mycsp.com:8080/tmf-api/troubleTicket/5/schema/troubleTicket.yaml
+        '@schemaLocation': https://mycsp.com:8080/tmf-api/troubleTicket/v5/schema/troubleTicket.yaml
         '@type': TroubleTicket
-      description: Here's an example of a request for retrieving a spesific trouble ticket with id 3180.
+      description: POST Trouble Ticket response description.
+    TroubleTicket_partialupdate_example_application_json_patch_query_request:
+      value:
+      - op: replace
+        path: /sererity
+        value: Minor
+      - op: replace
+        path: /note?id=77456
+        value:
+          author: Jack Smith
+          text: Please approach me as soon as possible. Thanks in advance
+      description: Here's an example of a request for updating a trouble ticket - set severity to Minor and update a specific Nate. This example illustrating patch json
     TroubleTicket_partialupdate_example_application_json_response:
       value:
         id: '3180'
@@ -2208,174 +2287,102 @@ components:
         '@schemaLocation': https://mycsp.com:8080/tmf-api/troubleTicket/v5/schema/troubleTicket.yml
         '@type': TroubleTicket
       description: Response message
-    TroubleTicket_partialupdate_example_application_json_patch_query_request:
-      value:
-      - op: replace
-        path: /sererity
-        value: Minor
-      - op: replace
-        path: /note?id=77456
-        value:
-          author: Jack Smith
-          text: Please approach me as soon as possible. Thanks in advance
-      description: Here's an example of a request for updating a trouble ticket - set severity to Minor and update a specific Nate. This example illustrating patch json
-    TroubleTicket_list_with_filter_and_fields_example_response:
-      value:
-      - id: '3180'
-        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180
-        name: complaint over last bill
-        priority: High
-        '@type': TroubleTicket
-      - id: '3256'
-        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3256
-        name: Commerce problem
-        priority: High
-        '@type': TroubleTicket
-      - id: '4563'
-        href: https://mycsp.com:8080/tmf-api/troubleTicket/5/troubleTicket/4563
-        name: Network latency
-        priority: High
-        '@type': TroubleTicket
-      description: Here's an example of a request for retrieving a list of trouble ticket(s). The given filter criteria is priority High and fields id,href,name,@type,priority
-    TroubleTicket_create_example_request:
-      value:
-        name: complaint over last bill
-        description: 'I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle '
-        severity: Major
-        status: inProgress
-        ticketType: Bill Dispute
-        expectedResolutionDate: '2019-06-10T07:34:45.968Z'
-        requestedResolutionDate: '2022-05-31T07:34:45.968Z'
-        attachment:
-        - id: '34345'
-          description: Scanned disputed bill
-          attachmentType: billCopy
-          mimeType: image/png
-          name: March Bill
-          url: https://mycsp.com:7070/docloader?docnum=3534555
-          '@type': Attachment
-        channel:
-          id: '8774'
-          name: self service
-          '@type': ChannelRef
-        note:
-        - id: '77456'
-          author: Jack Smith
-          date: '2022-05-31T07:34:45.968Z'
-          text: This is quite important, please aproch me as soon as posible
-          '@type': Note
-        relatedEntity:
-        - role: disputedBill
-          '@type': RelatedEntity
-          entity:
-            id: '3472'
-            href: https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297
-            name: March 2019 Bill
-            '@type': EntityRef
-            '@referredType': CustomerBill
-        relatedParty:
-        - role: member
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '9866'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866
-            name: Sandy Smith
-            '@type': PartyRef
-            '@referredType': Individual
-        - role: reporter
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '9867'
-            name: Jacob Jac Miller
-            '@type': PartyRef
-            '@referredType': Individual
-        - role: customer
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '9176'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176
-            name: Jack Smith
-            '@type': PartyRoleRef
-            '@referredType': Customer
-        '@type': TroubleTicket
-      description: POST trouble ticket request example - only a subset of trouble ticket attributes are used in this example
-    TroubleTicket_create_example_response:
-      value:
-        id: '3180'
-        href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/3180
-        creationDate: '2022-05-31T07:34:45.968Z'
-        description: 'I do not accept the last VOD charge, since the movie was constantly interrupted, I had to quick watching the movie in the middle '
-        expectedResolutionDate: '2019-06-10T07:34:45.968Z'
-        lastUpdate: '2022-05-31T07:34:45.968Z'
-        name: complaint over last bill
-        priority: High
-        requestedResolutionDate: '2019-05-31T07:34:45.968Z'
-        severity: Major
-        status: pending
-        statusChangeDate: '2019-05-31T07:34:45.968Z'
-        statusChangeReason: Need more information from the customer
-        ticketType: Bill Dispute
-        attachment:
-        - description: Scanned disputed bill
-          attachmentType: billCopy
-          mimeType: image/png
-          name: March Bill
-          url: https://mycsp.com:7070/docloader?docnum=3534555
-          '@type': Attachment
-        channel:
-          id: '8774'
-          name: self service
-          '@type': ChannelRef
-        note:
-        - id: '77456'
-          author: Jack Smith
-          date: '2019-05-31T07:34:45.968Z'
-          text: This is quite important, please approach  me as soon as possible
-          '@type': Note
-        relatedEntity:
-        - role: disputedBill
-          '@type': RelatedEntity
-          entity:
-            id: '3472'
-            href: https://mycsp.com:8080/tmf-api/customerBillManagement/v5/customerBill/8297
-            name: March 2019 Bill
-            '@type': EntityRef
-            '@referredType': CustomerBill
-        relatedParty:
-        - role: member
-          partyOrPartyRole:
-            id: '9866'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/9866
-            name: Sandy Smith
-            '@type': PartyRef
-            '@referredType': Individual
-          '@type': RelatedPartyRefOrPartyRoleRef
-        - role: reporter
-          partyOrPartyRole:
-            id: '9877'
-            name: Jacob Jac Miller
-            '@type': PartyRef
-            '@referredType': Individual
-          '@type': RelatedPartyRefOrPartyRoleRef
-        - role: customer
-          partyOrPartyRole:
-            id: '9176'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/customer/9176
-            name: Jack Smith
-            '@type': PartyRoleRef
-            '@referredType': Customer
-          '@type': RelatedPartyRefOrPartyRoleRef
-        statusChangeHistory:
-        - statusChangeDate: '2019-05-31T07:34:45.968Z'
-          statusChangeReason: Need more information from the customer
-          status: pending
-          '@type': StatusChange
-        troubleTicketRelationship:
-        - id: '567433'
-          href: https://mycsp.com:8080/tmf-api/troubleTicket/v5/troubleTicket/567433
-          name: Network Coverage
-          relationshipType: dependecy
-          '@type': TroubleTicketRelationship
-        '@schemaLocation': https://mycsp.com:8080/tmf-api/troubleTicket/v5/schema/troubleTicket.yaml
-        '@type': TroubleTicket
-      description: POST Trouble Ticket response description.
+  parameters:
+    After:
+      name: after
+      in: query
+      description: An opaque string value representing the page results after the cursor value
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Sort:
+      name: sort
+      in: query
+      description: The default direction is Ascending order, the use of the modifier in front of the sort field name, “-“, changes the sort order direction.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Before:
+      name: before
+      in: query
+      description: An opaque string value representing the page results before the cursor value
+      schema:
+        type: string
+    Filter:
+      name: filter
+      in: query
+      description: Filter a collection using JSONPath
+      schema:
+        type: string
+        example: attachment[?(@size==300)]
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+  headers:
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
+  requestBodies:
+    TroubleTicket_FVO:
+      description: The TroubleTicket to be created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicket_FVO'
+          examples:
+            TroubleTicket_create_example:
+              $ref: '#/components/examples/TroubleTicket_create_example_request'
+      required: true
+    TroubleTicket_MVO:
+      description: The TroubleTicket to be patched
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicket_MVO'
+          examples:
+            TroubleTicket_partialupdate_example_application_json:
+              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_request'
+        application/merge-patch+json:
+          schema:
+            $ref: '#/components/schemas/TroubleTicket_MVO'
+          examples:
+            TroubleTicket_partialupdate_example_application_merge_json:
+              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_merge_json_request'
+        application/json-patch+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            TroubleTicket_partialupdate_example_application_json_patch:
+              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_patch_request'
+        application/json-patch-query+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            TroubleTicket_partialupdate_example_application_json_patch_query:
+              $ref: '#/components/examples/TroubleTicket_partialupdate_example_application_json_patch_query_request'
+      required: true

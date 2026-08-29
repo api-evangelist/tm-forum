@@ -1,10 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Product Catalog Management agreement resourceCategory API
-  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
-  version: 5.0.0
+  title: Resource Catalog Management Resource Category API
+  description: "## TMF API Reference: TMF634 - Resource Catalog Management\n\n### Release : 19.0 - June 2019\n\nResource Catalog API is one of Catalog Management API Family. Resource Catalog API goal is to provide a catalog of resources. \n\n### Operations\nResource Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  version: 4.0.0
 servers:
-- url: https://serverRoot/productCatalogManagement/v5/
+- url: https://serverRoot/tmf-api/resourceCatalog/v4/
 tags:
 - name: resourceCategory
 paths:
@@ -20,101 +20,136 @@ paths:
         description: Comma-separated properties to be provided in response
         required: false
         in: query
-        type: string
+        schema:
+          type: string
       - name: offset
         description: Requested index for start of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       - name: limit
         description: Requested number of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: Success
           headers:
             X-Result-Count:
               description: Actual number of items returned in the response body
-              type: integer
+              schema:
+                type: integer
             X-Total-Count:
               description: Total number of items matching criteria
-              type: integer
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/ResourceCategory'
+              schema:
+                type: integer
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResourceCategory'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     post:
       operationId: createResourceCategory
       summary: Creates a ResourceCategory
       description: This operation creates a ResourceCategory entity.
       tags:
       - resourceCategory
-      parameters:
-      - name: resourceCategory
-        description: The ResourceCategory to be created
-        required: true
-        schema:
-          $ref: '#/definitions/ResourceCategory_Create'
-        in: body
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/ResourceCategory'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ResourceCategory'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/ResourceCategory_Create'
+        description: The ResourceCategory to be created
+        required: true
   /resourceCategory/{id}:
     get:
       operationId: retrieveResourceCategory
@@ -126,46 +161,64 @@ paths:
       - name: id
         description: Identifier of the ResourceCategory
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       - name: fields
         description: Comma-separated properties to provide in response
         required: false
-        type: string
         in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/ResourceCategory'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ResourceCategory'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     patch:
       operationId: patchResourceCategory
       summary: Updates partially a ResourceCategory
@@ -176,47 +229,65 @@ paths:
       - name: id
         description: Identifier of the ResourceCategory
         required: true
-        type: string
         in: path
-      - name: resourceCategory
-        description: The ResourceCategory to be updated
-        required: true
         schema:
-          $ref: '#/definitions/ResourceCategory_Update'
-        in: body
+          type: string
       responses:
         '200':
           description: Updated
-          schema:
-            $ref: '#/definitions/ResourceCategory'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ResourceCategory'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/ResourceCategory_Update'
+        description: The ResourceCategory to be updated
+        required: true
     delete:
       operationId: deleteResourceCategory
       summary: Deletes a ResourceCategory
@@ -227,350 +298,366 @@ paths:
       - name: id
         description: Identifier of the ResourceCategory
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       responses:
         '204':
           description: Deleted
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
-definitions:
-  ResourceCategoryRef:
-    type: object
-    description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
-    properties:
-      id:
-        type: string
-        description: Unique identifier of a related entity.
-      href:
-        type: string
-        description: Reference of the related entity.
-      name:
-        type: string
-        description: Name of the related entity.
-      version:
-        type: string
-        description: Category version
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-      '@referredType':
-        type: string
-        description: The actual type of the target instance when needed for disambiguation.
-    required:
-    - id
-  Error:
-    description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    type: object
-    required:
-    - code
-    - reason
-    properties:
-      code:
-        type: string
-        description: Application relevant detail, defined in the API or a common list.
-      reason:
-        type: string
-        description: Explanation of the reason for the error which can be shown to a client user.
-      message:
-        type: string
-        description: More details and corrective actions related to the error which can be shown to a client user.
-      status:
-        type: string
-        description: HTTP Error code extension
-      referenceError:
-        type: string
-        format: uri
-        description: URI of documentation describing the error.
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class.
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name.
-  ResourceCategory:
-    type: object
-    description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
-    properties:
-      id:
-        type: string
-        description: Unique identifier of the category
-      href:
-        type: string
-        description: Hyperlink reference to the category
-      description:
-        type: string
-        description: Description of the category
-      isRoot:
-        type: boolean
-        description: If true, this Boolean indicates that the category is a root of categories
-      lastUpdate:
-        type: string
-        format: date-time
-        description: Date and time of the last update
-      lifecycleStatus:
-        type: string
-        description: Used to indicate the current lifecycle status
-      name:
-        type: string
-        description: Name of the category
-      parentId:
-        type: string
-        description: Unique identifier of the parent category
-      version:
-        type: string
-        description: Category version
-      category:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCategoryRef'
-        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-        description: List of parties involved in this category
-      resourceCandidate:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCandidateRef'
-        description: List of resource candidates accessible via this category
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the category is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  TimePeriod:
-    type: object
-    description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-    properties:
-      endDateTime:
-        type: string
-        format: date-time
-        description: End of the time period, using IETC-RFC-3339 format
-      startDateTime:
-        type: string
-        format: date-time
-        description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-  ResourceCategory_Create:
-    type: object
-    description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    ResourceCategoryRef:
+      type: object
+      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Category version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    ResourceCategory_Update:
+      type: object
+      description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
 
-      Skipped properties: id,href'
-    required:
-    - name
-    properties:
-      description:
-        type: string
-        description: Description of the category
-      isRoot:
-        type: boolean
-        description: If true, this Boolean indicates that the category is a root of categories
-      lastUpdate:
-        type: string
-        format: date-time
-        description: Date and time of the last update
-      lifecycleStatus:
-        type: string
-        description: Used to indicate the current lifecycle status
-      name:
-        type: string
-        description: Name of the category
-      parentId:
-        type: string
-        description: Unique identifier of the parent category
-      version:
-        type: string
-        description: Category version
-      category:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCategoryRef'
-        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-        description: List of parties involved in this category
-      resourceCandidate:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCandidateRef'
-        description: List of resource candidates accessible via this category
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the category is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  ResourceCandidateRef:
-    type: object
-    description: ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
-    properties:
-      id:
-        type: string
-        description: Unique identifier of a related entity.
-      href:
-        type: string
-        description: Reference of the related entity.
-      name:
-        type: string
-        description: Name of the related entity.
-      version:
-        type: string
-        description: the version of resource candidate
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-      '@referredType':
-        type: string
-        description: The actual type of the target instance when needed for disambiguation.
-    required:
-    - id
-  ResourceCategory_Update:
-    type: object
-    description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+        Skipped properties: id,href'
+      properties:
+        description:
+          type: string
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Date and time of the last update
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status
+        name:
+          type: string
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
+        version:
+          type: string
+          description: Category version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCategoryRef'
+          description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          description: List of parties involved in this category
+        resourceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCandidateRef'
+          description: List of resource candidates accessible via this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    ResourceCandidateRef:
+      type: object
+      description: ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: the version of resource candidate
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    ResourceCategory:
+      type: object
+      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the category
+        href:
+          type: string
+          description: Hyperlink reference to the category
+        description:
+          type: string
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Date and time of the last update
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status
+        name:
+          type: string
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
+        version:
+          type: string
+          description: Category version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCategoryRef'
+          description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          description: List of parties involved in this category
+        resourceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCandidateRef'
+          description: List of resource candidates accessible via this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    ResourceCategory_Create:
+      type: object
+      description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
 
-      Skipped properties: id,href'
-    properties:
-      description:
-        type: string
-        description: Description of the category
-      isRoot:
-        type: boolean
-        description: If true, this Boolean indicates that the category is a root of categories
-      lastUpdate:
-        type: string
-        format: date-time
-        description: Date and time of the last update
-      lifecycleStatus:
-        type: string
-        description: Used to indicate the current lifecycle status
-      name:
-        type: string
-        description: Name of the category
-      parentId:
-        type: string
-        description: Unique identifier of the parent category
-      version:
-        type: string
-        description: Category version
-      category:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCategoryRef'
-        description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-        description: List of parties involved in this category
-      resourceCandidate:
-        type: array
-        items:
-          $ref: '#/definitions/ResourceCandidateRef'
-        description: List of resource candidates accessible via this category
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the category is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  RelatedParty:
-    type: object
-    description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-    required:
-    - '@referredType'
-    - id
-    properties:
-      id:
-        type: string
-        description: Unique identifier of a related entity.
-      href:
-        type: string
-        description: Reference of the related entity.
-      name:
-        type: string
-        description: Name of the related entity.
-      role:
-        type: string
-        description: Role played by the related party
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-      '@referredType':
-        type: string
-        description: The actual type of the target instance when needed for disambiguation.
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        description:
+          type: string
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Date and time of the last update
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status
+        name:
+          type: string
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
+        version:
+          type: string
+          description: Category version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCategoryRef'
+          description: The category resource is used to group product offerings, service and resource candidates in logical containers. Categories can contain other (sub-)categories and/or product offerings.
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          description: List of parties involved in this category
+        resourceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCandidateRef'
+          description: List of resource candidates accessible via this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    RelatedParty:
+      type: object
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.

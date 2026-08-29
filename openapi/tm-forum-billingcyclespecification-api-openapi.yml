@@ -1,10 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Product Catalog Management agreement billingCycleSpecification API
-  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
-  version: 5.0.0
+  title: Account Management Billing Cycle Specification API
+  description: This is Swagger UI environment generated for the TMF Account Management specification
+  version: 4.0.0
 servers:
-- url: https://serverRoot/productCatalogManagement/v5/
+- url: https://serverRoot/tmf-api/accountManagement/v4/
 tags:
 - name: billingCycleSpecification
 paths:
@@ -20,101 +20,136 @@ paths:
         description: Comma-separated properties to be provided in response
         required: false
         in: query
-        type: string
+        schema:
+          type: string
       - name: offset
         description: Requested index for start of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       - name: limit
         description: Requested number of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: Success
           headers:
             X-Result-Count:
               description: Actual number of items returned in the response body
-              type: integer
+              schema:
+                type: integer
             X-Total-Count:
               description: Total number of items matching criteria
-              type: integer
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/BillingCycleSpecification'
+              schema:
+                type: integer
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BillingCycleSpecification'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     post:
       operationId: createBillingCycleSpecification
       summary: Creates a BillingCycleSpecification
       description: This operation creates a BillingCycleSpecification entity.
       tags:
       - billingCycleSpecification
-      parameters:
-      - name: billingCycleSpecification
-        description: The BillingCycleSpecification to be created
-        required: true
-        schema:
-          $ref: '#/definitions/BillingCycleSpecification_Create'
-        in: body
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/BillingCycleSpecification'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BillingCycleSpecification'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/BillingCycleSpecification_Create'
+        description: The BillingCycleSpecification to be created
+        required: true
   /billingCycleSpecification/{id}:
     get:
       operationId: retrieveBillingCycleSpecification
@@ -126,46 +161,64 @@ paths:
       - name: id
         description: Identifier of the BillingCycleSpecification
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       - name: fields
         description: Comma-separated properties to provide in response
         required: false
-        type: string
         in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/BillingCycleSpecification'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BillingCycleSpecification'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     patch:
       operationId: patchBillingCycleSpecification
       summary: Updates partially a BillingCycleSpecification
@@ -176,47 +229,65 @@ paths:
       - name: id
         description: Identifier of the BillingCycleSpecification
         required: true
-        type: string
         in: path
-      - name: billingCycleSpecification
-        description: The BillingCycleSpecification to be updated
-        required: true
         schema:
-          $ref: '#/definitions/BillingCycleSpecification_Update'
-        in: body
+          type: string
       responses:
         '200':
           description: Updated
-          schema:
-            $ref: '#/definitions/BillingCycleSpecification'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BillingCycleSpecification'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/BillingCycleSpecification_Update'
+        description: The BillingCycleSpecification to be updated
+        required: true
     delete:
       operationId: deleteBillingCycleSpecification
       summary: Deletes a BillingCycleSpecification
@@ -227,230 +298,246 @@ paths:
       - name: id
         description: Identifier of the BillingCycleSpecification
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       responses:
         '204':
           description: Deleted
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
-definitions:
-  BillingCycleSpecification_Update:
-    type: object
-    description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    BillingCycleSpecification_Create:
+      type: object
+      description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
 
-      Skipped properties: id,href'
-    required:
-    - name
-    properties:
-      billingDateShift:
-        type: integer
-        description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
-      billingPeriod:
-        type: string
-        description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
-      chargeDateOffset:
-        type: integer
-        description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      creditDateOffset:
-        type: integer
-        description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      description:
-        type: string
-        description: An explanation regarding this billing cycle specification
-      frequency:
-        type: string
-        description: Frequency of the billing cycle (monthly for instance)
-      mailingDateOffset:
-        type: integer
-        description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      name:
-        type: string
-        description: A short descriptive name
-      paymentDueDateOffset:
-        type: integer
-        description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the billing specification cycle is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  Error:
-    description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    type: object
-    required:
-    - code
-    - reason
-    properties:
-      code:
-        type: string
-        description: Application relevant detail, defined in the API or a common list.
-      reason:
-        type: string
-        description: Explanation of the reason for the error which can be shown to a client user.
-      message:
-        type: string
-        description: More details and corrective actions related to the error which can be shown to a client user.
-      status:
-        type: string
-        description: HTTP Error code extension
-      referenceError:
-        type: string
-        format: uri
-        description: URI of documentation describing the error.
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class.
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name.
-  BillingCycleSpecification:
-    type: object
-    description: A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
-    required:
-    - name
-    properties:
-      id:
-        type: string
-        description: Unique identifier of the billing cycle specification
-      href:
-        type: string
-        description: Reference of the billing cycle specification
-      billingDateShift:
-        type: integer
-        description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
-      billingPeriod:
-        type: string
-        description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
-      chargeDateOffset:
-        type: integer
-        description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      creditDateOffset:
-        type: integer
-        description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      description:
-        type: string
-        description: An explanation regarding this billing cycle specification
-      frequency:
-        type: string
-        description: Frequency of the billing cycle (monthly for instance)
-      mailingDateOffset:
-        type: integer
-        description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      name:
-        type: string
-        description: A short descriptive name
-      paymentDueDateOffset:
-        type: integer
-        description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the billing specification cycle is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  TimePeriod:
-    type: object
-    description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-    properties:
-      endDateTime:
-        type: string
-        format: date-time
-        description: End of the time period, using IETC-RFC-3339 format
-      startDateTime:
-        type: string
-        format: date-time
-        description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-  BillingCycleSpecification_Create:
-    type: object
-    description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        billingDateShift:
+          type: integer
+          description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
+        billingPeriod:
+          type: string
+          description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
+        chargeDateOffset:
+          type: integer
+          description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        creditDateOffset:
+          type: integer
+          description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        description:
+          type: string
+          description: An explanation regarding this billing cycle specification
+        frequency:
+          type: string
+          description: Frequency of the billing cycle (monthly for instance)
+        mailingDateOffset:
+          type: integer
+          description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        name:
+          type: string
+          description: A short descriptive name
+        paymentDueDateOffset:
+          type: integer
+          description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the billing specification cycle is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    BillingCycleSpecification_Update:
+      type: object
+      description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
 
-      Skipped properties: id,href'
-    required:
-    - name
-    properties:
-      billingDateShift:
-        type: integer
-        description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
-      billingPeriod:
-        type: string
-        description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
-      chargeDateOffset:
-        type: integer
-        description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      creditDateOffset:
-        type: integer
-        description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      description:
-        type: string
-        description: An explanation regarding this billing cycle specification
-      frequency:
-        type: string
-        description: Frequency of the billing cycle (monthly for instance)
-      mailingDateOffset:
-        type: integer
-        description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      name:
-        type: string
-        description: A short descriptive name
-      paymentDueDateOffset:
-        type: integer
-        description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The period for which the billing specification cycle is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        billingDateShift:
+          type: integer
+          description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
+        billingPeriod:
+          type: string
+          description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
+        chargeDateOffset:
+          type: integer
+          description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        creditDateOffset:
+          type: integer
+          description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        description:
+          type: string
+          description: An explanation regarding this billing cycle specification
+        frequency:
+          type: string
+          description: Frequency of the billing cycle (monthly for instance)
+        mailingDateOffset:
+          type: integer
+          description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        name:
+          type: string
+          description: A short descriptive name
+        paymentDueDateOffset:
+          type: integer
+          description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the billing specification cycle is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    BillingCycleSpecification:
+      type: object
+      description: A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
+      required:
+      - name
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the billing cycle specification
+        href:
+          type: string
+          description: Reference of the billing cycle specification
+        billingDateShift:
+          type: integer
+          description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
+        billingPeriod:
+          type: string
+          description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
+        chargeDateOffset:
+          type: integer
+          description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        creditDateOffset:
+          type: integer
+          description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        description:
+          type: string
+          description: An explanation regarding this billing cycle specification
+        frequency:
+          type: string
+          description: Frequency of the billing cycle (monthly for instance)
+        mailingDateOffset:
+          type: integer
+          description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        name:
+          type: string
+          description: A short descriptive name
+        paymentDueDateOffset:
+          type: integer
+          description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the billing specification cycle is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name

@@ -1,10 +1,33 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Product Catalog Management agreement events subscription API
-  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
-  version: 5.0.0
+  title: Tm Forum events subscription API
+  x-refined-note:
+  - x-generation-data-model-version differs across the merged source definitions and was not carried
+  - x-generation-tooling-version differs across the merged source definitions and was not carried
+  version: '1.0'
+  description: 'Operations tagged events subscription across 12 of this provider''s published API definitions: tm-forum-tmf620-product-catalog-openapi.yaml, tm-forum-tmf621-trouble-ticket-openapi.yaml, tm-forum-tmf622-product-ordering-openapi.yaml, tm-forum-tmf629-customer-management-openapi.yaml, tm-forum-tmf632-party-management-openapi.yaml, tm-forum-tmf633-service-catalog-openapi.json, tm-forum-tmf634-resource-catalog-openapi.json, tm-forum-tmf637-product-inventory-openapi.yaml, tm-forum-tmf641-service-ordering-openapi.json, tm-forum-tmf648-quote-management-openapi.json, tm-forum-tmf651-agreement-management-openapi.json, tm-forum-tmf666-account-management-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://serverRoot/productCatalogManagement/v5/
+- url: '{apiRoot}/tmf-api/troubleTicket/v5/'
+  variables:
+    apiRoot:
+      default: https://serverRoot
+      enum:
+      - https://serverRoot
+- url: https://serverRoot
+- url: '{apiRoot}/tmf-api/customer/v5/'
+  variables:
+    apiRoot:
+      default: https://serverRoot
+      enum:
+      - https://serverRoot
+- url: https://serverRoot/partyManagement/v5/
+- url: https://serverRoot/tmf-api/serviceCatalogManagement/v4/
+- url: https://serverRoot/tmf-api/resourceCatalog/v4/
+- url: https://serverRoot/tmf-api/serviceOrdering/v4
+- url: https://serverRoot/tmf-api/quoteManagement/v4/
+- url: https://serverRoot/tmf-api/agreementManagement/v4/
+- url: https://serverRoot/tmf-api/accountManagement/v4/
 tags:
 - name: events subscription
   description: Endpoints to register and terminate an Event Listener
@@ -23,6 +46,8 @@ paths:
           $ref: '#/components/responses/Hub'
         default:
           $ref: '#/components/responses/Error'
+    servers:
+    - url: https://serverRoot/productCatalogManagement/v5/
   /hub/{id}:
     delete:
       operationId: hubDelete
@@ -50,16 +75,34 @@ paths:
           $ref: '#/components/responses/Hub_2'
         default:
           $ref: '#/components/responses/Error_2'
+    servers:
+    - url: https://serverRoot/productCatalogManagement/v5/
 components:
-  parameters:
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
   responses:
+    Hub:
+      description: Notified
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub'
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Hub_2:
+      description: Notified
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub'
+          examples:
+            basic:
+              summary: Hub example
+              value:
+                '@type': Hub
+                callback: https://host/tmf-api/specificAPIName/v5/listener/specificEventListener
     Error_2:
       description: Error
       content:
@@ -75,7 +118,7 @@ components:
                 reason: Missing information
                 message: Please provide the additional example information
                 referenceError: https://host/errors
-    Hub_2:
+    Hub_3:
       description: Notified
       content:
         application/json:
@@ -87,18 +130,21 @@ components:
               value:
                 '@type': Hub
                 callback: https://host/tmf-api/specificAPIName/v5/listener/specificEventListener
-    Hub:
-      description: Notified
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Hub'
-    Error:
+    Error_3:
       description: Error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+          examples:
+            basic:
+              summary: Error example
+              value:
+                '@type': Error
+                code: ERR001
+                reason: Missing information
+                message: Please provide the additional example information
+                referenceError: https://host/errors
   schemas:
     Error:
       discriminator:
@@ -128,6 +174,47 @@ components:
             type: string
             description: URI of documentation describing the error.
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    Hub:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - properties:
+          id:
+            type: string
+            description: Id of the listener
+          callback:
+            type: string
+            description: The callback being registered.
+          query:
+            type: string
+            description: additional data to be passed
+        required:
+        - callback
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    Hub_FVO:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      required:
+      - callback
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - properties:
+          callback:
+            type: string
+            description: The callback being registered.
+          query:
+            type: string
+            description: additional data to be passed
     Entity:
       type: object
       description: Base entity schema for use in TMForum Open-APIs. Property.
@@ -149,40 +236,9 @@ components:
           description: A URI to a JSON-Schema file that defines additional attributes and relationships
       required:
       - '@type'
-    Hub:
+    Addressable_2:
       type: object
-      description: Sets the communication endpoint address the service instance must use to deliver notification information
-      allOf:
-      - $ref: '#/components/schemas/Entity'
-      - properties:
-          id:
-            type: string
-            description: Id of the listener
-          callback:
-            type: string
-            description: The callback being registered.
-          query:
-            type: string
-            description: additional data to be passed
-        required:
-        - callback
-    Hub_FVO:
-      type: object
-      description: Sets the communication endpoint address the service instance must use to deliver notification information
-      required:
-      - callback
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - properties:
-          callback:
-            type: string
-            description: The callback being registered.
-          query:
-            type: string
-            description: additional data to be passed
-    Addressable:
-      type: object
-      description: Base schema for adressable entities
+      description: Base schema for addressable entities
       properties:
         href:
           type: string
@@ -190,6 +246,242 @@ components:
         id:
           type: string
           description: unique identifier
+    Addressable_3:
+      type: object
+      description: Base schema for addressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    EventSubscriptionInput:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      required:
+      - callback
+      properties:
+        callback:
+          type: string
+          description: The callback being registered.
+        query:
+          type: string
+          description: additional data to be passed
+    Error_2:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    EventSubscription:
+      type: object
+      description: Sets the communication endpoint address the service instance must use to deliver notification information
+      required:
+      - id
+      - callback
+      properties:
+        id:
+          type: string
+          description: Id of the listener
+        callback:
+          type: string
+          description: The callback being registered.
+        query:
+          type: string
+          description: additional data to be passed
+    Error_3:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    Error_4:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    Error_5:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    Error_6:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    Error_7:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
   requestBodies:
     Hub_FVO:
       description: Data containing the callback endpoint to deliver the information
@@ -198,3 +490,50 @@ components:
           schema:
             $ref: '#/components/schemas/Hub_FVO'
       required: true
+    Hub_FVO_2:
+      description: Data containing the callback endpoint to deliver the information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub_FVO'
+          examples:
+            Basic Hub Example Request:
+              value:
+                '@type': Hub
+                callback: https://host/tmf-api/specificAPIName/v5/listener/specificEventListener
+                query: data
+      required: true
+    Hub_FVO_3:
+      description: Data containing the callback endpoint to deliver the information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Hub_FVO'
+          examples:
+            Basic Hub Example Request:
+              value:
+                '@type': Hub
+                callback: https://host/tmf-api/specificAPIName/v5/listener/specificEventListener
+                query: data
+      required: true
+  parameters:
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+x-refined-from:
+- tm-forum-tmf620-product-catalog-openapi.yaml
+- tm-forum-tmf621-trouble-ticket-openapi.yaml
+- tm-forum-tmf622-product-ordering-openapi.yaml
+- tm-forum-tmf629-customer-management-openapi.yaml
+- tm-forum-tmf632-party-management-openapi.yaml
+- tm-forum-tmf633-service-catalog-openapi.json
+- tm-forum-tmf634-resource-catalog-openapi.json
+- tm-forum-tmf637-product-inventory-openapi.yaml
+- tm-forum-tmf641-service-ordering-openapi.json
+- tm-forum-tmf648-quote-management-openapi.json
+- tm-forum-tmf651-agreement-management-openapi.json
+- tm-forum-tmf666-account-management-openapi.json

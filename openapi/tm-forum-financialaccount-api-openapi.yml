@@ -1,10 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Product Catalog Management agreement financialAccount API
-  description: "Product Catalog API is one of Catalog Management API Family. Product Catalog API goal is to provide a catalog of products. \n### Operations\nProduct Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
-  version: 5.0.0
+  title: Account Management Financial Account API
+  description: This is Swagger UI environment generated for the TMF Account Management specification
+  version: 4.0.0
 servers:
-- url: https://serverRoot/productCatalogManagement/v5/
+- url: https://serverRoot/tmf-api/accountManagement/v4/
 tags:
 - name: financialAccount
 paths:
@@ -20,101 +20,136 @@ paths:
         description: Comma-separated properties to be provided in response
         required: false
         in: query
-        type: string
+        schema:
+          type: string
       - name: offset
         description: Requested index for start of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       - name: limit
         description: Requested number of resources to be provided in response
         required: false
         in: query
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: Success
           headers:
             X-Result-Count:
               description: Actual number of items returned in the response body
-              type: integer
+              schema:
+                type: integer
             X-Total-Count:
               description: Total number of items matching criteria
-              type: integer
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FinancialAccount'
+              schema:
+                type: integer
+          content:
+            application/json;charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FinancialAccount'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     post:
       operationId: createFinancialAccount
       summary: Creates a FinancialAccount
       description: This operation creates a FinancialAccount entity.
       tags:
       - financialAccount
-      parameters:
-      - name: financialAccount
-        description: The FinancialAccount to be created
-        required: true
-        schema:
-          $ref: '#/definitions/FinancialAccount_Create'
-        in: body
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/FinancialAccount'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/FinancialAccount'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/FinancialAccount_Create'
+        description: The FinancialAccount to be created
+        required: true
   /financialAccount/{id}:
     get:
       operationId: retrieveFinancialAccount
@@ -126,46 +161,64 @@ paths:
       - name: id
         description: Identifier of the FinancialAccount
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       - name: fields
         description: Comma-separated properties to provide in response
         required: false
-        type: string
         in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/FinancialAccount'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/FinancialAccount'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
     patch:
       operationId: patchFinancialAccount
       summary: Updates partially a FinancialAccount
@@ -176,47 +229,65 @@ paths:
       - name: id
         description: Identifier of the FinancialAccount
         required: true
-        type: string
         in: path
-      - name: financialAccount
-        description: The FinancialAccount to be updated
-        required: true
         schema:
-          $ref: '#/definitions/FinancialAccount_Update'
-        in: body
+          type: string
       responses:
         '200':
           description: Updated
-          schema:
-            $ref: '#/definitions/FinancialAccount'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/FinancialAccount'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json;charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/FinancialAccount_Update'
+        description: The FinancialAccount to be updated
+        required: true
     delete:
       operationId: deleteFinancialAccount
       summary: Deletes a FinancialAccount
@@ -227,517 +298,533 @@ paths:
       - name: id
         description: Identifier of the FinancialAccount
         required: true
-        type: string
         in: path
+        schema:
+          type: string
       responses:
         '204':
           description: Deleted
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '405':
           description: Method Not allowed
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
-definitions:
-  AccountRef:
-    type: object
-    description: Account reference. A account may be a party account or a financial account.
-    properties:
-      id:
-        type: string
-        description: Unique identifier of the account
-      href:
-        type: string
-        description: Reference of the account
-      description:
-        type: string
-        description: Detailed description of the account
-      name:
-        type: string
-        description: Name of the account
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-      '@referredType':
-        type: string
-        description: The actual type of the target instance when needed for disambiguation.
-    required:
-    - id
-  AccountBalance:
-    type: object
-    description: Balances linked to the account
-    required:
-    - amount
-    - balanceType
-    - validFor
-    properties:
-      balanceType:
-        type: string
-        description: 'Type of the balance : deposit balance, disputed balance, loyalty balance, receivable balance...'
-      amount:
-        $ref: '#/definitions/Money'
-        description: Balance amount
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: Balance validity period
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  FinancialAccount:
-    type: object
-    description: An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
-    required:
-    - name
-    properties:
-      id:
-        type: string
-        description: Unique identifier of the account
-      href:
-        type: string
-        description: Unique reference of the account
-      accountType:
-        type: string
-        description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
-      description:
-        type: string
-        description: Detailed description of the party account
-      lastModified:
-        type: string
-        format: date-time
-        description: Date of last modification of the account
-      name:
-        type: string
-        description: Name of the account
-      state:
-        type: string
-        description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
-      accountBalance:
-        type: array
-        items:
-          $ref: '#/definitions/AccountBalance'
-      accountRelationship:
-        type: array
-        items:
-          $ref: '#/definitions/AccountRelationship'
-      contact:
-        type: array
-        items:
-          $ref: '#/definitions/Contact'
-      creditLimit:
-        $ref: '#/definitions/Money'
-        description: The maximum amount of money that may be charged on an account
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-      taxExemption:
-        type: array
-        items:
-          $ref: '#/definitions/AccountTaxExemption'
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  FinancialAccount_Create:
-    type: object
-    description: 'An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
+          content:
+            application/json;charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    FinancialAccount_Update:
+      type: object
+      description: 'An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
 
-      Skipped properties: id,href'
-    required:
-    - name
-    properties:
-      accountType:
-        type: string
-        description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
-      description:
-        type: string
-        description: Detailed description of the party account
-      lastModified:
-        type: string
-        format: date-time
-        description: Date of last modification of the account
-      name:
-        type: string
-        description: Name of the account
-      state:
-        type: string
-        description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
-      accountBalance:
-        type: array
-        items:
-          $ref: '#/definitions/AccountBalance'
-      accountRelationship:
-        type: array
-        items:
-          $ref: '#/definitions/AccountRelationship'
-      contact:
-        type: array
-        items:
-          $ref: '#/definitions/Contact'
-      creditLimit:
-        $ref: '#/definitions/Money'
-        description: The maximum amount of money that may be charged on an account
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-      taxExemption:
-        type: array
-        items:
-          $ref: '#/definitions/AccountTaxExemption'
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  Error:
-    description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    type: object
-    required:
-    - code
-    - reason
-    properties:
-      code:
-        type: string
-        description: Application relevant detail, defined in the API or a common list.
-      reason:
-        type: string
-        description: Explanation of the reason for the error which can be shown to a client user.
-      message:
-        type: string
-        description: More details and corrective actions related to the error which can be shown to a client user.
-      status:
-        type: string
-        description: HTTP Error code extension
-      referenceError:
-        type: string
-        format: uri
-        description: URI of documentation describing the error.
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class.
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name.
-  FinancialAccount_Update:
-    type: object
-    description: 'An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
+        Skipped properties: id,href,lastModified'
+      required:
+      - name
+      properties:
+        accountType:
+          type: string
+          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
+        description:
+          type: string
+          description: Detailed description of the party account
+        name:
+          type: string
+          description: Name of the account
+        state:
+          type: string
+          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
+        accountBalance:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountBalance'
+        accountRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRelationship'
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        creditLimit:
+          $ref: '#/components/schemas/Money'
+          description: The maximum amount of money that may be charged on an account
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+        taxExemption:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTaxExemption'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    ContactMedium:
+      type: object
+      description: Indicates the contact medium that could be used to contact the party.
+      properties:
+        mediumType:
+          type: string
+          description: 'Type of the contact medium, such as: email address, telephone number, postal address'
+        preferred:
+          type: boolean
+          description: If true, indicates that is the preferred contact medium
+        characteristic:
+          $ref: '#/components/schemas/MediumCharacteristic'
+          description: Any additional characteristic(s) of this contact medium
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The time period that the contact medium is valid for
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AccountTaxExemption:
+      type: object
+      description: Proof of freedom from taxes imposed by a taxing jurisdiction
+      required:
+      - issuingJurisdiction
+      - validFor
+      properties:
+        certificateNumber:
+          type: string
+          description: Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction
+        issuingJurisdiction:
+          type: string
+          description: Name of the taxing jurisdiction for which taxes are exempt
+        reason:
+          type: string
+          description: Reason of the tax exemption
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Period for which the exemption is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    MediumCharacteristic:
+      type: object
+      description: Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)
+      properties:
+        city:
+          type: string
+          description: The city
+        contactType:
+          type: string
+          description: 'The type of contact, for example: phone number such as mobile, fixed home, fixed office. postal address such as shipping instalation…'
+        country:
+          type: string
+          description: The country
+        emailAddress:
+          type: string
+          description: Full email address in standard format
+        faxNumber:
+          type: string
+          description: The fax number of the contact
+        phoneNumber:
+          type: string
+          description: The primary phone number of the contact
+        postCode:
+          type: string
+          description: Postcode
+        socialNetworkId:
+          type: string
+          description: Identifier as a member of a social network
+        stateOrProvince:
+          type: string
+          description: State or province
+        street1:
+          type: string
+          description: Describes the street
+        street2:
+          type: string
+          description: Complementary street description
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FinancialAccount_Create:
+      type: object
+      description: 'An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
 
-      Skipped properties: id,href,lastModified'
-    required:
-    - name
-    properties:
-      accountType:
-        type: string
-        description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
-      description:
-        type: string
-        description: Detailed description of the party account
-      name:
-        type: string
-        description: Name of the account
-      state:
-        type: string
-        description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
-      accountBalance:
-        type: array
-        items:
-          $ref: '#/definitions/AccountBalance'
-      accountRelationship:
-        type: array
-        items:
-          $ref: '#/definitions/AccountRelationship'
-      contact:
-        type: array
-        items:
-          $ref: '#/definitions/Contact'
-      creditLimit:
-        $ref: '#/definitions/Money'
-        description: The maximum amount of money that may be charged on an account
-      relatedParty:
-        type: array
-        items:
-          $ref: '#/definitions/RelatedParty'
-      taxExemption:
-        type: array
-        items:
-          $ref: '#/definitions/AccountTaxExemption'
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  Money:
-    type: object
-    description: A base / value business entity used to represent money
-    properties:
-      unit:
-        type: string
-        description: Currency (ISO4217 norm uses 3 letters to define the currency)
-      value:
-        type: number
-        format: float
-        description: A positive floating point number
-  TimePeriod:
-    type: object
-    description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-    properties:
-      endDateTime:
-        type: string
-        format: date-time
-        description: End of the time period, using IETC-RFC-3339 format
-      startDateTime:
-        type: string
-        format: date-time
-        description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-  MediumCharacteristic:
-    type: object
-    description: Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)
-    properties:
-      city:
-        type: string
-        description: The city
-      contactType:
-        type: string
-        description: 'The type of contact, for example: phone number such as mobile, fixed home, fixed office. postal address such as shipping instalation…'
-      country:
-        type: string
-        description: The country
-      emailAddress:
-        type: string
-        description: Full email address in standard format
-      faxNumber:
-        type: string
-        description: The fax number of the contact
-      phoneNumber:
-        type: string
-        description: The primary phone number of the contact
-      postCode:
-        type: string
-        description: Postcode
-      socialNetworkId:
-        type: string
-        description: Identifier as a member of a social network
-      stateOrProvince:
-        type: string
-        description: State or province
-      street1:
-        type: string
-        description: Describes the street
-      street2:
-        type: string
-        description: Complementary street description
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  AccountRelationship:
-    type: object
-    description: Significant connection between accounts. For instance an aggregating account for a list of shop branches each having its own billing account.
-    required:
-    - relationshipType
-    - validFor
-    properties:
-      relationshipType:
-        type: string
-        description: Type of relationship
-      account:
-        $ref: '#/definitions/AccountRef'
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: Validity period of that relationship
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  AccountTaxExemption:
-    type: object
-    description: Proof of freedom from taxes imposed by a taxing jurisdiction
-    required:
-    - issuingJurisdiction
-    - validFor
-    properties:
-      certificateNumber:
-        type: string
-        description: Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction
-      issuingJurisdiction:
-        type: string
-        description: Name of the taxing jurisdiction for which taxes are exempt
-      reason:
-        type: string
-        description: Reason of the tax exemption
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: Period for which the exemption is valid
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  ContactMedium:
-    type: object
-    description: Indicates the contact medium that could be used to contact the party.
-    properties:
-      mediumType:
-        type: string
-        description: 'Type of the contact medium, such as: email address, telephone number, postal address'
-      preferred:
-        type: boolean
-        description: If true, indicates that is the preferred contact medium
-      characteristic:
-        $ref: '#/definitions/MediumCharacteristic'
-        description: Any additional characteristic(s) of this contact medium
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: The time period that the contact medium is valid for
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  Contact:
-    type: object
-    description: An individual or an organization used as a contact point for a given account and accessed via some contact medium.
-    required:
-    - contactType
-    - validFor
-    properties:
-      contactName:
-        type: string
-        description: A displayable name for that contact
-      contactType:
-        type: string
-        description: Type of contact (primary, secondary...)
-      partyRoleType:
-        type: string
-        description: Identifies what kind of party role type is linked to the contact (a account manager...)
-      contactMedium:
-        type: array
-        items:
-          $ref: '#/definitions/ContactMedium'
-      relatedParty:
-        $ref: '#/definitions/RelatedParty'
-      validFor:
-        $ref: '#/definitions/TimePeriod'
-        description: Validity period of that contact
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-  RelatedParty:
-    type: object
-    description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-    required:
-    - '@referredType'
-    - id
-    - name
-    properties:
-      id:
-        type: string
-        description: Unique identifier of a related entity.
-      href:
-        type: string
-        description: Reference of the related entity.
-      name:
-        type: string
-        description: Name of the related entity.
-      role:
-        type: string
-        description: Role played by the related party
-      '@baseType':
-        type: string
-        description: When sub-classing, this defines the super-class
-      '@schemaLocation':
-        type: string
-        format: uri
-        description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      '@type':
-        type: string
-        description: When sub-classing, this defines the sub-class entity name
-      '@referredType':
-        type: string
-        description: The actual type of the target instance when needed for disambiguation.
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        accountType:
+          type: string
+          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
+        description:
+          type: string
+          description: Detailed description of the party account
+        lastModified:
+          type: string
+          format: date-time
+          description: Date of last modification of the account
+        name:
+          type: string
+          description: Name of the account
+        state:
+          type: string
+          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
+        accountBalance:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountBalance'
+        accountRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRelationship'
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        creditLimit:
+          $ref: '#/components/schemas/Money'
+          description: The maximum amount of money that may be charged on an account
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+        taxExemption:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTaxExemption'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FinancialAccount:
+      type: object
+      description: An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. A financial (account receivable account/account payable) aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party. It is a specialization of entity Account.
+      required:
+      - name
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the account
+        href:
+          type: string
+          description: Unique reference of the account
+        accountType:
+          type: string
+          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
+        description:
+          type: string
+          description: Detailed description of the party account
+        lastModified:
+          type: string
+          format: date-time
+          description: Date of last modification of the account
+        name:
+          type: string
+          description: Name of the account
+        state:
+          type: string
+          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
+        accountBalance:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountBalance'
+        accountRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRelationship'
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        creditLimit:
+          $ref: '#/components/schemas/Money'
+          description: The maximum amount of money that may be charged on an account
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+        taxExemption:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTaxExemption'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    Money:
+      type: object
+      description: A base / value business entity used to represent money
+      properties:
+        unit:
+          type: string
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+        value:
+          type: number
+          format: float
+          description: A positive floating point number
+    AccountBalance:
+      type: object
+      description: Balances linked to the account
+      required:
+      - amount
+      - balanceType
+      - validFor
+      properties:
+        balanceType:
+          type: string
+          description: 'Type of the balance : deposit balance, disputed balance, loyalty balance, receivable balance...'
+        amount:
+          $ref: '#/components/schemas/Money'
+          description: Balance amount
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Balance validity period
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AccountRef:
+      type: object
+      description: Account reference. A account may be a party account or a financial account.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the account
+        href:
+          type: string
+          description: Reference of the account
+        description:
+          type: string
+          description: Detailed description of the account
+        name:
+          type: string
+          description: Name of the account
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    Contact:
+      type: object
+      description: An individual or an organization used as a contact point for a given account and accessed via some contact medium.
+      required:
+      - contactType
+      - validFor
+      properties:
+        contactName:
+          type: string
+          description: A displayable name for that contact
+        contactType:
+          type: string
+          description: Type of contact (primary, secondary...)
+        partyRoleType:
+          type: string
+          description: Identifies what kind of party role type is linked to the contact (a account manager...)
+        contactMedium:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactMedium'
+        relatedParty:
+          $ref: '#/components/schemas/RelatedParty'
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Validity period of that contact
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    AccountRelationship:
+      type: object
+      description: Significant connection between accounts. For instance an aggregating account for a list of shop branches each having its own billing account.
+      required:
+      - relationshipType
+      - validFor
+      properties:
+        relationshipType:
+          type: string
+          description: Type of relationship
+        account:
+          $ref: '#/components/schemas/AccountRef'
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Validity period of that relationship
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    RelatedParty:
+      type: object
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
+      - name
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
