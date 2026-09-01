@@ -53,7 +53,7 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
-  - agreement
+  - Agreement
   tags_raw:
   - agreement
   properties:
@@ -162,7 +162,8 @@ apis:
   description: The billingAccount API from TM Forum — 2 operation(s) for billingaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - Billing Account
   tags_raw:
   - billingAccount
   properties:
@@ -381,7 +382,7 @@ apis:
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
   tags:
-  - customer
+  - Customers
   tags_raw:
   - customer
   properties:
@@ -452,7 +453,8 @@ apis:
   description: Operations for ExportJob Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - ExportJob
   tags_raw:
   - exportJob
   properties:
@@ -488,7 +490,8 @@ apis:
   description: The financialAccount API from TM Forum — 2 operation(s) for financialaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - Financial Account
   tags_raw:
   - financialAccount
   properties:
@@ -524,7 +527,8 @@ apis:
   description: Operations for ImportJob Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - Import Job
   tags_raw:
   - importJob
   properties:
@@ -779,7 +783,8 @@ apis:
   description: Operations for ProductCatalog Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - Product Catalog
   tags_raw:
   - productCatalog
   properties:
@@ -1177,7 +1182,8 @@ apis:
   description: The serviceCatalog API from TM Forum — 2 operation(s) for servicecatalog.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - Service Catalog
   tags_raw:
   - serviceCatalog
   properties:
@@ -1213,7 +1219,8 @@ apis:
   description: The serviceCategory API from TM Forum — 2 operation(s) for servicecategory.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - ServiceCategory
   tags_raw:
   - serviceCategory
   properties:
@@ -1249,8 +1256,7 @@ apis:
   description: The serviceOrder API from TM Forum — 2 operation(s) for serviceorder.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - ServiceOrder
+  tags: []
   tags_raw:
   - serviceOrder
   properties:
@@ -1286,7 +1292,8 @@ apis:
   description: The serviceSpecification API from TM Forum — 2 operation(s) for servicespecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
+  tags:
+  - ServiceSpecification
   tags_raw:
   - serviceSpecification
   properties:
