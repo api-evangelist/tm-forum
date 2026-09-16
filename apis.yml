@@ -157,43 +157,6 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-billingaccount-api
-  name: TM Forum billingAccount API
-  description: The billingAccount API from TM Forum — 2 operation(s) for billingaccount.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Billing Account
-  tags_raw:
-  - billingAccount
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-billingaccount-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-billingcyclespecification-api
   name: TM Forum billingCycleSpecification API
   description: >-
@@ -448,117 +411,6 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-exportjob-api
-  name: TM Forum exportJob API
-  description: Operations for ExportJob Resource
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - ExportJob
-  tags_raw:
-  - exportJob
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-exportjob-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-financialaccount-api
-  name: TM Forum financialAccount API
-  description: The financialAccount API from TM Forum — 2 operation(s) for financialaccount.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Financial Account
-  tags_raw:
-  - financialAccount
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-financialaccount-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-importjob-api
-  name: TM Forum importJob API
-  description: Operations for ImportJob Resource
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Import Job
-  tags_raw:
-  - importJob
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-importjob-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-individual-api
   name: TM Forum individual API
   description: Operations for Individual Resource
@@ -778,43 +630,6 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-productcatalog-api
-  name: TM Forum productCatalog API
-  description: Operations for ProductCatalog Resource
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Product Catalog
-  tags_raw:
-  - productCatalog
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-productcatalog-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-productoffering-api
   name: TM Forum productOffering API
   description: Operations for ProductOffering Resource
@@ -898,43 +713,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/tm-forum-productorder-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-productspecification-api
-  name: TM Forum productSpecification API
-  description: Operations for ProductSpecification Resource
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Product Specification
-  tags_raw:
-  - productSpecification
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-productspecification-api-openapi.yml
   - type: Documentation
     url: >-
       https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -1177,153 +955,6 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-servicecatalog-api
-  name: TM Forum serviceCatalog API
-  description: The serviceCatalog API from TM Forum — 2 operation(s) for servicecatalog.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Service Catalog
-  tags_raw:
-  - serviceCatalog
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-servicecatalog-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-servicecategory-api
-  name: TM Forum serviceCategory API
-  description: The serviceCategory API from TM Forum — 2 operation(s) for servicecategory.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - ServiceCategory
-  tags_raw:
-  - serviceCategory
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-servicecategory-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-serviceorder-api
-  name: TM Forum serviceOrder API
-  description: The serviceOrder API from TM Forum — 2 operation(s) for serviceorder.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
-  tags_raw:
-  - serviceOrder
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-serviceorder-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-servicespecification-api
-  name: TM Forum serviceSpecification API
-  description: The serviceSpecification API from TM Forum — 2 operation(s) for servicespecification.
-  humanURL: >-
-    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - ServiceSpecification
-  tags_raw:
-  - serviceSpecification
-  properties:
-  - type: OpenAPI
-    url: openapi/tm-forum-servicespecification-api-openapi.yml
-  - type: Documentation
-    url: >-
-      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF622_ProductOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF632_PartyManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF637_ProductInventory
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
-  - type: Documentation
-    url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-settlementaccount-api
   name: TM Forum settlementAccount API
   description: The settlementAccount API from TM Forum — 2 operation(s) for settlementaccount.
@@ -1360,18 +991,17 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-troubleticket-api
-  name: TM Forum troubleTicket API
-  description: Operations for TroubleTicket Resource
+- aid: tm-forum:tm-forum-troubleticketspecification-api
+  name: TM Forum troubleTicketSpecification API
+  description: Operations for TroubleTicketSpecification Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags:
-  - Trouble Ticket
+  tags: []
   tags_raw:
-  - troubleTicket
+  - troubleTicketSpecification
   properties:
   - type: OpenAPI
-    url: openapi/tm-forum-troubleticket-api-openapi.yml
+    url: openapi/tm-forum-troubleticketspecification-api-openapi.yml
   - type: Documentation
     url: >-
       https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -1397,17 +1027,366 @@ apis:
     url: https://github.com/tmforum-apis/TMF651_AgreementManagement
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
-- aid: tm-forum:tm-forum-troubleticketspecification-api
-  name: TM Forum troubleTicketSpecification API
-  description: Operations for TroubleTicketSpecification Resource
+- aid: tm-forum:tm-forum-billing-account-api
+  name: TM Forum Billing Account API
+  description: The Billing Account API from TM Forum — 2 operation(s) for billing account.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
-  tags: []
-  tags_raw:
-  - troubleTicketSpecification
+  tags:
+  - Billing Account
   properties:
   - type: OpenAPI
-    url: openapi/tm-forum-troubleticketspecification-api-openapi.yml
+    url: openapi/tm-forum-billing-account-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-export-job-api
+  name: TM Forum Export Job API
+  description: Operations for ExportJob Resource
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Export Job
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-export-job-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-financial-account-api
+  name: TM Forum Financial Account API
+  description: The Financial Account API from TM Forum — 2 operation(s) for financial account.
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Financial Account
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-financial-account-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-import-job-api
+  name: TM Forum Import Job API
+  description: Operations for ImportJob Resource
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Import Job
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-import-job-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-product-catalog-api
+  name: TM Forum Product Catalog API
+  description: Operations for ProductCatalog Resource
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Product Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-product-catalog-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-product-specification-api
+  name: TM Forum Product Specification API
+  description: Operations for ProductSpecification Resource
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Product Specification
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-product-specification-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-service-catalog-api
+  name: TM Forum Service Catalog API
+  description: The Service Catalog API from TM Forum — 2 operation(s) for service catalog.
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Service Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-service-catalog-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-service-category-api
+  name: TM Forum Service Category API
+  description: The Service Category API from TM Forum — 2 operation(s) for service category.
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Service Category
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-service-category-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-service-order-api
+  name: TM Forum Service Order API
+  description: The Service Order API from TM Forum — 2 operation(s) for service order.
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Service Order
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-service-order-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-service-specification-api
+  name: TM Forum Service Specification API
+  description: The Service Specification API from TM Forum — 2 operation(s) for service specification.
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Service Specification
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-service-specification-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF621_TroubleTicket
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF622_ProductOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF629_CustomerManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF632_PartyManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF633_ServiceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF634_ResourceCatalog
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF637_ProductInventory
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF641_ServiceOrder
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF648_QuoteManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF651_AgreementManagement
+  - type: Documentation
+    url: https://github.com/tmforum-apis/TMF666_AccountManagement
+- aid: tm-forum:tm-forum-trouble-ticket-api
+  name: TM Forum Trouble Ticket API
+  description: Operations for TroubleTicket Resource
+  humanURL: >-
+    https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
+  tags:
+  - Trouble Ticket
+  properties:
+  - type: OpenAPI
+    url: openapi/tm-forum-trouble-ticket-api-openapi.yml
   - type: Documentation
     url: >-
       https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
