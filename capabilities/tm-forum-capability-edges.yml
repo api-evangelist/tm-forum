@@ -14,7 +14,8 @@ capability_model:
 edge_count: 16
 edges:
 - tag: serviceOrder
-  spec_file: tm-forum-serviceorder-api-openapi.yml
+  spec_file: tm-forum-service-order-api-openapi.yml
+  reanchored_from: tm-forum-serviceorder-api-openapi.yml
   capability_id: BC-2620
   capability_id_l1: BC-2620
   capability_name: Telecom Service Fulfilment Management
@@ -46,7 +47,8 @@ edges:
   reason: CRUD lifecycle over Customer records (with related party, contact, tax and account references)
     is customer master data management, not a telecom-specific network or billing capability.
 - tag: productCatalog
-  spec_file: tm-forum-productcatalog-api-openapi.yml
+  spec_file: tm-forum-product-catalog-api-openapi.yml
+  reanchored_from: tm-forum-productcatalog-api-openapi.yml
   capability_id: BC-2650
   capability_id_l1: BC-2650
   capability_name: Telecom Product Catalogue Management
@@ -161,7 +163,8 @@ edges:
     moderate confidence because in a CSP context agreements may serve wholesale/partner contracting rather
     than corporate legal.
 - tag: billingAccount
-  spec_file: tm-forum-billingaccount-api-openapi.yml
+  spec_file: tm-forum-billing-account-api-openapi.yml
+  reanchored_from: tm-forum-billingaccount-api-openapi.yml
   capability_id: BC-2660
   capability_id_l1: BC-2660
   capability_name: Telecom Billing & Revenue Management
@@ -173,7 +176,8 @@ edges:
     L2 left null because the surface spans billing operations, presentment and balance/collections rather
     than naming one.
 - tag: productSpecification
-  spec_file: tm-forum-productspecification-api-openapi.yml
+  spec_file: tm-forum-product-specification-api-openapi.yml
+  reanchored_from: tm-forum-productspecification-api-openapi.yml
   capability_id: BC-2650
   capability_id_l1: BC-2650
   capability_name: Telecom Product Catalogue Management
