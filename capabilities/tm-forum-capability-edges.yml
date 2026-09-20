@@ -1,0 +1,185 @@
+slug: tm-forum
+provider: TM Forum
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 16
+edges:
+- tag: serviceOrder
+  spec_file: tm-forum-serviceorder-api-openapi.yml
+  capability_id: BC-2620
+  capability_id_l1: BC-2620
+  capability_name: Telecom Service Fulfilment Management
+  confidence: 0.85
+  evidence: '"The Service Order API provides a standardized mechanism for managing Service Order ... between
+    internal Customer Order management system to service order management system"; schemas ServiceOrderItem,
+    ServiceOrderMilestone, ServiceOrderItemStateType'
+  reason: TMF641 service ordering is squarely telecom service fulfilment (order capture, decomposition
+    into CFS/RFS, provisioning orchestration). L2 left blank because the API spans capture, decomposition
+    and provisioning rather than one sub-capability.
+- tag: category
+  spec_file: tm-forum-category-api-openapi.yml
+  capability_id: BC-2650
+  capability_id_l1: BC-2650
+  capability_name: Telecom Product Catalogue Management
+  confidence: 0.82
+  evidence: '"Product Catalog API goal is to provide a catalog of products"; schemas Category, ProductOfferingRef,
+    CategoryRef'
+  reason: Category is the catalogue structuring entity grouping product offerings in TMF620 Product Catalog
+    Management — telecom product catalogue management. Which sub-capability (design vs publication) is
+    not determinable, so L1 only.
+- tag: customer
+  spec_file: tm-forum-customer-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.82
+  evidence: '"TMF - 629 Customer Management"; POST /customer createCustomer, PATCH /customer/{id} patchCustomer'
+  reason: CRUD lifecycle over Customer records (with related party, contact, tax and account references)
+    is customer master data management, not a telecom-specific network or billing capability.
+- tag: productCatalog
+  spec_file: tm-forum-productcatalog-api-openapi.yml
+  capability_id: BC-2650
+  capability_id_l1: BC-2650
+  capability_name: Telecom Product Catalogue Management
+  confidence: 0.82
+  evidence: '"Product Catalog API goal is to provide a catalog of products"; POST /productCatalog createProductCatalog;
+    schemas ProductCatalog, CategoryRef'
+  reason: Operations create and version the product catalogue container with its categories for a CSP
+    — squarely telecom product catalogue management. Left at L1 since the resource is the catalogue itself
+    rather than specifically offer design, tariffs or channel publication.
+- tag: productOrder
+  spec_file: tm-forum-productorder-api-openapi.yml
+  capability_id: BC-2620.10
+  capability_id_l1: BC-2620
+  capability_name: Service Order Capture
+  confidence: 0.8
+  evidence: '"The Product Ordering API provides a standardized mechanism for placing a product order with
+    all of the necessary order parameters"; POST /productOrder createProductOrder; schema ProductOrderStateType'
+  reason: Captures and tracks customer product orders against catalogue offers through CRM/order negotiation
+    systems — telecom service order capture at the head of the fulfilment chain.
+- tag: cancelProductOrder
+  spec_file: tm-forum-cancelproductorder-api-openapi.yml
+  capability_id: BC-2620
+  capability_id_l1: BC-2620
+  capability_name: Telecom Service Fulfilment Management
+  confidence: 0.78
+  evidence: '"This API provide a task based resource to request order cancellation" — POST /cancelProductOrder
+    createCancelProductOrder (TMF 622 Product Ordering Management)'
+  reason: Task resource for cancelling a customer product order in the telecom order-management flow,
+    i.e. part of service order handling/fulfilment (eTOM order management). No single sub-capability names
+    cancellation, so only the L1 is asserted.
+- tag: cancelServiceOrder
+  spec_file: tm-forum-cancelserviceorder-api-openapi.yml
+  capability_id: BC-2620
+  capability_id_l1: BC-2620
+  capability_name: Telecom Service Fulfilment Management
+  confidence: 0.78
+  evidence: '"TMF 641 - Service Ordering Management ... The Service Order API provides a standardized
+    mechanism for managing Service Order" — POST /cancelServiceOrder createCancelServiceOrder'
+  reason: Cancellation task on service orders placed between customer order management and service order
+    management systems — telecom service fulfilment order handling. Sub-capability not specifically named,
+    so L1 only.
+- tag: productOffering
+  spec_file: tm-forum-productoffering-api-openapi.yml
+  capability_id: BC-2650.10
+  capability_id_l1: BC-2650
+  capability_name: Product Offer Design
+  confidence: 0.78
+  evidence: POST /productOffering createProductOffering; schemas BundledGroupProductOffering, ProductOfferingPriceRefOrValue_FVO,
+    CharacteristicSpecification, AgreementRef_FVO
+  reason: The surface defines commercial offers with bundled groups, characteristics and attached prices
+    — the design of telecom product offers. Sub-capability could arguably be bundle/promotion, hence 0.78.
+- tag: quote
+  spec_file: tm-forum-quote-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.78
+  evidence: '"The Quote API provides a standardized mechanism for placing a quote"; schemas Quote_Create,
+    QuoteItem, Price, ProductOfferingRef'
+  reason: Creates and maintains quotes built from product offerings with priced quote items and authorisation
+    for special pricing — configure/price/quote in the lead-to-order flow.
+- tag: billPresentationMedia
+  spec_file: tm-forum-billpresentationmedia-api-openapi.yml
+  capability_id: BC-2660.40
+  capability_id_l1: BC-2660
+  capability_name: Bill Presentment & Inquiry Management
+  confidence: 0.75
+  evidence: createBillPresentationMedia 'Creates a BillPresentationMedia' (TMF Account Management)
+  reason: BillPresentationMedia specifies the medium (paper, email, portal) by which a telecom bill is
+    delivered to the customer — squarely multi-format bill presentment.
+- tag: productOfferingPrice
+  spec_file: tm-forum-productofferingprice-api-openapi.yml
+  capability_id: BC-2650.20
+  capability_id_l1: BC-2650
+  capability_name: Tariff & Plan Management
+  confidence: 0.75
+  evidence: POST /productOfferingPrice createProductOfferingPrice; schemas ProductOfferingPrice_MVO, PricingLogicAlgorithm_FVO,
+    ProductOfferingTerm_FVO, Duration
+  reason: Defines recurring/one-off pricing, pricing logic algorithms and offering terms for catalogue
+    offers — tariff and plan definition within the telecom product catalogue. Some overlap with generic
+    price list management, hence not higher.
+- tag: billFormat
+  spec_file: tm-forum-billformat-api-openapi.yml
+  capability_id: BC-2660.40
+  capability_id_l1: BC-2660
+  capability_name: Bill Presentment & Inquiry Management
+  confidence: 0.72
+  evidence: listBillFormat 'List or find BillFormat objects' within 'TMF Account Management specification'
+  reason: BillFormat in TMF Account Management defines how a telecom bill is structured/formatted for
+    the customer, which is the presentment side of billing. Confidence tempered because the resource is
+    a small reference-data object.
+- tag: billingCycleSpecification
+  spec_file: tm-forum-billingcyclespecification-api-openapi.yml
+  capability_id: BC-2660.30
+  capability_id_l1: BC-2660
+  capability_name: Billing Operations Management
+  confidence: 0.72
+  evidence: createBillingCycleSpecification 'Creates a BillingCycleSpecification' (TMF Account Management)
+  reason: Defines the billing cycle periods that drive bill run execution, matching Billing Operations
+    Management ('Execution of billing cycles'). Confidence moderate as the tag exposes only the specification/reference
+    data, not cycle execution.
+- tag: agreement
+  spec_file: tm-forum-agreement-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.7
+  evidence: createAgreement 'Creates a Agreement'; schemas 'AgreementTermOrCondition', 'AgreementAuthorization',
+    'AgreementItem'
+  reason: TMF Agreement Management CRUDs legally binding agreements with terms/conditions, authorisations
+    and related parties — i.e. contract lifecycle from drafting to closure. Mapped to Contract Management;
+    moderate confidence because in a CSP context agreements may serve wholesale/partner contracting rather
+    than corporate legal.
+- tag: billingAccount
+  spec_file: tm-forum-billingaccount-api-openapi.yml
+  capability_id: BC-2660
+  capability_id_l1: BC-2660
+  capability_name: Telecom Billing & Revenue Management
+  confidence: 0.7
+  evidence: createBillingAccount 'Creates a BillingAccount'; schemas 'AccountBalance', 'BillStructure',
+    'BillingCycleSpecificationRefOrValue', 'PaymentMethodRef', 'AccountTaxExemption'
+  reason: TMF Account Management billing accounts carry bill structure, billing cycle, balances, payment
+    method and tax exemption — the account construct on which telecom billing and revenue management runs.
+    L2 left null because the surface spans billing operations, presentment and balance/collections rather
+    than naming one.
+- tag: productSpecification
+  spec_file: tm-forum-productspecification-api-openapi.yml
+  capability_id: BC-2650
+  capability_id_l1: BC-2650
+  capability_name: Telecom Product Catalogue Management
+  confidence: 0.7
+  evidence: POST /productSpecification createProductSpecification; schemas CharacteristicSpecification,
+    ProductSpecificationRelationship_MVO, IntentSpecificationRef_FVO
+  reason: 'Product specifications with characteristic specifications and relationships are catalogue-side
+    definitional artefacts of telecom products. L1 only: the evidence does not distinguish offer design
+    from lifecycle or publication sub-capabilities.'
