@@ -1,12 +1,18 @@
 openapi: 3.2.0
 info:
   title: Service Catalog Management Service Category API
-  description: "## TMF API Reference: TMF633 - Service Catalog Management\n\n Version 4.0 \n\nThe Service Catalog API is one of Catalog Management API Family. Service Catalog API goal is to provide a catalog of services. \nService Catalog API performs the following operations on the resource :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity (for administration purposes)\n- Manage notification of events. .\n\nCopyright © TM Forum 2020. All Rights Reserved. "
+  description: '## TMF API Reference: TMF633 - Service Catalog Management
+
+
+    Version 4.0
+
+
+    The Service Catalog API is one of Catalog Management API Family.'
   version: 4.0.0
 servers:
 - url: https://serverRoot/tmf-api/serviceCatalogManagement/v4/
 tags:
-- name: serviceCategory
+- name: Service Category
 paths:
   /serviceCategory:
     get:
@@ -14,7 +20,7 @@ paths:
       summary: List or find ServiceCategory objects
       description: This operation list or find ServiceCategory entities
       tags:
-      - serviceCategory
+      - Service Category
       parameters:
       - name: fields
         description: Comma-separated properties to be provided in response
@@ -99,7 +105,7 @@ paths:
       summary: Creates a ServiceCategory
       description: This operation creates a ServiceCategory entity.
       tags:
-      - serviceCategory
+      - Service Category
       responses:
         '201':
           description: Created
@@ -156,7 +162,7 @@ paths:
       summary: Retrieves a ServiceCategory by ID
       description: This operation retrieves a ServiceCategory entity. Attribute selection is enabled for all first level attributes.
       tags:
-      - serviceCategory
+      - Service Category
       parameters:
       - name: id
         description: Identifier of the ServiceCategory
@@ -224,7 +230,7 @@ paths:
       summary: Updates partially a ServiceCategory
       description: This operation updates partially a ServiceCategory entity.
       tags:
-      - serviceCategory
+      - Service Category
       parameters:
       - name: id
         description: Identifier of the ServiceCategory
@@ -293,7 +299,7 @@ paths:
       summary: Deletes a ServiceCategory
       description: This operation deletes a ServiceCategory entity.
       tags:
-      - serviceCategory
+      - Service Category
       parameters:
       - name: id
         description: Identifier of the ServiceCategory
@@ -348,118 +354,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ServiceCategoryRef:
-      type: object
-      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-      properties:
-        id:
-          type: string
-          description: unique identifier
-        href:
-          type: string
-          format: uri
-          description: Hyperlink reference
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Category version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
-    ServiceCategory_Update:
-      type: object
-      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-
-        Skipped properties: id,href,lastUpdate'
-      properties:
-        description:
-          type: string
-          description: Description of the category
-        isRoot:
-          type: boolean
-          description: If true, this Boolean indicates that the category is a root of categories
-        lifecycleStatus:
-          type: string
-          description: Used to indicate the current lifecycle status
-        name:
-          type: string
-          description: Name of the category
-        parentId:
-          type: string
-          description: Unique identifier of the parent category
-        version:
-          type: string
-          description: ServiceCategory version
-        category:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCategoryRef'
-          description: List of child categories in the tree for in this category
-        serviceCandidate:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCandidateRef'
-          description: List of service candidates associated with this category
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the category is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
     ServiceCategory:
       type: object
       description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
@@ -516,38 +410,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class Extensible name
-    ServiceCandidateRef:
-      type: object
-      description: ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.
-      properties:
-        id:
-          type: string
-          description: unique identifier
-        href:
-          type: string
-          format: uri
-          description: Hyperlink reference
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Version of the service candidate
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
     ServiceCategory_Create:
       type: object
       description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
@@ -615,3 +477,147 @@ components:
           type: string
           format: date-time
           description: Start of the time period, using IETC-RFC-3339 format
+    ServiceCandidateRef:
+      type: object
+      description: ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.
+      properties:
+        id:
+          type: string
+          description: unique identifier
+        href:
+          type: string
+          format: uri
+          description: Hyperlink reference
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Version of the service candidate
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    ServiceCategory_Update:
+      type: object
+      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+
+        Skipped properties: id,href,lastUpdate'
+      properties:
+        description:
+          type: string
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status
+        name:
+          type: string
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
+        version:
+          type: string
+          description: ServiceCategory version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCategoryRef'
+          description: List of child categories in the tree for in this category
+        serviceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCandidateRef'
+          description: List of service candidates associated with this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    ServiceCategoryRef:
+      type: object
+      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: unique identifier
+        href:
+          type: string
+          format: uri
+          description: Hyperlink reference
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Category version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id

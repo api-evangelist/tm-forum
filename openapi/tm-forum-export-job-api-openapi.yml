@@ -8,13 +8,13 @@ servers:
 - url: https://serverRoot/tmf-api/serviceCatalogManagement/v4/
 - url: https://serverRoot/tmf-api/resourceCatalog/v4/
 tags:
-- name: exportJob
+- name: Export Job
   description: Operations for ExportJob Resource
 paths:
   /exportJob:
     get:
       tags:
-      - exportJob
+      - Export Job
       summary: TM Forum List or Find ExportJob Objects
       description: List or find ExportJob objects
       operationId: listExportJob
@@ -43,7 +43,7 @@ paths:
           $ref: '#/components/responses/503'
     post:
       tags:
-      - exportJob
+      - Export Job
       summary: TM Forum Creates a ExportJob
       description: This operation creates a ExportJob entity.
       operationId: createExportJob
@@ -79,7 +79,7 @@ paths:
   /exportJob/{id}:
     get:
       tags:
-      - exportJob
+      - Export Job
       summary: TM Forum Retrieves a ExportJob by ID
       description: This operation retrieves a ExportJob entity. Attribute selection enabled for all first level attributes.
       operationId: retrieveExportJob
@@ -107,7 +107,7 @@ paths:
           $ref: '#/components/responses/503'
     delete:
       tags:
-      - exportJob
+      - Export Job
       summary: TM Forum Deletes a ExportJob
       description: This operation deletes a ExportJob entity.
       operationId: deleteExportJob
@@ -139,7 +139,204 @@ paths:
     servers:
     - url: https://serverRoot/productCatalogManagement/v5/
 components:
+  parameters:
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+  responses:
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '409':
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '202':
+      description: Accepted
+    201ExportJob:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExportJob'
+          examples:
+            Export_Job_Create_example:
+              $ref: '#/components/examples/Export_Job_Create_example_response'
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200ExportJob_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExportJob'
+          examples:
+            ExportJob_retrieve_example:
+              $ref: '#/components/examples/ExportJob_retrieve_example_response'
+    '204':
+      description: Deleted
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200ExportJobArray:
+      description: Success
+      headers:
+        X-Total-Count:
+          $ref: '#/components/headers/X-Total-Count'
+        X-Result-Count:
+          $ref: '#/components/headers/X-Result-Count'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ExportJob'
+          examples:
+            ExportJob_list_example:
+              $ref: '#/components/examples/ExportJob_list_example_response'
+  examples:
+    Export_Job_Create_example_response:
+      value:
+        id: '5435'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
+        contentType: application/json
+        creationDate: '2020-09-23T00:00:00Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
+        query: category.id=7757
+        status: Running
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ExportJob
+      description: Here is an example of a response for creating an export job.
+    Export_Job_Create_example_request:
+      value:
+        contentType: application/json
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
+        query: category.id=7757
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
+        '@type': ExportJob
+      description: Here is an example of a request for creating an export job.
+    ExportJob_retrieve_example_response:
+      value:
+        id: '5435'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
+        contentType: application/json
+        creationDate: '2020-09-23T00:00:00Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
+        query: category.id=7757
+        status: Running
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ExportJob
+      description: Here is an example of a request for retrieving a specific export job.
+    ExportJob_list_example_response:
+      value:
+      - id: '5435'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
+        contentType: application/json
+        creationDate: '2020-09-23T00:00:00Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
+        query: category.id=7757
+        status: Running
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ExportJob
+      - id: '5431'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5431
+        contentType: application/json
+        creationDate: '2020-09-23T00:00:00Z'
+        completionDate: '2020-09-23T00:02:31Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
+        query: '@type=ProductOffering'
+        status: Failed
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1899.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ExportJob
+      description: Here is an example of a request for retrieving multiple export jobs.
+  headers:
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
   schemas:
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
     Error:
       discriminator:
         propertyName: '@type'
@@ -168,12 +365,6 @@ components:
             type: string
             description: URI of documentation describing the error.
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    Entity:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
     ExportJob:
       allOf:
       - $ref: '#/components/schemas/Entity'
@@ -213,6 +404,33 @@ components:
         propertyName: '@type'
         mapping:
           ExportJob: '#/components/schemas/ExportJob'
+    Entity_FVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    Extensible_FVO:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
     ExportJob_FVO:
       allOf:
       - $ref: '#/components/schemas/Entity_FVO'
@@ -255,52 +473,6 @@ components:
         propertyName: '@type'
         mapping:
           ExportJob: '#/components/schemas/ExportJob_FVO'
-    Extensible:
-      type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    Entity_FVO:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - $ref: '#/components/schemas/Addressable_FVO'
-    Extensible_FVO:
-      type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    Addressable:
-      type: object
-      description: Base schema for adressable entities
-      properties:
-        href:
-          type: string
-          description: Hyperlink reference
-        id:
-          type: string
-          description: unique identifier
     Addressable_FVO:
       type: object
       description: Base schema for adressable entities
@@ -316,44 +488,21 @@ components:
       - Failed
       type: string
       description: Valid values for the state of a batch job (e.g. catalog import)
-    ExportJob_2:
+    Extensible:
       type: object
-      description: Represents a task used to export resources to a file
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
       properties:
-        id:
+        '@type':
           type: string
-          description: Identifier of the export job
-        href:
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
           type: string
-          format: uri
-          description: Reference of the export job
-        completionDate:
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
           type: string
-          format: date-time
-          description: Data at which the job was completed
-        contentType:
-          type: string
-          description: The format of the exported data
-        creationDate:
-          type: string
-          format: date-time
-          description: Date at which the job was created
-        errorLog:
-          type: string
-          description: Reason for failure
-        path:
-          type: string
-          description: URL of the root resource acting as the source for streaming content to the file specified by the export job
-        query:
-          type: string
-          description: Used to scope the exported data
-        url:
-          type: string
-          format: uri
-          description: URL of the file containing the data to be exported
-        status:
-          $ref: '#/components/schemas/JobStateType'
-          description: Status of the export job (not started, running, succeeded, failed)
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
     Error_2:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
@@ -422,7 +571,7 @@ components:
         status:
           $ref: '#/components/schemas/JobStateType'
           description: Status of the export job (not started, running, succeeded, failed)
-    ExportJob_3:
+    ExportJob_2:
       type: object
       description: Represents a task used to export resources to a file
       properties:
@@ -431,6 +580,7 @@ components:
           description: Identifier of the export job
         href:
           type: string
+          format: uri
           description: Reference of the export job
         completionDate:
           type: string
@@ -454,20 +604,11 @@ components:
           description: Used to scope the exported data
         url:
           type: string
+          format: uri
           description: URL of the file containing the data to be exported
         status:
           $ref: '#/components/schemas/JobStateType'
           description: Status of the export job (not started, running, succeeded, failed)
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
     Error_3:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
@@ -545,99 +686,52 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-  responses:
-    201ExportJob:
-      description: OK/Created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ExportJob'
-          examples:
-            Export_Job_Create_example:
-              $ref: '#/components/examples/Export_Job_Create_example_response'
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '409':
-      description: Conflict
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    200ExportJobArray:
-      description: Success
-      headers:
-        X-Total-Count:
-          $ref: '#/components/headers/X-Total-Count'
-        X-Result-Count:
-          $ref: '#/components/headers/X-Result-Count'
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/ExportJob'
-          examples:
-            ExportJob_list_example:
-              $ref: '#/components/examples/ExportJob_list_example_response'
-    '400':
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    200ExportJob_Get:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ExportJob'
-          examples:
-            ExportJob_retrieve_example:
-              $ref: '#/components/examples/ExportJob_retrieve_example_response'
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '405':
-      description: Method Not allowed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '403':
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '501':
-      description: Not Implemented
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '202':
-      description: Accepted
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '204':
-      description: Deleted
+    ExportJob_3:
+      type: object
+      description: Represents a task used to export resources to a file
+      properties:
+        id:
+          type: string
+          description: Identifier of the export job
+        href:
+          type: string
+          description: Reference of the export job
+        completionDate:
+          type: string
+          format: date-time
+          description: Data at which the job was completed
+        contentType:
+          type: string
+          description: The format of the exported data
+        creationDate:
+          type: string
+          format: date-time
+          description: Date at which the job was created
+        errorLog:
+          type: string
+          description: Reason for failure
+        path:
+          type: string
+          description: URL of the root resource acting as the source for streaming content to the file specified by the export job
+        query:
+          type: string
+          description: Used to scope the exported data
+        url:
+          type: string
+          description: URL of the file containing the data to be exported
+        status:
+          $ref: '#/components/schemas/JobStateType'
+          description: Status of the export job (not started, running, succeeded, failed)
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
   requestBodies:
     ExportJob_FVO:
       description: The ExportJob to be created
@@ -649,100 +743,6 @@ components:
             Export_Job_Create_example:
               $ref: '#/components/examples/Export_Job_Create_example_request'
       required: true
-  examples:
-    Export_Job_Create_example_request:
-      value:
-        contentType: application/json
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
-        query: category.id=7757
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
-        '@type': ExportJob
-      description: Here is an example of a request for creating an export job.
-    ExportJob_list_example_response:
-      value:
-      - id: '5435'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
-        contentType: application/json
-        creationDate: '2020-09-23T00:00:00Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
-        query: category.id=7757
-        status: Running
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ExportJob
-      - id: '5431'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5431
-        contentType: application/json
-        creationDate: '2020-09-23T00:00:00Z'
-        completionDate: '2020-09-23T00:02:31Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
-        query: '@type=ProductOffering'
-        status: Failed
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1899.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ExportJob
-      description: Here is an example of a request for retrieving multiple export jobs.
-    Export_Job_Create_example_response:
-      value:
-        id: '5435'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
-        contentType: application/json
-        creationDate: '2020-09-23T00:00:00Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
-        query: category.id=7757
-        status: Running
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ExportJob
-      description: Here is an example of a response for creating an export job.
-    ExportJob_retrieve_example_response:
-      value:
-        id: '5435'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/exportJob/5435
-        contentType: application/json
-        creationDate: '2020-09-23T00:00:00Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category
-        query: category.id=7757
-        status: Running
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ExportJob
-      description: Here is an example of a request for retrieving a specific export job.
-  parameters:
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated properties to be provided in response
-      schema:
-        type: string
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
-    Limit:
-      name: limit
-      in: query
-      description: Requested number of resources to be provided in response
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      description: Requested index for start of resources to be provided in response
-      schema:
-        type: integer
-  headers:
-    X-Result-Count:
-      description: Actual number of items returned in the response body
-      schema:
-        type: integer
-    X-Total-Count:
-      description: Total number of items matching criteria
-      schema:
-        type: integer
 x-refined-from:
 - tm-forum-tmf620-product-catalog-openapi.yaml
 - tm-forum-tmf633-service-catalog-openapi.json

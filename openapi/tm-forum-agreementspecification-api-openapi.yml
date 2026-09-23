@@ -348,6 +348,7 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Any: {}
     Quantity:
       type: object
       description: An amount in a given unit
@@ -360,42 +361,7 @@ components:
         units:
           type: string
           description: Unit
-    AgreementSpecCharacteristicValue:
-      type: object
-      description: A number or text that can be assigned to an agreement specification characteristic.
-      properties:
-        default:
-          type: boolean
-          description: Indicates if the value is the default value for a characteristic
-        unitOfMeasure:
-          type: string
-          description: Unit of measure for the characteristic, such as minutes, gigabytes (GB) and so on.
-        valueFrom:
-          type: string
-          description: The low range value that a characteristic can take on
-        valueTo:
-          type: string
-          description: The upper range value that a characteristic can take on
-        valueType:
-          type: string
-          description: A kind of value that the characteristic can take on, such as numeric, text, and so forth
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period of time for which a value is applicable
-        value:
-          $ref: '#/components/schemas/Any'
-          description: A discrete value that the characteristic can take on
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    AgreementSpecification_Create:
+    AgreementSpecification_Update:
       type: object
       description: 'A template of an agreement that can be used when establishing partnerships
 
@@ -455,15 +421,31 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    AgreementSpecification_Update:
+    TimePeriod:
       type: object
-      description: 'A template of an agreement that can be used when establishing partnerships
-
-        Skipped properties: id,href'
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    AgreementSpecification:
+      type: object
+      description: A template of an agreement that can be used when establishing partnerships
       required:
       - attachment
       - name
       properties:
+        id:
+          type: string
+          description: Unique identifier of the agreement specification
+        href:
+          type: string
+          description: Reference of the agreement specification
         description:
           type: string
           description: A narrative that explains in detail what the agreement specification is about
@@ -548,7 +530,135 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    Any: {}
+    RelatedParty:
+      type: object
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
+      - name
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+    CategoryRef:
+      type: object
+      description: The category for grouping recommendations
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Category version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    AgreementSpecificationRelationship:
+      type: object
+      description: A relationship between agreement specifications. Typical relationships are substitution and dependency.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        relationshipType:
+          type: string
+          description: Type of relationship such as, substitution or dependency.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the relationship is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+    AgreementSpecCharacteristic:
+      type: object
+      description: A characteristic quality or distinctive feature of an agreement.
+      properties:
+        configurable:
+          type: boolean
+          description: If true, the Boolean indicates that the characteristic is configurable
+        description:
+          type: string
+          description: A narrative that explains in detail what the characteristic is
+        name:
+          type: string
+          description: Name of the characteristic being specified.
+        valueType:
+          type: string
+          description: A kind of value that the characteristic can take on, such as numeric, text and so forth
+        specCharacteristicValue:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgreementSpecCharacteristicValue'
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the specification characteristic is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
     AttachmentRefOrValue:
       type: object
       description: An attachment by value or by reference. An attachment complements the description of an element, for example through a document, a video, a picture.
@@ -596,127 +706,15 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-    AgreementSpecificationRelationship:
+    AgreementSpecification_Create:
       type: object
-      description: A relationship between agreement specifications. Typical relationships are substitution and dependency.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        relationshipType:
-          type: string
-          description: Type of relationship such as, substitution or dependency.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the relationship is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-    CategoryRef:
-      type: object
-      description: The category for grouping recommendations
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Category version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    TimePeriod:
-      type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    AgreementSpecCharacteristic:
-      type: object
-      description: A characteristic quality or distinctive feature of an agreement.
-      properties:
-        configurable:
-          type: boolean
-          description: If true, the Boolean indicates that the characteristic is configurable
-        description:
-          type: string
-          description: A narrative that explains in detail what the characteristic is
-        name:
-          type: string
-          description: Name of the characteristic being specified.
-        valueType:
-          type: string
-          description: A kind of value that the characteristic can take on, such as numeric, text and so forth
-        specCharacteristicValue:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgreementSpecCharacteristicValue'
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the specification characteristic is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    AgreementSpecification:
-      type: object
-      description: A template of an agreement that can be used when establishing partnerships
+      description: 'A template of an agreement that can be used when establishing partnerships
+
+        Skipped properties: id,href'
       required:
       - attachment
       - name
       properties:
-        id:
-          type: string
-          description: Unique identifier of the agreement specification
-        href:
-          type: string
-          description: Reference of the agreement specification
         description:
           type: string
           description: A narrative that explains in detail what the agreement specification is about
@@ -768,26 +766,31 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    RelatedParty:
+    AgreementSpecCharacteristicValue:
       type: object
-      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-      required:
-      - '@referredType'
-      - id
-      - name
+      description: A number or text that can be assigned to an agreement specification characteristic.
       properties:
-        id:
+        default:
+          type: boolean
+          description: Indicates if the value is the default value for a characteristic
+        unitOfMeasure:
           type: string
-          description: Unique identifier of a related entity.
-        href:
+          description: Unit of measure for the characteristic, such as minutes, gigabytes (GB) and so on.
+        valueFrom:
           type: string
-          description: Reference of the related entity.
-        name:
+          description: The low range value that a characteristic can take on
+        valueTo:
           type: string
-          description: Name of the related entity.
-        role:
+          description: The upper range value that a characteristic can take on
+        valueType:
           type: string
-          description: Role played by the related party
+          description: A kind of value that the characteristic can take on, such as numeric, text, and so forth
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period of time for which a value is applicable
+        value:
+          $ref: '#/components/schemas/Any'
+          description: A discrete value that the characteristic can take on
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -798,6 +801,3 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.

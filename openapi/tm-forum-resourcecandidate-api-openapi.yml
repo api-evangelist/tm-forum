@@ -1,7 +1,13 @@
 openapi: 3.2.0
 info:
   title: Resource Catalog Management Resource Candidate API
-  description: "## TMF API Reference: TMF634 - Resource Catalog Management\n\n### Release : 19.0 - June 2019\n\nResource Catalog API is one of Catalog Management API Family. Resource Catalog API goal is to provide a catalog of resources. \n\n### Operations\nResource Catalog API performs the following operations on the resources :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity\n- Manage notification of events"
+  description: '## TMF API Reference: TMF634 - Resource Catalog Management
+
+
+    ### Release : 19.0 - June 2019
+
+
+    Resource Catalog API is one of Catalog Management API Family.'
   version: 4.0.0
 servers:
 - url: https://serverRoot/tmf-api/resourceCatalog/v4/
@@ -348,24 +354,39 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ResourceSpecificationRef:
+    ResourceCandidate_Update:
       type: object
-      description: 'Resources are physical or non-physical components (or some combination of these) within an enterprise''s infrastructure or inventory. They are typically consumed or used by services (for example a physical port assigned to a service) or contribute to the realization of a Product (for example, a SIM card). They can be drawn from the Application, Computing and Network domains, and include, for example, Network Elements, software, IT systems, content and information, and technology components.
+      description: 'ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
 
-        A ResourceSpecification is an abstract base class for representing a generic means for implementing a particular type of Resource. In essence, a ResourceSpecification defines the common attributes and relationships of a set of related Resources, while Resource defines a specific instance that is based on a particular ResourceSpecification.'
+        Skipped properties: id,href'
       properties:
-        id:
+        description:
           type: string
-          description: Unique identifier of a related entity.
-        href:
+          description: Description of this REST resource
+        lastUpdate:
           type: string
-          description: Reference of the related entity.
+          format: date-time
+          description: Date and time of the last update of this REST resource
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status of the resource candidate.
         name:
           type: string
-          description: Name of the related entity.
+          description: Name given to this REST resource
         version:
           type: string
-          description: Resource Specification version
+          description: the version of resource candidate
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceCategoryRef'
+          description: The categories in which this candidate is exposed
+        resourceSpecification:
+          $ref: '#/components/schemas/ResourceSpecificationRef'
+          description: The detailed specification for this candidate
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which this REST resource is valid
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -376,75 +397,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
-    ResourceCategoryRef:
-      type: object
-      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Category version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
     ResourceCandidate:
       type: object
       description: ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
@@ -537,49 +489,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    ResourceCandidate_Update:
-      type: object
-      description: 'ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
-
-        Skipped properties: id,href'
-      properties:
-        description:
-          type: string
-          description: Description of this REST resource
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Date and time of the last update of this REST resource
-        lifecycleStatus:
-          type: string
-          description: Used to indicate the current lifecycle status of the resource candidate.
-        name:
-          type: string
-          description: Name given to this REST resource
-        version:
-          type: string
-          description: the version of resource candidate
-        category:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceCategoryRef'
-          description: The categories in which this candidate is exposed
-        resourceSpecification:
-          $ref: '#/components/schemas/ResourceSpecificationRef'
-          description: The detailed specification for this candidate
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which this REST resource is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
     TimePeriod:
       type: object
       description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
@@ -592,3 +501,100 @@ components:
           type: string
           format: date-time
           description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    ResourceCategoryRef:
+      type: object
+      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Category version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
+    ResourceSpecificationRef:
+      type: object
+      description: 'Resources are physical or non-physical components (or some combination of these) within an enterprise''s infrastructure or inventory. They are typically consumed or used by services (for example a physical port assigned to a service) or contribute to the realization of a Product (for example, a SIM card). They can be drawn from the Application, Computing and Network domains, and include, for example, Network Elements, software, IT systems, content and information, and technology components.
+
+        A ResourceSpecification is an abstract base class for representing a generic means for implementing a particular type of Resource. In essence, a ResourceSpecification defines the common attributes and relationships of a set of related Resources, while Resource defines a specific instance that is based on a particular ResourceSpecification.'
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Resource Specification version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id

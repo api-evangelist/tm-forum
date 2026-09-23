@@ -348,87 +348,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
-    BillingCycleSpecification_Create:
-      type: object
-      description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
-
-        Skipped properties: id,href'
-      required:
-      - name
-      properties:
-        billingDateShift:
-          type: integer
-          description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
-        billingPeriod:
-          type: string
-          description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
-        chargeDateOffset:
-          type: integer
-          description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-        creditDateOffset:
-          type: integer
-          description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-        description:
-          type: string
-          description: An explanation regarding this billing cycle specification
-        frequency:
-          type: string
-          description: Frequency of the billing cycle (monthly for instance)
-        mailingDateOffset:
-          type: integer
-          description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-        name:
-          type: string
-          description: A short descriptive name
-        paymentDueDateOffset:
-          type: integer
-          description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the billing specification cycle is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
     TimePeriod:
       type: object
       description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
@@ -441,7 +360,7 @@ components:
           type: string
           format: date-time
           description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    BillingCycleSpecification_Update:
+    BillingCycleSpecification_Create:
       type: object
       description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
 
@@ -541,3 +460,84 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
+    BillingCycleSpecification_Update:
+      type: object
+      description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
+
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        billingDateShift:
+          type: integer
+          description: An offset of a billing/settlement date. The offset is expressed as number of days with regard to the start of the billing/settlement period.
+        billingPeriod:
+          type: string
+          description: 'A billing time period. It can be recurring, for example: week, month, quarter of year, year .'
+        chargeDateOffset:
+          type: integer
+          description: An offset of a date through which charges previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        creditDateOffset:
+          type: integer
+          description: An offset of a date through which credits previously received by the billing system will appear on the bill. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        description:
+          type: string
+          description: An explanation regarding this billing cycle specification
+        frequency:
+          type: string
+          description: Frequency of the billing cycle (monthly for instance)
+        mailingDateOffset:
+          type: integer
+          description: An offset of a customer bill mailing date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        name:
+          type: string
+          description: A short descriptive name
+        paymentDueDateOffset:
+          type: integer
+          description: An offset of a payment due date. The offset is expressed as number of days with regard to the start of the BillingPeriod.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the billing specification cycle is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
