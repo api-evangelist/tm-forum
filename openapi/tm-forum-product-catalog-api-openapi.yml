@@ -181,161 +181,26 @@ paths:
         '503':
           $ref: '#/components/responses/503'
 components:
-  parameters:
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated properties to be provided in response
-      schema:
-        type: string
-    Offset:
-      name: offset
-      in: query
-      description: Requested index for start of resources to be provided in response
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Requested number of resources to be provided in response
-      schema:
-        type: integer
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
   schemas:
-    ProductCatalog_MVO:
-      allOf:
-      - $ref: '#/components/schemas/Catalog_MVO'
-      - type: object
-        description: A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details
-        properties:
-          category:
-            type: array
-            items:
-              $ref: '#/components/schemas/CategoryRef_MVO'
-            description: List of root categories contained in this catalog
-    EntityRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - $ref: '#/components/schemas/Addressable_FVO'
-      - type: object
-        description: Entity reference schema to be use for all entityRef class.
-        properties:
-          id:
-            type: string
-            description: The identifier of the referred entity.
-          href:
-            type: string
-            description: The URI of the referred entity.
-          name:
-            type: string
-            description: Name of the referred entity.
-          '@referredType':
-            type: string
-            description: The actual type of the target instance when needed for disambiguation.
-        required:
-        - id
-    Extensible:
+    PartyRef_MVO:
       type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    RelatedPartyRefOrPartyRoleRef_MVO:
+      description: A Party reference
       allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_MVO'
+      - $ref: '#/components/schemas/EntityRef'
       discriminator:
         propertyName: '@type'
         mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
-    RelatedPartyRefOrPartyRoleRef:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+    PartyRef:
+      type: object
+      description: A Party reference
       allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef'
+      - $ref: '#/components/schemas/EntityRef'
       discriminator:
         propertyName: '@type'
         mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
-    CategoryRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_FVO'
-      - type: object
-        description: Reference to a category in the catalog.
-        properties:
-          version:
-            type: string
-            description: Version of the category
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          CategoryRef: '#/components/schemas/CategoryRef_FVO'
-    Catalog:
-      allOf:
-      - $ref: '#/components/schemas/Entity'
-      - type: object
-        description: A collection of Catalog Items
-        properties:
-          description:
-            type: string
-            description: Description of this catalog
-          catalogType:
-            type: string
-            description: Type of this Catalog, like Product, Service, Resource etc.
-          validFor:
-            $ref: '#/components/schemas/TimePeriod'
-          version:
-            type: string
-            description: Catalog version
-          relatedParty:
-            type: array
-            items:
-              $ref: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
-            description: List of parties involved in this catalog
-          lastUpdate:
-            type: string
-            format: date-time
-            description: Date and time of the last update
-          lifecycleStatus:
-            type: string
-            description: Used to indicate the current lifecycle status
-          name:
-            type: string
-            description: Name of the catalog
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Catalog: '#/components/schemas/Catalog'
-          ProductCatalog: '#/components/schemas/ProductCatalog'
-    PartyRoleRef_MVO:
+          PartyRef: '#/components/schemas/PartyRef'
+    PartyRoleRef:
       allOf:
       - $ref: '#/components/schemas/EntityRef'
       - type: object
@@ -350,113 +215,7 @@ components:
       discriminator:
         propertyName: '@type'
         mapping:
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
-    JsonPatchOperations:
-      description: JSONPatch Operations document as defined by RFC 6902
-      type: array
-      items:
-        $ref: '#/components/schemas/JsonPatch'
-    Addressable:
-      type: object
-      description: Base schema for adressable entities
-      properties:
-        href:
-          type: string
-          description: Hyperlink reference
-        id:
-          type: string
-          description: unique identifier
-    Error:
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Error: '#/components/schemas/Error'
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        required:
-        - code
-        - reason
-        properties:
-          code:
-            type: string
-            description: Application relevant detail, defined in the API or a common list.
-          reason:
-            type: string
-            description: Explanation of the reason for the error which can be shown to a client user.
-          message:
-            type: string
-            description: More details and corrective actions related to the error which can be shown to a client user.
-          status:
-            type: string
-            description: HTTP Error code extension
-          referenceError:
-            type: string
-            description: URI of documentation describing the error.
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    PartyRefOrPartyRoleRef_FVO:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef_FVO'
-      - $ref: '#/components/schemas/PartyRoleRef_FVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_FVO'
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
-    PartyRefOrPartyRoleRef:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef'
-      - $ref: '#/components/schemas/PartyRoleRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef'
           PartyRoleRef: '#/components/schemas/PartyRoleRef'
-    CategoryRef_MVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Reference to a category in the catalog.
-        properties:
-          version:
-            type: string
-            description: Version of the category
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          CategoryRef: '#/components/schemas/CategoryRef_MVO'
-    PartyRefOrPartyRoleRef_MVO:
-      type: object
-      description: ''
-      oneOf:
-      - $ref: '#/components/schemas/PartyRef_MVO'
-      - $ref: '#/components/schemas/PartyRoleRef_MVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_MVO'
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
-    RelatedPartyRefOrPartyRoleRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - type: object
-        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
-        properties:
-          role:
-            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
-            type: string
-          partyOrPartyRole:
-            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_FVO'
-        required:
-        - role
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
     Catalog_MVO:
       allOf:
       - $ref: '#/components/schemas/Entity_MVO'
@@ -494,6 +253,247 @@ components:
         mapping:
           Catalog: '#/components/schemas/Catalog_MVO'
           ProductCatalog: '#/components/schemas/ProductCatalog_MVO'
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    PartyRoleRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
+    CategoryRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Reference to a category in the catalog.
+        properties:
+          version:
+            type: string
+            description: Version of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CategoryRef: '#/components/schemas/CategoryRef_MVO'
+    PartyRefOrPartyRoleRef:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef'
+      - $ref: '#/components/schemas/PartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef'
+    Entity_FVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+    Entity_MVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+    PartyRefOrPartyRoleRef_FVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_FVO'
+      - $ref: '#/components/schemas/PartyRoleRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
+    EntityRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    ProductCatalog_FVO:
+      allOf:
+      - $ref: '#/components/schemas/Catalog_FVO'
+      - type: object
+        description: A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details
+        properties:
+          category:
+            type: array
+            items:
+              $ref: '#/components/schemas/CategoryRef_FVO'
+            description: List of root categories contained in this catalog
+        required:
+        - name
+        - '@type'
+    Extensible_FVO:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    Entity:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    PartyRefOrPartyRoleRef_MVO:
+      type: object
+      description: ''
+      oneOf:
+      - $ref: '#/components/schemas/PartyRef_MVO'
+      - $ref: '#/components/schemas/PartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_MVO'
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
+    RelatedPartyRefOrPartyRoleRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_MVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_MVO'
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    PartyRef_FVO:
+      type: object
+      description: A Party reference
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRef: '#/components/schemas/PartyRef_FVO'
+    CategoryRef_FVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      - type: object
+        description: Reference to a category in the catalog.
+        properties:
+          version:
+            type: string
+            description: Version of the category
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CategoryRef: '#/components/schemas/CategoryRef_FVO'
+    ProductCatalog_MVO:
+      allOf:
+      - $ref: '#/components/schemas/Catalog_MVO'
+      - type: object
+        description: A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details
+        properties:
+          category:
+            type: array
+            items:
+              $ref: '#/components/schemas/CategoryRef_MVO'
+            description: List of root categories contained in this catalog
+    PartyRoleRef_MVO:
+      allOf:
+      - $ref: '#/components/schemas/EntityRef'
+      - type: object
+        description: Party role reference. A party role represents the part played by a party in a given context.
+        properties:
+          partyId:
+            type: string
+            description: The identifier of the engaged party that is linked to the PartyRole object.
+          partyName:
+            type: string
+            description: The name of the engaged party that is linked to the PartyRole object.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          PartyRoleRef: '#/components/schemas/PartyRoleRef_MVO'
+    JsonPatchOperations:
+      description: JSONPatch Operations document as defined by RFC 6902
+      type: array
+      items:
+        $ref: '#/components/schemas/JsonPatch'
     Catalog_FVO:
       allOf:
       - $ref: '#/components/schemas/Entity_FVO'
@@ -533,56 +533,68 @@ components:
         mapping:
           Catalog: '#/components/schemas/Catalog_FVO'
           ProductCatalog: '#/components/schemas/ProductCatalog_FVO'
-    EntityRef:
+    Addressable:
+      type: object
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    Catalog:
       allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
+      - $ref: '#/components/schemas/Entity'
       - type: object
-        description: Entity reference schema to be use for all entityRef class.
+        description: A collection of Catalog Items
         properties:
-          id:
+          description:
             type: string
-            description: The identifier of the referred entity.
-          href:
+            description: Description of this catalog
+          catalogType:
             type: string
-            description: The URI of the referred entity.
-          name:
-            type: string
-            description: Name of the referred entity.
-          '@referredType':
-            type: string
-            description: The actual type of the target instance when needed for disambiguation.
-        required:
-        - id
-    PartyRoleRef_FVO:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_FVO'
-      - type: object
-        description: Party role reference. A party role represents the part played by a party in a given context.
-        properties:
-          partyId:
-            type: string
-            description: The identifier of the engaged party that is linked to the PartyRole object.
-          partyName:
-            type: string
-            description: The name of the engaged party that is linked to the PartyRole object.
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRoleRef: '#/components/schemas/PartyRoleRef_FVO'
-    CategoryRef:
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      - type: object
-        description: Reference to a category in the catalog.
-        properties:
+            description: Type of this Catalog, like Product, Service, Resource etc.
+          validFor:
+            $ref: '#/components/schemas/TimePeriod'
           version:
             type: string
-            description: Version of the category
+            description: Catalog version
+          relatedParty:
+            type: array
+            items:
+              $ref: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
+            description: List of parties involved in this catalog
+          lastUpdate:
+            type: string
+            format: date-time
+            description: Date and time of the last update
+          lifecycleStatus:
+            type: string
+            description: Used to indicate the current lifecycle status
+          name:
+            type: string
+            description: Name of the catalog
       discriminator:
         propertyName: '@type'
         mapping:
-          CategoryRef: '#/components/schemas/CategoryRef'
+          Catalog: '#/components/schemas/Catalog'
+          ProductCatalog: '#/components/schemas/ProductCatalog'
+    RelatedPartyRefOrPartyRoleRef:
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef'
     JsonPatch:
       type: object
       description: A JSONPatch document as defined by RFC 6902
@@ -608,74 +620,27 @@ components:
         from:
           type: string
           description: A string containing a JSON Pointer value.
-    Entity_FVO:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
+    EntityRef_FVO:
       allOf:
       - $ref: '#/components/schemas/Extensible_FVO'
       - $ref: '#/components/schemas/Addressable_FVO'
-    PartyRef_FVO:
-      type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef_FVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_FVO'
-    PartyRef:
-      type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef'
-    Entity:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
-    Entity_MVO:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-    Extensible_FVO:
-      type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    Addressable_FVO:
-      type: object
-      description: Base schema for adressable entities
-      properties:
-        id:
-          type: string
-          description: unique identifier
-    ProductCatalog:
-      allOf:
-      - $ref: '#/components/schemas/Catalog'
       - type: object
-        description: A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details
+        description: Entity reference schema to be use for all entityRef class.
         properties:
-          category:
-            type: array
-            items:
-              $ref: '#/components/schemas/CategoryRef'
-            description: List of root categories contained in this catalog
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
     TimePeriod:
       type: object
       description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
@@ -690,57 +655,67 @@ components:
           type: string
           format: date-time
           example: '1985-04-12T23:20:50.52Z'
-    PartyRoleRef:
+    CategoryRef:
       allOf:
       - $ref: '#/components/schemas/EntityRef'
       - type: object
-        description: Party role reference. A party role represents the part played by a party in a given context.
+        description: Reference to a category in the catalog.
         properties:
-          partyId:
+          version:
             type: string
-            description: The identifier of the engaged party that is linked to the PartyRole object.
-          partyName:
-            type: string
-            description: The name of the engaged party that is linked to the PartyRole object.
+            description: Version of the category
       discriminator:
         propertyName: '@type'
         mapping:
-          PartyRoleRef: '#/components/schemas/PartyRoleRef'
-    ProductCatalog_FVO:
+          CategoryRef: '#/components/schemas/CategoryRef'
+    RelatedPartyRefOrPartyRoleRef_FVO:
       allOf:
-      - $ref: '#/components/schemas/Catalog_FVO'
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - type: object
+        description: RelatedParty reference. A related party defines party or party role or its reference, linked to a specific entity
+        properties:
+          role:
+            description: Role played by the related party or party role in the context of the specific entity it is linked to. Such as 'initiator', 'customer',  'salesAgent', 'user'
+            type: string
+          partyOrPartyRole:
+            $ref: '#/components/schemas/PartyRefOrPartyRoleRef_FVO'
+        required:
+        - role
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          RelatedPartyRefOrPartyRoleRef: '#/components/schemas/RelatedPartyRefOrPartyRoleRef_FVO'
+    ProductCatalog:
+      allOf:
+      - $ref: '#/components/schemas/Catalog'
       - type: object
         description: A collection of Product Offerings, intended for a specific DistributionChannel, enhanced with additional information such as SLA parameters, invoicing and shipping details
         properties:
           category:
             type: array
             items:
-              $ref: '#/components/schemas/CategoryRef_FVO'
+              $ref: '#/components/schemas/CategoryRef'
             description: List of root categories contained in this catalog
-        required:
-        - name
-        - '@type'
-    PartyRef_MVO:
+    Addressable_FVO:
       type: object
-      description: A Party reference
-      allOf:
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          PartyRef: '#/components/schemas/PartyRef_MVO'
+      description: Base schema for adressable entities
+      properties:
+        id:
+          type: string
+          description: unique identifier
   examples:
-    ProductCatalog_Update_example_with_JSON_Patch_response:
+    ProductCatalog_Create_example_response:
       value:
         id: '3830'
         href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
         name: Catalog Wholesale Business
         description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
         catalogType: ProductCatalog
-        version: '2.0'
+        version: '1.0'
         validFor:
-          startDateTime: '2020-09-23T00:00:00Z'
-        lastUpdate: '2020-09-22T00:00:00Z'
+          startDateTime: '2020-08-29T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lastUpdate: '2020-08-27T00:00:00Z'
         lifecycleStatus: Active
         relatedParty:
         - role: vendor
@@ -751,61 +726,28 @@ components:
             name: Broadly Broad Ltd
             '@type': PartyRef
             '@referredType': Organization
-        - role: Reviser
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '115566'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566
-            name: Roger Collins
-            '@type': PartyRef
-            '@referredType': Individual
-        category:
-        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/7757
-          id: '7757'
-          name: business
-          version: '1.0'
-          '@referredType': Category
-          '@type': CategoryRef
+        category: []
         '@type': Catalog
-      description: Here is an example of a response for updating a catalog.
-    ProductCatalog_Implicit_Update_example_response:
+      description: Here is an example of a response for creating a catalog.
+    ProductCatalog_Implicit_Update_example_request:
       value:
-        id: '3830'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
-        name: Catalog Wholesale Business
-        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
-        catalogType: ProductCatalog
         version: '2.0'
         validFor:
           startDateTime: '2020-09-23T00:00:00Z'
-        lastUpdate: '2020-09-22T00:00:00Z'
-        lifecycleStatus: Active
-        relatedParty:
-        - role: vendor
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '3426'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
-            name: Broadly Broad Ltd
-            '@type': PartyRef
-            '@referredType': Organization
-        - role: Reviser
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '115566'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566
-            name: Roger Collins
-            '@type': PartyRef
-            '@referredType': Individual
-        category:
-        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/7757
-          id: '7757'
-          name: business
-          version: '1.0'
-          '@referredType': Category
-          '@type': CategoryRef
         '@type': Catalog
-      description: Here is an example of a response for updating a catalog.
+      description: Here is an example of a request for updating a catalog.
+    ProductCatalog_Update_example_with_Patch_Merge_request:
+      value:
+        version: '2.0'
+        validFor:
+          startDateTime: '2020-09-23T00:00:00Z'
+        '@type': Catalog
+      description: Here is an example of a request for updating a catalog.
+    ProductCatalog_Update_example_with_JSON_Patch_Query_request:
+      value:
+      - op: remove
+        path: /relatedParty?role=vendor
+      description: Here is an example of a request for updating a catalog.
     ProductCatalog_Update_example_with_Patch_Merge_response:
       value:
         id: '3830'
@@ -844,64 +786,6 @@ components:
           '@type': CategoryRef
         '@type': Catalog
       description: Here is an example of a response for updating a catalog.
-    ProductCatalog_Update_example_with_Patch_Merge_request:
-      value:
-        version: '2.0'
-        validFor:
-          startDateTime: '2020-09-23T00:00:00Z'
-        '@type': Catalog
-      description: Here is an example of a request for updating a catalog.
-    ProductCatalog_Create_example_request:
-      value:
-        name: Catalog Wholesale Business
-        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
-        catalogType: ProductCatalog
-        version: '1.0'
-        validFor:
-          startDateTime: '2020-08-29T00:00:00Z'
-          endDateTime: '2024-03-25T00:00:00Z'
-        lifecycleStatus: Active
-        relatedParty:
-        - role: vendor
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '3426'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
-            name: Broadly Broad Ltd
-            '@type': PartyRef
-            '@referredType': Organization
-        '@type': Catalog
-      description: Here is an example of a request for creating a catalog.
-    ProductCatalog_Update_example_with_JSON_Patch_Query_request:
-      value:
-      - op: remove
-        path: /relatedParty?role=vendor
-      description: Here is an example of a request for updating a catalog.
-    ProductCatalog_Create_example_response:
-      value:
-        id: '3830'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
-        name: Catalog Wholesale Business
-        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
-        catalogType: ProductCatalog
-        version: '1.0'
-        validFor:
-          startDateTime: '2020-08-29T00:00:00Z'
-          endDateTime: '2024-03-25T00:00:00Z'
-        lastUpdate: '2020-08-27T00:00:00Z'
-        lifecycleStatus: Active
-        relatedParty:
-        - role: vendor
-          '@type': RelatedPartyRefOrPartyRoleRef
-          partyOrPartyRole:
-            id: '3426'
-            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
-            name: Broadly Broad Ltd
-            '@type': PartyRef
-            '@referredType': Organization
-        category: []
-        '@type': Catalog
-      description: Here is an example of a response for creating a catalog.
     ProductCatalog_Update_example_with_JSON_Patch_request:
       value:
       - op: replace
@@ -913,18 +797,17 @@ components:
       - op: remove
         path: /validFor/endDateTime
       description: Here is an example of a request for updating a catalog.
-    ProductCatalog_retrieve_example_response:
+    ProductCatalog_Update_example_with_JSON_Patch_response:
       value:
         id: '3830'
         href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
         name: Catalog Wholesale Business
         description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
         catalogType: ProductCatalog
-        version: '1.0'
+        version: '2.0'
         validFor:
-          startDateTime: '2020-08-29T00:00:00Z'
-          endDateTime: '2024-03-25T00:00:00Z'
-        lastUpdate: '2020-08-27T00:00:00Z'
+          startDateTime: '2020-09-23T00:00:00Z'
+        lastUpdate: '2020-09-22T00:00:00Z'
         lifecycleStatus: Active
         relatedParty:
         - role: vendor
@@ -951,7 +834,7 @@ components:
           '@referredType': Category
           '@type': CategoryRef
         '@type': Catalog
-      description: Here is an example of a response for retrieving a specific catalog.
+      description: Here is an example of a response for updating a catalog.
     ProductCatalog_list_example_response:
       value:
       - id: '2027'
@@ -1027,13 +910,104 @@ components:
           '@type': CategoryRef
         '@type': Catalog
       description: Here is an example of a response for retrieving multiple catalogs.
-    ProductCatalog_Implicit_Update_example_request:
+    ProductCatalog_Create_example_request:
       value:
+        name: Catalog Wholesale Business
+        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
+        catalogType: ProductCatalog
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-29T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lifecycleStatus: Active
+        relatedParty:
+        - role: vendor
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '3426'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
+            name: Broadly Broad Ltd
+            '@type': PartyRef
+            '@referredType': Organization
+        '@type': Catalog
+      description: Here is an example of a request for creating a catalog.
+    ProductCatalog_retrieve_example_response:
+      value:
+        id: '3830'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
+        name: Catalog Wholesale Business
+        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
+        catalogType: ProductCatalog
+        version: '1.0'
+        validFor:
+          startDateTime: '2020-08-29T00:00:00Z'
+          endDateTime: '2024-03-25T00:00:00Z'
+        lastUpdate: '2020-08-27T00:00:00Z'
+        lifecycleStatus: Active
+        relatedParty:
+        - role: vendor
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '3426'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
+            name: Broadly Broad Ltd
+            '@type': PartyRef
+            '@referredType': Organization
+        - role: Reviser
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '115566'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566
+            name: Roger Collins
+            '@type': PartyRef
+            '@referredType': Individual
+        category:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/7757
+          id: '7757'
+          name: business
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
+        '@type': Catalog
+      description: Here is an example of a response for retrieving a specific catalog.
+    ProductCatalog_Implicit_Update_example_response:
+      value:
+        id: '3830'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/Catalog/3830
+        name: Catalog Wholesale Business
+        description: This catalog describes Product Offerings and technical specifications intended to address the wholesale business segment.
+        catalogType: ProductCatalog
         version: '2.0'
         validFor:
           startDateTime: '2020-09-23T00:00:00Z'
+        lastUpdate: '2020-09-22T00:00:00Z'
+        lifecycleStatus: Active
+        relatedParty:
+        - role: vendor
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '3426'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426
+            name: Broadly Broad Ltd
+            '@type': PartyRef
+            '@referredType': Organization
+        - role: Reviser
+          '@type': RelatedPartyRefOrPartyRoleRef
+          partyOrPartyRole:
+            id: '115566'
+            href: https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566
+            name: Roger Collins
+            '@type': PartyRef
+            '@referredType': Individual
+        category:
+        - href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/category/7757
+          id: '7757'
+          name: business
+          version: '1.0'
+          '@referredType': Category
+          '@type': CategoryRef
         '@type': Catalog
-      description: Here is an example of a request for updating a catalog.
+      description: Here is an example of a response for updating a catalog.
     ProductCatalog_Update_example_with_JSON_Patch_Query_response:
       value:
         id: '3830'
@@ -1064,34 +1038,46 @@ components:
           '@type': CategoryRef
         '@type': Catalog
       description: Here is an example of a response for updating a catalog.
-  responses:
-    '400':
-      description: Bad Request
+  requestBodies:
+    ProductCatalog_MVO:
+      description: The ProductCatalog to be patched
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
-    200ProductCatalog_Get:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductCatalog'
+            $ref: '#/components/schemas/ProductCatalog_MVO'
           examples:
-            ProductCatalog_retrieve_example:
-              $ref: '#/components/examples/ProductCatalog_retrieve_example_response'
-    '401':
-      description: Unauthorized
+            ProductCatalog_Implicit_Update_example:
+              $ref: '#/components/examples/ProductCatalog_Implicit_Update_example_request'
+        application/merge-patch+json:
+          schema:
+            $ref: '#/components/schemas/ProductCatalog_MVO'
+          examples:
+            ProductCatalog_Update_example_with_Patch_Merge:
+              $ref: '#/components/examples/ProductCatalog_Update_example_with_Patch_Merge_request'
+        application/json-patch+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            ProductCatalog_Update_example_with_JSON_Patch:
+              $ref: '#/components/examples/ProductCatalog_Update_example_with_JSON_Patch_request'
+        application/json-patch-query+json:
+          schema:
+            $ref: '#/components/schemas/JsonPatchOperations'
+          examples:
+            ProductCatalog_Update_example_with_JSON_Patch_Query:
+              $ref: '#/components/examples/ProductCatalog_Update_example_with_JSON_Patch_Query_request'
+      required: true
+    ProductCatalog_FVO:
+      description: The ProductCatalog to be created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/ProductCatalog_FVO'
+          examples:
+            ProductCatalog_Create_example:
+              $ref: '#/components/examples/ProductCatalog_Create_example_request'
+      required: true
+  responses:
     200ProductCatalog_Patch:
       description: Success
       content:
@@ -1133,8 +1119,16 @@ components:
           examples:
             ProductCatalog_Update_example_with_JSON_Patch_Query:
               $ref: '#/components/examples/ProductCatalog_Update_example_with_JSON_Patch_Query_response'
-    '403':
-      description: Forbidden
+    '204':
+      description: Deleted
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -1145,20 +1139,53 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    '202':
+      description: Accepted
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     '404':
       description: Not Found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200ProductCatalog_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProductCatalog'
+          examples:
+            ProductCatalog_retrieve_example:
+              $ref: '#/components/examples/ProductCatalog_retrieve_example_response'
     '405':
       description: Method Not allowed
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    '202':
-      description: Accepted
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     200ProductCatalogArray:
       description: Success
       headers:
@@ -1175,14 +1202,6 @@ components:
           examples:
             ProductCatalog_list_example:
               $ref: '#/components/examples/ProductCatalog_list_example_response'
-    '501':
-      description: Not Implemented
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '204':
-      description: Deleted
     201ProductCatalog:
       description: OK/Created
       content:
@@ -1192,57 +1211,38 @@ components:
           examples:
             ProductCatalog_Create_example:
               $ref: '#/components/examples/ProductCatalog_Create_example_response'
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   headers:
-    X-Result-Count:
-      description: Actual number of items returned in the response body
-      schema:
-        type: integer
     X-Total-Count:
       description: Total number of items matching criteria
       schema:
         type: integer
-  requestBodies:
-    ProductCatalog_MVO:
-      description: The ProductCatalog to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductCatalog_MVO'
-          examples:
-            ProductCatalog_Implicit_Update_example:
-              $ref: '#/components/examples/ProductCatalog_Implicit_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/ProductCatalog_MVO'
-          examples:
-            ProductCatalog_Update_example_with_Patch_Merge:
-              $ref: '#/components/examples/ProductCatalog_Update_example_with_Patch_Merge_request'
-        application/json-patch+json:
-          schema:
-            $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            ProductCatalog_Update_example_with_JSON_Patch:
-              $ref: '#/components/examples/ProductCatalog_Update_example_with_JSON_Patch_request'
-        application/json-patch-query+json:
-          schema:
-            $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            ProductCatalog_Update_example_with_JSON_Patch_Query:
-              $ref: '#/components/examples/ProductCatalog_Update_example_with_JSON_Patch_Query_request'
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Id:
+      name: id
       required: true
-    ProductCatalog_FVO:
-      description: The ProductCatalog to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductCatalog_FVO'
-          examples:
-            ProductCatalog_Create_example:
-              $ref: '#/components/examples/ProductCatalog_Create_example_request'
-      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource

@@ -354,6 +354,39 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
     ServiceCategory:
       type: object
       description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
@@ -365,59 +398,6 @@ components:
           type: string
           format: uri
           description: Hyperlink reference
-        description:
-          type: string
-          description: Description of the category
-        isRoot:
-          type: boolean
-          description: If true, this Boolean indicates that the category is a root of categories
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Date and time of the last update
-        lifecycleStatus:
-          type: string
-          description: Used to indicate the current lifecycle status
-        name:
-          type: string
-          description: Name of the category
-        parentId:
-          type: string
-          description: Unique identifier of the parent category
-        version:
-          type: string
-          description: ServiceCategory version
-        category:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCategoryRef'
-          description: List of child categories in the tree for in this category
-        serviceCandidate:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCandidateRef'
-          description: List of service candidates associated with this category
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the category is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-    ServiceCategory_Create:
-      type: object
-      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-
-        Skipped properties: id,href'
-      required:
-      - name
-      properties:
         description:
           type: string
           description: Description of the category
@@ -509,6 +489,38 @@ components:
           description: The actual type of the target instance when needed for disambiguation.
       required:
       - id
+    ServiceCategoryRef:
+      type: object
+      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: unique identifier
+        href:
+          type: string
+          format: uri
+          description: Hyperlink reference
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Category version
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
     ServiceCategory_Update:
       type: object
       description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
@@ -556,56 +568,49 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class Extensible name
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    ServiceCategory_Create:
       type: object
+      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+
+        Skipped properties: id,href'
       required:
-      - code
-      - reason
+      - name
       properties:
-        code:
+        description:
           type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lastUpdate:
           type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
+          format: date-time
+          description: Date and time of the last update
+        lifecycleStatus:
           type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
-    ServiceCategoryRef:
-      type: object
-      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-      properties:
-        id:
-          type: string
-          description: unique identifier
-        href:
-          type: string
-          format: uri
-          description: Hyperlink reference
+          description: Used to indicate the current lifecycle status
         name:
           type: string
-          description: Name of the related entity.
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
         version:
           type: string
-          description: Category version
+          description: ServiceCategory version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCategoryRef'
+          description: List of child categories in the tree for in this category
+        serviceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCandidateRef'
+          description: List of service candidates associated with this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -616,8 +621,3 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class Extensible name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id

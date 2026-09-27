@@ -36,6 +36,13 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tm-forum.png
 tags:
+  - Telecommunications
+  - BSS
+  - OSS
+  - Open APIs
+  - Standards
+  - TM Forum
+tags_raw:
   - Telco
   - Telecommunications
   - BSS
@@ -49,7 +56,7 @@ url: https://raw.githubusercontent.com/api-evangelist/tm-forum/refs/heads/main/a
 specificationVersion: '0.23'
 apis:
 - aid: tm-forum:tm-forum-agreement-api
-  name: TM Forum agreement API
+  name: TM Forum Agreement API
   description: The agreement API from TM Forum — 2 operation(s) for agreement.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -86,7 +93,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-agreementspecification-api
-  name: TM Forum agreementSpecification API
+  name: TM Forum Agreement Specification API
   description: >-
     The agreementSpecification API from TM Forum — 2 operation(s) for agreementspecification.
   humanURL: >-
@@ -123,7 +130,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-billformat-api
-  name: TM Forum billFormat API
+  name: TM Forum Bill Format API
   description: The billFormat API from TM Forum — 2 operation(s) for billformat.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -159,7 +166,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-billingcyclespecification-api
-  name: TM Forum billingCycleSpecification API
+  name: TM Forum Billing Cycle Specification API
   description: >-
     The billingCycleSpecification API from TM Forum — 2 operation(s) for billingcyclespecification.
   humanURL: >-
@@ -196,7 +203,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-billpresentationmedia-api
-  name: TM Forum billPresentationMedia API
+  name: TM Forum Bill Presentation Media API
   description: The billPresentationMedia API from TM Forum — 2 operation(s) for billpresentationmedia.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -232,7 +239,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-cancelproductorder-api
-  name: TM Forum cancelProductOrder API
+  name: TM Forum Cancel Product Order API
   description: Operations for CancelProductOrder Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -268,7 +275,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-cancelserviceorder-api
-  name: TM Forum cancelServiceOrder API
+  name: TM Forum Cancel Service Order API
   description: The cancelServiceOrder API from TM Forum — 2 operation(s) for cancelserviceorder.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -304,7 +311,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-category-api
-  name: TM Forum category API
+  name: TM Forum Category API
   description: Operations for Category Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -341,7 +348,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-customer-api
-  name: TM Forum customer API
+  name: TM Forum Customer API
   description: Operations for Customer Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -413,7 +420,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-individual-api
-  name: TM Forum individual API
+  name: TM Forum Individual API
   description: Operations for Individual Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -522,7 +529,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-organization-api
-  name: TM Forum organization API
+  name: TM Forum Organization API
   description: Operations for Organization Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -559,7 +566,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-partyaccount-api
-  name: TM Forum partyAccount API
+  name: TM Forum Party Account API
   description: The partyAccount API from TM Forum — 2 operation(s) for partyaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -595,7 +602,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-product-api
-  name: TM Forum product API
+  name: TM Forum Product API
   description: Operations for Product Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -632,7 +639,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-productoffering-api
-  name: TM Forum productOffering API
+  name: TM Forum Product Offering API
   description: Operations for ProductOffering Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -668,7 +675,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-productofferingprice-api
-  name: TM Forum productOfferingPrice API
+  name: TM Forum Product Offering Price API
   description: Operations for ProductOfferingPrice Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -704,7 +711,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-productorder-api
-  name: TM Forum productOrder API
+  name: TM Forum Product Order API
   description: Operations for ProductOrder Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -740,7 +747,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-quote-api
-  name: TM Forum quote API
+  name: TM Forum Quote API
   description: The quote API from TM Forum — 2 operation(s) for quote.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -777,7 +784,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-resourcecandidate-api
-  name: TM Forum resourceCandidate API
+  name: TM Forum Resource Candidate API
   description: The resourceCandidate API from TM Forum — 2 operation(s) for resourcecandidate.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -813,7 +820,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-resourcecatalog-api
-  name: TM Forum resourceCatalog API
+  name: TM Forum Resource Catalog API
   description: The resourceCatalog API from TM Forum — 2 operation(s) for resourcecatalog.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -849,7 +856,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-resourcecategory-api
-  name: TM Forum resourceCategory API
+  name: TM Forum Resource Category API
   description: The resourceCategory API from TM Forum — 2 operation(s) for resourcecategory.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -885,7 +892,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-resourcespecification-api
-  name: TM Forum resourceSpecification API
+  name: TM Forum Resource Specification API
   description: The resourceSpecification API from TM Forum — 2 operation(s) for resourcespecification.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -921,7 +928,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-servicecandidate-api
-  name: TM Forum serviceCandidate API
+  name: TM Forum Service Candidate API
   description: The serviceCandidate API from TM Forum — 2 operation(s) for servicecandidate.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -957,7 +964,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-settlementaccount-api
-  name: TM Forum settlementAccount API
+  name: TM Forum Settlement Account API
   description: The settlementAccount API from TM Forum — 2 operation(s) for settlementaccount.
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
@@ -993,7 +1000,7 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 - aid: tm-forum:tm-forum-troubleticketspecification-api
-  name: TM Forum troubleTicketSpecification API
+  name: TM Forum Trouble Ticket Specification API
   description: Operations for TroubleTicketSpecification Resource
   humanURL: >-
     https://www.tmforum.org/resources/specification/tmf620-product-catalog-management-api-rest-specification-r17-5-0/
