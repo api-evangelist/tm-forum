@@ -227,6 +227,63 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    ErrorMessage:
+      type: object
+      description: represents an Error
+      properties:
+        code:
+          type: string
+          description: error code
+        message:
+          type: string
+          description: More details and corrective actions related to the error
+        reason:
+          type: string
+          description: Explanation of the reason for the error
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error
+        status:
+          type: string
+          description: error code extension like sys-ABC-2001
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+    CancelServiceOrder_Create:
+      type: object
+      description: 'Request for cancellation an existing Service order
+
+        Skipped properties: id,href,state,effectiveCancellationDate,completionMessage,errorMessage'
+      required:
+      - serviceOrder
+      properties:
+        cancellationReason:
+          type: string
+          description: Reason why the order is cancelled.
+        requestedCancellationDate:
+          type: string
+          format: date-time
+          description: Date when the submitter wants the order to be cancelled
+        serviceOrder:
+          $ref: '#/components/schemas/ServiceOrderRef'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
     ServiceOrderRef:
       type: object
       description: Service Order reference. Useful to understand the which was the Service order through which the service was instantiated in the service inventory
@@ -289,63 +346,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    ErrorMessage:
-      type: object
-      description: represents an Error
-      properties:
-        code:
-          type: string
-          description: error code
-        message:
-          type: string
-          description: More details and corrective actions related to the error
-        reason:
-          type: string
-          description: Explanation of the reason for the error
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error
-        status:
-          type: string
-          description: error code extension like sys-ABC-2001
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-    CancelServiceOrder_Create:
-      type: object
-      description: 'Request for cancellation an existing Service order
-
-        Skipped properties: id,href,state,effectiveCancellationDate,completionMessage,errorMessage'
-      required:
-      - serviceOrder
-      properties:
-        cancellationReason:
-          type: string
-          description: Reason why the order is cancelled.
-        requestedCancellationDate:
-          type: string
-          format: date-time
-          description: Date when the submitter wants the order to be cancelled
-        serviceOrder:
-          $ref: '#/components/schemas/ServiceOrderRef'
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
     CancelServiceOrder:
       type: object
       description: Request for cancellation an existing Service order

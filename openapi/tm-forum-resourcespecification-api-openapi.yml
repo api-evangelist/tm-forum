@@ -354,6 +354,481 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    ResourceSpecificationCharacteristicRelationship:
+      type: object
+      description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among ResourceSpecificationCharacteristics. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.
+      properties:
+        characteristicSpecificationId:
+          type: string
+          description: Unique identifier of the characteristic within the specification
+        name:
+          type: string
+          description: Name of the target characteristic within the specification
+        relationshipType:
+          type: string
+          description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
+        resourceSpecificationHref:
+          type: string
+          description: Hyperlink reference to the resource specification containing the target characteristic
+        resourceSpecificationId:
+          type: string
+          description: Unique identifier of the resource specification containing the target characteristic
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the object is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AttachmentRefOrValue:
+      type: object
+      description: An attachment by value or by reference. For AttachmentRefOrValue, the attribute type,schemaLocation and referredType are related to the contained entity and not to AttchmentRefOrValue itself
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this particular attachment
+        href:
+          type: string
+          description: URI for this Attachment
+        attachmentType:
+          type: string
+          description: Attachment type such as video, picture
+        content:
+          type: string
+          description: The actual contents of the attachment object, if embedded, encoded as base64
+        description:
+          type: string
+          description: A narrative text describing the content of the attachment
+        mimeType:
+          type: string
+          description: Attachment mime type such as extension file for video, picture and document
+        name:
+          type: string
+          description: The name of the attachment
+        url:
+          type: string
+          description: Uniform Resource Locator, is a web page address (a subset of URI)
+        size:
+          $ref: '#/components/schemas/Quantity'
+          description: The size of the attachment.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period of time for which the attachment is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+    FeatureSpecificationCharacteristicValue:
+      type: object
+      description: A number or text that can be assigned to a FeatureSpecificationCharacteristic.
+      required:
+      - valueType
+      properties:
+        isDefault:
+          type: boolean
+          description: True if the value is the default value for a characteristic.
+        rangeInterval:
+          type: string
+          description: Specifies the inclusion or exclusion of the valueFrom and valueTo attributes.
+        regex:
+          type: string
+          description: A regular expression constraint for given value.
+        unitOfMeasure:
+          type: string
+          description: A determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values.
+        valueFrom:
+          type: integer
+          description: The low range value that a characteristic can take on.
+        valueTo:
+          type: integer
+          description: The upper range value that a characteristic can take on.
+        valueType:
+          type: string
+          description: A kind of value that the characteristic value can take on.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period of time for which a value is applicable.
+        value:
+          $ref: '#/components/schemas/Any'
+          description: A discrete value that the characteristic can take on, or the actual value of the characteristic
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    ResourceSpecificationRelationship:
+      type: object
+      description: A migration, substitution, dependency or exclusivity relationship between/among resource specifications.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of target ResourceSpecification
+        href:
+          type: string
+          description: Reference of the target ResourceSpecification
+        defaultQuantity:
+          type: integer
+          description: The default number of the related resource that should be instantiated, for example a rack would typically have 4 cards, although it could support more.
+        maximumQuantity:
+          type: integer
+          description: The maximum number of the related resource that should be instantiated, for example a rack supports a maximum of 16 cards
+        minimumQuantity:
+          type: integer
+          description: The minimum number of the related resource that should be instantiated, for example a rack must have at least 1 card
+        name:
+          type: string
+          description: The name given to the target resource specification instance
+        relationshipType:
+          type: string
+          description: Type of relationship such as migration, substitution, dependency, exclusivity
+        role:
+          type: string
+          description: The association role for this resource specification
+        characteristic:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpecificationCharacteristic'
+          description: A characteristic that refines the relationship. For example, consider the relationship between a slot and a card. For a half-height card it is important to know the position at which the card is inserted, so a characteristic Position might be defined on the relationship to allow capturing of this in the inventory
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the ResourceSpecRelationship is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FeatureSpecificationCharacteristicRelationship:
+      type: object
+      description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among FeatureSpecificationCharacteristics.
+      properties:
+        characteristicId:
+          type: string
+          description: Unique identifier of the characteristic within the the target feature specification
+        featureId:
+          type: string
+          description: Unique identifier of the target feature specification within the resource specification.
+        name:
+          type: string
+          description: Name of the target characteristic
+        relationshipType:
+          type: string
+          description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
+        resourceSpecificationHref:
+          type: string
+          description: Hyperlink reference to the resource specification containing the target feature and feature characteristic
+        resourceSpecificationId:
+          type: string
+          description: Unique identifier of the resource specification containing the target feature and feature characteristic
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the object is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FeatureSpecificationCharacteristic:
+      type: object
+      description: Configuration feature characteristic specification.
+      required:
+      - name
+      properties:
+        configurable:
+          type: boolean
+          description: True is the feature is configurable.
+        extensible:
+          type: boolean
+          description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a feature.
+        isUnique:
+          type: boolean
+          description: An indicator that specifies if a value is unique for the specification.
+        maxCardinality:
+          type: integer
+          description: The maximum number of instances a CharacteristicValue can take on.
+        minCardinality:
+          type: integer
+          description: The minimum number of instances a CharacteristicValue can take on.
+        name:
+          type: string
+          description: This is the name for the feature charateristic.
+        regex:
+          type: string
+          description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
+        valueType:
+          type: string
+          description: A kind of value that the characteristic can take on.
+        featureSpecCharRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureSpecificationCharacteristicRelationship'
+          description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among feature characteristics.
+        featureSpecCharacteristicValue:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureSpecificationCharacteristicValue'
+          description: Used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a FeatureCharacteristic object.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period of time for which a characteristic is applicable.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@valueSchemaLocation':
+          type: string
+          description: This (optional) field provides a link to the schema describing the value type.
+    ResourceSpecificationCharacteristic:
+      type: object
+      description: 'This class defines the characteristic features of a resource specification. Every ResourceSpecification has a variety of important attributes, methods, constraints, and
+
+        relationships, which distinguish a resource specification from other resource specifications.'
+      properties:
+        id:
+          type: string
+          description: Unique ID for the characteristic
+        configurable:
+          type: boolean
+          description: If true, the Boolean indicates that the ResourceSpecCharacteristic is configurable
+        description:
+          type: string
+          description: A narrative that explains the CharacteristicSpecification.
+        extensible:
+          type: boolean
+          description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource.
+        isUnique:
+          type: boolean
+          description: An indicator that specifies if a value is unique for the specification. Possible values are; "unique while value is in effect" and "unique whether value is in effect or not"
+        maxCardinality:
+          type: integer
+          description: The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality.
+        minCardinality:
+          type: integer
+          description: The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality.
+        name:
+          type: string
+          description: A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications.
+        regex:
+          type: string
+          description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
+        valueType:
+          type: string
+          description: A kind of value that the characteristic can take on, such as numeric, text and so forth
+        resourceSpecCharRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpecificationCharacteristicRelationship'
+          description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.
+        resourceSpecCharacteristicValue:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpecificationCharacteristicValue'
+          description: A ResourceSpecificationCharacteristicValue object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a ResourceSpecificationCharacteristic object. The values of the attributes in the ResourceSpecificationCharacteristicValue object describe the values of the attributes that a corresponding ResourceSpecificationCharacteristic object can take on.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period of time for which a characteristic is applicable.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@valueSchemaLocation':
+          type: string
+          description: This (optional) field provides a link to the schema describing the value type.
+    ResourceSpecification:
+      type: object
+      description: 'Resources are physical or non-physical components (or some combination of these) within an enterprise''s infrastructure or inventory. They are typically consumed or used by services (for example a physical port assigned to a service) or contribute to the realization of a Product (for example, a SIM card). They can be drawn from the Application, Computing and Network domains, and include, for example, Network Elements, software, IT systems, content and information, and technology components.
+
+        A ResourceSpecification is an abstract base class for representing a generic means for implementing a particular type of Resource. In essence, a ResourceSpecification defines the common attributes and relationships of a set of related Resources, while Resource defines a specific instance that is based on a particular ResourceSpecification.'
+      properties:
+        id:
+          type: string
+          description: Unique identifier of this REST resource
+        href:
+          type: string
+          description: Hyperlink reference to this REST resource
+        category:
+          type: string
+          description: Category of the target resource like NetworkConnectivity, PhysicalLinks, Generic, L2Network and so on.
+        description:
+          type: string
+          description: Description of this REST resource
+        isBundle:
+          type: boolean
+          description: A flag indicates that if this resource specification is a bundled specification (true) or single (false).
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Date and time of the last update of this REST resource
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status of the resource specification
+        name:
+          type: string
+          description: Name given to this REST resource
+        version:
+          type: string
+          description: Resource Specification version
+        attachment:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachmentRefOrValue'
+          description: Complements the description of an element (for instance a resource) through video, pictures ...
+        featureSpecification:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureSpecification'
+          description: A list of Features for this specification.
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          description: A related party defines party or party role linked to a specific entity.
+        resourceSpecCharacteristic:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpecificationCharacteristic'
+          description: A characteristic quality or distinctive feature of a ResourceSpecification.  The characteristic can be take on a discrete value, such as color, can take on a range of values, (for example, sensitivity of 100-240 mV), or can be derived from a formula (for example, usage time (hrs) = 30 - talk time *3). Certain characteristics, such as color, may be configured during the ordering or some other process.
+        resourceSpecRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpecificationRelationship'
+          description: A migration, substitution, dependency or exclusivity relationship between/among resource specifications.
+        targetResourceSchema:
+          $ref: '#/components/schemas/TargetResourceSchema'
+          description: A target resource schema reference. The reference object to the schema and type of target resource which is described by resource specification.
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which this REST resource is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FeatureSpecificationRelationship:
+      type: object
+      description: Configuration feature
+      required:
+      - name
+      - relationshipType
+      properties:
+        featureId:
+          type: string
+          description: Unique identifier of the target feature specification.
+        name:
+          type: string
+          description: This is the name of the target feature specification.
+        relationshipType:
+          type: string
+          description: This is the type of the feature specification relationship.
+        resourceSpecificationHref:
+          type: string
+          description: Hyperlink reference to the resource specification containing the target feature
+        resourceSpecificationId:
+          type: string
+          description: Unique identifier of the resource specification containing the target feature
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which this feature spoecification relationship is valid.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    Quantity:
+      type: object
+      description: An amount in a given unit
+      properties:
+        amount:
+          default: 1
+          type: number
+          format: float
+          description: Numeric value in a given unit
+        units:
+          type: string
+          description: Unit
+    RelatedParty:
+      type: object
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
     ResourceSpecificationCharacteristicValue:
       type: object
       description: A number or text that can be assigned to a ResourceSpecCharacteristic.
@@ -428,241 +903,18 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    TargetResourceSchema:
+    TimePeriod:
       type: object
-      description: The reference object to the schema and type of target resource which is described by resource specification
-      required:
-      - '@schemaLocation'
-      - '@type'
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
       properties:
-        '@baseType':
+        endDateTime:
           type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
           type: string
-          description: This field provides a link to the schema describing the target resource
-        '@type':
-          type: string
-          description: Class type of the target resource
-    ConstraintRef:
-      type: object
-      description: Constraint reference. The Constraint resource represents a policy/rule applied to an entity or entity spec.
-      properties:
-        id:
-          type: string
-          description: reference id to the target constraint
-        href:
-          type: string
-          description: Hyperlink reference to the target constraint
-        name:
-          type: string
-          description: Name given to the constraint
-        version:
-          type: string
-          description: constraint version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The (class) type of the referred constraint
-      required:
-      - id
-    FeatureSpecificationCharacteristicRelationship:
-      type: object
-      description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among FeatureSpecificationCharacteristics.
-      properties:
-        characteristicId:
-          type: string
-          description: Unique identifier of the characteristic within the the target feature specification
-        featureId:
-          type: string
-          description: Unique identifier of the target feature specification within the resource specification.
-        name:
-          type: string
-          description: Name of the target characteristic
-        relationshipType:
-          type: string
-          description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
-        resourceSpecificationHref:
-          type: string
-          description: Hyperlink reference to the resource specification containing the target feature and feature characteristic
-        resourceSpecificationId:
-          type: string
-          description: Unique identifier of the resource specification containing the target feature and feature characteristic
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the object is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    FeatureSpecificationRelationship:
-      type: object
-      description: Configuration feature
-      required:
-      - name
-      - relationshipType
-      properties:
-        featureId:
-          type: string
-          description: Unique identifier of the target feature specification.
-        name:
-          type: string
-          description: This is the name of the target feature specification.
-        relationshipType:
-          type: string
-          description: This is the type of the feature specification relationship.
-        resourceSpecificationHref:
-          type: string
-          description: Hyperlink reference to the resource specification containing the target feature
-        resourceSpecificationId:
-          type: string
-          description: Unique identifier of the resource specification containing the target feature
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which this feature spoecification relationship is valid.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    ResourceSpecificationCharacteristic:
-      type: object
-      description: 'This class defines the characteristic features of a resource specification. Every ResourceSpecification has a variety of important attributes, methods, constraints, and
-
-        relationships, which distinguish a resource specification from other resource specifications.'
-      properties:
-        id:
-          type: string
-          description: Unique ID for the characteristic
-        configurable:
-          type: boolean
-          description: If true, the Boolean indicates that the ResourceSpecCharacteristic is configurable
-        description:
-          type: string
-          description: A narrative that explains the CharacteristicSpecification.
-        extensible:
-          type: boolean
-          description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a resource.
-        isUnique:
-          type: boolean
-          description: An indicator that specifies if a value is unique for the specification. Possible values are; "unique while value is in effect" and "unique whether value is in effect or not"
-        maxCardinality:
-          type: integer
-          description: The maximum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where five is the value for the maxCardinality.
-        minCardinality:
-          type: integer
-          description: The minimum number of instances a CharacteristicValue can take on. For example, zero to five phone numbers in a group calling plan, where zero is the value for the minCardinality.
-        name:
-          type: string
-          description: A word, term, or phrase by which this characteristic specification is known and distinguished from other characteristic specifications.
-        regex:
-          type: string
-          description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
-        valueType:
-          type: string
-          description: A kind of value that the characteristic can take on, such as numeric, text and so forth
-        resourceSpecCharRelationship:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpecificationCharacteristicRelationship'
-          description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among Specification Characteristics.
-        resourceSpecCharacteristicValue:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpecificationCharacteristicValue'
-          description: A ResourceSpecificationCharacteristicValue object is used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a ResourceSpecificationCharacteristic object. The values of the attributes in the ResourceSpecificationCharacteristicValue object describe the values of the attributes that a corresponding ResourceSpecificationCharacteristic object can take on.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period of time for which a characteristic is applicable.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@valueSchemaLocation':
-          type: string
-          description: This (optional) field provides a link to the schema describing the value type.
-    FeatureSpecificationCharacteristic:
-      type: object
-      description: Configuration feature characteristic specification.
-      required:
-      - name
-      properties:
-        configurable:
-          type: boolean
-          description: True is the feature is configurable.
-        extensible:
-          type: boolean
-          description: An indicator that specifies that the values for the characteristic can be extended by adding new values when instantiating a characteristic for a feature.
-        isUnique:
-          type: boolean
-          description: An indicator that specifies if a value is unique for the specification.
-        maxCardinality:
-          type: integer
-          description: The maximum number of instances a CharacteristicValue can take on.
-        minCardinality:
-          type: integer
-          description: The minimum number of instances a CharacteristicValue can take on.
-        name:
-          type: string
-          description: This is the name for the feature charateristic.
-        regex:
-          type: string
-          description: A rule or principle represented in regular expression used to derive the value of a characteristic value.
-        valueType:
-          type: string
-          description: A kind of value that the characteristic can take on.
-        featureSpecCharRelationship:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureSpecificationCharacteristicRelationship'
-          description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among feature characteristics.
-        featureSpecCharacteristicValue:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureSpecificationCharacteristicValue'
-          description: Used to define a set of attributes, each of which can be assigned to a corresponding set of attributes in a FeatureCharacteristic object.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period of time for which a characteristic is applicable.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@valueSchemaLocation':
-          type: string
-          description: This (optional) field provides a link to the schema describing the value type.
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
     FeatureSpecification:
       type: object
       description: Specification for applicable configuration features for a resource specification.
@@ -783,280 +1035,22 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    FeatureSpecificationCharacteristicValue:
+    ConstraintRef:
       type: object
-      description: A number or text that can be assigned to a FeatureSpecificationCharacteristic.
-      required:
-      - valueType
-      properties:
-        isDefault:
-          type: boolean
-          description: True if the value is the default value for a characteristic.
-        rangeInterval:
-          type: string
-          description: Specifies the inclusion or exclusion of the valueFrom and valueTo attributes.
-        regex:
-          type: string
-          description: A regular expression constraint for given value.
-        unitOfMeasure:
-          type: string
-          description: A determinate quantity or magnitude of the kind designated, taken as a standard of comparison for others of the same kind, in assigning to them numerical values.
-        valueFrom:
-          type: integer
-          description: The low range value that a characteristic can take on.
-        valueTo:
-          type: integer
-          description: The upper range value that a characteristic can take on.
-        valueType:
-          type: string
-          description: A kind of value that the characteristic value can take on.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period of time for which a value is applicable.
-        value:
-          $ref: '#/components/schemas/Any'
-          description: A discrete value that the characteristic can take on, or the actual value of the characteristic
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    RelatedParty:
-      type: object
-      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-      required:
-      - '@referredType'
-      - id
+      description: Constraint reference. The Constraint resource represents a policy/rule applied to an entity or entity spec.
       properties:
         id:
           type: string
-          description: Unique identifier of a related entity.
+          description: reference id to the target constraint
         href:
           type: string
-          description: Reference of the related entity.
+          description: Hyperlink reference to the target constraint
         name:
           type: string
-          description: Name of the related entity.
-        role:
-          type: string
-          description: Role played by the related party
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-    ResourceSpecificationRelationship:
-      type: object
-      description: A migration, substitution, dependency or exclusivity relationship between/among resource specifications.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of target ResourceSpecification
-        href:
-          type: string
-          description: Reference of the target ResourceSpecification
-        defaultQuantity:
-          type: integer
-          description: The default number of the related resource that should be instantiated, for example a rack would typically have 4 cards, although it could support more.
-        maximumQuantity:
-          type: integer
-          description: The maximum number of the related resource that should be instantiated, for example a rack supports a maximum of 16 cards
-        minimumQuantity:
-          type: integer
-          description: The minimum number of the related resource that should be instantiated, for example a rack must have at least 1 card
-        name:
-          type: string
-          description: The name given to the target resource specification instance
-        relationshipType:
-          type: string
-          description: Type of relationship such as migration, substitution, dependency, exclusivity
-        role:
-          type: string
-          description: The association role for this resource specification
-        characteristic:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpecificationCharacteristic'
-          description: A characteristic that refines the relationship. For example, consider the relationship between a slot and a card. For a half-height card it is important to know the position at which the card is inserted, so a characteristic Position might be defined on the relationship to allow capturing of this in the inventory
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the ResourceSpecRelationship is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    ResourceSpecification:
-      type: object
-      description: 'Resources are physical or non-physical components (or some combination of these) within an enterprise''s infrastructure or inventory. They are typically consumed or used by services (for example a physical port assigned to a service) or contribute to the realization of a Product (for example, a SIM card). They can be drawn from the Application, Computing and Network domains, and include, for example, Network Elements, software, IT systems, content and information, and technology components.
-
-        A ResourceSpecification is an abstract base class for representing a generic means for implementing a particular type of Resource. In essence, a ResourceSpecification defines the common attributes and relationships of a set of related Resources, while Resource defines a specific instance that is based on a particular ResourceSpecification.'
-      properties:
-        id:
-          type: string
-          description: Unique identifier of this REST resource
-        href:
-          type: string
-          description: Hyperlink reference to this REST resource
-        category:
-          type: string
-          description: Category of the target resource like NetworkConnectivity, PhysicalLinks, Generic, L2Network and so on.
-        description:
-          type: string
-          description: Description of this REST resource
-        isBundle:
-          type: boolean
-          description: A flag indicates that if this resource specification is a bundled specification (true) or single (false).
-        lastUpdate:
-          type: string
-          format: date-time
-          description: Date and time of the last update of this REST resource
-        lifecycleStatus:
-          type: string
-          description: Used to indicate the current lifecycle status of the resource specification
-        name:
-          type: string
-          description: Name given to this REST resource
+          description: Name given to the constraint
         version:
           type: string
-          description: Resource Specification version
-        attachment:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttachmentRefOrValue'
-          description: Complements the description of an element (for instance a resource) through video, pictures ...
-        featureSpecification:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureSpecification'
-          description: A list of Features for this specification.
-        relatedParty:
-          type: array
-          items:
-            $ref: '#/components/schemas/RelatedParty'
-          description: A related party defines party or party role linked to a specific entity.
-        resourceSpecCharacteristic:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpecificationCharacteristic'
-          description: A characteristic quality or distinctive feature of a ResourceSpecification.  The characteristic can be take on a discrete value, such as color, can take on a range of values, (for example, sensitivity of 100-240 mV), or can be derived from a formula (for example, usage time (hrs) = 30 - talk time *3). Certain characteristics, such as color, may be configured during the ordering or some other process.
-        resourceSpecRelationship:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceSpecificationRelationship'
-          description: A migration, substitution, dependency or exclusivity relationship between/among resource specifications.
-        targetResourceSchema:
-          $ref: '#/components/schemas/TargetResourceSchema'
-          description: A target resource schema reference. The reference object to the schema and type of target resource which is described by resource specification.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which this REST resource is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    Quantity:
-      type: object
-      description: An amount in a given unit
-      properties:
-        amount:
-          default: 1
-          type: number
-          format: float
-          description: Numeric value in a given unit
-        units:
-          type: string
-          description: Unit
-    ResourceSpecificationCharacteristicRelationship:
-      type: object
-      description: An aggregation, migration, substitution, dependency or exclusivity relationship between/among ResourceSpecificationCharacteristics. The specification characteristic is embedded within the specification whose ID and href are in this entity, and identified by its ID.
-      properties:
-        characteristicSpecificationId:
-          type: string
-          description: Unique identifier of the characteristic within the specification
-        name:
-          type: string
-          description: Name of the target characteristic within the specification
-        relationshipType:
-          type: string
-          description: Type of relationship such as aggregation, migration, substitution, dependency, exclusivity
-        resourceSpecificationHref:
-          type: string
-          description: Hyperlink reference to the resource specification containing the target characteristic
-        resourceSpecificationId:
-          type: string
-          description: Unique identifier of the resource specification containing the target characteristic
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the object is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    AttachmentRefOrValue:
-      type: object
-      description: An attachment by value or by reference. For AttachmentRefOrValue, the attribute type,schemaLocation and referredType are related to the contained entity and not to AttchmentRefOrValue itself
-      properties:
-        id:
-          type: string
-          description: Unique identifier for this particular attachment
-        href:
-          type: string
-          description: URI for this Attachment
-        attachmentType:
-          type: string
-          description: Attachment type such as video, picture
-        content:
-          type: string
-          description: The actual contents of the attachment object, if embedded, encoded as base64
-        description:
-          type: string
-          description: A narrative text describing the content of the attachment
-        mimeType:
-          type: string
-          description: Attachment mime type such as extension file for video, picture and document
-        name:
-          type: string
-          description: The name of the attachment
-        url:
-          type: string
-          description: Uniform Resource Locator, is a web page address (a subset of URI)
-        size:
-          $ref: '#/components/schemas/Quantity'
-          description: The size of the attachment.
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period of time for which the attachment is valid
+          description: constraint version
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -1069,20 +1063,9 @@ components:
           description: When sub-classing, this defines the sub-class entity name
         '@referredType':
           type: string
-          description: The actual type of the target instance when needed for disambiguation.
-    TimePeriod:
-      type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    Any: {}
+          description: The (class) type of the referred constraint
+      required:
+      - id
     ResourceSpecification_Update:
       type: object
       description: 'Resources are physical or non-physical components (or some combination of these) within an enterprise''s infrastructure or inventory. They are typically consumed or used by services (for example a physical port assigned to a service) or contribute to the realization of a Product (for example, a SIM card). They can be drawn from the Application, Computing and Network domains, and include, for example, Network Elements, software, IT systems, content and information, and technology components.
@@ -1154,3 +1137,20 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
+    Any: {}
+    TargetResourceSchema:
+      type: object
+      description: The reference object to the schema and type of target resource which is described by resource specification
+      required:
+      - '@schemaLocation'
+      - '@type'
+      properties:
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: This field provides a link to the schema describing the target resource
+        '@type':
+          type: string
+          description: Class type of the target resource

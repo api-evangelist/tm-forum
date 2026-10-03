@@ -139,88 +139,110 @@ paths:
     servers:
     - url: https://serverRoot/productCatalogManagement/v5/
 components:
-  requestBodies:
-    ImportJob_FVO:
-      description: The ImportJob to be created
+  responses:
+    '400':
+      description: Bad Request
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ImportJob_FVO'
+            $ref: '#/components/schemas/Error'
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '204':
+      description: Deleted
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    201ImportJob:
+      description: OK/Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ImportJob'
           examples:
             Import_Job_Create_example:
-              $ref: '#/components/examples/Import_Job_Create_example_request'
-      required: true
+              $ref: '#/components/examples/Import_Job_Create_example_response'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '202':
+      description: Accepted
+    '501':
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200ImportJob_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ImportJob'
+          examples:
+            ImportJob_retrieve_example:
+              $ref: '#/components/examples/ImportJob_retrieve_example_response'
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '409':
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    200ImportJobArray:
+      description: Success
+      headers:
+        X-Total-Count:
+          $ref: '#/components/headers/X-Total-Count'
+        X-Result-Count:
+          $ref: '#/components/headers/X-Result-Count'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ImportJob'
+          examples:
+            ImportJob_list_example:
+              $ref: '#/components/examples/ImportJob_list_example_response'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '405':
+      description: Method Not allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          Error: '#/components/schemas/Error'
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - type: object
-        required:
-        - code
-        - reason
-        properties:
-          code:
-            type: string
-            description: Application relevant detail, defined in the API or a common list.
-          reason:
-            type: string
-            description: Explanation of the reason for the error which can be shown to a client user.
-          message:
-            type: string
-            description: More details and corrective actions related to the error which can be shown to a client user.
-          status:
-            type: string
-            description: HTTP Error code extension
-          referenceError:
-            type: string
-            description: URI of documentation describing the error.
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-    Entity_FVO:
+    Addressable:
       type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - $ref: '#/components/schemas/Addressable_FVO'
-    ImportJob:
-      allOf:
-      - $ref: '#/components/schemas/Entity'
-      - type: object
-        description: Represents a task used to import resources from a file
-        properties:
-          completionDate:
-            type: string
-            format: date-time
-            description: Date at which the job was completed
-          contentType:
-            type: string
-            description: Indicates the format of the imported data
-          creationDate:
-            type: string
-            format: date-time
-            description: Date at which the job was created
-          errorLog:
-            type: string
-            description: Path to file or stream where errors encountered during the job processing can be written
-          path:
-            type: string
-            description: URL of the root resource where the content of the file specified by the import job must be applied
-          status:
-            $ref: '#/components/schemas/JobStateType'
-          url:
-            type: string
-            format: uri
-            description: URL of the file containing the data to be imported
-          id:
-            type: string
-            description: unique identifier for import job
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ImportJob: '#/components/schemas/ImportJob'
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
     ImportJob_FVO:
       allOf:
       - $ref: '#/components/schemas/Entity_FVO'
@@ -259,28 +281,14 @@ components:
         propertyName: '@type'
         mapping:
           ImportJob: '#/components/schemas/ImportJob_FVO'
-    Extensible_FVO:
+    Addressable_FVO:
       type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      description: Base schema for adressable entities
       properties:
-        '@type':
+        id:
           type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    Entity:
-      type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
-    Extensible:
+          description: unique identifier
+    Extensible_FVO:
       type: object
       description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
       properties:
@@ -303,23 +311,162 @@ components:
       - Failed
       type: string
       description: Valid values for the state of a batch job (e.g. catalog import)
-    Addressable:
+    Entity:
       type: object
-      description: Base schema for adressable entities
-      properties:
-        href:
-          type: string
-          description: Hyperlink reference
-        id:
-          type: string
-          description: unique identifier
-    Addressable_FVO:
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
+    Error:
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Error: '#/components/schemas/Error'
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - type: object
+        required:
+        - code
+        - reason
+        properties:
+          code:
+            type: string
+            description: Application relevant detail, defined in the API or a common list.
+          reason:
+            type: string
+            description: Explanation of the reason for the error which can be shown to a client user.
+          message:
+            type: string
+            description: More details and corrective actions related to the error which can be shown to a client user.
+          status:
+            type: string
+            description: HTTP Error code extension
+          referenceError:
+            type: string
+            description: URI of documentation describing the error.
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+    ImportJob:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: Represents a task used to import resources from a file
+        properties:
+          completionDate:
+            type: string
+            format: date-time
+            description: Date at which the job was completed
+          contentType:
+            type: string
+            description: Indicates the format of the imported data
+          creationDate:
+            type: string
+            format: date-time
+            description: Date at which the job was created
+          errorLog:
+            type: string
+            description: Path to file or stream where errors encountered during the job processing can be written
+          path:
+            type: string
+            description: URL of the root resource where the content of the file specified by the import job must be applied
+          status:
+            $ref: '#/components/schemas/JobStateType'
+          url:
+            type: string
+            format: uri
+            description: URL of the file containing the data to be imported
+          id:
+            type: string
+            description: unique identifier for import job
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ImportJob: '#/components/schemas/ImportJob'
+    Entity_FVO:
       type: object
-      description: Base schema for adressable entities
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
+    Extensible:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
       properties:
-        id:
+        '@type':
           type: string
-          description: unique identifier
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    ImportJob_Create:
+      type: object
+      description: 'Represents a task used to import resources from a file
+
+        Skipped properties: id,href'
+      required:
+      - url
+      properties:
+        completionDate:
+          type: string
+          format: date-time
+          description: Date at which the job was completed
+        contentType:
+          type: string
+          description: Indicates the format of the imported data
+        creationDate:
+          type: string
+          format: date-time
+          description: Date at which the job was created
+        errorLog:
+          type: string
+          description: Reason for failure if status is failed
+        path:
+          type: string
+          description: URL of the root resource where the content of the file specified by the import job must be applied
+        url:
+          type: string
+          format: uri
+          description: URL of the file containing the data to be imported
+        status:
+          $ref: '#/components/schemas/JobStateType'
+          description: Status of the import job (not started, running, succeeded, failed)
+    Error_2:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
     ImportJob_2:
       type: object
       description: Represents a task used to import resources from a file
@@ -355,7 +502,7 @@ components:
         status:
           $ref: '#/components/schemas/JobStateType'
           description: Status of the import job (not started, running, succeeded, failed)
-    ImportJob_Create:
+    ImportJob_Create_2:
       type: object
       description: 'Represents a task used to import resources from a file
 
@@ -382,12 +529,21 @@ components:
           description: URL of the root resource where the content of the file specified by the import job must be applied
         url:
           type: string
-          format: uri
           description: URL of the file containing the data to be imported
         status:
           $ref: '#/components/schemas/JobStateType'
           description: Status of the import job (not started, running, succeeded, failed)
-    Error_2:
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    Error_3:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
       required:
@@ -463,80 +619,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    ImportJob_Create_2:
-      type: object
-      description: 'Represents a task used to import resources from a file
-
-        Skipped properties: id,href'
-      required:
-      - url
-      properties:
-        completionDate:
-          type: string
-          format: date-time
-          description: Date at which the job was completed
-        contentType:
-          type: string
-          description: Indicates the format of the imported data
-        creationDate:
-          type: string
-          format: date-time
-          description: Date at which the job was created
-        errorLog:
-          type: string
-          description: Reason for failure if status is failed
-        path:
-          type: string
-          description: URL of the root resource where the content of the file specified by the import job must be applied
-        url:
-          type: string
-          description: URL of the file containing the data to be imported
-        status:
-          $ref: '#/components/schemas/JobStateType'
-          description: Status of the import job (not started, running, succeeded, failed)
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    Error_3:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
   headers:
     X-Total-Count:
       description: Total number of items matching criteria
@@ -546,125 +628,6 @@ components:
       description: Actual number of items returned in the response body
       schema:
         type: integer
-  responses:
-    200ImportJobArray:
-      description: Success
-      headers:
-        X-Total-Count:
-          $ref: '#/components/headers/X-Total-Count'
-        X-Result-Count:
-          $ref: '#/components/headers/X-Result-Count'
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/ImportJob'
-          examples:
-            ImportJob_list_example:
-              $ref: '#/components/examples/ImportJob_list_example_response'
-    200ImportJob_Get:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ImportJob'
-          examples:
-            ImportJob_retrieve_example:
-              $ref: '#/components/examples/ImportJob_retrieve_example_response'
-    '204':
-      description: Deleted
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    201ImportJob:
-      description: OK/Created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ImportJob'
-          examples:
-            Import_Job_Create_example:
-              $ref: '#/components/examples/Import_Job_Create_example_response'
-    '409':
-      description: Conflict
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '202':
-      description: Accepted
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '400':
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '405':
-      description: Method Not allowed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '403':
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '501':
-      description: Not Implemented
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      description: Requested number of resources to be provided in response
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      description: Requested index for start of resources to be provided in response
-      schema:
-        type: integer
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated properties to be provided in response
-      schema:
-        type: string
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
   examples:
     Import_Job_Create_example_request:
       value:
@@ -673,32 +636,6 @@ components:
         url: ftp://ftp.mycsp.com/productCatalogManagement/1877.json
         '@type': ImportJob
       description: Here is an example of a request for creating an import job.
-    Import_Job_Create_example_response:
-      value:
-        id: '2341'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/importJob/2341
-        contentType: application/json
-        creationDate: '2020-08-25T00:00:00Z'
-        completionDate: '2020-08-25T00:01:31Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
-        status: Succeeded
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1877.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ImportJob
-      description: Here is an example of a response for creating an import job.
-    ImportJob_retrieve_example_response:
-      value:
-        id: '2341'
-        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/importJob/2341
-        contentType: application/json
-        creationDate: '2020-08-25T00:00:00Z'
-        completionDate: '2020-08-25T00:01:31Z'
-        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
-        status: Succeeded
-        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
-        errorLog: http://my-platform/logging/errors.log
-        '@type': ImportJob
-      description: Here is an example of a request for retrieving a specific import job.
     ImportJob_list_example_response:
       value:
       - id: '2340'
@@ -722,6 +659,69 @@ components:
         errorLog: ''
         '@type': ImportJob
       description: Here is an example of a request for retrieving multiple import jobs.
+    ImportJob_retrieve_example_response:
+      value:
+        id: '2341'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/importJob/2341
+        contentType: application/json
+        creationDate: '2020-08-25T00:00:00Z'
+        completionDate: '2020-08-25T00:01:31Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
+        status: Succeeded
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1866.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ImportJob
+      description: Here is an example of a request for retrieving a specific import job.
+    Import_Job_Create_example_response:
+      value:
+        id: '2341'
+        href: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/importJob/2341
+        contentType: application/json
+        creationDate: '2020-08-25T00:00:00Z'
+        completionDate: '2020-08-25T00:01:31Z'
+        path: https://mycsp.com:8080/tmf-api/productCatalogManagement/v5/
+        status: Succeeded
+        url: ftp://ftp.mycsp.com/productCatalogManagement/1877.json
+        errorLog: http://my-platform/logging/errors.log
+        '@type': ImportJob
+      description: Here is an example of a response for creating an import job.
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+  requestBodies:
+    ImportJob_FVO:
+      description: The ImportJob to be created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ImportJob_FVO'
+          examples:
+            Import_Job_Create_example:
+              $ref: '#/components/examples/Import_Job_Create_example_request'
+      required: true
 x-refined-from:
 - tm-forum-tmf620-product-catalog-openapi.yaml
 - tm-forum-tmf633-service-catalog-openapi.json
