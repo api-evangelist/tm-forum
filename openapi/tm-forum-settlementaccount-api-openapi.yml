@@ -348,25 +348,31 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AccountTaxExemption:
+    Contact:
       type: object
-      description: Proof of freedom from taxes imposed by a taxing jurisdiction
+      description: An individual or an organization used as a contact point for a given account and accessed via some contact medium.
       required:
-      - issuingJurisdiction
+      - contactType
       - validFor
       properties:
-        certificateNumber:
+        contactName:
           type: string
-          description: Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction
-        issuingJurisdiction:
+          description: A displayable name for that contact
+        contactType:
           type: string
-          description: Name of the taxing jurisdiction for which taxes are exempt
-        reason:
+          description: Type of contact (primary, secondary...)
+        partyRoleType:
           type: string
-          description: Reason of the tax exemption
+          description: Identifies what kind of party role type is linked to the contact (a account manager...)
+        contactMedium:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactMedium'
+        relatedParty:
+          $ref: '#/components/schemas/RelatedParty'
         validFor:
           $ref: '#/components/schemas/TimePeriod'
-          description: Period for which the exemption is valid
+          description: Validity period of that contact
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -377,39 +383,44 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    Money:
+    BillStructure:
       type: object
-      description: A base / value business entity used to represent money
+      description: The structure of the bill for party accounts (billing or settlement).
       properties:
-        unit:
+        cycleSpecification:
+          $ref: '#/components/schemas/BillingCycleSpecificationRefOrValue'
+        format:
+          $ref: '#/components/schemas/BillFormatRefOrValue'
+        presentationMedia:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillPresentationMediaRefOrValue'
+        '@baseType':
           type: string
-          description: Currency (ISO4217 norm uses 3 letters to define the currency)
-        value:
-          type: number
-          format: float
-          description: A positive floating point number
-    BillPresentationMediaRefOrValue:
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AccountRef:
       type: object
-      description: An attachment by value or by reference.
-      required:
-      - name
-      - isRef
+      description: Account reference. A account may be a party account or a financial account.
       properties:
         id:
           type: string
-          description: Unique identifier of the bill presentation media
+          description: Unique identifier of the account
         href:
           type: string
-          description: Reference of the bill presentation media
+          description: Reference of the account
         description:
           type: string
-          description: An explanatory text describing this bill presentation media
-        isRef:
-          default: true
-          type: boolean
+          description: Detailed description of the account
         name:
           type: string
-          description: A short descriptive name
+          description: Name of the account
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -423,18 +434,74 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-    BillStructure:
+      required:
+      - id
+    TimePeriod:
       type: object
-      description: The structure of the bill for party accounts (billing or settlement).
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
       properties:
-        cycleSpecification:
-          $ref: '#/components/schemas/BillingCycleSpecificationRefOrValue'
-        format:
-          $ref: '#/components/schemas/BillFormatRefOrValue'
-        presentationMedia:
-          type: array
-          items:
-            $ref: '#/components/schemas/BillPresentationMediaRefOrValue'
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    PaymentPlan:
+      type: object
+      description: Defines a plan for payment (when a party wants to spread his payments)
+      properties:
+        numberOfPayments:
+          type: integer
+          description: Number of payments used to spread the global payment
+        paymentFrequency:
+          type: string
+          description: Frequency of the payments, such as monthly and bimonthly
+        planType:
+          type: string
+          description: Type of payment plan
+        priority:
+          type: integer
+          description: Priority of the payment plan
+        status:
+          type: string
+          description: Status of the payment plan (effective, ineffective)
+        paymentMethod:
+          $ref: '#/components/schemas/PaymentMethodRef'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+          description: Amount paid
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Validity period of the payment plan
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AccountBalance:
+      type: object
+      description: Balances linked to the account
+      required:
+      - amount
+      - balanceType
+      - validFor
+      properties:
+        balanceType:
+          type: string
+          description: 'Type of the balance : deposit balance, disputed balance, loyalty balance, receivable balance...'
+        amount:
+          $ref: '#/components/schemas/Money'
+          description: Balance amount
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Balance validity period
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -521,6 +588,266 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
+    PaymentMethodRef:
+      type: object
+      description: PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit).
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the payment mean
+        href:
+          type: string
+          description: Reference of the payment mean
+        name:
+          type: string
+          description: Name of the payment mean
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    AccountTaxExemption:
+      type: object
+      description: Proof of freedom from taxes imposed by a taxing jurisdiction
+      required:
+      - issuingJurisdiction
+      - validFor
+      properties:
+        certificateNumber:
+          type: string
+          description: Identifier of a document that shows proof of exemption from taxes for the taxing jurisdiction
+        issuingJurisdiction:
+          type: string
+          description: Name of the taxing jurisdiction for which taxes are exempt
+        reason:
+          type: string
+          description: Reason of the tax exemption
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Period for which the exemption is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    FinancialAccountRef:
+      type: object
+      description: AccountReceivable reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the account
+        href:
+          type: string
+          description: Unique reference of the account
+        name:
+          type: string
+          description: Name of the account
+        accountBalance:
+          $ref: '#/components/schemas/AccountBalance'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    SettlementAccount_Create:
+      type: object
+      description: 'A party account used for settlement purposes. It includes a description of the bill structure (frequency, presentation media, format and so on). It is a specialization of entity PartyAccount.
+
+        Skipped properties: id,href'
+      required:
+      - name
+      - relatedParty
+      properties:
+        accountType:
+          type: string
+          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
+        description:
+          type: string
+          description: Detailed description of the party account
+        lastModified:
+          type: string
+          format: date-time
+          description: Date of last modification of the account
+        name:
+          type: string
+          description: Name of the account
+        paymentStatus:
+          type: string
+          description: The condition of the account, such as due, paid, in arrears.
+        state:
+          type: string
+          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
+        accountBalance:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountBalance'
+        accountRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRelationship'
+        billStructure:
+          $ref: '#/components/schemas/BillStructure'
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        creditLimit:
+          $ref: '#/components/schemas/Money'
+          description: The maximum amount of money that may be charged on an account
+        defaultPaymentMethod:
+          $ref: '#/components/schemas/PaymentMethodRef'
+        financialAccount:
+          $ref: '#/components/schemas/FinancialAccountRef'
+        paymentPlan:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentPlan'
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          minItems: 1
+        taxExemption:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTaxExemption'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    SettlementAccount_Update:
+      type: object
+      description: 'A party account used for settlement purposes. It includes a description of the bill structure (frequency, presentation media, format and so on). It is a specialization of entity PartyAccount.
+
+        Skipped properties: id,href,accountBalance'
+      required:
+      - name
+      - relatedParty
+      properties:
+        accountType:
+          type: string
+          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
+        description:
+          type: string
+          description: Detailed description of the party account
+        lastModified:
+          type: string
+          format: date-time
+          description: Date of last modification of the account
+        name:
+          type: string
+          description: Name of the account
+        paymentStatus:
+          type: string
+          description: The condition of the account, such as due, paid, in arrears.
+        state:
+          type: string
+          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
+        accountRelationship:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountRelationship'
+        billStructure:
+          $ref: '#/components/schemas/BillStructure'
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        creditLimit:
+          $ref: '#/components/schemas/Money'
+          description: The maximum amount of money that may be charged on an account
+        defaultPaymentMethod:
+          $ref: '#/components/schemas/PaymentMethodRef'
+        financialAccount:
+          $ref: '#/components/schemas/FinancialAccountRef'
+        paymentPlan:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentPlan'
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+          minItems: 1
+        taxExemption:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountTaxExemption'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
     BillFormatRefOrValue:
       type: object
       description: An attachment by value or by reference.
@@ -556,22 +883,28 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-    AccountRef:
+    BillPresentationMediaRefOrValue:
       type: object
-      description: Account reference. A account may be a party account or a financial account.
+      description: An attachment by value or by reference.
+      required:
+      - name
+      - isRef
       properties:
         id:
           type: string
-          description: Unique identifier of the account
+          description: Unique identifier of the bill presentation media
         href:
           type: string
-          description: Reference of the account
+          description: Reference of the bill presentation media
         description:
           type: string
-          description: Detailed description of the account
+          description: An explanatory text describing this bill presentation media
+        isRef:
+          default: true
+          type: boolean
         name:
           type: string
-          description: Name of the account
+          description: A short descriptive name
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -585,178 +918,21 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
+    AccountRelationship:
+      type: object
+      description: Significant connection between accounts. For instance an aggregating account for a list of shop branches each having its own billing account.
       required:
-      - id
-    MediumCharacteristic:
-      type: object
-      description: Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)
-      properties:
-        city:
-          type: string
-          description: The city
-        contactType:
-          type: string
-          description: 'The type of contact, for example: phone number such as mobile, fixed home, fixed office. postal address such as shipping instalation…'
-        country:
-          type: string
-          description: The country
-        emailAddress:
-          type: string
-          description: Full email address in standard format
-        faxNumber:
-          type: string
-          description: The fax number of the contact
-        phoneNumber:
-          type: string
-          description: The primary phone number of the contact
-        postCode:
-          type: string
-          description: Postcode
-        socialNetworkId:
-          type: string
-          description: Identifier as a member of a social network
-        stateOrProvince:
-          type: string
-          description: State or province
-        street1:
-          type: string
-          description: Describes the street
-        street2:
-          type: string
-          description: Complementary street description
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    RelatedParty:
-      type: object
-      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-      required:
-      - '@referredType'
-      - id
-      - name
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        role:
-          type: string
-          description: Role played by the related party
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-    PaymentMethodRef:
-      type: object
-      description: PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit).
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the payment mean
-        href:
-          type: string
-          description: Reference of the payment mean
-        name:
-          type: string
-          description: Name of the payment mean
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
-    TimePeriod:
-      type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    AccountBalance:
-      type: object
-      description: Balances linked to the account
-      required:
-      - amount
-      - balanceType
+      - relationshipType
       - validFor
       properties:
-        balanceType:
+        relationshipType:
           type: string
-          description: 'Type of the balance : deposit balance, disputed balance, loyalty balance, receivable balance...'
-        amount:
-          $ref: '#/components/schemas/Money'
-          description: Balance amount
+          description: Type of relationship
+        account:
+          $ref: '#/components/schemas/AccountRef'
         validFor:
           $ref: '#/components/schemas/TimePeriod'
-          description: Balance validity period
+          description: Validity period of that relationship
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -855,118 +1031,26 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-    Contact:
+    RelatedParty:
       type: object
-      description: An individual or an organization used as a contact point for a given account and accessed via some contact medium.
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
       required:
-      - contactType
-      - validFor
-      properties:
-        contactName:
-          type: string
-          description: A displayable name for that contact
-        contactType:
-          type: string
-          description: Type of contact (primary, secondary...)
-        partyRoleType:
-          type: string
-          description: Identifies what kind of party role type is linked to the contact (a account manager...)
-        contactMedium:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContactMedium'
-        relatedParty:
-          $ref: '#/components/schemas/RelatedParty'
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: Validity period of that contact
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    AccountRelationship:
-      type: object
-      description: Significant connection between accounts. For instance an aggregating account for a list of shop branches each having its own billing account.
-      required:
-      - relationshipType
-      - validFor
-      properties:
-        relationshipType:
-          type: string
-          description: Type of relationship
-        account:
-          $ref: '#/components/schemas/AccountRef'
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: Validity period of that relationship
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    PaymentPlan:
-      type: object
-      description: Defines a plan for payment (when a party wants to spread his payments)
-      properties:
-        numberOfPayments:
-          type: integer
-          description: Number of payments used to spread the global payment
-        paymentFrequency:
-          type: string
-          description: Frequency of the payments, such as monthly and bimonthly
-        planType:
-          type: string
-          description: Type of payment plan
-        priority:
-          type: integer
-          description: Priority of the payment plan
-        status:
-          type: string
-          description: Status of the payment plan (effective, ineffective)
-        paymentMethod:
-          $ref: '#/components/schemas/PaymentMethodRef'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-          description: Amount paid
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: Validity period of the payment plan
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    FinancialAccountRef:
-      type: object
-      description: AccountReceivable reference. An account of money owed by a party to another entity in exchange for goods or services that have been delivered or used. An account receivable aggregates the amounts of one or more party accounts (billing or settlement) owned by a given party.
+      - '@referredType'
+      - id
+      - name
       properties:
         id:
           type: string
-          description: Unique identifier of the account
+          description: Unique identifier of a related entity.
         href:
           type: string
-          description: Unique reference of the account
+          description: Reference of the related entity.
         name:
           type: string
-          description: Name of the account
-        accountBalance:
-          $ref: '#/components/schemas/AccountBalance'
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -980,66 +1064,43 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    SettlementAccount_Update:
+    MediumCharacteristic:
       type: object
-      description: 'A party account used for settlement purposes. It includes a description of the bill structure (frequency, presentation media, format and so on). It is a specialization of entity PartyAccount.
-
-        Skipped properties: id,href,accountBalance'
-      required:
-      - name
-      - relatedParty
+      description: Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)
       properties:
-        accountType:
+        city:
           type: string
-          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
-        description:
+          description: The city
+        contactType:
           type: string
-          description: Detailed description of the party account
-        lastModified:
+          description: 'The type of contact, for example: phone number such as mobile, fixed home, fixed office. postal address such as shipping instalation…'
+        country:
           type: string
-          format: date-time
-          description: Date of last modification of the account
-        name:
+          description: The country
+        emailAddress:
           type: string
-          description: Name of the account
-        paymentStatus:
+          description: Full email address in standard format
+        faxNumber:
           type: string
-          description: The condition of the account, such as due, paid, in arrears.
-        state:
+          description: The fax number of the contact
+        phoneNumber:
           type: string
-          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
-        accountRelationship:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountRelationship'
-        billStructure:
-          $ref: '#/components/schemas/BillStructure'
-        contact:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-        creditLimit:
-          $ref: '#/components/schemas/Money'
-          description: The maximum amount of money that may be charged on an account
-        defaultPaymentMethod:
-          $ref: '#/components/schemas/PaymentMethodRef'
-        financialAccount:
-          $ref: '#/components/schemas/FinancialAccountRef'
-        paymentPlan:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaymentPlan'
-        relatedParty:
-          type: array
-          items:
-            $ref: '#/components/schemas/RelatedParty'
-          minItems: 1
-        taxExemption:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountTaxExemption'
+          description: The primary phone number of the contact
+        postCode:
+          type: string
+          description: Postcode
+        socialNetworkId:
+          type: string
+          description: Identifier as a member of a social network
+        stateOrProvince:
+          type: string
+          description: State or province
+        street1:
+          type: string
+          description: Describes the street
+        street2:
+          type: string
+          description: Complementary street description
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -1050,75 +1111,14 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    SettlementAccount_Create:
+    Money:
       type: object
-      description: 'A party account used for settlement purposes. It includes a description of the bill structure (frequency, presentation media, format and so on). It is a specialization of entity PartyAccount.
-
-        Skipped properties: id,href'
-      required:
-      - name
-      - relatedParty
+      description: A base / value business entity used to represent money
       properties:
-        accountType:
+        unit:
           type: string
-          description: 'A categorization of an account, such as individual, joint, and so forth, whose instances share some of the same characteristics. Note: for flexibility we use a String here but an implementation may use an enumeration with a limited list of valid values.'
-        description:
-          type: string
-          description: Detailed description of the party account
-        lastModified:
-          type: string
-          format: date-time
-          description: Date of last modification of the account
-        name:
-          type: string
-          description: Name of the account
-        paymentStatus:
-          type: string
-          description: The condition of the account, such as due, paid, in arrears.
-        state:
-          type: string
-          description: 'Contains the lifecycle state such as: Active, Closed, Suspended and so on.'
-        accountBalance:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountBalance'
-        accountRelationship:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountRelationship'
-        billStructure:
-          $ref: '#/components/schemas/BillStructure'
-        contact:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-        creditLimit:
-          $ref: '#/components/schemas/Money'
-          description: The maximum amount of money that may be charged on an account
-        defaultPaymentMethod:
-          $ref: '#/components/schemas/PaymentMethodRef'
-        financialAccount:
-          $ref: '#/components/schemas/FinancialAccountRef'
-        paymentPlan:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaymentPlan'
-        relatedParty:
-          type: array
-          items:
-            $ref: '#/components/schemas/RelatedParty'
-          minItems: 1
-        taxExemption:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountTaxExemption'
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
+          description: Currency (ISO4217 norm uses 3 letters to define the currency)
+        value:
+          type: number
+          format: float
+          description: A positive floating point number

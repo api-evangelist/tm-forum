@@ -108,120 +108,24 @@ paths:
         '503':
           $ref: '#/components/responses/503'
 components:
-  examples:
-    retrieveCancelProductOrderListwithFieldsSelection_response:
-      value:
-      - id: '6987'
-        productOrder:
-          id: 45f-98f-ss45
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
-          '@type': ProductOrderRef
-        '@type': CancelProductOrder
-      - id: '7412'
-        productOrder:
-          id: 45f-789-sdre
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-789-sdre
-          '@type': ProductOrderRef
-        '@type': CancelProductOrder
-      - id: '3214'
-        productOrder:
-          id: 45f-as4-os3f
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-as4-os3f
-          '@type': ProductOrderRef
-        '@type': CancelProductOrder
-      description: A collection of CancelProductOrder representation with filter selection
-    retrieveCancelProductOrderList_response:
-      value:
-      - id: 789-fsds5-kjp
-        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
-        cancellationReason: Duplicate order
-        creationDate: '2019-04-30T08:13:59.506Z'
-        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
-        productOrder:
-          id: 45f-98f-ss45
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
-          '@referredType': ProductOrder
-          '@type': ProductOrderRef
-        state: done
-        '@type': CancelProductOrder
-      description: A collection of CancelProductOrder representation
-    CreateCancelProductOrder_request:
-      value:
-        cancellationReason: Duplicate order
-        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
-        productOrder:
-          id: 45f-98f-ss45
-          '@referredType': ProductOrder
-          '@type': ProductOrderRef
-        '@type': CancelProductOrder
-      description: POST CancelProductOrder Request Example
-    retrieveCancelProductOrderById_response:
-      value:
-        id: 789-fsds5-kjp
-        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
-        cancellationReason: Duplicate order
-        creationDate: '2019-04-30T08:13:59.506Z'
-        effectiveCancellationDate: '2021-08-30T11:14:46.145Z'
-        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
-        productOrder:
-          id: 45f-98f-ss45
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
-          '@referredType': ProductOrder
-          '@type': ProductOrderRef
-        state: done
-        '@type': CancelProductOrder
-      description: CancelProductOrder representation.
-    CreateCancelProductOrder_response:
-      value:
-        id: 789-fsds5-kjp
-        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
-        cancellationReason: Duplicate order
-        creationDate: '2019-04-30T08:13:59.506Z'
-        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
-        productOrder:
-          id: 45f-98f-ss45
-          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
-          '@referredType': ProductOrder
-          '@type': ProductOrderRef
-        state: done
-        '@type': CancelProductOrder
-      description: POST CancelProductOrder Response Description.
+  headers:
+    X-Result-Count:
+      description: Actual number of items returned in the response body
+      schema:
+        type: integer
+    X-Total-Count:
+      description: Total number of items matching criteria
+      schema:
+        type: integer
   responses:
-    '400':
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    200CancelProductOrder_Get:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CancelProductOrder'
-          examples:
-            retrieveCancelProductOrderById:
-              $ref: '#/components/examples/retrieveCancelProductOrderById_response'
-    '403':
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     '404':
       description: Not Found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    '501':
-      description: Not Implemented
+    '405':
+      description: Method Not allowed
       content:
         application/json:
           schema:
@@ -247,6 +151,24 @@ components:
           examples:
             CreateCancelProductOrder:
               $ref: '#/components/examples/CreateCancelProductOrder_response'
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     200CancelProductOrderArray:
       description: Success
       headers:
@@ -265,60 +187,132 @@ components:
               $ref: '#/components/examples/retrieveCancelProductOrderList_response'
             retrieveCancelProductOrderListwithFieldsSelection:
               $ref: '#/components/examples/retrieveCancelProductOrderListwithFieldsSelection_response'
-    '500':
-      description: Internal Server Error
+    '401':
+      description: Unauthorized
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    '405':
-      description: Method Not allowed
+    200CancelProductOrder_Get:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CancelProductOrder'
+          examples:
+            retrieveCancelProductOrderById:
+              $ref: '#/components/examples/retrieveCancelProductOrderById_response'
+    '501':
+      description: Not Implemented
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      description: Requested index for start of resources to be provided in response
+      schema:
+        type: integer
+    Id:
+      name: id
+      required: true
+      schema:
+        type: string
+      in: path
+      description: Identifier of the Resource
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated properties to be provided in response
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Requested number of resources to be provided in response
+      schema:
+        type: integer
+  examples:
+    retrieveCancelProductOrderList_response:
+      value:
+      - id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: A collection of CancelProductOrder representation
+    CreateCancelProductOrder_response:
+      value:
+        id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: POST CancelProductOrder Response Description.
+    retrieveCancelProductOrderById_response:
+      value:
+        id: 789-fsds5-kjp
+        href: https://host:port/productOrderingManagement/v5/cancelProductOrder/789-fsds5-kjp
+        cancellationReason: Duplicate order
+        creationDate: '2019-04-30T08:13:59.506Z'
+        effectiveCancellationDate: '2021-08-30T11:14:46.145Z'
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        state: done
+        '@type': CancelProductOrder
+      description: CancelProductOrder representation.
+    CreateCancelProductOrder_request:
+      value:
+        cancellationReason: Duplicate order
+        requestedCancellationDate: '2021-08-30T09:14:46.145Z'
+        productOrder:
+          id: 45f-98f-ss45
+          '@referredType': ProductOrder
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      description: POST CancelProductOrder Request Example
+    retrieveCancelProductOrderListwithFieldsSelection_response:
+      value:
+      - id: '6987'
+        productOrder:
+          id: 45f-98f-ss45
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-98f-ss45
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      - id: '7412'
+        productOrder:
+          id: 45f-789-sdre
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-789-sdre
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      - id: '3214'
+        productOrder:
+          id: 45f-as4-os3f
+          href: https://host:port/productOrderingManagement/v5/productOrder/45f-as4-os3f
+          '@type': ProductOrderRef
+        '@type': CancelProductOrder
+      description: A collection of CancelProductOrder representation with filter selection
   schemas:
-    Addressable:
-      type: object
-      description: Base schema for adressable entities
-      properties:
-        href:
-          type: string
-          description: Hyperlink reference
-        id:
-          type: string
-          description: unique identifier
-    ProductOrderRef_FVO:
-      type: object
-      description: A reference to an existing Product Order.
-      allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - $ref: '#/components/schemas/EntityRef_FVO'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ProductOrderRef: '#/components/schemas/ProductOrderRef_FVO'
-    EntityRef:
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/Addressable'
-      - type: object
-        description: Entity reference schema to be use for all entityRef class.
-        properties:
-          id:
-            type: string
-            description: The identifier of the referred entity.
-          href:
-            type: string
-            description: The URI of the referred entity.
-          name:
-            type: string
-            description: Name of the referred entity.
-          '@referredType':
-            type: string
-            description: The actual type of the target instance when needed for disambiguation.
-        required:
-        - id
     Addressable_FVO:
       type: object
       description: Base schema for adressable entities
@@ -326,10 +320,10 @@ components:
         id:
           type: string
           description: unique identifier
-    EntityRef_FVO:
+    EntityRef:
       allOf:
-      - $ref: '#/components/schemas/Extensible_FVO'
-      - $ref: '#/components/schemas/Addressable_FVO'
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/Addressable'
       - type: object
         description: Entity reference schema to be use for all entityRef class.
         properties:
@@ -357,66 +351,18 @@ components:
       - terminatedWithError
       type: string
       description: Possible values for the state of a task
-    CancelProductOrder:
-      allOf:
-      - $ref: '#/components/schemas/Entity'
-      - type: object
-        description: Request for cancellation an existing product order
-        properties:
-          productOrder:
-            $ref: '#/components/schemas/ProductOrderRef'
-          creationDate:
-            type: string
-            format: date-time
-            description: Date and time when the CancelProductOrder was created
-          requestedCancellationDate:
-            type: string
-            format: date-time
-            description: Date when the submitter wants the order to be cancelled
-          cancellationReason:
-            type: string
-            description: Reason why the order is cancelled.
-          state:
-            $ref: '#/components/schemas/TaskStateType'
-          effectiveCancellationDate:
-            type: string
-            format: date-time
-            description: Date when the order is cancelled.
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          CancelProductOrder: '#/components/schemas/CancelProductOrder'
-    Extensible_FVO:
-      type: object
-      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
-      properties:
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-      required:
-      - '@type'
-    ProductOrderRef:
-      type: object
-      description: A reference to an existing Product Order.
-      allOf:
-      - $ref: '#/components/schemas/Extensible'
-      - $ref: '#/components/schemas/EntityRef'
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          ProductOrderRef: '#/components/schemas/ProductOrderRef'
     Entity:
       type: object
       description: Base entity schema for use in TMForum Open-APIs. Property.
       allOf:
       - $ref: '#/components/schemas/Extensible'
       - $ref: '#/components/schemas/Addressable'
+    Entity_FVO:
+      type: object
+      description: Base entity schema for use in TMForum Open-APIs. Property.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/Addressable_FVO'
     Error:
       discriminator:
         propertyName: '@type'
@@ -466,12 +412,91 @@ components:
         propertyName: '@type'
         mapping:
           CancelProductOrder: '#/components/schemas/CancelProductOrder_FVO'
-    Entity_FVO:
+    Addressable:
       type: object
-      description: Base entity schema for use in TMForum Open-APIs. Property.
+      description: Base schema for adressable entities
+      properties:
+        href:
+          type: string
+          description: Hyperlink reference
+        id:
+          type: string
+          description: unique identifier
+    Extensible_FVO:
+      type: object
+      description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
+      properties:
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+      required:
+      - '@type'
+    CancelProductOrder:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - type: object
+        description: Request for cancellation an existing product order
+        properties:
+          productOrder:
+            $ref: '#/components/schemas/ProductOrderRef'
+          creationDate:
+            type: string
+            format: date-time
+            description: Date and time when the CancelProductOrder was created
+          requestedCancellationDate:
+            type: string
+            format: date-time
+            description: Date when the submitter wants the order to be cancelled
+          cancellationReason:
+            type: string
+            description: Reason why the order is cancelled.
+          state:
+            $ref: '#/components/schemas/TaskStateType'
+          effectiveCancellationDate:
+            type: string
+            format: date-time
+            description: Date when the order is cancelled.
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          CancelProductOrder: '#/components/schemas/CancelProductOrder'
+    EntityRef_FVO:
       allOf:
       - $ref: '#/components/schemas/Extensible_FVO'
       - $ref: '#/components/schemas/Addressable_FVO'
+      - type: object
+        description: Entity reference schema to be use for all entityRef class.
+        properties:
+          id:
+            type: string
+            description: The identifier of the referred entity.
+          href:
+            type: string
+            description: The URI of the referred entity.
+          name:
+            type: string
+            description: Name of the referred entity.
+          '@referredType':
+            type: string
+            description: The actual type of the target instance when needed for disambiguation.
+        required:
+        - id
+    ProductOrderRef:
+      type: object
+      description: A reference to an existing Product Order.
+      allOf:
+      - $ref: '#/components/schemas/Extensible'
+      - $ref: '#/components/schemas/EntityRef'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOrderRef: '#/components/schemas/ProductOrderRef'
     Extensible:
       type: object
       description: Base Extensible schema for use in TMForum Open-APIs - When used for in a schema it means that the Entity described by the schema  MUST be extended with the @type
@@ -487,41 +512,16 @@ components:
           description: A URI to a JSON-Schema file that defines additional attributes and relationships
       required:
       - '@type'
-  headers:
-    X-Total-Count:
-      description: Total number of items matching criteria
-      schema:
-        type: integer
-    X-Result-Count:
-      description: Actual number of items returned in the response body
-      schema:
-        type: integer
-  parameters:
-    Offset:
-      name: offset
-      in: query
-      description: Requested index for start of resources to be provided in response
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Requested number of resources to be provided in response
-      schema:
-        type: integer
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated properties to be provided in response
-      schema:
-        type: string
-    Id:
-      name: id
-      required: true
-      schema:
-        type: string
-      in: path
-      description: Identifier of the Resource
+    ProductOrderRef_FVO:
+      type: object
+      description: A reference to an existing Product Order.
+      allOf:
+      - $ref: '#/components/schemas/Extensible_FVO'
+      - $ref: '#/components/schemas/EntityRef_FVO'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          ProductOrderRef: '#/components/schemas/ProductOrderRef_FVO'
   requestBodies:
     CancelProductOrder_FVO:
       description: The CancelProductOrder to be created

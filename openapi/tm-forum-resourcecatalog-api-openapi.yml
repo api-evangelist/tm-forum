@@ -354,13 +354,27 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ResourceCatalog_Update:
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    ResourceCatalog_Create:
       type: object
       description: 'The root entity for resource catalog management.
 
         A resource catalog is a group of resource specifications made available through resource candidates that an organization provides to the consumers (internal consumers like its employees or B2B customers or B2C customers).
 
         Skipped properties: id,href'
+      required:
+      - name
       properties:
         description:
           type: string
@@ -483,38 +497,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    RelatedParty:
-      type: object
-      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-      required:
-      - '@referredType'
-      - id
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        role:
-          type: string
-          description: Role played by the related party
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
     Error:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
@@ -548,27 +530,13 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    TimePeriod:
-      type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    ResourceCatalog_Create:
+    ResourceCatalog_Update:
       type: object
       description: 'The root entity for resource catalog management.
 
         A resource catalog is a group of resource specifications made available through resource candidates that an organization provides to the consumers (internal consumers like its employees or B2B customers or B2C customers).
 
         Skipped properties: id,href'
-      required:
-      - name
       properties:
         description:
           type: string
@@ -609,3 +577,35 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
+    RelatedParty:
+      type: object
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        role:
+          type: string
+          description: Role played by the related party
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.

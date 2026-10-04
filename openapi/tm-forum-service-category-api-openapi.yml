@@ -354,9 +354,9 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ServiceCandidateRef:
+    ServiceCategoryRef:
       type: object
-      description: ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.
+      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
       properties:
         id:
           type: string
@@ -370,7 +370,7 @@ components:
           description: Name of the related entity.
         version:
           type: string
-          description: Version of the service candidate
+          description: Category version
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -386,59 +386,20 @@ components:
           description: The actual type of the target instance when needed for disambiguation.
       required:
       - id
-    ServiceCategory_Create:
+    TimePeriod:
       type: object
-      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-
-        Skipped properties: id,href'
-      required:
-      - name
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
       properties:
-        description:
-          type: string
-          description: Description of the category
-        isRoot:
-          type: boolean
-          description: If true, this Boolean indicates that the category is a root of categories
-        lastUpdate:
+        endDateTime:
+          example: '1985-04-12T23:20:50.52Z'
           type: string
           format: date-time
-          description: Date and time of the last update
-        lifecycleStatus:
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          example: '1985-04-12T23:20:50.52Z'
           type: string
-          description: Used to indicate the current lifecycle status
-        name:
-          type: string
-          description: Name of the category
-        parentId:
-          type: string
-          description: Unique identifier of the parent category
-        version:
-          type: string
-          description: ServiceCategory version
-        category:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCategoryRef'
-          description: List of child categories in the tree for in this category
-        serviceCandidate:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceCandidateRef'
-          description: List of service candidates associated with this category
-        validFor:
-          $ref: '#/components/schemas/TimePeriod'
-          description: The period for which the category is valid
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format
     ServiceCategory_Update:
       type: object
       description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
@@ -486,6 +447,94 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class Extensible name
+    ServiceCategory:
+      type: object
+      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: unique identifier
+        href:
+          type: string
+          format: uri
+          description: Hyperlink reference
+        description:
+          type: string
+          description: Description of the category
+        isRoot:
+          type: boolean
+          description: If true, this Boolean indicates that the category is a root of categories
+        lastUpdate:
+          type: string
+          format: date-time
+          description: Date and time of the last update
+        lifecycleStatus:
+          type: string
+          description: Used to indicate the current lifecycle status
+        name:
+          type: string
+          description: Name of the category
+        parentId:
+          type: string
+          description: Unique identifier of the parent category
+        version:
+          type: string
+          description: ServiceCategory version
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCategoryRef'
+          description: List of child categories in the tree for in this category
+        serviceCandidate:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCandidateRef'
+          description: List of service candidates associated with this category
+        validFor:
+          $ref: '#/components/schemas/TimePeriod'
+          description: The period for which the category is valid
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+    ServiceCandidateRef:
+      type: object
+      description: ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.
+      properties:
+        id:
+          type: string
+          description: unique identifier
+        href:
+          type: string
+          format: uri
+          description: Hyperlink reference
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: Version of the service candidate
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
     Error:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
@@ -519,63 +568,14 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    TimePeriod:
+    ServiceCategory_Create:
       type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          example: '1985-04-12T23:20:50.52Z'
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          example: '1985-04-12T23:20:50.52Z'
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format
-    ServiceCategoryRef:
-      type: object
-      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
-      properties:
-        id:
-          type: string
-          description: unique identifier
-        href:
-          type: string
-          format: uri
-          description: Hyperlink reference
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Category version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
+      description: 'The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+
+        Skipped properties: id,href'
       required:
-      - id
-    ServiceCategory:
-      type: object
-      description: The (service) category resource is used to group service candidates in logical containers. Categories can contain other categories.
+      - name
       properties:
-        id:
-          type: string
-          description: unique identifier
-        href:
-          type: string
-          format: uri
-          description: Hyperlink reference
         description:
           type: string
           description: Description of the category

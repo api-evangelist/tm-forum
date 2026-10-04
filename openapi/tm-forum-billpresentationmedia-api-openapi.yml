@@ -348,30 +348,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    BillPresentationMedia_Create:
-      type: object
-      description: 'A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
-
-        Skipped properties: id,href'
-      required:
-      - name
-      properties:
-        description:
-          type: string
-          description: An explanatory text describing this bill presentation media
-        name:
-          type: string
-          description: A short descriptive name
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
     BillPresentationMedia:
       type: object
       description: A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
@@ -401,6 +377,30 @@ components:
           type: string
           description: When sub-classing, this defines the sub-class entity name
     BillPresentationMedia_Update:
+      type: object
+      description: 'A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
+
+        Skipped properties: id,href'
+      required:
+      - name
+      properties:
+        description:
+          type: string
+          description: An explanatory text describing this bill presentation media
+        name:
+          type: string
+          description: A short descriptive name
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    BillPresentationMedia_Create:
       type: object
       description: 'A mean of communicating a bill, supported by the associated bill format. For example, post mail, email, web page.
 
