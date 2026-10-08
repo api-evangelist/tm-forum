@@ -1421,6 +1421,12 @@ apis:
   - type: Documentation
     url: https://github.com/tmforum-apis/TMF666_AccountManagement
 common:
+  - type: Plans
+    url: plans/tm-forum-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tm-forum-rate-limits.yml
+  - type: FinOps
+    url: finops/tm-forum-finops.yml
   - type: CapabilityMap
     url: capabilities/tm-forum-capability-edges.yml
     name: TM Forum Business Capability Map
