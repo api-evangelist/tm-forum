@@ -28,11 +28,11 @@ artifacts:
     method: derived
     evidence: openapi/tm-forum-billformat-api
   collections/tm-forum-billingaccount-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-billingaccount-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-billingaccount-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-billingaccount-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-billingcyclespecification-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-billingcyclespecification-api
@@ -76,23 +76,23 @@ artifacts:
     method: derived
     evidence: openapi/tm-forum-events-subscription-api
   collections/tm-forum-exportjob-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-exportjob-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-exportjob-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-exportjob-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-financialaccount-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-financialaccount-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-financialaccount-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-financialaccount-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-importjob-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-importjob-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-importjob-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-importjob-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-individual-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-individual-api
@@ -130,11 +130,11 @@ artifacts:
     method: derived
     evidence: openapi/tm-forum-product-api
   collections/tm-forum-productcatalog-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-productcatalog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-productcatalog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-productcatalog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-productoffering-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-productoffering-api
@@ -154,11 +154,11 @@ artifacts:
     method: derived
     evidence: openapi/tm-forum-productorder-api
   collections/tm-forum-productspecification-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-productspecification-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-productspecification-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-productspecification-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-quote-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-quote-api
@@ -196,29 +196,29 @@ artifacts:
     method: derived
     evidence: openapi/tm-forum-servicecandidate-api
   collections/tm-forum-servicecatalog-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicecatalog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-servicecatalog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicecatalog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-servicecategory-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicecategory-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-servicecategory-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicecategory-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-serviceorder-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-serviceorder-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-serviceorder-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-serviceorder-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-servicespecification-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicespecification-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-servicespecification-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-servicespecification-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-settlementaccount-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-settlementaccount-api
@@ -262,11 +262,11 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/tm-forum-troubleticket-api.opencollection.json:
-    method: derived
-    evidence: openapi/tm-forum-troubleticket-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-troubleticket-api.postman_collection.json:
-    method: derived
-    evidence: openapi/tm-forum-troubleticket-api
+    method: unknown
+    evidence: no authorship recorded
   collections/tm-forum-troubleticketspecification-api.opencollection.json:
     method: derived
     evidence: openapi/tm-forum-troubleticketspecification-api
@@ -570,6 +570,9 @@ artifacts:
   finops/tm-forum-finops.yml:
     method: generated
     evidence: declared in the artifact
+  front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
   json-ld/tm-forum-tmf620-product-context.jsonld:
     method: unknown
     evidence: no authorship recorded
@@ -4761,55 +4764,7 @@ artifacts:
   json-structure/tmf637-product-inventory-time-period-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -4896,42 +4851,171 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/tm-forum-tmf620-product-catalog-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf621-trouble-ticket-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf622-product-ordering-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf629-customer-management-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf632-party-management-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf633-service-catalog-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf634-resource-catalog-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf637-product-inventory-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf641-service-ordering-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf648-quote-management-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf651-agreement-management-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/tm-forum-tmf666-account-management-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/tm-forum-agreement-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -4941,7 +5025,7 @@ artifacts:
   openapi/tm-forum-billformat-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-billingaccount-api-openapi.yml:
+  openapi/tm-forum-billing-account-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-billingcyclespecification-api-openapi.yml:
@@ -4965,13 +5049,13 @@ artifacts:
   openapi/tm-forum-events-subscription-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-exportjob-api-openapi.yml:
+  openapi/tm-forum-export-job-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-financialaccount-api-openapi.yml:
+  openapi/tm-forum-financial-account-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-importjob-api-openapi.yml:
+  openapi/tm-forum-import-job-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-individual-api-openapi.yml:
@@ -4992,7 +5076,10 @@ artifacts:
   openapi/tm-forum-product-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-productcatalog-api-openapi.yml:
+  openapi/tm-forum-product-catalog-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/tm-forum-product-specification-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-productoffering-api-openapi.yml:
@@ -5002,9 +5089,6 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-productorder-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-productspecification-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-quote-api-openapi.yml:
@@ -5022,25 +5106,25 @@ artifacts:
   openapi/tm-forum-resourcespecification-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/tm-forum-service-catalog-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/tm-forum-service-category-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/tm-forum-service-order-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/tm-forum-service-specification-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-servicecandidate-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-servicecatalog-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-servicecategory-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-serviceorder-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-servicespecification-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-settlementaccount-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/tm-forum-troubleticket-api-openapi.yml:
+  openapi/tm-forum-trouble-ticket-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/tm-forum-troubleticketspecification-api-openapi.yml:
