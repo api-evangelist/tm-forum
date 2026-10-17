@@ -348,100 +348,21 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AgreementItem:
+    Agreement:
       type: object
-      description: A part of the agreement expressed in terms of a product offering and possibly including specific terms and conditions.
-      properties:
-        product:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductRef'
-          description: The list of products indirectly referred by this agreement item (since an agreement item refers primarily to product offerings)
-        productOffering:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductOfferingRef'
-          description: The list of product offerings referred by this agreement item
-        termOrCondition:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgreementTermOrCondition'
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    ProductOfferingRef:
-      type: object
-      description: ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    ProductRef:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    Agreement_Update:
-      type: object
-      description: 'An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
-
-        Skipped properties: id,href,completionDate'
+      description: An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
       required:
       - agreementItem
       - agreementType
       - engagedParty
       - name
       properties:
+        id:
+          type: string
+          description: Unique identifier for the agreement
+        href:
+          type: string
+          description: Unique url identifying the agreement as a resource
         agreementType:
           type: string
           description: The type of the agreement. For example commercial
@@ -489,6 +410,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Characteristic'
+        completionDate:
+          $ref: '#/components/schemas/TimePeriod'
+          description: Date at which the agreement is completed
         engagedParty:
           type: array
           items:
@@ -504,20 +428,22 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    Any: {}
-    AgreementRef:
+    Characteristic:
       type: object
-      description: Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
+      description: Describes a given characteristic of an object or entity through a name/value pair.
+      required:
+      - name
+      - value
       properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
         name:
           type: string
-          description: Name of the agreement
+          description: Name of the characteristic
+        valueType:
+          type: string
+          description: Data type of the value of the characteristic
+        value:
+          $ref: '#/components/schemas/Any'
+          description: The value of the characteristic
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -528,23 +454,30 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    TimePeriod:
+    AgreementAuthorization:
       type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      description: A business participant that is responsible for approving the agreement.
       properties:
-        endDateTime:
+        date:
           type: string
           format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
+          description: The date associated with the authorization state.
+        signatureRepresentation:
           type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+          description: Indication that represents whether the signature is a physical paper signature or a digital signature.
+        state:
+          type: string
+          description: Current status of the authorization, for example in process, approved, rejected.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
     AgreementTermOrCondition:
       type: object
       description: Aspects of the agreement not formally specified elsewhere in the agreement and that cannot be captured elsewhere in a formal notation, or automatically monitored and require a more human level of management.
@@ -644,52 +577,17 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    AgreementSpecificationRef:
+    Agreement_Update:
       type: object
-      description: AgreementSpecification reference. An AgreementSpecification represents a template of an agreement that can be used when establishing partnerships.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        description:
-          type: string
-          description: A narrative that explains in detail what the agreement specification is about.
-        name:
-          type: string
-          description: Name of the agreement specification
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    Agreement:
-      type: object
-      description: An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
+      description: 'An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
+
+        Skipped properties: id,href,completionDate'
       required:
       - agreementItem
       - agreementType
       - engagedParty
       - name
       properties:
-        id:
-          type: string
-          description: Unique identifier for the agreement
-        href:
-          type: string
-          description: Unique url identifying the agreement as a resource
         agreementType:
           type: string
           description: The type of the agreement. For example commercial
@@ -737,38 +635,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Characteristic'
-        completionDate:
-          $ref: '#/components/schemas/TimePeriod'
-          description: Date at which the agreement is completed
         engagedParty:
           type: array
           items:
             $ref: '#/components/schemas/RelatedParty'
           minItems: 1
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-    AgreementAuthorization:
-      type: object
-      description: A business participant that is responsible for approving the agreement.
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: The date associated with the authorization state.
-        signatureRepresentation:
-          type: string
-          description: Indication that represents whether the signature is a physical paper signature or a digital signature.
-        state:
-          type: string
-          description: Current status of the authorization, for example in process, approved, rejected.
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -812,32 +683,6 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    Characteristic:
-      type: object
-      description: Describes a given characteristic of an object or entity through a name/value pair.
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-          description: Name of the characteristic
-        valueType:
-          type: string
-          description: Data type of the value of the characteristic
-        value:
-          $ref: '#/components/schemas/Any'
-          description: The value of the characteristic
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
     RelatedParty:
       type: object
       description: Related Entity reference. A related party defines party or party role linked to a specific entity.
@@ -871,3 +716,158 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
+    TimePeriod:
+      type: object
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
+      properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    ProductRef:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    AgreementSpecificationRef:
+      type: object
+      description: AgreementSpecification reference. An AgreementSpecification represents a template of an agreement that can be used when establishing partnerships.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        description:
+          type: string
+          description: A narrative that explains in detail what the agreement specification is about.
+        name:
+          type: string
+          description: Name of the agreement specification
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    ProductOfferingRef:
+      type: object
+      description: ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
+    Any: {}
+    AgreementItem:
+      type: object
+      description: A part of the agreement expressed in terms of a product offering and possibly including specific terms and conditions.
+      properties:
+        product:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductRef'
+          description: The list of products indirectly referred by this agreement item (since an agreement item refers primarily to product offerings)
+        productOffering:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductOfferingRef'
+          description: The list of product offerings referred by this agreement item
+        termOrCondition:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgreementTermOrCondition'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+    AgreementRef:
+      type: object
+      description: Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the agreement
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id

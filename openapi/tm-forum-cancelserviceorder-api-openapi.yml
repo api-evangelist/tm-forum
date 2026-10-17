@@ -227,41 +227,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    CancelServiceOrder_Create:
-      type: object
-      description: 'Request for cancellation an existing Service order
-
-        Skipped properties: id,href,state,effectiveCancellationDate,completionMessage,errorMessage'
-      required:
-      - serviceOrder
-      properties:
-        cancellationReason:
-          type: string
-          description: Reason why the order is cancelled.
-        requestedCancellationDate:
-          type: string
-          format: date-time
-          description: Date when the submitter wants the order to be cancelled
-        serviceOrder:
-          $ref: '#/components/schemas/ServiceOrderRef'
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class Extensible name
-    TaskStateType:
-      type: string
-      description: Possible values for the state of a task
-      enum:
-      - accepted
-      - terminatedWithError
-      - inProgress
-      - done
     ServiceOrderRef:
       type: object
       description: Service Order reference. Useful to understand the which was the Service order through which the service was instantiated in the service inventory
@@ -291,6 +256,33 @@ components:
           description: The actual type of the target instance when needed for disambiguation.
       required:
       - id
+    CancelServiceOrder_Create:
+      type: object
+      description: 'Request for cancellation an existing Service order
+
+        Skipped properties: id,href,state,effectiveCancellationDate,completionMessage,errorMessage'
+      required:
+      - serviceOrder
+      properties:
+        cancellationReason:
+          type: string
+          description: Reason why the order is cancelled.
+        requestedCancellationDate:
+          type: string
+          format: date-time
+          description: Date when the submitter wants the order to be cancelled
+        serviceOrder:
+          $ref: '#/components/schemas/ServiceOrderRef'
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class Extensible name
     ErrorMessage:
       type: object
       description: represents an Error
@@ -321,6 +313,14 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class Extensible name
+    TaskStateType:
+      type: string
+      description: Possible values for the state of a task
+      enum:
+      - accepted
+      - terminatedWithError
+      - inProgress
+      - done
     CancelServiceOrder:
       type: object
       description: Request for cancellation an existing Service order

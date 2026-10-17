@@ -354,21 +354,12 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    TimePeriod:
+    RelatedParty:
       type: object
-      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
-      properties:
-        endDateTime:
-          type: string
-          format: date-time
-          description: End of the time period, using IETC-RFC-3339 format
-        startDateTime:
-          type: string
-          format: date-time
-          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
-    ResourceCandidateRef:
-      type: object
-      description: ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
+      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
+      required:
+      - '@referredType'
+      - id
       properties:
         id:
           type: string
@@ -379,9 +370,9 @@ components:
         name:
           type: string
           description: Name of the related entity.
-        version:
+        role:
           type: string
-          description: the version of resource candidate
+          description: Role played by the related party
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -395,14 +386,28 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    ResourceCategory_Update:
+    TimePeriod:
       type: object
-      description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
-
-        Skipped properties: id,href'
+      description: A period of time, either as a deadline (endDateTime only) a startDateTime only, or both
       properties:
+        endDateTime:
+          type: string
+          format: date-time
+          description: End of the time period, using IETC-RFC-3339 format
+        startDateTime:
+          type: string
+          format: date-time
+          description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    ResourceCategory:
+      type: object
+      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the category
+        href:
+          type: string
+          description: Hyperlink reference to the category
         description:
           type: string
           description: Description of the category
@@ -453,47 +458,12 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    ResourceCategoryRef:
+    ResourceCategory_Update:
       type: object
-      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+      description: 'The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
+
+        Skipped properties: id,href'
       properties:
-        id:
-          type: string
-          description: Unique identifier of a related entity.
-        href:
-          type: string
-          description: Reference of the related entity.
-        name:
-          type: string
-          description: Name of the related entity.
-        version:
-          type: string
-          description: Category version
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name
-        '@referredType':
-          type: string
-          description: The actual type of the target instance when needed for disambiguation.
-      required:
-      - id
-    ResourceCategory:
-      type: object
-      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the category
-        href:
-          type: string
-          description: Hyperlink reference to the category
         description:
           type: string
           description: Description of the category
@@ -602,6 +572,37 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
+    ResourceCandidateRef:
+      type: object
+      description: ResourceCandidate is an entity that makes a resource specification available to a catalog. A ResourceCandidate and its associated resource specification may be published - made visible - in any number of resource catalogs, or in none.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of a related entity.
+        href:
+          type: string
+          description: Reference of the related entity.
+        name:
+          type: string
+          description: Name of the related entity.
+        version:
+          type: string
+          description: the version of resource candidate
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name
+        '@referredType':
+          type: string
+          description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id
     Error:
       description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
       type: object
@@ -635,12 +636,9 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name.
-    RelatedParty:
+    ResourceCategoryRef:
       type: object
-      description: Related Entity reference. A related party defines party or party role linked to a specific entity.
-      required:
-      - '@referredType'
-      - id
+      description: The (resource) category resource is used to group resource candidates in logical containers. Categories can contain other categories.
       properties:
         id:
           type: string
@@ -651,9 +649,9 @@ components:
         name:
           type: string
           description: Name of the related entity.
-        role:
+        version:
           type: string
-          description: Role played by the related party
+          description: Category version
         '@baseType':
           type: string
           description: When sub-classing, this defines the super-class
@@ -667,3 +665,5 @@ components:
         '@referredType':
           type: string
           description: The actual type of the target instance when needed for disambiguation.
+      required:
+      - id

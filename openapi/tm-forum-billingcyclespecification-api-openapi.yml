@@ -348,7 +348,7 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    BillingCycleSpecification_Update:
+    BillingCycleSpecification_Create:
       type: object
       description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
 
@@ -396,7 +396,7 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    BillingCycleSpecification_Create:
+    BillingCycleSpecification_Update:
       type: object
       description: 'A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
 
@@ -456,6 +456,39 @@ components:
           type: string
           format: date-time
           description: Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
+    Error:
+      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
+      type: object
+      required:
+      - code
+      - reason
+      properties:
+        code:
+          type: string
+          description: Application relevant detail, defined in the API or a common list.
+        reason:
+          type: string
+          description: Explanation of the reason for the error which can be shown to a client user.
+        message:
+          type: string
+          description: More details and corrective actions related to the error which can be shown to a client user.
+        status:
+          type: string
+          description: HTTP Error code extension
+        referenceError:
+          type: string
+          format: uri
+          description: URI of documentation describing the error.
+        '@baseType':
+          type: string
+          description: When sub-classing, this defines the super-class.
+        '@schemaLocation':
+          type: string
+          format: uri
+          description: A URI to a JSON-Schema file that defines additional attributes and relationships
+        '@type':
+          type: string
+          description: When sub-classing, this defines the sub-class entity name.
     BillingCycleSpecification:
       type: object
       description: A detailed description of when to initiate a billing cycle and the various sub steps of a billing cycle.
@@ -508,36 +541,3 @@ components:
         '@type':
           type: string
           description: When sub-classing, this defines the sub-class entity name
-    Error:
-      description: Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)
-      type: object
-      required:
-      - code
-      - reason
-      properties:
-        code:
-          type: string
-          description: Application relevant detail, defined in the API or a common list.
-        reason:
-          type: string
-          description: Explanation of the reason for the error which can be shown to a client user.
-        message:
-          type: string
-          description: More details and corrective actions related to the error which can be shown to a client user.
-        status:
-          type: string
-          description: HTTP Error code extension
-        referenceError:
-          type: string
-          format: uri
-          description: URI of documentation describing the error.
-        '@baseType':
-          type: string
-          description: When sub-classing, this defines the super-class.
-        '@schemaLocation':
-          type: string
-          format: uri
-          description: A URI to a JSON-Schema file that defines additional attributes and relationships
-        '@type':
-          type: string
-          description: When sub-classing, this defines the sub-class entity name.
